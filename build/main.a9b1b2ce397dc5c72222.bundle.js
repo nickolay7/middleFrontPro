@@ -1,1 +1,0 @@
-(()=>{"use strict";console.log("I'm the test function")})();
