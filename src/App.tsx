@@ -1,6 +1,6 @@
 import {Link, Route, Routes} from "react-router-dom";
 import {Suspense} from "react";
-import classnames from "classnames";
+import {classNames} from "./helpers/classNames";
 
 import Main from "./pages/main/main";
 import About from "./pages/about/about";
@@ -12,7 +12,7 @@ import {useTheme} from "./theme/useTheme";
 import "./styles/index.scss";
 const App = () => {
     const { theme, changeTheme } = useTheme();
-    const appStyle = classnames('app', theme);
+    const appStyle = classNames('app', {}, [theme]);
 
     return (
         <div className={appStyle}>
