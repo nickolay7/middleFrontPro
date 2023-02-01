@@ -1,4 +1,15 @@
 import {render} from "react-dom";
-import Counter from "./component/counter/counter";
+import {BrowserRouter} from "react-router-dom";
 
-render(<Counter />, document.getElementById('root'));
+import {ThemeProvider} from "./theme/themeProvider";
+import App from "./App";
+
+render(
+    <ThemeProvider>
+        <BrowserRouter>
+            <App/>
+        </BrowserRouter>
+    </ThemeProvider>
+    ,
+    document.getElementById('root')
+);
