@@ -1,4 +1,4 @@
-import {LOCAL_STORAGE_THEME_KEY, Theme, useThemeContext} from "./themeContext";
+import {LOCAL_STORAGE_THEME_KEY, Theme, useThemeContext} from "../../../app/providers/theme/themeContext";
 
 interface UseThemeResult {
     theme: Theme;
