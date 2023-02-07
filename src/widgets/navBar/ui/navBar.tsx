@@ -3,6 +3,7 @@ import { MenuLink } from "shared/ui/menuLink";
 
 import cls from "./styles.module.scss";
 import { menuConfig } from "../lib/menuConfig";
+import { ThemeSwitcher } from "../../../shared/ui/themeSwitcher";
 export const NavBar = () => {
   return (
     <div className={cls.navBar}>
@@ -13,6 +14,7 @@ export const NavBar = () => {
             {title}
           </MenuLink>
         ))}
+        <ThemeSwitcher />
       </div>
     </div>
   );

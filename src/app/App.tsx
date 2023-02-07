@@ -14,7 +14,6 @@ const App = () => {
     <div className={appStyle}>
       <NavBar />
       <AppRoutes />
-      <button onClick={changeTheme}>Set theme</button>
     </div>
   );
 };
