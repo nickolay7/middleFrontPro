@@ -1,9 +1,5 @@
-import React from 'react';
+import cls from "./about.module.scss";
 
 export const About = () => {
-    return (
-        <div>
-            About page
-        </div>
-    );
+  return <div className={cls.about}>About page</div>;
 };

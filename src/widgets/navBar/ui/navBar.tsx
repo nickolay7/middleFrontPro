@@ -1,7 +1,7 @@
 import React from "react";
 import { MenuLink } from "shared/ui/menuLink";
 
-import cls from "./styles.module.scss";
+import cls from "./navBar.module.scss";
 import { menuConfig } from "../lib/menuConfig";
 import { ThemeSwitcher } from "../../../shared/ui/themeSwitcher";
 export const NavBar = () => {

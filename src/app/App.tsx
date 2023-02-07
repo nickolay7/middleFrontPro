@@ -6,6 +6,7 @@ import AppRoutes from "./appRoutes/appRoutes";
 import { NavBar } from "widgets/navBar";
 
 import "./styles/index.scss";
+import { SideBar } from "../widgets/sideBar";
 const App = () => {
   const { theme, changeTheme } = useTheme();
   const appStyle = classNames("app", {}, [theme]);
@@ -13,7 +14,10 @@ const App = () => {
   return (
     <div className={appStyle}>
       <NavBar />
-      <AppRoutes />
+      <div className="main">
+        <SideBar />
+        <AppRoutes />
+      </div>
     </div>
   );
 };

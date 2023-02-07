@@ -1,9 +1,5 @@
-import React from 'react';
+import cls from "./main.module.scss";
 
 export const Main = () => {
-    return (
-        <div>
-            Home page
-        </div>
-    );
+  return <div className={cls.main}>Home page</div>;
 };
