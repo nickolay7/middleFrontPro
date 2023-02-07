@@ -1,5 +1,8 @@
 import cls from "./main.module.scss";
+import { useTranslation } from "react-i18next";
 
 export const Main = () => {
-  return <div className={cls.main}>Home page</div>;
+  const { t } = useTranslation("main");
+
+  return <div className={cls.main}>{t("Домашняя страница")}</div>;
 };

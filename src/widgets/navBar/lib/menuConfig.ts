@@ -9,6 +9,6 @@ interface MenuItem {
 }
 
 export const menuConfig: MenuItem[] = [
-  { to: "/", title: "Home", theme: LinkTHeme.PRIMARY },
-  { to: "/about", title: "About", theme: LinkTHeme.SECONDARY },
+  { to: "/", title: "Домой", theme: LinkTHeme.PRIMARY },
+  { to: "/about", title: "О нас", theme: LinkTHeme.SECONDARY },
 ];
