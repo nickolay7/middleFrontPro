@@ -8,7 +8,6 @@ import { NavBar } from "widgets/navBar";
 import "./styles/index.scss";
 import { SideBar } from "../widgets/sideBar";
 import { Suspense } from "react";
-import { useTranslation } from "react-i18next";
 const App = () => {
   const { theme, changeTheme } = useTheme();
   const appStyle = classNames("app", {}, [theme]);

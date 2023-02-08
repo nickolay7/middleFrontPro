@@ -44,5 +44,16 @@ export const buildLoaders = ({ isDev }: BuildOptions): RuleSetRule[] => {
     ],
   };
 
-  return [tsLoader, sassLoader, svgLoader, fileLoader];
+  const babelLoader = {
+    test: /\.(m?js|jsx|ts|tsx)$/,
+    exclude: /node_modules/,
+    use: {
+      loader: "babel-loader",
+      options: {
+        presets: ["@babel/preset-env"],
+      },
+    },
+  };
+
+  return [babelLoader, tsLoader, sassLoader, svgLoader, fileLoader];
 };
