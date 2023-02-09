@@ -1,8 +1,8 @@
-import { Link, LinkProps } from "react-router-dom";
-import { FC } from "react";
+import { Link, LinkProps } from 'react-router-dom';
+import { FC } from 'react';
 
-import cls from "./styles.module.scss";
-import { classNames } from "shared/lib/helpers";
+import { classNames } from 'shared/lib/helpers';
+import cls from './menuLink.module.scss';
 
 interface AppLinkProps extends LinkProps {
   classname?: string;
@@ -10,11 +10,11 @@ interface AppLinkProps extends LinkProps {
 }
 
 export const MenuLink: FC<AppLinkProps> = (props) => {
-  const { to, children, theme } = props;
+    const { to, children, theme } = props;
 
-  return (
-    <Link className={classNames(cls.navLink, {}, [theme])} to={to}>
-      {children}
-    </Link>
-  );
+    return (
+        <Link className={classNames(cls.navLink, {}, [theme])} to={to}>
+            {children}
+        </Link>
+    );
 };

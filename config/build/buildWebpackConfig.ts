@@ -1,9 +1,9 @@
-import {buildPlugins} from "./buildPlugins";
-import {buildLoaders} from "./buildLoaders";
-import { Configuration } from "webpack";
-import {BuildOptions} from "./types";
-import {buildResolvers} from "./buildResolvers";
-import {buildDevServer} from "./buildDevServer";
+import { Configuration } from 'webpack';
+import { buildPlugins } from './buildPlugins';
+import { buildLoaders } from './buildLoaders';
+import { BuildOptions } from './types';
+import { buildResolvers } from './buildResolvers';
+import { buildDevServer } from './buildDevServer';
 
 export const buildWebpackConfig = (options: BuildOptions): Configuration => {
     const { paths: { entry, build }, mode, isDev } = options;
@@ -14,7 +14,7 @@ export const buildWebpackConfig = (options: BuildOptions): Configuration => {
         output: {
             filename: '[name].[contenthash].bundle.js', // default name is main or if multi entry point(name as entry point name)
             path: build,
-            clean: true // remove old build cash
+            clean: true, // remove old build cash
         },
         plugins: buildPlugins(options),
         module: {
@@ -24,4 +24,4 @@ export const buildWebpackConfig = (options: BuildOptions): Configuration => {
         devtool: isDev ? 'inline-source-map' : undefined,
         devServer: isDev ? buildDevServer(options) : undefined,
     };
-}
+};

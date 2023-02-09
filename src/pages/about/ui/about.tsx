@@ -1,8 +1,8 @@
-import cls from "./about.module.scss";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from 'react-i18next';
+import cls from './about.module.scss';
 
 export const About = () => {
-  const { t } = useTranslation("about");
+    const { t } = useTranslation('about');
 
-  return <div className={cls.about}>{t("О нас")}</div>;
+    return <div className={cls.about}>{t('О нас')}</div>;
 };
