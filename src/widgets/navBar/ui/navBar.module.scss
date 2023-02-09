@@ -1,20 +1,20 @@
 .navBar {
-    display: flex;
-    width: 100%;
-    height: var(--navBarHeight);
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
-    background: var(--inverted-bg-color);
+  display: flex;
+  width: 100%;
+  height: var(--navBarHeight);
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background: var(--inverted-bg-color);
 }
 
 .links {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
 }
 
 .logo {
-    color: var(--inverted-primary-color);
+  color: var(--inverted-primary-color);
 }

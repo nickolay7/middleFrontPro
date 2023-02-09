@@ -1,6 +1,6 @@
 export enum LinkTHeme {
-  PRIMARY = "primary",
-  SECONDARY = "secondary",
+  PRIMARY = 'primary',
+  SECONDARY = 'secondary',
 }
 interface MenuItem {
   to: string;
@@ -9,6 +9,6 @@ interface MenuItem {
 }
 
 export const menuConfig: MenuItem[] = [
-  { to: "/", title: "Домой", theme: LinkTHeme.PRIMARY },
-  { to: "/about", title: "О нас", theme: LinkTHeme.SECONDARY },
+    { to: '/', title: 'Домой', theme: LinkTHeme.PRIMARY },
+    { to: '/about', title: 'О нас', theme: LinkTHeme.SECONDARY },
 ];

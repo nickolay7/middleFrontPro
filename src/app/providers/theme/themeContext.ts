@@ -1,4 +1,6 @@
-import {createContext, Dispatch, SetStateAction, useContext} from "react";
+import {
+    createContext, Dispatch, SetStateAction, useContext,
+} from 'react';
 
 export enum Theme {
     LIGHT = 'light',

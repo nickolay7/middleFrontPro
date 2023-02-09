@@ -1,27 +1,28 @@
-import { classNames } from "shared/lib/helpers";
+import { Suspense } from 'react';
+import { classNames } from 'shared/lib/helpers';
 
-import { useTheme } from "shared/lib/hooks";
+import { useTheme } from 'shared/lib/hooks';
 
-import AppRoutes from "./appRoutes/appRoutes";
-import { NavBar } from "widgets/navBar";
+import { NavBar } from 'widgets/navBar';
+import AppRoutes from './appRoutes/appRoutes';
 
-import "./styles/index.scss";
-import { SideBar } from "../widgets/sideBar";
-import { Suspense } from "react";
+import './styles/index.scss';
+import { SideBar } from '../widgets/sideBar';
+
 const App = () => {
-  const { theme, changeTheme } = useTheme();
-  const appStyle = classNames("app", {}, [theme]);
+    const { theme } = useTheme();
+    const appStyle = classNames('app', {}, [theme]);
 
-  return (
-    <div className={appStyle}>
-      <Suspense fallback="">
-        <NavBar />
-        <div className="main">
-          <SideBar />
-          <AppRoutes />
+    return (
+        <div className={appStyle}>
+            <Suspense fallback="">
+                <NavBar />
+                <div className="main">
+                    <SideBar />
+                    <AppRoutes />
+                </div>
+            </Suspense>
         </div>
-      </Suspense>
-    </div>
-  );
+    );
 };
 export default App;

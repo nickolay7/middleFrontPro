@@ -1,1 +1,1 @@
-export * from "./ui/menuLink";
+export * from './ui/menuLink';
