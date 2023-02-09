@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "jest",
+    "test": "jest --config ./config/jest/jest.config.ts",
     "start": "webpack serve",
     "build:prod": "webpack --env mode=production",
     "build:dev": "webpack --env mode=development",
@@ -20,6 +20,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.5",
     "@babel/preset-env": "^7.16.11",
+    "@babel/preset-typescript": "^7.16.7",
     "@pmmmwh/react-refresh-webpack-plugin": "^0.5.5",
     "@svgr/webpack": "^6.2.1",
     "@types/jest": "^27.4.1",
