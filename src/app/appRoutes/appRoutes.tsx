@@ -1,22 +1,24 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense } from 'react';
-import { useTranslation } from 'react-i18next';
 import { pathsConfig } from './config';
+import { Loader } from '../../loader';
 
-const AppRoutes = () => {
-    const { t } = useTranslation();
-
-    return (
-        <Suspense fallback={<div>{t('Загрузка')}</div>}>
-            <Routes>
-                {
-                    pathsConfig.map(({ path, element }) => (
-                        <Route key={path} path={path} element={element} />
-                    ))
-                }
-            </Routes>
-        </Suspense>
-    );
-};
+const AppRoutes = () => (
+    <Routes>
+        {
+            pathsConfig.map(({ path, element }) => (
+                <Route
+                    key={path}
+                    path={path}
+                    element={(
+                        <Suspense fallback={<Loader />}>
+                            {element}
+                        </Suspense>
+                    )}
+                />
+            ))
+        }
+    </Routes>
+);
 
 export default AppRoutes;

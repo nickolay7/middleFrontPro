@@ -3,13 +3,13 @@
 @import "themes/themes";
 
 .app {
-  font: var(--font-m);
-  background: var(--bg-color);
-  color: var(--primary-color);
-  min-height: 100vh;
+    font: var(--font-m);
+    background: var(--bg-color);
+    color: var(--primary-color);
+    min-height: 100vh;
 }
 
 .main {
-  display: flex;
-  height: calc(100vh - var(--navBarHeight));
+    display: flex;
+    height: calc(100vh - var(--navBarHeight));
 }
