@@ -7,7 +7,7 @@ const AppRoutes = () => {
     const { t } = useTranslation();
 
     return (
-        <Suspense fallback={<div>{t('Загрузка...')}</div>}>
+        <Suspense fallback={<div>{t("Загрузка")}</div>}>
             <Routes>
                 {
                     pathsConfig.map(({ path, element }) => (

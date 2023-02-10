@@ -12,7 +12,7 @@ export const NavBar = () => {
 
     return (
         <div className={cls.navBar}>
-            <div className={cls.logo}>{t('Logo')}</div>
+            <div className={cls.logo}>{t('Логотип')}</div>
             <div className={cls.links}>
                 {menuConfig.map(({ to, title }) => (
                     <MenuLink key={to} to={to}>

@@ -10,10 +10,15 @@ interface AppLinkProps extends LinkProps {
 }
 
 export const MenuLink: FC<AppLinkProps> = (props) => {
-    const { to, children, theme } = props;
+    const {
+        to,
+        children,
+        theme,
+        classname = '',
+    } = props;
 
     return (
-        <Link className={classNames(cls.navLink, {}, [theme])} to={to}>
+        <Link className={classNames(cls.navLink, {}, [theme, classname])} to={to}>
             {children}
         </Link>
     );

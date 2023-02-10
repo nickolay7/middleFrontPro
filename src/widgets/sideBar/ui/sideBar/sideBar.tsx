@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import cls from './sideBar.module.scss';
-import { Button } from '../../../../shared/ui/button';
+import { Button } from 'shared/ui/button';
 
 interface SideBarProps {
   className?: string;
