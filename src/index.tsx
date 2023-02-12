@@ -5,11 +5,14 @@ import { ThemeProvider } from 'app/providers/theme';
 import App from './app/App';
 
 import 'shared/config/i18n';
+import { ErrorBoundary } from './shared/errorBoundary';
 
 render(
     <ThemeProvider>
         <BrowserRouter>
-            <App />
+            <ErrorBoundary>
+                <App />
+            </ErrorBoundary>
         </BrowserRouter>
     </ThemeProvider>,
     document.getElementById('root'),
