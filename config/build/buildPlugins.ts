@@ -1,11 +1,11 @@
 import webpack, {
     DefinePlugin,
-    HotModuleReplacementPlugin,
     WebpackPluginInstance,
 } from 'webpack';
 import HtmlWebpackPlugin from 'html-webpack-plugin';
 import MiniCssExtractPlugin from 'mini-css-extract-plugin';
 import ReactRefreshWebpackPlugin from '@pmmmwh/react-refresh-webpack-plugin';
+import { BundleAnalyzerPlugin } from 'webpack-bundle-analyzer';
 import { BuildOptions } from './types';
 
 export const buildPlugins = ({
@@ -23,11 +23,11 @@ export const buildPlugins = ({
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
         }),
+        new BundleAnalyzerPlugin({ openAnalyzer: false }),
     ];
 
     if (isDev) {
         plugins.push(new ReactRefreshWebpackPlugin({ overlay: false }));
-        plugins.push(new HotModuleReplacementPlugin());
     }
 
     return plugins;
