@@ -1,8 +1,10 @@
-.clear {
-    padding: 5px 10px;
-    border: 1px solid blue;
-    background: none;
+.Button {
     cursor: pointer;
-    border-radius: 3px;
+    padding: 5px 10px;
     margin: 10px;
+}
+
+.clear {
+    border: none;
+    background: none;
 }

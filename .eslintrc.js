@@ -2,7 +2,7 @@ module.exports = {
     env: {
         browser: true,
         es2021: true,
-        'jest': true,
+        jest: true,
     },
     extends: [
         'plugin:react/recommended',
@@ -29,8 +29,8 @@ module.exports = {
         'react/jsx-filename-extension': [2, { extensions: ['.js', '.jsx', '.tsx'] }],
         'import/no-unresolved': 'off',
         'import/prefer-default-export': 'off',
-        "no-unused-vars": "off",
-        '@typescript-eslint/no-unused-vars': ['warn', { 'varsIgnorePattern': '__IS_DEV__' }],
+        'no-unused-vars': 'off',
+        '@typescript-eslint/no-unused-vars': ['warn', { varsIgnorePattern: '__IS_DEV__' }],
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/jsx-props-no-spreading': 'off',
@@ -40,10 +40,21 @@ module.exports = {
         'import/extensions': 'off',
         'import/no-extraneous-dependencies': 'off',
         'no-underscore-dangle': 'off',
-        'i18next/no-literal-string': ['error', { markupOnly: true }],
+        'i18next/no-literal-string': [
+            'error',
+            { markupOnly: true, ignoreAttribute: ['data-testid'] },
+        ],
         'max-len': ['error', { ignoreComments: true, code: 100 }],
     },
     globals: {
         __IS_DEV__: true,
     },
+    overrides: [
+        {
+            files: ['**/src/**/*.test.ts', '**/src/**/*.test.tsx'],
+            rules: {
+                'i18next/no-literal-string': 'off',
+            },
+        },
+    ],
 };
