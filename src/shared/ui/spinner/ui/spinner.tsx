@@ -1,7 +1,7 @@
 import { classNames } from 'shared/lib/helpers/classNames';
 import './spinner.scss';
 
-interface LoaderProps {
+export interface LoaderProps {
     className?: string;
 }
 

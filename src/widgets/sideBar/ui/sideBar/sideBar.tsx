@@ -7,7 +7,7 @@ import { ThemeSwitcher } from 'widgets/themeSwitcher';
 import { LangSwitcher } from 'widgets/langSwitcher';
 import cls from './sideBar.module.scss';
 
-interface SideBarProps {
+export interface SideBarProps {
   className?: string;
 }
 export const SideBar = ({ className }: SideBarProps) => {

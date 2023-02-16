@@ -7,7 +7,7 @@ import { ButtonHTMLAttributes, FC } from 'react';
 import { Button } from '../../../shared/ui/button';
 import cls from './ThemeSwitcher.module.scss';
 
-interface ThemeSwitcherProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ThemeSwitcherProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
 }
 export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
@@ -18,7 +18,7 @@ export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
             onClick={changeTheme}
             className={classNames(cls.ThemeSwitcher, {}, [className])}
         >
-            {theme === Theme.LIGHT ? <ThemeLight /> : <ThemeDark />}
+            {theme === Theme.DARK ? <ThemeDark /> : <ThemeLight /> }
         </Button>
     );
 };

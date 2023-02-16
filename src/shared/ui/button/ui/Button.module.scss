@@ -7,4 +7,14 @@
 .clear {
     border: none;
     background: none;
+    outline: none;
+    color: var(--inverted-primary-color);
+}
+
+.primary {
+    border: 1px solid blue;
+    border-radius: 5px;
+    background: blue;
+    outline: none;
+    color: white;
 }

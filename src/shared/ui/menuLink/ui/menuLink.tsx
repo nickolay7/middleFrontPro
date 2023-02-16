@@ -4,21 +4,26 @@ import { FC } from 'react';
 import { classNames } from 'shared/lib/helpers';
 import cls from './menuLink.module.scss';
 
-interface AppLinkProps extends LinkProps {
+export enum LinkThemes {
+    PRIMARY = 'primary',
+    SECONDARY = 'secondary',
+}
+
+export interface AppLinkProps extends LinkProps {
   classname?: string;
-  theme?: string;
+  variant?: string;
 }
 
 export const MenuLink: FC<AppLinkProps> = (props) => {
     const {
         to,
         children,
-        theme,
+        variant,
         classname = '',
     } = props;
 
     return (
-        <Link className={classNames(cls.navLink, {}, [theme, classname])} to={to}>
+        <Link className={classNames(cls.navLink, {}, [classname, cls[variant]])} to={to}>
             {children}
         </Link>
     );
