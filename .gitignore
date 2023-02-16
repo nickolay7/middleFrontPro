@@ -26,3 +26,5 @@ yarn-error.log*
 /templates
 
 generate-react-cli.json
+
+/storybook-static
