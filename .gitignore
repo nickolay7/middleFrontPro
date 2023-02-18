@@ -28,3 +28,5 @@ yarn-error.log*
 generate-react-cli.json
 
 /storybook-static
+
+/scripts
