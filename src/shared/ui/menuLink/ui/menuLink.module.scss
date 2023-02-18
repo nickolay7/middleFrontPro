@@ -1,5 +1,9 @@
 .navLink {
     color: var(--inverted-primary-color);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
 }
 
 .primary {

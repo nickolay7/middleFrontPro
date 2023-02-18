@@ -2,10 +2,53 @@
     width: 300px;
     height: 100%;
     padding: 20px;
-    background: var(--inverted-secondary-color);
-    transition: 0.3s;
+    background: var(--inverted-bg-color);
+    transition: 0.3s width;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+
+    .switchersBox {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .btnVerticalOrientation {
+        flex-direction: column;
+    }
+}
+
+.collapseButton {
+    position: absolute;
+    right: -35px;
+    bottom: 40px;
+    background: var(--inverted-bg-color);
 }
 
 .close {
     width: 100px;
+}
+
+.links {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.linksVerticalOrientation {
+    flex-direction: column;
+}
+
+.icon {
+    fill: var(--inverted-primary-color);
+    height: 30px;
+    width: 30px;
+}
+
+.linkLabel {
+    display: none;
 }

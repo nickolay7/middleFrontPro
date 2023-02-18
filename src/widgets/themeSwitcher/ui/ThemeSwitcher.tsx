@@ -4,17 +4,20 @@ import ThemeLight from 'shared/assets/icons/theme-light.svg';
 import { useTheme } from 'shared/lib/hooks';
 import { Theme } from 'app/providers/theme';
 import { ButtonHTMLAttributes, FC } from 'react';
-import { Button } from '../../../shared/ui/button';
+import { Button, ButtonTheme } from '../../../shared/ui/button';
 import cls from './ThemeSwitcher.module.scss';
 
 export interface ThemeSwitcherProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
+  variant?: ButtonTheme;
 }
-export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className }) => {
+export const ThemeSwitcher: FC<ThemeSwitcherProps> = ({ className, ...otherProps }) => {
     const { theme, changeTheme } = useTheme();
+    const { variant = ButtonTheme.CLEAR } = otherProps;
 
     return (
         <Button
+            variant={variant}
             onClick={changeTheme}
             className={classNames(cls.ThemeSwitcher, {}, [className])}
         >

@@ -1,6 +1,5 @@
 .Button {
     cursor: pointer;
-    padding: 5px 10px;
     margin: 10px;
 }
 
@@ -8,13 +7,48 @@
     border: none;
     background: none;
     outline: none;
+    color: var(--inverted-secondary-color);
+}
+
+.clear-inverted {
+    border: none;
+    background: none;
+    outline: none;
     color: var(--inverted-primary-color);
 }
 
 .primary {
-    border: 1px solid blue;
+    border: none;
     border-radius: 5px;
-    background: blue;
-    outline: none;
-    color: white;
+    background: var(--primary-color);
+    color: var(--inverted-primary-color);
+}
+
+.outline {
+    border: 1px solid var(--inverted-secondary-color);
+    border-radius: 5px;
+    background: none;
+    color: var(--inverted-secondary-color);
+}
+
+.outline-inverted {
+    border: 1px solid var(--inverted-primary-color);
+    border-radius: 5px;
+    background: none;
+    color: var(--inverted-primary-color);
+}
+
+.small {
+    font: var(--font-m);
+    padding: 5px 10px;
+}
+
+.large {
+    font: var(--font-l);
+    padding: 9px 14px;
+}
+
+.extra {
+    font: var(--font-xl);
+    padding: 13px 18px;
 }
