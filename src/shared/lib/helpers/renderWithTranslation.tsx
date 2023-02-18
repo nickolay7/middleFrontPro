@@ -1,4 +1,3 @@
-// the hoc
 import { I18nextProvider } from 'react-i18next';
 import { render } from '@testing-library/react';
 

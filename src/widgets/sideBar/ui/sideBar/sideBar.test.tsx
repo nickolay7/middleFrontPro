@@ -1,12 +1,12 @@
 import {
     fireEvent, screen,
 } from '@testing-library/react';
-import renderWithTranslation from 'shared/lib/helpers/renderWithTranslation';
+import renderWithProviders from 'shared/lib/helpers/renderWithProviders';
 import { SideBar } from './sideBar';
 
 describe('sidebar test', () => {
     beforeEach(() => {
-        renderWithTranslation(<SideBar />);
+        renderWithProviders(<SideBar />);
     });
 
     test('has in the document', () => {
