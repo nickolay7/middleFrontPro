@@ -1,13 +1,30 @@
 import { useTranslation } from 'react-i18next';
+import { useCallback, useState } from 'react';
+import { Modal } from 'shared/ui/modal';
+import { Button } from 'shared/ui/button';
 
 import cls from './navBar.module.scss';
 
 export const NavBar = () => {
     const { t } = useTranslation('about');
 
+    const [isModalOpen, setModalOpen] = useState(true);
+
+    const toggleHandler = useCallback(() => {
+        setModalOpen((prev) => !prev);
+    }, []);
+
     return (
         <div className={cls.navBar}>
             <div className={cls.logo}>{t('Логотип')}</div>
+            <Button onClick={toggleHandler}>{t('Вход')}</Button>
+            <Modal isModalOpen={isModalOpen} toggleHandler={toggleHandler}>
+                {t('Lorem ipsum dolor sit amet,'
+                    + ' consectetur adipisicing elit.'
+                    + ' Ex fuga necessitatibus obcaecati perspiciatis saepe!'
+                    + ' Aliquam assumenda blanditiis consectetur enim eos incidunt minus,'
+                    + ' nisi optio placeat quidem quos rem suscipit, tempore.')}
+            </Modal>
         </div>
     );
 };

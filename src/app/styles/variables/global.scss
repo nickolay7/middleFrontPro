@@ -10,4 +10,12 @@
     --font-line-xl: 40px;
     --font-xl: var(--font-size-xl) / var(--font-line-xl) var(--font-family-main);
     --navBarHeight: 60px;
+
+    // z-index
+
+    --modal-z: 10;
+
+    // colors
+
+    --overlay-color: rgb(0 0 0 / 60%);
 }
