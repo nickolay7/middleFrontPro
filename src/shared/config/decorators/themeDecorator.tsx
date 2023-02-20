@@ -1,9 +1,11 @@
 import { Story } from '@storybook/react';
 
-import { Theme } from '../../../app/providers/theme';
+import { Theme, ThemeProvider } from 'app/providers/theme';
 
 export const themeDecorator = (theme: Theme = Theme.LIGHT) => (Story: Story) => (
-    <div className={`app ${theme}`}>
-        <Story />
-    </div>
+    <ThemeProvider>
+        <div className={`app ${theme}`}>
+            <Story />
+        </div>
+    </ThemeProvider>
 );

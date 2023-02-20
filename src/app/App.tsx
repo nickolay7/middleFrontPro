@@ -5,8 +5,6 @@ import { useTheme } from 'shared/lib/hooks';
 
 import { NavBar } from 'widgets/navBar';
 import AppRoutes from './appRoutes/appRoutes';
-
-import './styles/index.scss';
 import { SideBar } from '../widgets/sideBar';
 
 const App = () => {
