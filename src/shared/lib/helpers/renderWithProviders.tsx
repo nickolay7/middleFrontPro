@@ -14,14 +14,9 @@ interface RenderOptions {
 }
 
 export default (children: ReactNode, options?: RenderOptions) => {
-    const {
-        route = '/',
-        initialState,
-    } = options;
-
     render(
-        <StoreProvider initialState={initialState}>
-            <MemoryRouter initialEntries={[route]}>
+        <StoreProvider initialState={options?.initialState}>
+            <MemoryRouter initialEntries={[options?.route || '/']}>
                 <I18nextProvider i18n={i18n}>
                     {children}
                 </I18nextProvider>
