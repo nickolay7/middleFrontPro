@@ -3,9 +3,9 @@ import { ChangeEvent, InputHTMLAttributes } from 'react';
 import cls from './input.module.scss';
 
 type InputAttrs = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
-interface InputProps extends InputAttrs {
+export interface InputProps extends InputAttrs {
   className?: string;
-  value: string;
+  value?: string;
   onChange?: (val: string) => void;
   placeholder: string;
   autoFocus?: boolean;
