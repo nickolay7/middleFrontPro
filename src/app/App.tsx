@@ -1,15 +1,12 @@
 import { Suspense } from 'react';
 import { classNames } from 'shared/lib/helpers';
 
-import { useTheme } from 'shared/lib/hooks';
-
 import { NavBar } from 'widgets/navBar';
 import AppRoutes from './appRoutes/appRoutes';
 import { SideBar } from '../widgets/sideBar';
 
 const App = () => {
-    const { theme } = useTheme();
-    const appStyle = classNames('app', {}, [theme]);
+    const appStyle = classNames('app', {}, []);
 
     return (
         <div className={appStyle}>

@@ -1,12 +1,13 @@
 import { classNames } from 'shared/lib/helpers/classNames';
 import {
+    ReactNode,
     useCallback, useEffect, useRef, useState,
 } from 'react';
 import cls from './modal.module.scss';
 
 interface ModalProps {
   className?: string;
-  children: string;
+  children: string | ReactNode;
   isModalOpen: boolean;
   toggleHandler: () => void;
 }
