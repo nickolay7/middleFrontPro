@@ -7,12 +7,12 @@
     border: none;
     background: none;
     outline: none;
-    color: var(--inverted-secondary-color);
+    color: var(--primary-color);
 }
 
 .clear-inverted {
     border: none;
-    background: none;
+    background: var(--inverted-bg-color);
     outline: none;
     color: var(--inverted-primary-color);
 }
@@ -24,11 +24,18 @@
     color: var(--inverted-primary-color);
 }
 
+.primary-inverted {
+    border: none;
+    border-radius: 5px;
+    background: var(--inverted-primary-color);
+    color: var(--primary-color);
+}
+
 .outline {
-    border: 1px solid var(--inverted-secondary-color);
+    border: 1px solid var(--primary-color);
     border-radius: 5px;
     background: none;
-    color: var(--inverted-secondary-color);
+    color: var(--primary-color);
 }
 
 .outline-inverted {
@@ -51,4 +58,8 @@
 .extra {
     font: var(--font-xl);
     padding: 13px 18px;
+}
+
+.disabled {
+    opacity: 0.7;
 }

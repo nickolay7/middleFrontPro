@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { themeDecorator } from 'shared/config/decorators/themeDecorator';
+import { Theme } from 'app/providers/theme';
 import { LoaderProps, Spinner } from './spinner';
-import { Theme } from '../../../../app/providers/theme';
 
 export default {
     title: 'shared/Spinner',

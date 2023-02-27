@@ -7,6 +7,8 @@ import cls from './menuLink.module.scss';
 export enum LinkThemes {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
+    PRIMARY_DARK = 'primary-dark',
+    SECONDARY_DARK = 'secondary-dark',
 }
 
 export interface AppLinkProps extends LinkProps {

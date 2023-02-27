@@ -18,10 +18,6 @@ Light.args = {
     className: '',
 };
 
-Light.decorators = [
-    themeDecorator(),
-];
-
 export const Dark = Template.bind({});
 Dark.args = {
     className: '',

@@ -23,7 +23,7 @@ export const LangSwitcher = ({ className, ...otherProps }: LangSwitcherProps) =>
             variant={variant}
             onClick={onTranslate}
         >
-            {t(short ? 'короткое название' : 'язык')}
+            {short ? t('короткое название') : t('язык')}
         </Button>
     );
 };

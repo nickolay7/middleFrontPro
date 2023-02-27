@@ -18,12 +18,16 @@ export const Light = Template.bind({});
 
 Light.decorators = [
     themeDecorator(),
-    storeDecorator,
+    storeDecorator({
+        counter: { value: 10 },
+    }),
 ];
 
 export const Dark = Template.bind({});
 
 Dark.decorators = [
+    storeDecorator({
+        counter: { value: 20 },
+    }),
     themeDecorator(Theme.DARK),
-    storeDecorator,
 ];

@@ -21,7 +21,7 @@
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
-    "dev-server:start": "node json-server --watch json-server/db.json",
+    "dev-server": "node json-server --watch json-server/db.json",
     "prepare": "husky install"
   },
   "keywords": [],

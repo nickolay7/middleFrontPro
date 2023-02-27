@@ -1,31 +1,57 @@
 import { useTranslation } from 'react-i18next';
-import { useCallback, useEffect, useState } from 'react';
-import { Button } from 'shared/ui/button';
+import { useCallback, useState } from 'react';
+import { Button, ButtonTheme } from 'shared/ui/button';
 
 import { Portal } from 'shared/ui/portal';
 import { LoginModal } from 'features/authByUserName';
+import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider/config/hooks';
+import { authUserSelector } from 'entities/user/model/selectors/ authUserSelector/authUserSelector';
+import { User } from 'entities/user';
+
+import { setUserLogout } from 'entities/user/model/userSlice/userSlice';
 import cls from './navBar.module.scss';
 
 export const NavBar = () => {
     const { t } = useTranslation('about');
+    const authData = useAppSelector<User>(authUserSelector);
+    const dispatch = useAppDispatch();
 
     const [isModalOpen, setModalOpen] = useState(true);
-    useEffect(() => {
 
-    });
-
-    const toggleHandler = useCallback(() => {
+    const onModalToggle = useCallback(() => {
         setModalOpen((prev) => !prev);
     }, []);
+
+    const onLogout = useCallback(() => {
+        dispatch(setUserLogout());
+    }, [dispatch]);
 
     return (
         <div className={cls.navBar}>
             <div className={cls.logo}>{t('Логотип')}</div>
-            <Button onClick={toggleHandler}>{t('Вход')}</Button>
+            {
+                authData
+                    ? (
+                        <Button
+                            variant={ButtonTheme.OUTLINE_INVERTED}
+                            onClick={onLogout}
+                        >
+                            {t('Выход')}
+                        </Button>
+                    )
+                    : (
+                        <Button
+                            variant={ButtonTheme.OUTLINE_INVERTED}
+                            onClick={onModalToggle}
+                        >
+                            {t('Вход')}
+                        </Button>
+                    )
+            }
             {
                 !isModalOpen && (
                     <Portal>
-                        <LoginModal isModalOpen={isModalOpen} toggleHandler={toggleHandler} />
+                        <LoginModal isModalOpen={isModalOpen} toggleHandler={onModalToggle} />
                     </Portal>
                 )
             }

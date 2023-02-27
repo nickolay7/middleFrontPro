@@ -12,6 +12,5 @@ describe('button test', () => {
 
     test('contains a class', () => {
         expect(screen.getByText('TEST')).toHaveClass('clear');
-        screen.debug();
     });
 });

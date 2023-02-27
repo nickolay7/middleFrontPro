@@ -10,11 +10,13 @@ interface ModalProps {
   children: string | ReactNode;
   isModalOpen: boolean;
   toggleHandler: () => void;
+  lazy?: boolean;
 }
 export const Modal = ({ className, children, ...otherProps }: ModalProps) => {
     const [isClosed, setClosed] = useState(false);
+    const [isMounted, setMounted] = useState(false);
     const timerIdRef = useRef<ReturnType<typeof setTimeout>>();
-    const { isModalOpen, toggleHandler } = otherProps;
+    const { isModalOpen, toggleHandler, lazy } = otherProps;
 
     const onClose = useCallback(() => {
         setClosed((prev) => !prev);
@@ -31,6 +33,10 @@ export const Modal = ({ className, children, ...otherProps }: ModalProps) => {
     }, [onClose]);
 
     useEffect(() => {
+        setMounted(true);
+    }, [isModalOpen]);
+
+    useEffect(() => {
         if (!isModalOpen) {
             window.addEventListener('keydown', onKeyDown);
         }
@@ -40,6 +46,10 @@ export const Modal = ({ className, children, ...otherProps }: ModalProps) => {
             clearTimeout(timerIdRef.current);
         };
     }, [isModalOpen, onKeyDown]);
+
+    if (lazy && !isMounted) {
+        return null;
+    }
 
     return (
         <div className={classNames(cls.modal, { [cls.closed]: isModalOpen }, [className])}>

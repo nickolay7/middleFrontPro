@@ -1,10 +1,6 @@
 {
-  "Lorem ipsum dolor sit amet, consectetur adipisicing elit": {
-    " Ex fuga necessitatibus obcaecati perspiciatis saepe! Aliquam assumenda blanditiis consectetur enim eos incidunt minus, nisi optio placeat quidem quos rem suscipit, tempore": {
-      "": ""
-    }
-  },
-  "Вход": "Вход",
+  "Вход": "Login",
+  "Выход": "Logout",
   "Домой": "Home",
   "Логотип": "Logo",
   "О нас": "About"

@@ -1,6 +1,7 @@
 import { useTranslation } from 'react-i18next';
+import { Counter } from 'entities/counter';
+
 import cls from './main.module.scss';
-import { Counter } from '../../../entities/counter';
 
 export const Main = () => {
     const { t } = useTranslation('main');

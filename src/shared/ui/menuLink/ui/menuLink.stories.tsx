@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { themeDecorator } from 'shared/config/decorators/themeDecorator';
 import { AppLinkProps, LinkThemes, MenuLink } from './menuLink';
+import { Theme } from '../../../../app/providers/theme';
 
 export default {
     title: 'shared/MenuLink',
@@ -24,10 +25,25 @@ Primary.args = {
     children: 'link',
     variant: LinkThemes.PRIMARY,
 };
+export const PrimaryDark = Template.bind({});
+PrimaryDark.args = {
+    children: 'link',
+    variant: LinkThemes.PRIMARY_DARK,
+};
+PrimaryDark.decorators = [
+    themeDecorator(Theme.DARK),
+];
 
 export const Secondary = Template.bind({});
-
 Secondary.args = {
     children: 'link',
     variant: LinkThemes.SECONDARY,
 };
+export const SecondaryDark = Template.bind({});
+SecondaryDark.args = {
+    children: 'link',
+    variant: LinkThemes.SECONDARY_DARK,
+};
+SecondaryDark.decorators = [
+    themeDecorator(Theme.DARK),
+];
