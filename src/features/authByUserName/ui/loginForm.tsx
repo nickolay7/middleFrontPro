@@ -1,22 +1,27 @@
-import { Button } from 'shared/ui/button';
 import { useTranslation } from 'react-i18next';
-import { useCallback } from 'react';
+import { memo, useCallback } from 'react';
 
 import { Input } from 'shared/ui/input';
+import { Button } from 'shared/ui/button';
 import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider/config/hooks';
 import { Spinner } from 'shared/ui/spinner';
 import { Text, TextVariant } from 'shared/ui/text';
-import { setPassword, setUsername } from '../model/slice/loginSlice';
+import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
+import { loginReducer, setPassword, setUsername } from '../model/slice/loginSlice';
 import { loginSelector } from '../model/selectors/loginSelector/loginSelector';
 import { loginByUserName } from '../services/loginByUserName/loginByUserName';
 
 import cls from './login.module.scss';
 
-export const LoginForm = () => {
+const LoginForm = memo(() => {
     const { t } = useTranslation();
+    useDynamicModuleLoader({ loginForm: loginReducer });
     const dispatch = useAppDispatch();
     const {
-        username, password, isLoading, error,
+        username,
+        password,
+        isLoading,
+        error,
     } = useAppSelector(loginSelector);
 
     const onSetUsername = useCallback((val: string) => {
@@ -57,4 +62,6 @@ export const LoginForm = () => {
             </Button>
         </div>
     );
-};
+});
+
+export default LoginForm;
