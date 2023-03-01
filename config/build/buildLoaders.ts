@@ -36,5 +36,11 @@ export const buildLoaders = ({ isDev }: BuildOptions): RuleSetRule[] => {
         },
     };
 
-    return [babelLoader, tsLoader, sassLoader, svgLoader, fileLoader];
+    return [
+        fileLoader,
+        svgLoader,
+        babelLoader,
+        tsLoader,
+        sassLoader,
+    ];
 };

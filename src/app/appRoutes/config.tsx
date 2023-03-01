@@ -1,4 +1,4 @@
-import { Main } from 'pages/main';
+import { MainAsync } from 'pages/main';
 import { About } from 'pages/about';
 import { RouteProps } from 'react-router-dom';
 import { NotFoundPage } from 'pages/notFoundPage';
@@ -11,7 +11,7 @@ export enum AppPaths {
 export const pathsConfig: RouteProps[] = [
     {
         path: AppPaths.MAIN,
-        element: <Main />,
+        element: <MainAsync />,
     },
     {
         path: AppPaths.ABOUT,

@@ -3,7 +3,7 @@ import { Counter } from 'entities/counter';
 
 import cls from './main.module.scss';
 
-export const Main = () => {
+const Main = () => {
     const { t } = useTranslation('main');
 
     return (
@@ -13,3 +13,5 @@ export const Main = () => {
         </>
     );
 };
+
+export default Main;

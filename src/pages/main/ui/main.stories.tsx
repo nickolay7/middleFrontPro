@@ -2,17 +2,17 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { themeDecorator } from 'shared/config/decorators/themeDecorator';
 import { Theme } from 'app/providers/theme';
 import { storeDecorator } from 'shared/config/decorators/storeDecorator';
-import { Main } from './main';
+import { MainAsync } from './mainAsync';
 
 export default {
     title: 'pages/Main',
-    component: Main,
+    component: MainAsync,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof Main>;
+} as ComponentMeta<typeof MainAsync>;
 
-const Template: ComponentStory<typeof Main> = () => <Main />;
+const Template: ComponentStory<typeof MainAsync> = () => <MainAsync />;
 
 export const Light = Template.bind({});
 
