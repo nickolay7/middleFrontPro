@@ -1,7 +1,7 @@
 import { Route, Routes } from 'react-router-dom';
 import { Suspense } from 'react';
 import { pathsConfig } from './config';
-import { Loader } from '../../loader';
+import { Loader } from '../../shared/ui/loader';
 
 const AppRoutes = () => (
     <Routes>

@@ -1,7 +1,7 @@
 import {
     fireEvent, screen,
 } from '@testing-library/react';
-import renderWithProviders from 'shared/lib/helpers/renderWithProviders';
+import renderWithProviders from 'shared/lib/helpers/tests/renderWithProviders';
 import { SideBar } from './sideBar';
 
 describe('sidebar test', () => {
