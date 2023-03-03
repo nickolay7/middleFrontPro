@@ -13,7 +13,11 @@ import { loginByUserName } from '../services/loginByUserName/loginByUserName';
 
 import cls from './login.module.scss';
 
-const LoginForm = memo(() => {
+export interface LoginFormProps {
+    onSuccess: () => void;
+}
+
+const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
     const { t } = useTranslation();
     useDynamicModuleLoader({ loginForm: loginReducer });
     const dispatch = useAppDispatch();
@@ -34,7 +38,8 @@ const LoginForm = memo(() => {
 
     const onSignIn = useCallback(() => {
         dispatch(loginByUserName({ username, password }));
-    }, [dispatch, password, username]);
+        onSuccess();
+    }, [dispatch, onSuccess, password, username]);
 
     return (
         <div className={cls.loginForm}>

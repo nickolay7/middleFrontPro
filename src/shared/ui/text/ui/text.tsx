@@ -1,3 +1,4 @@
+import { memo } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames';
 import cls from './text.module.scss';
 
@@ -11,7 +12,7 @@ export interface TextProps {
   text?: string;
   variant?: TextVariant;
 }
-export const Text = ({ className, ...otherProps }: TextProps) => {
+export const Text = memo(({ className, ...otherProps }: TextProps) => {
     const {
         title,
         text,
@@ -24,4 +25,4 @@ export const Text = ({ className, ...otherProps }: TextProps) => {
             {text && <h3 className={cls.message}>{text}</h3> }
         </div>
     );
-};
+});

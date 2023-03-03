@@ -1,5 +1,7 @@
+import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
+
 import { classNames } from 'shared/lib/helpers/classNames';
-import { ChangeEvent, InputHTMLAttributes } from 'react';
+
 import cls from './input.module.scss';
 
 type InputAttrs = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>;
@@ -10,7 +12,7 @@ export interface InputProps extends InputAttrs {
   placeholder: string;
   autoFocus?: boolean;
 }
-export const Input = ({ className, ...otherProps }: InputProps) => {
+export const Input = memo(({ className, ...otherProps }: InputProps) => {
     const {
         value,
         placeholder,
@@ -32,4 +34,4 @@ export const Input = ({ className, ...otherProps }: InputProps) => {
             />
         </div>
     );
-};
+});

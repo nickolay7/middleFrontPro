@@ -21,6 +21,15 @@
     }
 }
 
+.links {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    align-self: flex-start;
+}
+
 .collapseButton {
     position: absolute;
     right: -35px;
@@ -32,23 +41,6 @@
     width: 100px;
 }
 
-.links {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 10px;
-}
-
 .linksVerticalOrientation {
     flex-direction: column;
-}
-
-.icon {
-    fill: var(--inverted-primary-color);
-    height: 30px;
-    width: 30px;
-}
-
-.linkLabel {
-    display: none;
 }

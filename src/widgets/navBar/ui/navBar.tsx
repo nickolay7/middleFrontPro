@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { useCallback, useState } from 'react';
+import { memo, useCallback, useState } from 'react';
 
 import { Button, ButtonTheme } from 'shared/ui/button';
 import { LoginModal } from 'features/authByUserName';
@@ -10,7 +10,7 @@ import { setUserLogout } from 'entities/user/model/userSlice/userSlice';
 
 import cls from './navBar.module.scss';
 
-export const NavBar = () => {
+export const NavBar = memo(() => {
     const { t } = useTranslation('about');
     const authData = useAppSelector<User>(authUserSelector);
     const dispatch = useAppDispatch();
@@ -57,4 +57,4 @@ export const NavBar = () => {
             }
         </div>
     );
-};
+});

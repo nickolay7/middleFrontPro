@@ -25,5 +25,14 @@
       "password": "123"
     }
   ],
-  "profile": { "name": "typicode" }
+  "profile": {
+    "firstname": "nick",
+    "lastname": "sem",
+    "age": 17,
+    "city": "Rustavi",
+    "country": "Georgia",
+    "currency": "GL",
+    "username": "admin",
+    "avatar": "><"
+  }
 }

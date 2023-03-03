@@ -1,5 +1,5 @@
 import { Link, LinkProps } from 'react-router-dom';
-import { FC } from 'react';
+import { memo } from 'react';
 
 import { classNames } from 'shared/lib/helpers';
 import cls from './menuLink.module.scss';
@@ -14,9 +14,10 @@ export enum LinkThemes {
 export interface AppLinkProps extends LinkProps {
   classname?: string;
   variant?: string;
+  to: string;
 }
 
-export const MenuLink: FC<AppLinkProps> = (props) => {
+export const MenuLink = memo((props: AppLinkProps) => {
     const {
         to,
         children,
@@ -29,4 +30,4 @@ export const MenuLink: FC<AppLinkProps> = (props) => {
             {children}
         </Link>
     );
-};
+});

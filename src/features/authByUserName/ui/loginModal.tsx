@@ -15,10 +15,14 @@ export const LoginModal: FC<LoginModalProps> = (props) => {
         toggleHandler,
     } = props;
 
+    const onSuccess = () => {
+        setTimeout(() => toggleHandler(), 1000);
+    };
+
     return (
         <Modal isModalOpen={isModalOpen} toggleHandler={toggleHandler}>
             <Suspense fallback={<Spinner />}>
-                <LoginFormAsync />
+                <LoginFormAsync onSuccess={onSuccess} />
             </Suspense>
         </Modal>
     );

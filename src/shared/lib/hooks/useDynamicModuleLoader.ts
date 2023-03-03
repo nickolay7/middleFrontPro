@@ -24,7 +24,7 @@ export const useDynamicModuleLoader = (
         });
 
         return () => {
-            if (!removeAfterUnmount) {
+            if (removeAfterUnmount) {
                 Object.entries(reducers).forEach(([reducerName]: ReducerPair) => {
                     store.reducerManager.remove(reducerName);
                     dispatch({ type: '@remove-reducer' });

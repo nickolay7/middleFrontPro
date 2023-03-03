@@ -1,35 +1,25 @@
-import { ReactNode } from 'react';
 import About from 'shared/assets/icons/about.svg';
 import Home from 'shared/assets/icons/home.svg';
-
-import cls from '../ui/sideBar/sideBar.module.scss';
-
-export enum LinkTHeme {
-    PRIMARY = 'primary',
-    SECONDARY = 'secondary',
-}
-
-interface MenuItem {
-    to: string;
-    title: string;
-    theme?: LinkTHeme;
-    Icon?: ReactNode;
-}
+import Profile from 'shared/assets/icons/profile.svg';
+import { MenuItem } from './types';
 
 export const menuConfig: MenuItem[] = [
     {
         to: '/',
         title: 'Домой',
-        theme: LinkTHeme.PRIMARY,
         // @ts-ignore
-        Icon: <Home className={cls.icon} />,
+        Icon: Home,
     },
     {
-
         to: '/about',
         title: 'О нас',
-        theme: LinkTHeme.SECONDARY,
         // @ts-ignore
-        Icon: <About className={cls.icon} />,
+        Icon: About,
+    },
+    {
+        to: '/profile',
+        title: 'Профиль',
+        // @ts-ignore
+        Icon: Profile,
     },
 ];
