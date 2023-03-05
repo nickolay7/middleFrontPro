@@ -28,7 +28,7 @@ export const SideBar = memo(({ className }: SideBarProps) => {
             data-testid="sidebar"
             className={classNames(cls.sideBar, { [cls.close]: isOpen }, [className])}
         >
-            <div className={classNames(cls.links, { [cls.linksVerticalOrientation]: isOpen })}>
+            <div className={classNames(cls.links, { [cls.linksSideBarCollapsed]: isOpen })}>
                 {menuConfig.map(({ to, title, Icon }) => (
                     <SideBarItem key={to} to={to} title={title} isOpen={isOpen} Icon={Icon} />
                 ))}

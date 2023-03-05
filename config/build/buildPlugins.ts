@@ -11,6 +11,7 @@ import { BuildOptions } from './types';
 export const buildPlugins = ({
     paths,
     isDev,
+    apiURL,
 }: BuildOptions): WebpackPluginInstance[] => {
     const plugins = [
     // создаем index.html в output.path на основе public/index.html
@@ -22,6 +23,7 @@ export const buildPlugins = ({
         new MiniCssExtractPlugin(),
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
+            __API__: JSON.stringify(apiURL),
         }),
     ];
 

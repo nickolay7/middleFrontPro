@@ -1,4 +1,4 @@
-import webpack, { DefinePlugin } from 'webpack';
+import webpack, { DefinePlugin, RuleSetRule } from 'webpack';
 import { BuildPaths } from '../build';
 import sassLoader from '../build/loaders/sassLoader';
 
@@ -12,24 +12,25 @@ export default ({ config }: { config: webpack.Configuration }) => {
         src: path.resolve(__dirname, '..', '..', 'src'),
     };
 
-    config.resolve.modules.push(paths.src);
-    config.resolve.extensions.push('ts', 'tsx');
+    config.resolve!.modules!.push(paths.src);
+    config.resolve!.extensions!.push('ts', 'tsx');
 
-    config.module.rules.push(sassLoader(true));
+    config.module!.rules!.push(sassLoader(true));
 
-    // eslint-disable-next-line no-param-reassign
-    config.module.rules = config.module.rules
-        .filter((loader: { test: string }) => !/svg/.test(loader.test));
+    const rules = config.module!.rules as RuleSetRule[];
+    config.module!.rules = rules
+        .filter((loader) => !/svg/.test(loader.test as string));
 
-    config.module.rules.push(
+    config.module!.rules.push(
         {
             test: /\.svg$/,
             use: ['@svgr/webpack'],
         },
     );
 
-    config.plugins.push(new DefinePlugin({
+    config.plugins!.push(new DefinePlugin({
         __IS_DEV__: true,
+        __API__: JSON.stringify(''),
     }));
 
     return config;

@@ -1,6 +1,12 @@
+import { useEffect } from 'react';
+
 import { classNames } from 'shared/lib/helpers/classNames';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
-import { profileReducer } from 'entities/profile/model/slice/profileSlice';
+import {
+    profileReducer, fetchProfileData, profileData, Profile,
+} from 'entities/profile';
+import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
+
 import cls from './profilePage.module.scss';
 
 export interface ProfileProps {
@@ -12,11 +18,16 @@ const reducers = {
 };
 export const ProfilePage = ({ className }: ProfileProps) => {
     useDynamicModuleLoader(reducers, true);
+    const dispatch = useAppDispatch();
+    const profile = useAppSelector(profileData);
+
+    useEffect(() => {
+        dispatch(fetchProfileData());
+    }, [dispatch]);
 
     return (
-        // eslint-disable-next-line i18next/no-literal-string
         <div className={classNames(cls.profile, {}, [className])}>
-            PROFILE
+            <Profile data={profile} />
         </div>
     );
 };

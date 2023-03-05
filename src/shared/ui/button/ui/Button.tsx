@@ -26,7 +26,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export const Button = memo(({ className, children, ...otherProps }: ButtonProps) => {
-    const { variant, size = ButtonSize.S, disabled } = otherProps;
+    const { variant = ButtonTheme.CLEAR, size = ButtonSize.S, disabled } = otherProps;
 
     return (
         <button

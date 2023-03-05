@@ -39,8 +39,9 @@
 
 .close {
     width: 100px;
+    align-self: center;
 }
 
-.linksVerticalOrientation {
-    flex-direction: column;
+.linksSideBarCollapsed {
+    align-self: center;
 }

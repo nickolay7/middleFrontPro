@@ -13,7 +13,7 @@ export enum LinkThemes {
 
 export interface AppLinkProps extends LinkProps {
   classname?: string;
-  variant?: string;
+  variant?: LinkThemes;
   to: string;
 }
 
@@ -21,7 +21,7 @@ export const MenuLink = memo((props: AppLinkProps) => {
     const {
         to,
         children,
-        variant,
+        variant = LinkThemes.PRIMARY,
         classname = '',
     } = props;
 

@@ -12,7 +12,7 @@ import cls from './navBar.module.scss';
 
 export const NavBar = memo(() => {
     const { t } = useTranslation('about');
-    const authData = useAppSelector<User>(authUserSelector);
+    const authData = useAppSelector<User | undefined>(authUserSelector);
     const dispatch = useAppDispatch();
 
     const [isModalOpen, setModalOpen] = useState(true);

@@ -15,12 +15,12 @@ interface RenderOptions {
 
 export default (children: ReactNode, options?: RenderOptions) => {
     render(
-        <StoreProvider initialState={options?.initialState}>
-            <MemoryRouter initialEntries={[options?.route || '/']}>
+        <MemoryRouter initialEntries={[options?.route || '/']}>
+            <StoreProvider initialState={options?.initialState}>
                 <I18nextProvider i18n={i18n}>
                     {children}
                 </I18nextProvider>
-            </MemoryRouter>
-        </StoreProvider>,
+            </StoreProvider>
+        </MemoryRouter>,
     );
 };

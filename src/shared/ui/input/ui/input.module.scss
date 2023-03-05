@@ -3,6 +3,7 @@
     border: none;
     color: var(--primary-color);
     padding: 5px 10px;
+    background: var(--bg-input);
 
     &:focus {
         outline: 1px solid var(--primary-color);

@@ -3,7 +3,7 @@ import { USER_LOGIN_DATA } from 'shared/consts/user';
 import { User, UserSchema } from '../types/userShema';
 
 const initialState: UserSchema = {
-    authData: null,
+    authData: undefined,
 };
 export const userSlice = createSlice({
     name: 'user',
@@ -21,7 +21,7 @@ export const userSlice = createSlice({
         },
         setUserLogout: (state) => {
             localStorage.removeItem(USER_LOGIN_DATA);
-            state.authData = null;
+            state.authData = undefined;
         },
     },
 });

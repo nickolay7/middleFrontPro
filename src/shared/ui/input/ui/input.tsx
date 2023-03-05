@@ -17,10 +17,11 @@ export const Input = memo(({ className, ...otherProps }: InputProps) => {
         value,
         placeholder,
         autoFocus,
+        onChange,
     } = otherProps;
 
     const onInput = (e: ChangeEvent<HTMLInputElement>) => {
-        otherProps?.onChange(e.target.value);
+        if (onChange) onChange(e.target.value);
     };
 
     return (

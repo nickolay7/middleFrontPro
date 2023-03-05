@@ -4,7 +4,7 @@ import { Reducer } from '@reduxjs/toolkit';
 import { ReduxStoreWithManager, StateSchemaKey } from 'app/providers/storeProvider';
 import { useAppDispatch } from 'app/providers/storeProvider/config/hooks';
 
-type ReducersList = {
+export type ReducersList = {
     [key in StateSchemaKey]?: Reducer;
 }
 
@@ -18,14 +18,15 @@ export const useDynamicModuleLoader = (
     const dispatch = useAppDispatch();
 
     useEffect(() => {
-        Object.entries(reducers).forEach(([reducerName, reducer]: ReducerPair) => {
+        const entries = Object.entries(reducers) as ReducerPair[];
+        entries.forEach(([reducerName, reducer]) => {
             store.reducerManager.add(reducerName, reducer);
             dispatch({ type: '@init-reducer' });
         });
 
         return () => {
             if (removeAfterUnmount) {
-                Object.entries(reducers).forEach(([reducerName]: ReducerPair) => {
+                entries.forEach(([reducerName]) => {
                     store.reducerManager.remove(reducerName);
                     dispatch({ type: '@remove-reducer' });
                 });
