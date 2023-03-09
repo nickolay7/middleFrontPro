@@ -11,7 +11,12 @@ export enum AppPaths {
    // routes end
    NOTFOUND = '/*',
 }
-export const pathsConfig: RouteProps[] = [
+
+type AppRouteProps = RouteProps & {
+    authOnly?: boolean;
+}
+
+export const pathsConfig: AppRouteProps[] = [
     {
         path: AppPaths.MAIN,
         element: <MainAsync />,
@@ -27,5 +32,6 @@ export const pathsConfig: RouteProps[] = [
     {
         path: AppPaths.PROFILE,
         element: <ProfilePage />,
+        authOnly: true,
     },
 ];

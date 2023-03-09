@@ -1,4 +1,5 @@
-import { Countries, Currency } from 'shared/consts/comon';
+import { Currency } from '../../../currency/model/types/currency';
+import { Countries } from '../../../country/model/types/country';
 
 export interface IProfile {
     'firstname': string,

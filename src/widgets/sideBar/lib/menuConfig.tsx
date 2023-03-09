@@ -21,5 +21,6 @@ export const menuConfig: MenuItem[] = [
         title: 'Профиль',
         // @ts-ignore
         Icon: Profile,
+        authOnly: true,
     },
 ];

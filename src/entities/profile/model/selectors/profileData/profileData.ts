@@ -1,8 +1,5 @@
 import { StateSchema } from 'app/providers/storeProvider';
-import { IProfile } from '../../types/IProfile';
+import { ProfileSchema } from '../../types/profileSchema';
+import { initialState } from '../../slice/profileSlice';
 
-const profileDefault: IProfile = {
-    firstname: '',
-    lastname: '',
-};
-export const profileData = (state: StateSchema) => state?.profile?.data || profileDefault;
+export const profileData = (state: StateSchema): ProfileSchema => state.profile || initialState;

@@ -1,19 +1,21 @@
 .dark {
+    --orange: #eba4a4;
     --bg-color: #090949;
     --bg-input: #131399;
     --inverted-bg-color: #fff;
     --primary-color: #f1f2f9;
     --inverted-primary-color: #0c3edd;
-    --secondary-color: #049604;
+    --secondary-color: #08dd08;
     --inverted-secondary-color: #bcf2bc;
 }
 
 :root {
+    --orange: #ff0303;
     --bg-color: #e8e8ea;
     --bg-input: #d8d8ef;
     --inverted-bg-color: #041c65;
     --primary-color: #0449e0;
     --inverted-primary-color: #d6dcf5;
-    --secondary-color: #286ec2;
+    --secondary-color: #277208;
     --inverted-secondary-color: #8a8ae9;
 }

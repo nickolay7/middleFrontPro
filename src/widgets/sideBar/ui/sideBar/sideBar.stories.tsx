@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { themeDecorator } from 'shared/config/decorators/themeDecorator';
 import { Theme } from 'app/providers/theme';
 import { SideBar, SideBarProps } from './sideBar';
+import { storeDecorator } from '../../../../shared/config/decorators/storeDecorator';
 
 export default {
     title: 'widgets/sideBar',
@@ -18,6 +19,10 @@ Light.args = {
     className: '',
 };
 
+Light.decorators = [
+    storeDecorator({}),
+];
+
 export const Dark = Template.bind({});
 Dark.args = {
     className: '',
@@ -25,4 +30,5 @@ Dark.args = {
 
 Dark.decorators = [
     themeDecorator(Theme.DARK),
+    storeDecorator({}),
 ];

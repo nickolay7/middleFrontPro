@@ -2,8 +2,8 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { themeDecorator } from 'shared/config/decorators/themeDecorator';
 import { Theme } from 'app/providers/theme';
+import { storeDecorator } from 'shared/config/decorators/storeDecorator';
 import { ProfilePage, ProfileProps } from './profilePage';
-import { storeDecorator } from '../../../shared/config/decorators/storeDecorator';
 
 export default {
     title: 'pages/ProfilePage',
@@ -20,7 +20,6 @@ const Template: ComponentStory<typeof ProfilePage> = (args: ProfileProps) => (
 export const Light = Template.bind({});
 
 Light.decorators = [
-    themeDecorator(),
     storeDecorator({}),
 ];
 

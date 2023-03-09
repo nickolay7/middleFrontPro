@@ -38,6 +38,13 @@
     color: var(--primary-color);
 }
 
+.outline-orange {
+    border: 1px solid var(--orange);
+    border-radius: 5px;
+    background: none;
+    color: var(--orange);
+}
+
 .outline-inverted {
     border: 1px solid var(--inverted-primary-color);
     border-radius: 5px;

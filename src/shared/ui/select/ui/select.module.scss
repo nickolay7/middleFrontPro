@@ -1,0 +1,21 @@
+.label {
+    color: var(--primary-color);
+}
+
+.select {
+    width: 220px;
+    border-radius: 5px;
+    border: none;
+    color: var(--primary-color);
+    padding: 7px;
+    background: var(--bg-input);
+
+    &:focus {
+        outline: none;
+    }
+}
+
+.wrap {
+    text-align: right;
+    margin-top: 10px;
+}

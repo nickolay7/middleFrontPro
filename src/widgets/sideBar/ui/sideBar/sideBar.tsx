@@ -29,8 +29,17 @@ export const SideBar = memo(({ className }: SideBarProps) => {
             className={classNames(cls.sideBar, { [cls.close]: isOpen }, [className])}
         >
             <div className={classNames(cls.links, { [cls.linksSideBarCollapsed]: isOpen })}>
-                {menuConfig.map(({ to, title, Icon }) => (
-                    <SideBarItem key={to} to={to} title={title} isOpen={isOpen} Icon={Icon} />
+                {menuConfig.map(({
+                    to, title, Icon, authOnly,
+                }) => (
+                    <SideBarItem
+                        key={to}
+                        to={to}
+                        title={title}
+                        isOpen={isOpen}
+                        Icon={Icon}
+                        authOnly={authOnly}
+                    />
                 ))}
             </div>
             <div className={classNames(cls.switchersBox, switchersBoxMode)}>

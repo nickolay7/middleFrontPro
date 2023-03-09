@@ -7,7 +7,7 @@ import {
 import { AxiosInstance } from 'axios';
 import { To } from '@remix-run/router';
 import { NavigateOptions } from 'react-router/dist/lib/context';
-import { ProfileSchema } from '../../../../entities/profile';
+import { ProfileSchema } from 'entities/profile';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -38,4 +38,5 @@ export interface ThunkExtraArgs {
 export interface ThunkConfig<T>{
     extra: ThunkExtraArgs;
     rejectValue: T;
+    state: StateSchema;
 }

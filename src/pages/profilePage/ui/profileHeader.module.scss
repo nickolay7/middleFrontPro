@@ -1,0 +1,9 @@
+.profileHeader {
+    display: flex;
+    justify-content: space-between;
+    width: 400px;
+
+    .readonly {
+        opacity: 0.7;
+    }
+}

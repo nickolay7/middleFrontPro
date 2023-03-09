@@ -6,4 +6,5 @@ export interface MenuItem {
     Icon: VFC<SVGProps<SVGSVGElement>>;
     className?: string;
     isOpen: boolean;
+    authOnly?: boolean;
 }

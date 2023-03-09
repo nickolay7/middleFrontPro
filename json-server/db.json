@@ -26,13 +26,13 @@
     }
   ],
   "profile": {
-    "firstname": "nick",
-    "lastname": "sem",
-    "age": 17,
+    "firstname": "Nick",
+    "lastname": "Sem",
+    "age": "18",
     "city": "Rustavi",
-    "country": "Georgia",
-    "currency": "GL",
+    "country": "GEORGIA",
+    "currency": "GEL",
     "username": "admin",
-    "avatar": "><"
+    "avatar": "https://proslang.ru/wp-content/uploads/2019/03/avatarka_1-300x300.jpg"
   }
 }

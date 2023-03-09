@@ -47,6 +47,8 @@ const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
             {isLoading && <Spinner />}
             {error && <Text text={t('Неверный логин или пароль')} variant={TextVariant.RED} />}
             <Input
+                // eslint-disable-next-line
+                name="username"
                 type="text"
                 onChange={onSetUsername}
                 value={username}
@@ -54,6 +56,8 @@ const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
                 autoFocus
             />
             <Input
+                // eslint-disable-next-line
+                name="password"
                 type="text"
                 onChange={onSetPassword}
                 value={password}
