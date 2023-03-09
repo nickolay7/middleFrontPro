@@ -3,7 +3,12 @@ import { useEffect } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import {
-    fetchProfileData, ProfileCard, profileData, profileReducer, updateProfile,
+    fetchProfileData,
+    ProfileCard,
+    profileData,
+    profileReducer,
+    updateProfile,
+    ValidationErrors,
 } from 'entities/profile';
 import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
 
@@ -20,8 +25,18 @@ export interface ProfileProps {
 const reducers = {
     profile: profileReducer,
 };
+
+const errorsMapping = {
+    [ValidationErrors.REQUIRED_FIRSTNAME]: 'please input firstname',
+    [ValidationErrors.REQUIRED_LASTNAME]: 'please input lastname',
+    [ValidationErrors.REQUIRED_AGE]: 'please input age',
+    [ValidationErrors.REQUIRED_CITY]: 'please input city',
+    [ValidationErrors.REQUIRED_USERNAME]: 'please input username',
+    [ValidationErrors.ERROR_REQUEST]: 'server error, try again later',
+};
 export const ProfilePage = ({ className }: ProfileProps) => {
     useDynamicModuleLoader(reducers, true);
+    const { validationErrors } = useAppSelector(profileData);
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
     const profile = useAppSelector(profileData);
@@ -34,7 +49,7 @@ export const ProfilePage = ({ className }: ProfileProps) => {
     }, [dispatch]);
 
     const onChangeHandler = (value: string | number, key: string) => {
-        if (typeof value === 'number') dispatch(updateProfile({ [key]: Number(value) }));
+        if (key === 'age') dispatch(updateProfile({ [key]: Number(value) }));
         else dispatch(updateProfile({ [key]: value }));
     };
 
@@ -49,6 +64,12 @@ export const ProfilePage = ({ className }: ProfileProps) => {
     return (
         <div className={classNames(cls.profile, {}, [className])}>
             <ProfileHeader readonly={readonly} />
+            {
+                validationErrors && validationErrors
+                    .map((error: ValidationErrors) => (
+                        <Text variant={TextVariant.RED} text={errorsMapping[error]} />
+                    ))
+            }
             <ProfileCard
                 onChangeHandler={onChangeHandler}
                 readonly={readonly}
