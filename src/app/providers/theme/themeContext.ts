@@ -5,6 +5,7 @@ import {
 export enum Theme {
     LIGHT = 'light',
     DARK = 'dark',
+    NEON = 'neon',
 }
 export interface IThemeContext {
     theme: Theme;

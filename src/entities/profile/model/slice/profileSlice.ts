@@ -27,10 +27,12 @@ const profileSlice = createSlice({
                 ...action.payload,
             };
             state.validationErrors = [];
+            state.readonly = true;
         },
         cancelEditing: (state) => {
             state.form = state.data;
             state.validationErrors = [];
+            state.readonly = true;
         },
     },
     extraReducers: (builder) => {

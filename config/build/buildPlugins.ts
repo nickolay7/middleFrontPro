@@ -12,6 +12,7 @@ export const buildPlugins = ({
     paths,
     isDev,
     apiURL,
+    project,
 }: BuildOptions): WebpackPluginInstance[] => {
     const plugins = [
     // создаем index.html в output.path на основе public/index.html
@@ -24,6 +25,7 @@ export const buildPlugins = ({
         new DefinePlugin({
             __IS_DEV__: JSON.stringify(isDev),
             __API__: JSON.stringify(apiURL),
+            __PROJECT__: JSON.stringify(project),
         }),
     ];
 

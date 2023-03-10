@@ -1,8 +1,4 @@
-import {
-    LOCAL_STORAGE_THEME_KEY,
-    Theme,
-    useThemeContext,
-} from 'app/providers/theme/themeContext';
+import { LOCAL_STORAGE_THEME_KEY, Theme, useThemeContext } from 'app/providers/theme/themeContext';
 
 interface UseThemeResult {
   theme: Theme;
@@ -12,7 +8,22 @@ interface UseThemeResult {
 export const useTheme = (): UseThemeResult => {
     const { theme, setTheme } = useThemeContext();
 
-    const themeStyle = theme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT;
+    let themeStyle: Theme;
+
+    switch (theme) {
+    case Theme.DARK:
+        themeStyle = Theme.LIGHT;
+        break;
+    case Theme.LIGHT:
+        themeStyle = Theme.NEON;
+        break;
+    case Theme.NEON:
+        themeStyle = Theme.DARK;
+        break;
+    default:
+        themeStyle = Theme.LIGHT;
+        break;
+    }
 
     const changeTheme = () => {
         setTheme(themeStyle);

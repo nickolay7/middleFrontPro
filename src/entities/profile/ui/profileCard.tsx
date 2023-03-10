@@ -9,7 +9,7 @@ import cls from './profile.module.scss';
 import { CurrencySelect } from '../../currency';
 import { CountrySelect } from '../../country';
 
-interface ProfileCardProps {
+export interface ProfileCardProps {
   className?: string;
   form: IProfile;
   readonly?: boolean;

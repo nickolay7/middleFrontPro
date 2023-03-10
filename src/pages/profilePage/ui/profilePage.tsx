@@ -45,7 +45,9 @@ export const ProfilePage = ({ className }: ProfileProps) => {
     } = profile;
 
     useEffect(() => {
-        dispatch(fetchProfileData());
+        if (__PROJECT__ !== 'storybook') {
+            dispatch(fetchProfileData());
+        }
     }, [dispatch]);
 
     const onChangeHandler = (value: string | number, key: string) => {

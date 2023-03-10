@@ -15,16 +15,6 @@ const Template: ComponentStory<typeof ThemeSwitcher> = (args: ThemeSwitcherProps
     <ThemeSwitcher {...args} />
 );
 
-export const Light = Template.bind({});
-
-Light.args = {
-    className: '',
-};
-
-Light.decorators = [
-    themeDecorator(),
-];
-
 export const Dark = Template.bind({});
 Dark.args = {
     className: '',

@@ -3,6 +3,7 @@ import { themeDecorator } from 'shared/config/decorators/themeDecorator';
 import { Theme } from 'app/providers/theme';
 import { SideBar, SideBarProps } from './sideBar';
 import { storeDecorator } from '../../../../shared/config/decorators/storeDecorator';
+import { User } from '../../../../entities/user';
 
 export default {
     title: 'widgets/sideBar',
@@ -20,7 +21,11 @@ Light.args = {
 };
 
 Light.decorators = [
-    storeDecorator({}),
+    storeDecorator({
+        user: {
+            authData: {} as User,
+        },
+    }),
 ];
 
 export const Dark = Template.bind({});
@@ -30,5 +35,28 @@ Dark.args = {
 
 Dark.decorators = [
     themeDecorator(Theme.DARK),
+    storeDecorator({
+        user: {
+            authData: {} as User,
+        },
+    }),
+];
+
+export const NoAuthDark = Template.bind({});
+NoAuthDark.args = {
+    className: '',
+};
+
+NoAuthDark.decorators = [
+    themeDecorator(Theme.DARK),
+    storeDecorator({}),
+];
+
+export const NoAuthLight = Template.bind({});
+NoAuthLight.args = {
+    className: '',
+};
+
+NoAuthLight.decorators = [
     storeDecorator({}),
 ];
