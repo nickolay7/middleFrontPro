@@ -3,13 +3,14 @@ import { classNames } from 'shared/lib/helpers';
 
 import { NavBar } from 'widgets/navBar';
 import { SideBar } from 'widgets/sideBar';
-import { initAuthData } from 'entities/user';
+import { initAuthData, initUserSelector } from 'entities/user';
 import AppRoutes from './appRoutes/appRoutes';
-import { useAppDispatch } from './providers/storeProvider';
+import { useAppDispatch, useAppSelector } from './providers/storeProvider';
 
 const App = () => {
-    const appStyle = classNames('app', {}, []);
     const dispatch = useAppDispatch();
+    const init = useAppSelector(initUserSelector);
+    const appStyle = classNames('app', {}, []);
 
     useEffect(() => {
         dispatch(initAuthData());
@@ -21,7 +22,7 @@ const App = () => {
                 <NavBar />
                 <div className="main">
                     <SideBar />
-                    <AppRoutes />
+                    {init && <AppRoutes />}
                 </div>
             </Suspense>
         </div>

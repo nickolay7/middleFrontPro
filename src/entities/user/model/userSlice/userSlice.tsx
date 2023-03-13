@@ -4,6 +4,7 @@ import { User, UserSchema } from '../types/userShema';
 
 const initialState: UserSchema = {
     authData: undefined,
+    _init: false,
 };
 export const userSlice = createSlice({
     name: 'user',
@@ -18,6 +19,7 @@ export const userSlice = createSlice({
             if (authData) {
                 state.authData = JSON.parse(authData);
             }
+            state._init = true;
         },
         setUserLogout: (state) => {
             localStorage.removeItem(USER_LOGIN_DATA);
