@@ -2,6 +2,7 @@ import { MainAsync } from 'pages/main';
 import { RouteProps } from 'react-router-dom';
 import { NotFoundPage } from 'pages/notFoundPage';
 import { ProfilePage } from 'pages/profilePage';
+import { ReactElement } from 'react';
 import { AboutAsync } from '../../pages/about/ui/aboutAsync';
 
 export enum AppPaths {
@@ -12,7 +13,9 @@ export enum AppPaths {
    NOTFOUND = '/*',
 }
 
-type AppRouteProps = RouteProps & {
+export type AppRouteProps = RouteProps & {
+    path: AppPaths;
+    element: ReactElement;
     authOnly?: boolean;
 }
 
