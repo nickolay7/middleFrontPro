@@ -2,7 +2,7 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import cls from './avatar.module.scss';
 
 export interface AvatarProps {
-    src: string;
+    src?: string;
     size?: number;
     alt?: string;
     className?: string;

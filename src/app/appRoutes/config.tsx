@@ -4,11 +4,15 @@ import { NotFoundPage } from 'pages/notFoundPage';
 import { ProfilePage } from 'pages/profilePage';
 import { ReactElement } from 'react';
 import { AboutAsync } from '../../pages/about/ui/aboutAsync';
+import { ArticlesPage } from '../../pages/articlesPage';
+import { ArticleDetailsPage } from '../../pages/articleDetailsPage/articleDetailsPage';
 
 export enum AppPaths {
    MAIN = '/',
    ABOUT = '/about',
    PROFILE = '/profile',
+   ARTICLES = '/articles',
+   ARTICLE_DETAILS = '/articles/:id',
    // routes end
    NOTFOUND = '/*',
 }
@@ -35,6 +39,16 @@ export const pathsConfig: AppRouteProps[] = [
     {
         path: AppPaths.PROFILE,
         element: <ProfilePage />,
+        authOnly: true,
+    },
+    {
+        path: AppPaths.ARTICLES,
+        element: <ArticlesPage />,
+        authOnly: true,
+    },
+    {
+        path: AppPaths.ARTICLE_DETAILS,
+        element: <ArticleDetailsPage />,
         authOnly: true,
     },
 ];

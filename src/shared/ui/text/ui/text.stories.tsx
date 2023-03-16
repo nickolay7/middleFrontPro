@@ -2,7 +2,9 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { themeDecorator } from 'shared/config/decorators/themeDecorator';
 import { Theme } from 'app/providers/theme';
-import { TextProps, Text, TextVariant } from './text';
+import {
+    Text, TextAlign, TextProps, TextSize, TextVariant,
+} from './text';
 
 export default {
     title: 'shared/Text',
@@ -19,6 +21,30 @@ export const LightPrimary = Template.bind({});
 LightPrimary.args = {
     text: 'Какой-то текст',
     title: 'Какой-то заголовок',
+};
+
+export const AlignCenter = Template.bind({});
+
+AlignCenter.args = {
+    text: 'Какой-то текст',
+    title: 'Какой-то заголовок',
+    align: TextAlign.CENTER,
+};
+
+export const AlignRight = Template.bind({});
+
+AlignRight.args = {
+    text: 'Какой-то текст',
+    title: 'Какой-то заголовок',
+    align: TextAlign.RIGHT,
+};
+
+export const LargeSize = Template.bind({});
+
+LargeSize.args = {
+    text: 'Какой-то текст',
+    title: 'Какой-то заголовок',
+    size: TextSize.L_TEXT,
 };
 
 export const RedVariant = Template.bind({});

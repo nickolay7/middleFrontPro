@@ -1,8 +1,9 @@
-import { ReactElement } from 'react';
+import { ReactElement, Suspense } from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAppSelector } from '../providers/storeProvider';
 import { authUserSelector } from '../../entities/user';
 import { AppPaths } from './config';
+import { Loader } from '../../shared/ui/loader';
 
 interface ProtectedRouteProps {
     children: ReactElement;
@@ -16,5 +17,5 @@ export const ProtectedRoute = ({ children }: ProtectedRouteProps) => {
         return <Navigate to={AppPaths.MAIN} replace />;
     }
 
-    return children;
+    return <Suspense fallback={<Loader />}>{children}</Suspense>;
 };

@@ -1,11 +1,10 @@
 import { Route, Routes } from 'react-router-dom';
-import { Suspense } from 'react';
-import { Loader } from 'shared/ui/loader';
+import { useCallback } from 'react';
 import { AppRouteProps, pathsConfig } from './config';
 import { ProtectedRoute } from './protectedRoute';
 
 const AppRoutes = () => {
-    const renderWithWrapper = ({ path, element, authOnly }: AppRouteProps) => (
+    const renderWithWrapper = useCallback(({ path, element, authOnly }: AppRouteProps) => (
         <Route
             key={path}
             path={path}
@@ -13,15 +12,13 @@ const AppRoutes = () => {
                 authOnly
                     ? (
                         <ProtectedRoute>
-                            <Suspense fallback={<Loader />}>
-                                {element}
-                            </Suspense>
+                            {element}
                         </ProtectedRoute>
                     )
                     : element
             )}
         />
-    );
+    ), []);
 
     return (
         <Routes>

@@ -1,14 +1,5 @@
 .text {
     color: var(--primary-color);
-    padding: 5px 10px;
-}
-
-.title {
-    font: var(--font-l);
-}
-
-.message {
-
 }
 
 .primary {
@@ -17,4 +8,36 @@
 
 .red {
     color: var(--dark-red-color);
+}
+
+.m-size {
+    .title {
+        font: var(--font-l);
+    }
+
+    .text {
+        font: var(--font-m);
+    }
+}
+
+.l-size {
+    .title {
+        font: var(--font-xl);
+    }
+
+    .text {
+        font: var(--font-l);
+    }
+}
+
+.text-left {
+    text-align: left;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.text-right {
+    text-align: right;
 }

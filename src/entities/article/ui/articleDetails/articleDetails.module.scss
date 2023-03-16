@@ -1,0 +1,46 @@
+.articleDetails {
+    height: calc(100vh - var(--navBarHeight));
+    padding: 20px 30px;
+    overflow: auto;
+}
+
+.avatar {
+    margin: 0 auto;
+}
+
+.title {
+    margin-top: 20px;
+}
+
+.skeleton {
+    margin-top: 15px;
+}
+
+.articleInfo {
+    display: flex;
+    align-items: center;
+}
+
+.icon {
+    margin-right: 8px;
+}
+
+.avatarWrapper {
+    display: flex;
+    width: 100%;
+    justify-content: center;
+}
+
+.block {
+    margin-top: 16px;
+}
+
+.views,
+.data {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.views {
+    margin-top: 10px;
+}

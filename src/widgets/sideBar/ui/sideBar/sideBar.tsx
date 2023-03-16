@@ -4,9 +4,9 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { Button, ButtonTheme } from 'shared/ui/button';
 import { ThemeSwitcher } from 'widgets/themeSwitcher';
 import { LangSwitcher } from 'widgets/langSwitcher';
-import cls from './sideBar.module.scss';
 import { menuConfig } from '../../lib/menuConfig';
 import { SideBarItem } from '../sideBarItem/sideBarItem';
+import cls from './sideBar.module.scss';
 
 export interface SideBarProps {
     className?: string;

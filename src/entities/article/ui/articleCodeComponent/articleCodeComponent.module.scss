@@ -1,0 +1,12 @@
+.articleCodeComponent {
+    border: 1px solid var(--primary-color);
+    padding: 10px;
+    background: var(--code-bg);
+    position: relative;
+
+    .copyBtn {
+        position: absolute;
+        top: 5px;
+        right: 5px;
+    }
+}

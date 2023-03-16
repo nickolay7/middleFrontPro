@@ -19,6 +19,7 @@ export const buildWebpackConfig = (options: BuildOptions): Configuration => {
             filename: '[name].[contenthash].bundle.js', // default name is main or if multi entry point(name as entry point name)
             path: build,
             clean: true, // remove old build cash
+            publicPath: '/',
         },
         plugins: buildPlugins(options),
         module: {
