@@ -9,7 +9,7 @@ import { Text, TextVariant } from 'shared/ui/text';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { loginReducer, setPassword, setUsername } from '../model/slice/loginSlice';
 import { loginSelector } from '../model/selectors/loginSelector/loginSelector';
-import { loginByUserName } from '../services/loginByUserName/loginByUserName';
+import { loginByUserName } from '../model/services/loginByUserName/loginByUserName';
 
 import cls from './login.module.scss';
 

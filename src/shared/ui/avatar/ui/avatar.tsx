@@ -8,7 +8,7 @@ export interface AvatarProps {
     className?: string;
 }
 export const Avatar = ({ className, ...otherProps }: AvatarProps) => {
-    const { src, alt, size } = otherProps;
+    const { src, alt = 'pic', size } = otherProps;
     const sizeStyle = {
         width: size,
         height: size,

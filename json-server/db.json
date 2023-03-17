@@ -106,13 +106,15 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN"
+      "role": "ADMIN",
+      "avatar": "https://img1.freepng.ru/20180410/zke/kisspng-ninja-computer-programming-learning-study-skills-avatar-5acd61df3b4f30.8264853015234093752429.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER"
+      "role": "USER",
+      "avatar": "https://img1.freepng.ru/20180410/zke/kisspng-ninja-computer-programming-learning-study-skills-avatar-5acd61df3b4f30.8264853015234093752429.jpg"
     }
   ],
   "profile": {

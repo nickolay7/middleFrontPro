@@ -1,0 +1,19 @@
+.commentCard {
+    padding: 10px;
+    border: 1px solid var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.comment {
+    margin-left: 10px;
+}
+
+.bottomSkeleton {
+    margin-top: 10px;
+}

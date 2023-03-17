@@ -9,6 +9,9 @@ import { To } from '@remix-run/router';
 import { NavigateOptions } from 'react-router/dist/lib/context';
 import { ProfileSchema } from 'entities/profile';
 import { ArticleDetailsSchema } from 'entities/article';
+import {
+    ArticleDetailsCommentsSchema,
+} from 'pages/articleDetailsPage/model/types/articleDetailsCommentsSchema';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -17,6 +20,7 @@ export interface StateSchema {
     loginForm?: LoginSchema;
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
+    articleDetailsComments?: ArticleDetailsCommentsSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

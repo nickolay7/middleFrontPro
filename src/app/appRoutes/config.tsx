@@ -3,9 +3,9 @@ import { RouteProps } from 'react-router-dom';
 import { NotFoundPage } from 'pages/notFoundPage';
 import { ProfilePage } from 'pages/profilePage';
 import { ReactElement } from 'react';
-import { AboutAsync } from '../../pages/about/ui/aboutAsync';
-import { ArticlesPage } from '../../pages/articlesPage';
-import { ArticleDetailsPage } from '../../pages/articleDetailsPage/articleDetailsPage';
+import { AboutAsync } from 'pages/about/ui/aboutAsync';
+import { ArticlesPage } from 'pages/articlesPage';
+import { ArticleDetailsPage } from 'pages/articleDetailsPage';
 
 export enum AppPaths {
    MAIN = '/',

@@ -1,4 +1,4 @@
-import { memo, useEffect } from 'react';
+import { memo } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
@@ -8,6 +8,7 @@ import { Text, TextSize } from 'shared/ui/text';
 import Calendar from 'shared/assets/icons/calendar-20-20.svg';
 import Eye from 'shared/assets/icons/eye-20-20.svg';
 import { FillColor, Icon } from 'shared/ui/icon';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { articleDetailsSelector } from '../../model/selectors/articleDetailsSelector';
@@ -45,11 +46,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     const dispatch = useAppDispatch();
     const state = useAppSelector(articleDetailsSelector);
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchArticleById(id));
-        }
-    }, [dispatch, id]);
+    useInitialEffect(() => dispatch(fetchArticleById(id)));
 
     let content;
 
