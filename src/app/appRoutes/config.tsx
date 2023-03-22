@@ -10,7 +10,7 @@ import { ArticleDetailsPage } from 'pages/articleDetailsPage';
 export enum AppPaths {
    MAIN = '/',
    ABOUT = '/about',
-   PROFILE = '/profile',
+   PROFILE = '/profile/:id',
    ARTICLES = '/articles',
    ARTICLE_DETAILS = '/articles/:id',
    // routes end

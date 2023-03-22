@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { themeDecorator } from 'shared/config/decorators/themeDecorator';
 import { Theme } from 'app/providers/theme';
 import Calendar from 'shared/assets/icons/calendar-20-20.svg';
-import { FillColor, Icon, IconProps } from './icon';
+import { StrokeColor, Icon, IconProps } from './icon';
 
 export default {
     title: 'shared/Icon',
@@ -19,14 +19,14 @@ const Template: ComponentStory<typeof Icon> = (args: IconProps) => (
 export const Light = Template.bind({});
 Light.args = {
     className: '',
-    stroke: FillColor.PRIMARY,
+    stroke: StrokeColor.PRIMARY,
     Svg: Calendar,
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
     className: '',
-    stroke: FillColor.PRIMARY,
+    stroke: StrokeColor.PRIMARY,
     Svg: Calendar,
 };
 

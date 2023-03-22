@@ -15,6 +15,7 @@ export default {
 } as ComponentMeta<typeof ProfileCard>;
 
 const data = {
+    id: '1',
     firstname: 'Nick',
     lastname: 'Semu',
     age: 17,

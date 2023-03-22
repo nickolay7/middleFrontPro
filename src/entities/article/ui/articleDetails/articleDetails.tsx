@@ -7,8 +7,10 @@ import { Avatar } from 'shared/ui/avatar';
 import { Text, TextSize } from 'shared/ui/text';
 import Calendar from 'shared/assets/icons/calendar-20-20.svg';
 import Eye from 'shared/assets/icons/eye-20-20.svg';
-import { FillColor, Icon } from 'shared/ui/icon';
+import { StrokeColor, Icon } from 'shared/ui/icon';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { articleDetailsSelector } from '../../model/selectors/articleDetailsSelector';
@@ -18,6 +20,8 @@ import { ArticleImageComponent } from '../articleImageComponent/articleImageComp
 import { ArticleTextComponent } from '../articleTextComponent/articleTextComponent';
 
 import cls from './articleDetails.module.scss';
+import { LinkPath } from '../../../../widgets/sideBar/lib/types';
+import { Button, ButtonTheme } from '../../../../shared/ui/button';
 
 export interface ArticleDetailsProps {
   className?: string;
@@ -45,6 +49,12 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     useDynamicModuleLoader(reducers, true);
     const dispatch = useAppDispatch();
     const state = useAppSelector(articleDetailsSelector);
+    const navigate = useNavigate();
+    const { t } = useTranslation();
+
+    const onBackToList = () => {
+        navigate(LinkPath.ARTICLES);
+    };
 
     useInitialEffect(() => dispatch(fetchArticleById(id)));
 
@@ -68,6 +78,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     } else {
         content = (
             <>
+                <Button onClick={onBackToList} variant={ButtonTheme.OUTLINE}>{t('Назад к списку')}</Button>
                 <div className={cls.avatarWrapper}>
                     <Avatar src={state?.data?.img} className={cls.avatar} />
                 </div>
@@ -80,11 +91,11 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
                     />
                 </div>
                 <div className={cls.views}>
-                    <Icon Svg={Eye} stroke={FillColor.PRIMARY} className={cls.icon} />
+                    <Icon Svg={Eye} stroke={StrokeColor.PRIMARY} className={cls.icon} />
                     <Text text={String(state?.data?.views)} />
                 </div>
                 <div className={cls.data}>
-                    <Icon Svg={Calendar} stroke={FillColor.PRIMARY} className={cls.icon} />
+                    <Icon Svg={Calendar} stroke={StrokeColor.PRIMARY} className={cls.icon} />
                     <Text text={state?.data?.createdAt} className={cls.data} />
                 </div>
                 {

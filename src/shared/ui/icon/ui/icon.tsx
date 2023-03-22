@@ -2,14 +2,14 @@ import { memo } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames';
 import cls from './icon.module.scss';
 
-export enum FillColor {
+export enum StrokeColor {
     PRIMARY = 'primary',
     SECONDARY = 'secondary',
 }
 
 export interface IconProps {
   className?: string;
-  stroke: FillColor;
+  stroke: StrokeColor;
   Svg: String;
 }
 

@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { Button, ButtonTheme } from 'shared/ui/button';
 import { ThemeSwitcher } from 'widgets/themeSwitcher';
 import { LangSwitcher } from 'widgets/langSwitcher';
-import { menuConfig } from '../../lib/menuConfig';
+import { useMenuConfig } from '../../lib/menuConfig';
 import { SideBarItem } from '../sideBarItem/sideBarItem';
 import cls from './sideBar.module.scss';
 
@@ -14,6 +14,7 @@ export interface SideBarProps {
 
 export const SideBar = memo(({ className }: SideBarProps) => {
     const [isOpen, setOpen] = useState(false);
+    const menuConfig = useMenuConfig();
 
     const onClose = () => {
         setOpen((prev) => !prev);

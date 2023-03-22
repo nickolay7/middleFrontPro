@@ -5,8 +5,8 @@ import { IProfile } from '../types/IProfile';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 export const initialState: ProfileSchema = {
-    data: { firstname: '', lastname: '' },
-    form: { firstname: '', lastname: '' },
+    data: { id: '', firstname: '', lastname: '' },
+    form: { id: '', firstname: '', lastname: '' },
     isLoading: false,
     error: undefined,
     readonly: true,
@@ -27,7 +27,6 @@ const profileSlice = createSlice({
                 ...action.payload,
             };
             state.validationErrors = [];
-            state.readonly = true;
         },
         cancelEditing: (state) => {
             state.form = state.data;

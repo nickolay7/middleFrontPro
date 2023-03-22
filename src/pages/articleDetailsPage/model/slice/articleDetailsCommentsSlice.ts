@@ -1,7 +1,4 @@
-import {
-    createEntityAdapter,
-    createSlice,
-} from '@reduxjs/toolkit';
+import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
 import { Comment } from 'entities/comment/model/types/comment';
 import { StateSchema } from 'app/providers/storeProvider';
 import { ArticleDetailsCommentsSchema } from '../types/articleDetailsCommentsSchema';
@@ -23,8 +20,7 @@ const commentsSlice = createSlice({
         ids: [],
         entities: {},
     }),
-    reducers: {
-    },
+    reducers: {},
     extraReducers: (builder) => {
         builder.addCase(fetchCommentsByArticleId.pending, (state) => {
             state.error = undefined;
@@ -40,5 +36,7 @@ const commentsSlice = createSlice({
         });
     },
 });
+
+// export const {  } = commentsSlice.actions;
 
 export const commentsReducer = commentsSlice.reducer;

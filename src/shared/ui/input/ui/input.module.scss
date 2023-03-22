@@ -1,5 +1,7 @@
 .inputWrapper {
-    text-align: right;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
 
     .label {
         color: var(--primary-color);
@@ -11,6 +13,7 @@
         color: var(--primary-color);
         padding: 5px 10px;
         background: var(--bg-input);
+        margin-left: 5px;
 
         &:focus {
             outline: 1px solid var(--primary-color);

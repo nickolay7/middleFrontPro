@@ -19,7 +19,7 @@ export const updateProfileData = createAsyncThunk<IProfile, void, ThunkConfig<Va
         }
 
         try {
-            const response = await api.put<IProfile>('/profile', form);
+            const response = await api.put<IProfile>(`/profile/${form.id}`, form);
 
             if (!response.data) {
                 throw new Error();

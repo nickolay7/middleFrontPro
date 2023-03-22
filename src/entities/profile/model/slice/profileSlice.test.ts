@@ -9,6 +9,7 @@ import { Currency } from '../../../currency/model/types/currency';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 const data = {
+    id: '1',
     firstname: 'Nick',
     lastname: 'Semu',
     age: 17,
@@ -20,6 +21,7 @@ const data = {
 };
 
 const updatedData = {
+    id: '1',
     firstname: 'Vasy',
     lastname: 'Pupkin',
     age: 17,
@@ -55,7 +57,7 @@ describe('profileSlice.test', () => {
         };
 
         expect(profileReducer(state as ProfileSchema, updateProfile(updatedData))).toEqual({
-            readonly: true,
+            readonly: false,
             validationErrors: [],
             form: updatedData,
         });

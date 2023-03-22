@@ -8,12 +8,14 @@ import { CommentList } from 'entities/comment';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
 import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { commentsReducer, commentsSelector } from '../model/slice/articledetailsCommentsSlice';
+import { AddCommentForm } from 'features/addCommentForm';
+import { commentsReducer, commentsSelector } from '../model/slice/articleDetailsCommentsSlice';
 import cls from './articleDetailsPage.module.scss';
 import {
     getArticleCommentsStateSelector,
 } from '../model/selectors/getArticleCommentsStateSelector/getArticleCommentsStateSelector';
 import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
 
 export interface ArticleDetailsPageProps {
   className?: string;
@@ -36,10 +38,15 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         return <Text title={t('Статья не найдена')} />;
     }
 
+    const onSendComment = (text: string) => {
+        dispatch(addCommentForArticle(text));
+    };
+
     return (
         <div className={classNames(cls.articleDetailsPage, {}, [className])}>
             <ArticleDetails id={id} />
             <Text className={cls.commentTitle} title={t('Комментарии')} />
+            <AddCommentForm onSendComment={onSendComment} />
             <CommentList comments={comments} isLoading={commentsState?.isLoading} />
         </div>
     );

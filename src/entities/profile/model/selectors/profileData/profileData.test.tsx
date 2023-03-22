@@ -5,6 +5,7 @@ import { Currency } from '../../../../currency/model/types/currency';
 import { profileData } from './profileData';
 
 const data = {
+    id: '1',
     firstname: 'Nick',
     lastname: 'Semu',
     age: 17,
@@ -16,6 +17,7 @@ const data = {
 };
 
 const emptyData = {
+    id: '1',
     firstname: '',
     lastname: '',
     age: 0,

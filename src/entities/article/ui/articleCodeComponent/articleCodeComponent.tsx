@@ -3,7 +3,7 @@ import { memo } from 'react';
 import { Code } from 'shared/ui/code';
 import { Button, ButtonTheme } from 'shared/ui/button';
 import CopyIcon from 'shared/assets/icons/copy-20-20.svg';
-import { FillColor, Icon } from 'shared/ui/icon';
+import { StrokeColor, Icon } from 'shared/ui/icon';
 import cls from './articleCodeComponent.module.scss';
 
 export interface ArticleBlockComponentProps {
@@ -20,7 +20,7 @@ export const ArticleCodeComponent = memo(({ className, text }: ArticleBlockCompo
         <div className={classNames(cls.articleCodeComponent, {}, [className])}>
             {/* eslint-disable-next-line i18next/no-literal-string */}
             <Button className={cls.copyBtn} variant={ButtonTheme.CLEAR} onClick={onCopy}>
-                <Icon Svg={CopyIcon} stroke={FillColor.PRIMARY} />
+                <Icon Svg={CopyIcon} stroke={StrokeColor.PRIMARY} />
             </Button>
             <Code>
                 {text}

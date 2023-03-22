@@ -4,6 +4,11 @@ export const articleStateMock = {
     articleDetails: {
         data: {
             id: '1',
+            user: {
+                id: '1',
+                username: 'admin',
+                avatar: 'https://proslang.ru/wp-content/uploads/2019/03/avatarka_1-300x300.jpg',
+            },
             title: 'Javascript news',
             subtitle: 'Что нового в JS за 2022 год?',
             img: 'https://teknotower.com/wp-content/uploads/2020/11/js.png',

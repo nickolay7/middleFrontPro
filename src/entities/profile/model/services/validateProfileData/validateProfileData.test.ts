@@ -4,6 +4,7 @@ import { ValidationErrors } from '../../types/profileSchema';
 import { validateProfileData } from './validateProfileData';
 
 const data = {
+    id: '1',
     firstname: 'Nick',
     lastname: 'Semu',
     age: 17,
@@ -15,6 +16,7 @@ const data = {
 };
 
 const emptyData = {
+    id: '',
     firstname: '',
     lastname: '',
     age: 0,

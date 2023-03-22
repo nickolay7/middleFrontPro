@@ -12,7 +12,6 @@ export interface CommentListProps {
   isLoading?: boolean;
 }
 export const CommentList = memo(({ className, comments, isLoading }: CommentListProps) => {
-    /* eslint-disable  @typescript-eslint/no-unused-vars */
     const { t } = useTranslation();
 
     return (
@@ -20,7 +19,7 @@ export const CommentList = memo(({ className, comments, isLoading }: CommentList
             {
                 comments
                     ? comments
-                        .map((comment) => <CommentCard key={comment.id} comment={comment} isLoading={isLoading} />)
+                        ?.map((comment) => <CommentCard key={comment.id} comment={comment} isLoading={isLoading} />)
                     : <Text text={t('Комментарии отсутствуют')} />
             }
         </div>

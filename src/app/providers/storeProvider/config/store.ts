@@ -7,6 +7,7 @@ import { userReducer } from 'entities/user/model/userSlice/userSlice';
 import { $api } from 'shared/api/api';
 import { To } from '@remix-run/router';
 import { NavigateOptions } from 'react-router/dist/lib/context';
+import { addCommentFormReducer } from 'features/addCommentForm';
 import { StateSchema } from './stateSchema';
 import { createReducerManager } from './reducerManager';
 
@@ -19,6 +20,7 @@ export const createReduxStore = (
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
+        addCommentForm: addCommentFormReducer,
     };
 
     const reducerManager = createReducerManager(rootReducer);

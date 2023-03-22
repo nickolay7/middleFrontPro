@@ -8,6 +8,7 @@ import { Countries } from '../../../entities/country/model/types/country';
 import { Currency } from '../../../entities/currency/model/types/currency';
 
 const data = {
+    id: '1',
     firstname: 'Nick',
     lastname: 'Semu',
     age: 17,

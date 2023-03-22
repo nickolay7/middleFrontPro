@@ -1,3 +1,5 @@
+import { User } from '../../../user';
+
 export enum ArticleType {
     IT = 'IT',
     ART = 'ART',
@@ -35,6 +37,7 @@ export type ArticleBlock = ArticleTextBlock | ArticleCodeBlock | ArticleImageBlo
 
 export interface Article {
      id: string;
+     user: User;
      title: string;
      subtitle: string;
      img: string;
@@ -43,3 +46,8 @@ export interface Article {
      type: ArticleType;
      blocks: ArticleBlock[];
  }
+
+export enum ArticleView {
+    PLATE = 'plate',
+    LIST = 'list',
+}

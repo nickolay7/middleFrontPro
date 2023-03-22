@@ -7,6 +7,7 @@ import { updateProfileData } from './updateProfileData';
 import { ValidationErrors } from '../../types/profileSchema';
 
 const data = {
+    id: '1',
     firstname: 'Nick',
     lastname: 'Semu',
     age: 17,
@@ -18,6 +19,7 @@ const data = {
 };
 
 const emptyData = {
+    id: '1',
     firstname: '',
     lastname: '',
     age: 0,

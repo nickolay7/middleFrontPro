@@ -1,4 +1,5 @@
-import { useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/helpers/classNames';
 import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
@@ -11,10 +12,9 @@ import {
     ValidationErrors,
 } from 'entities/profile';
 import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
-
-import { useTranslation } from 'react-i18next';
 import { Loader } from 'shared/ui/loader';
 import { Text, TextVariant } from 'shared/ui/text';
+import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import cls from './profilePage.module.scss';
 import { ProfileHeader } from './profileHeader';
 
@@ -39,16 +39,13 @@ export const ProfilePage = ({ className }: ProfileProps) => {
     const { validationErrors } = useAppSelector(profileData);
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
+    const { id } = useParams();
     const profile = useAppSelector(profileData);
     const {
         form, error, isLoading, readonly,
     } = profile;
 
-    useEffect(() => {
-        if (__PROJECT__ !== 'storybook') {
-            dispatch(fetchProfileData());
-        }
-    }, [dispatch]);
+    useInitialEffect(() => dispatch(fetchProfileData(id)));
 
     const onChangeHandler = (value: string | number, key: string) => {
         if (key === 'age') dispatch(updateProfile({ [key]: Number(value) }));

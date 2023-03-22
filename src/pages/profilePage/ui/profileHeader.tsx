@@ -2,12 +2,13 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { useTranslation } from 'react-i18next';
 import { Text } from 'shared/ui/text';
 import { Button, ButtonTheme } from 'shared/ui/button';
-import { useAppDispatch } from 'app/providers/storeProvider';
+import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
 import {
-    cancelEditing, setReadonly, upsetReadonly, updateProfileData,
+    cancelEditing, setReadonly, upsetReadonly, updateProfileData, profileData,
 } from 'entities/profile';
 
 import cls from './profileHeader.module.scss';
+import { authUserSelector } from '../../../entities/user';
 
 interface ProfileHeaderProps {
     className?: string;
@@ -16,6 +17,9 @@ interface ProfileHeaderProps {
 export const ProfileHeader = ({ className, readonly }: ProfileHeaderProps) => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
+    const authUser = useAppSelector(authUserSelector);
+    const profile = useAppSelector(profileData);
+    const isAuthUser = authUser?.id === profile.form?.id;
 
     const onEdit = () => {
         dispatch(setReadonly());
@@ -34,7 +38,7 @@ export const ProfileHeader = ({ className, readonly }: ProfileHeaderProps) => {
         <div className={classNames(cls.profileHeader, {}, [className])}>
             <Text title={t('Профиль')} />
             {
-                readonly ? (
+                isAuthUser && (readonly ? (
                     <Button onClick={onEdit} variant={ButtonTheme.OUTLINE}>
                         {t('Редактировать')}
                     </Button>
@@ -48,7 +52,7 @@ export const ProfileHeader = ({ className, readonly }: ProfileHeaderProps) => {
                             {t('Сохранить')}
                         </Button>
                     </div>
-                )
+                ))
             }
         </div>
     );

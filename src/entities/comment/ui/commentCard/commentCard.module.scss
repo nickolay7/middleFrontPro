@@ -8,6 +8,11 @@
     display: flex;
     align-items: center;
     gap: 10px;
+    text-decoration: none;
+
+    &:hover {
+        opacity: 0.7;
+    }
 }
 
 .comment {
@@ -16,4 +21,8 @@
 
 .bottomSkeleton {
     margin-top: 10px;
+}
+
+.isLoading {
+    border: none;
 }

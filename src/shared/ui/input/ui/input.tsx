@@ -1,8 +1,7 @@
 import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
+import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/helpers/classNames';
-
-import { useTranslation } from 'react-i18next';
 import cls from './input.module.scss';
 
 type InputAttrs = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>;
@@ -14,6 +13,7 @@ export interface InputProps extends InputAttrs {
   autoFocus?: boolean;
   readonly?: boolean;
   name: string;
+  label?: boolean;
 }
 export const Input = memo(({ className, ...otherProps }: InputProps) => {
     const { t } = useTranslation('profile');
@@ -25,6 +25,7 @@ export const Input = memo(({ className, ...otherProps }: InputProps) => {
         onChange,
         readonly,
         name,
+        label = true,
     } = otherProps;
 
     const onInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -33,7 +34,7 @@ export const Input = memo(({ className, ...otherProps }: InputProps) => {
 
     return (
         <div className={classNames(cls.inputWrapper, {}, [className])}>
-            <label className={cls.label} htmlFor={name}>{`${t(name)}: `}</label>
+            {label && <label className={cls.label} htmlFor={name}>{`${t(name)}: `}</label>}
             <input
                 id={name}
                 className={cls.input}

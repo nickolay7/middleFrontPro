@@ -4,6 +4,7 @@ import { Currency } from '../../../../currency/model/types/currency';
 import { fetchProfileData } from './fetchProfileData';
 
 const data = {
+    id: '1',
     firstname: 'Nick',
     lastname: 'Semu',
     age: 17,
@@ -22,7 +23,7 @@ describe('fetchProfileData.test', () => {
         // mocked value on post request
         asyncThank.api.get.mockReturnValue(Promise.resolve({ data: fetchData }));
         // get action
-        const result = await asyncThank.callThunk();
+        const result = await asyncThank.callThunk('1');
 
         expect(asyncThank.api.get).toHaveBeenCalled();
         expect(result.meta.requestStatus).toBe('fulfilled');
@@ -33,7 +34,7 @@ describe('fetchProfileData.test', () => {
         const asyncThank = new TestAsyncThunk(fetchProfileData);
         asyncThank.api.get.mockReturnValue(Promise.resolve({ status: 403 }));
 
-        const result = await asyncThank.callThunk();
+        const result = await asyncThank.callThunk('1');
 
         expect(result.meta.requestStatus).toBe('rejected');
     });

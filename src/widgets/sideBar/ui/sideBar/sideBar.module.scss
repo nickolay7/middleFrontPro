@@ -32,8 +32,9 @@
 
 .collapseButton {
     position: absolute;
-    right: -35px;
-    bottom: 40px;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
     background: var(--inverted-bg-color);
 }
 
