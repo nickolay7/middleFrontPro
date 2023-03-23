@@ -13,6 +13,7 @@ import {
     ArticleDetailsCommentsSchema,
 } from 'pages/articleDetailsPage/model/types/articleDetailsCommentsSchema';
 import { AddCommentFormSchema } from 'features/addCommentForm';
+import { ArticlesPageSchema } from '../../../../pages/articlesPage';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -23,6 +24,7 @@ export interface StateSchema {
     profile?: ProfileSchema;
     articleDetails?: ArticleDetailsSchema;
     articleDetailsComments?: ArticleDetailsCommentsSchema;
+    articles?: ArticlesPageSchema;
 }
 
 export type StateSchemaKey = keyof StateSchema;

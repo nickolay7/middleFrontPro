@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { themeDecorator } from 'shared/config/decorators/themeDecorator';
 import { Theme } from 'app/providers/theme';
 import ArticlesPage, { ArticlesPageProps } from './articlesPage';
+import { storeDecorator } from '../../../shared/config/decorators/storeDecorator';
 
 export default {
     title: 'pages/ArticlesPage',
@@ -22,4 +23,5 @@ Dark.args = {
 
 Dark.decorators = [
     themeDecorator(Theme.DARK),
+    storeDecorator({}),
 ];
