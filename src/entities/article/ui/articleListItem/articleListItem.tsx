@@ -14,17 +14,15 @@ import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,
 } from '../../index';
 import { ArticleTextComponent } from '../articleTextComponent/articleTextComponent';
-import { ArticleListSkeleton } from './articleListSkeleton';
 import cls from './articleListItem.module.scss';
 
 export interface ArticleListItemProps {
   className?: string;
   article: Article;
   view?: ArticleView;
-  isLoading?: boolean;
 }
 export const ArticleListItem = memo(({ className, ...otherProps }: ArticleListItemProps) => {
-    const { article, view = ArticleView.LIST, isLoading } = otherProps;
+    const { article, view = ArticleView.LIST } = otherProps;
     /* eslint-disable  @typescript-eslint/no-unused-vars */
     const { t } = useTranslation();
     const navigate = useNavigate();
@@ -34,10 +32,6 @@ export const ArticleListItem = memo(({ className, ...otherProps }: ArticleListIt
     };
 
     const textBlock = article.blocks?.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
-
-    if (isLoading) {
-        return <ArticleListSkeleton view={ArticleView.LIST} />;
-    }
 
     if (view === ArticleView.PLATE) {
         return (

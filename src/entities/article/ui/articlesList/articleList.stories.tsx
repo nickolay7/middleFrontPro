@@ -1,20 +1,20 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { themeDecorator } from 'shared/config/decorators/themeDecorator';
 import { Theme } from 'app/providers/theme';
-import { ArticleList, ArticleListProps } from './articleList';
+import { ArticlesList, ArticlesListProps } from './articlesList';
 import { articleStateMock } from '../../model/mocks/articleStateMock';
 import { Article } from '../../model/types/article';
 
 export default {
     title: 'entities/Articles/ArticleList',
-    component: ArticleList,
+    component: ArticlesList,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticleList>;
+} as ComponentMeta<typeof ArticlesList>;
 
-const Template: ComponentStory<typeof ArticleList> = (args: ArticleListProps) => (
-    <ArticleList {...args} />
+const Template: ComponentStory<typeof ArticlesList> = (args: ArticlesListProps) => (
+    <ArticlesList {...args} />
 );
 
 export const Light = Template.bind({});

@@ -24,22 +24,6 @@ LightList.args = {
     view: ArticleView.LIST,
 };
 
-export const LightListLoading = Template.bind({});
-LightListLoading.args = {
-    className: '',
-    article: articleStateMock.articleDetails.data as Article,
-    view: ArticleView.LIST,
-    isLoading: true,
-};
-
-export const LightPlateLoading = Template.bind({});
-LightPlateLoading.args = {
-    className: '',
-    article: articleStateMock.articleDetails.data as Article,
-    view: ArticleView.PLATE,
-    isLoading: true,
-};
-
 export const LightPlate = Template.bind({});
 LightPlate.args = {
     className: '',
@@ -66,29 +50,5 @@ DarkPlate.args = {
 };
 
 DarkPlate.decorators = [
-    themeDecorator(Theme.DARK),
-];
-
-export const DarkPlateLoading = Template.bind({});
-DarkPlateLoading.args = {
-    className: '',
-    article: articleStateMock.articleDetails.data as Article,
-    view: ArticleView.PLATE,
-    isLoading: true,
-};
-
-DarkPlateLoading.decorators = [
-    themeDecorator(Theme.DARK),
-];
-
-export const DarkListLoading = Template.bind({});
-DarkListLoading.args = {
-    className: '',
-    article: articleStateMock.articleDetails.data as Article,
-    view: ArticleView.LIST,
-    isLoading: true,
-};
-
-DarkListLoading.decorators = [
     themeDecorator(Theme.DARK),
 ];

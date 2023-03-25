@@ -1,7 +1,5 @@
 .notFoundPage {
-    height: calc(100vh - var(--navBarHeight));
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-grow: 1;
 }

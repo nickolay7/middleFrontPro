@@ -11,6 +11,8 @@ import { StrokeColor, Icon } from 'shared/ui/icon';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { LinkPath } from 'widgets/sideBar/lib/types';
+import { Button, ButtonTheme } from 'shared/ui/button';
 import { articleDetailsReducer } from '../../model/slice/articleDetailsSlice';
 import { fetchArticleById } from '../../model/services/fetchArticleById';
 import { articleDetailsSelector } from '../../model/selectors/articleDetailsSelector';
@@ -20,8 +22,6 @@ import { ArticleImageComponent } from '../articleImageComponent/articleImageComp
 import { ArticleTextComponent } from '../articleTextComponent/articleTextComponent';
 
 import cls from './articleDetails.module.scss';
-import { LinkPath } from '../../../../widgets/sideBar/lib/types';
-import { Button, ButtonTheme } from '../../../../shared/ui/button';
 
 export interface ArticleDetailsProps {
   className?: string;
@@ -106,7 +106,6 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     }
 
     return (
-        // eslint-disable-next-line i18next/no-literal-string
         <div className={classNames(cls.articleDetails, {}, [className])}>
             {content}
         </div>

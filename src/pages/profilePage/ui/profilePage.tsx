@@ -15,6 +15,7 @@ import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
 import { Loader } from 'shared/ui/loader';
 import { Text, TextVariant } from 'shared/ui/text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
+import { Page } from 'shared/ui/page';
 import cls from './profilePage.module.scss';
 import { ProfileHeader } from './profileHeader';
 
@@ -61,7 +62,7 @@ export const ProfilePage = ({ className }: ProfileProps) => {
     }
 
     return (
-        <div className={classNames(cls.profile, {}, [className])}>
+        <Page className={classNames(cls.profile, {}, [className])}>
             <ProfileHeader readonly={readonly} />
             {
                 validationErrors && validationErrors
@@ -74,6 +75,6 @@ export const ProfilePage = ({ className }: ProfileProps) => {
                 readonly={readonly}
                 form={form}
             />
-        </div>
+        </Page>
     );
 };

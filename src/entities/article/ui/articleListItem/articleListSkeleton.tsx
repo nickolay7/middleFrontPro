@@ -7,11 +7,11 @@ import { ArticleView } from '../../index';
 
 export interface ArticleListSkeletonProps {
     className?: string;
-    view: ArticleView;
+    view?: ArticleView;
 }
 
 export const ArticleListSkeleton = memo(({ className, ...otherProps }: ArticleListSkeletonProps) => {
-    const { view } = otherProps;
+    const { view = ArticleView.PLATE } = otherProps;
 
     if (view === ArticleView.PLATE) {
         return (

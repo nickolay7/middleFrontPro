@@ -1,14 +1,20 @@
-import { memo } from 'react';
+import { memo, useCallback } from 'react';
 
 import { classNames } from 'shared/lib/helpers/classNames';
-import { ArticleList } from 'entities/article/ui/articleList/articleList';
 import { useDynamicModuleLoader, useInitialEffect } from 'shared/lib/hooks';
 import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
 import { ArticlesViewSwitcher } from 'features/articlesViewSwitcher';
-import { articlePageReducer, articlePageSelector, initView } from '../model/slice/articlesPageSlice';
+import { Page } from 'shared/ui/page';
+import { ArticlesList } from 'entities/article';
+import {
+    articlePageReducer, articlePageSelector, initView,
+} from '../model/slice/articlesPageSlice';
 import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
-import { articlesSelector } from '../model/selectors/articlesSelector/articlesSelector';
+import {
+    articlesSelector,
+} from '../model/selectors/articlesSelector/articlesSelector';
 import cls from './articlesPage.module.scss';
+import { fetchNextArticlesPage } from '../model/services/fetchNextArticlePage/fetchNextArticlesPage';
 
 export interface ArticlesPageProps {
   className?: string;
@@ -22,19 +28,23 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
         articles: articlePageReducer,
     };
 
-    useInitialEffect(async () => {
-        await dispatch(fetchArticlesList());
+    useDynamicModuleLoader(reducers, true);
+
+    useInitialEffect(() => {
         dispatch(initView());
+        dispatch(fetchArticlesList({ page: 1 }));
     });
 
-    useDynamicModuleLoader(reducers, true);
+    const onLoadNextPart = useCallback(() => {
+        dispatch(fetchNextArticlesPage());
+    }, [dispatch]);
 
     return (
         // eslint-disable-next-line i18next/no-literal-string
-        <div className={classNames(cls.articlesPage, {}, [className])}>
+        <Page onLoadNextPart={onLoadNextPart} className={classNames(cls.articlesPage, {}, [className])}>
             <ArticlesViewSwitcher view={articlesStates?.view} />
-            <ArticleList articles={articles} view={articlesStates?.view} isLoading={articlesStates?.isLoading} />
-        </div>
+            <ArticlesList articles={articles} view={articlesStates?.view} isLoading={articlesStates?.isLoading} />
+        </Page>
     );
 };
 
