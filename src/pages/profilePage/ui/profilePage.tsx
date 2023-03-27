@@ -15,7 +15,7 @@ import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
 import { Loader } from 'shared/ui/loader';
 import { Text, TextVariant } from 'shared/ui/text';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
-import { Page } from 'shared/ui/page';
+import { Page } from 'widgets/page';
 import cls from './profilePage.module.scss';
 import { ProfileHeader } from './profileHeader';
 

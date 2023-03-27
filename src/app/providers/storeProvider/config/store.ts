@@ -5,22 +5,21 @@ import {
 import { counterReducer } from 'entities/counter/model/counterSlice/counterSlice';
 import { userReducer } from 'entities/user/model/userSlice/userSlice';
 import { $api } from 'shared/api/api';
-import { To } from '@remix-run/router';
-import { NavigateOptions } from 'react-router/dist/lib/context';
 import { addCommentFormReducer } from 'features/addCommentForm';
+import { scrollPositionReducer } from 'widgets/page';
 import { StateSchema } from './stateSchema';
 import { createReducerManager } from './reducerManager';
 
 export const createReduxStore = (
     initialState?: StateSchema,
     asyncReducers?: ReducersMapObject<StateSchema>,
-    navigate?: (to: To, options?: NavigateOptions) => void,
 ) => {
     const rootReducer: ReducersMapObject<StateSchema> = {
         ...asyncReducers,
         counter: counterReducer,
         user: userReducer,
         addCommentForm: addCommentFormReducer,
+        scroll: scrollPositionReducer,
     };
 
     const reducerManager = createReducerManager(rootReducer);
@@ -33,7 +32,6 @@ export const createReduxStore = (
             thunk: {
                 extraArgument: {
                     api: $api,
-                    navigate,
                 },
             },
         }),

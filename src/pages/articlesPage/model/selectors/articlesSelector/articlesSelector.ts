@@ -5,3 +5,4 @@ export const articlesLimitSelector = (state: StateSchema) => state.articles?.lim
 export const articlesViewSelector = (state: StateSchema) => state.articles?.view;
 export const articlesPageNumberSelector = (state: StateSchema) => state.articles?.page || 1;
 export const articlesHasMoreSelector = (state: StateSchema) => state.articles?.hasMore;
+export const articlesInitSelector = (state: StateSchema) => state.articles?._init;

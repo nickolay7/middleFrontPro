@@ -38,6 +38,7 @@ export const articlesPageSlice = createSlice({
             }
 
             state.limit = state.view === ArticleView.LIST ? 4 : 9;
+            state._init = true;
         },
         setLimit: (state, action) => {
             state.limit = action.payload;

@@ -4,17 +4,17 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { useDynamicModuleLoader, useInitialEffect } from 'shared/lib/hooks';
 import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
 import { ArticlesViewSwitcher } from 'features/articlesViewSwitcher';
-import { Page } from 'shared/ui/page';
+import { Page } from 'widgets/page';
 import { ArticlesList } from 'entities/article';
 import {
-    articlePageReducer, articlePageSelector, initView,
+    articlePageReducer, articlePageSelector,
 } from '../model/slice/articlesPageSlice';
-import { fetchArticlesList } from '../model/services/fetchArticlesList/fetchArticlesList';
 import {
     articlesSelector,
 } from '../model/selectors/articlesSelector/articlesSelector';
 import cls from './articlesPage.module.scss';
 import { fetchNextArticlesPage } from '../model/services/fetchNextArticlePage/fetchNextArticlesPage';
+import { articlesInit } from '../model/services/articlesInit/articlesInit';
 
 export interface ArticlesPageProps {
   className?: string;
@@ -28,11 +28,10 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
         articles: articlePageReducer,
     };
 
-    useDynamicModuleLoader(reducers, true);
+    useDynamicModuleLoader(reducers, false);
 
     useInitialEffect(() => {
-        dispatch(initView());
-        dispatch(fetchArticlesList({ page: 1 }));
+        dispatch(articlesInit());
     });
 
     const onLoadNextPart = useCallback(() => {

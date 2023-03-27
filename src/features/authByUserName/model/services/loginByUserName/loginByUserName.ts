@@ -16,7 +16,7 @@ export const loginByUserName = createAsyncThunk<
 >(
     '@@login/fetchByUserNameAndPassword',
     async (data: LoginData, thunkApi) => {
-        const { extra: { api, navigate }, dispatch, rejectWithValue } = thunkApi;
+        const { extra: { api }, dispatch, rejectWithValue } = thunkApi;
 
         try {
             const response = await api.post('/login', data);
@@ -27,9 +27,7 @@ export const loginByUserName = createAsyncThunk<
 
             localStorage.setItem(USER_LOGIN_DATA, JSON.stringify(response.data));
             dispatch(setUserLoginData(response.data));
-            if (navigate) {
-                navigate('./about');
-            }
+            // removed navigate to /about
 
             return response.data;
         } catch (e) {

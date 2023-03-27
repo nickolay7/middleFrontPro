@@ -20,7 +20,7 @@ export const ArticlesList = memo(({ className, ...otherProps }: ArticlesListProp
 
     const skeletonsNumber = view === ArticleView.LIST ? 2 : 3;
     const skeletons = new Array(skeletonsNumber).fill(0).map(
-        () => <ArticleListSkeleton view={view} />,
+        () => <ArticleListSkeleton key={Math.random()} view={view} />,
     );
 
     return (

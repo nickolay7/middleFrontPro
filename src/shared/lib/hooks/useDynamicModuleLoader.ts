@@ -16,19 +16,22 @@ export const useDynamicModuleLoader = (
 ) => {
     const store = useStore() as ReduxStoreWithManager;
     const dispatch = useAppDispatch();
+    const reducersList = store.reducerManager.getReducerMap();
 
     useEffect(() => {
         const entries = Object.entries(reducers) as ReducerPair[];
         entries.forEach(([reducerName, reducer]) => {
-            store.reducerManager.add(reducerName, reducer);
-            dispatch({ type: '@init-reducer' });
+            if (!reducersList[reducerName]) {
+                store.reducerManager.add(reducerName, reducer);
+                dispatch({ type: `@init-${reducerName}-reducer` });
+            }
         });
 
         return () => {
             if (removeAfterUnmount) {
                 entries.forEach(([reducerName]) => {
                     store.reducerManager.remove(reducerName);
-                    dispatch({ type: '@remove-reducer' });
+                    dispatch({ type: `@remove-${reducerName}-reducer` });
                 });
             }
         };
