@@ -19,12 +19,10 @@ export const ArticlesViewSwitcher = memo(({ className, view }: ArticlesViewSwitc
     const dispatch = useAppDispatch();
     const switchers: Switchers[] = [
         {
-            // @ts-ignore
             icon: PlateIcon,
             view: ArticleView.PLATE,
         },
         {
-            // @ts-ignore
             icon: ListIcon,
             view: ArticleView.LIST,
         },

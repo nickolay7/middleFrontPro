@@ -2,6 +2,11 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { ChangeEvent } from 'react';
 import cls from './select.module.scss';
 
+export interface SelectOptionData {
+    value: string;
+    content: string;
+}
+
 interface SelectProps {
   className?: string;
   label?: string;
@@ -9,14 +14,14 @@ interface SelectProps {
   onChange?: (value: string, key: string) => void;
   disabled?: boolean;
   name: string;
-  options?: (string | number)[];
+  options?: SelectOptionData[];
 }
 export const Select = ({
     className, label, value, onChange, disabled, name, options,
 }: SelectProps) => {
-    const opt = options?.map((key) => (
-        <option key={key}>
-            {key}
+    const opt = options?.map(({ value, content }) => (
+        <option key={value} value={value}>
+            {content}
         </option>
     ));
 
@@ -32,7 +37,7 @@ export const Select = ({
                 onChange={onSelect}
                 className={classNames(cls.select, {}, [className])}
                 disabled={disabled}
-                defaultValue={value}
+                value={value}
             >
                 {opt}
             </select>

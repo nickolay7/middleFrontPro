@@ -16,6 +16,11 @@ export const CurrencySelect = ({ className, ...otherProps }: CurrencySelectProps
         value, disabled, name, onChange,
     } = otherProps;
 
+    const opt = Object.entries(Currency).map(([key, value]) => ({
+        value,
+        content: key,
+    }));
+
     return (
         <Select
             className={className}
@@ -24,7 +29,7 @@ export const CurrencySelect = ({ className, ...otherProps }: CurrencySelectProps
             disabled={disabled}
             name={name}
             onChange={onChange}
-            options={Object.keys(Currency)}
+            options={opt}
         />
     );
 };

@@ -16,6 +16,11 @@ export const CountrySelect = ({ className, ...otherProps }: CountrySelectProps) 
         value, disabled, name, onChange,
     } = otherProps;
 
+    const opt = Object.entries(Countries).map(([key, value]) => ({
+        value,
+        content: key,
+    }));
+
     return (
         <Select
             className={className}
@@ -24,7 +29,7 @@ export const CountrySelect = ({ className, ...otherProps }: CountrySelectProps) 
             disabled={disabled}
             name={name}
             onChange={onChange}
-            options={Object.keys(Countries)}
+            options={opt}
         />
     );
 };

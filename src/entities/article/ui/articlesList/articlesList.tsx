@@ -1,5 +1,7 @@
 import { memo } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames';
+import { Text } from 'shared/ui/text';
+import { useTranslation } from 'react-i18next';
 import cls from './articleList.module.scss';
 import { Article, ArticleView } from '../../index';
 import { ArticleListItem } from '../articleListItem/articleListItem';
@@ -13,6 +15,11 @@ export interface ArticlesListProps {
 }
 export const ArticlesList = memo(({ className, ...otherProps }: ArticlesListProps) => {
     const { articles, view, isLoading } = otherProps;
+    const { t } = useTranslation();
+
+    if (!articles?.length && !isLoading) {
+        return <Text title={t('Статьи не найдены')} />;
+    }
 
     const renderList = articles?.map((article) => (
         <ArticleListItem key={article.id} view={view} article={article} />

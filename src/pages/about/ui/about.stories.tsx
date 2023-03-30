@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { themeDecorator } from 'shared/config/decorators/themeDecorator';
 import { Theme } from 'app/providers/theme';
+import { storeDecorator } from 'shared/config/decorators/storeDecorator';
 import About from './about';
-import { storeDecorator } from '../../../shared/config/decorators/storeDecorator';
 
 export default {
     title: 'pages/About',

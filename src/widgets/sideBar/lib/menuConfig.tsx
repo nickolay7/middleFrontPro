@@ -13,26 +13,22 @@ export const useMenuConfig = (): MenuItem[] => {
         {
             to: LinkPath.MAIN,
             title: 'Домой',
-            // @ts-ignore
             Icon: Home,
         },
         {
             to: LinkPath.ABOUT,
             title: 'О нас',
-            // @ts-ignore
             Icon: About,
         },
         {
             to: `${LinkPath.PROFILE}${user?.id}`,
             title: 'Профиль',
-            // @ts-ignore
             Icon: Profile,
             authOnly: true,
         },
         {
             to: LinkPath.ARTICLES,
             title: 'Статьи',
-            // @ts-ignore
             Icon: Article,
             authOnly: true,
         },

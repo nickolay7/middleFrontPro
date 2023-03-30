@@ -1,20 +1,24 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { themeDecorator } from 'shared/config/decorators/themeDecorator';
 import { Theme } from 'app/providers/theme';
-import ArticlesPage, { ArticlesPageProps } from './articlesPage';
-import { storeDecorator } from '../../../shared/config/decorators/storeDecorator';
+import { ArticleTypeTabs, ArticleTypeTabsProps } from './articleTypeTabs';
 
 export default {
-    title: 'pages/ArticlesPage',
-    component: ArticlesPage,
+    title: 'entities/ArticleTypeTabs',
+    component: ArticleTypeTabs,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof ArticlesPage>;
+} as ComponentMeta<typeof ArticleTypeTabs>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args: ArticlesPageProps) => (
-    <ArticlesPage {...args} />
+const Template: ComponentStory<typeof ArticleTypeTabs> = (args: ArticleTypeTabsProps) => (
+    <ArticleTypeTabs {...args} />
 );
+
+export const Light = Template.bind({});
+Light.args = {
+    className: '',
+};
 
 export const Dark = Template.bind({});
 Dark.args = {
@@ -23,5 +27,4 @@ Dark.args = {
 
 Dark.decorators = [
     themeDecorator(Theme.DARK),
-    storeDecorator({}),
 ];

@@ -1,5 +1,6 @@
 import { TestAsyncThunk } from 'shared/lib/helpers/tests/testAsyncThank';
-import { ArticleView } from 'entities/article';
+import { ArticleType, ArticleView } from 'entities/article';
+import { ArticleSortField, OrderBy } from 'shared/types/filters';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 import { articlesInit } from './articlesInit';
 
@@ -17,10 +18,14 @@ describe('articles init', () => {
                 isLoading: false,
                 hasMore: true,
                 _init: false,
+                order: OrderBy.ASC,
+                search: '',
+                sort: ArticleSortField.CREATED_AT,
+                type: ArticleType.ALL_ARTICLES,
             },
         });
 
-        await thunk.callThunk();
+        await thunk.callThunk(new URLSearchParams(''));
 
         expect(thunk.dispatch).toBeCalledTimes(4);
         expect(fetchArticlesList).toHaveBeenCalled();
@@ -36,10 +41,14 @@ describe('articles init', () => {
                 isLoading: false,
                 hasMore: false,
                 _init: true,
+                order: OrderBy.ASC,
+                search: '',
+                sort: ArticleSortField.CREATED_AT,
+                type: ArticleType.ALL_ARTICLES,
             },
         });
 
-        await thunk.callThunk();
+        await thunk.callThunk(new URLSearchParams(''));
 
         expect(thunk.dispatch).not.toBeCalledTimes(1);
         expect(fetchArticlesList).not.toHaveBeenCalled();

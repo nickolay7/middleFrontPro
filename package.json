@@ -18,7 +18,7 @@
     "storybook": "start-storybook -p 6006 -c ./config/storybook",
     "build:storybook": "build-storybook -c ./config/storybook",
     "test:ui:ci": "loki --requireReference --reactUri file:./storybook-static",
-    "test:ui:ok": "loki approve",
+    "test:ui:ok": "loki approve && loki update --reactUri=\"file:./storybook-static\"",
     "test:ui:report": "npm run test:ui:json && npm run test:ui:html",
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
