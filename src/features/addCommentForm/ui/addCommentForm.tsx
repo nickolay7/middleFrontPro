@@ -17,7 +17,7 @@ export interface AddCommentFormProps {
 
 const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) => {
     const { t } = useTranslation();
-    const { text } = useAppSelector(addCommentFormSelector);
+    const data = useAppSelector(addCommentFormSelector);
     const dispatch = useAppDispatch();
 
     const reducers = {
@@ -31,9 +31,9 @@ const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) 
     }, [dispatch]);
 
     const sendCommentHandler = useCallback(() => {
-        onSendComment(text);
+        onSendComment(data?.text);
         dispatch(setComment(''));
-    }, [dispatch, onSendComment, text]);
+    }, [dispatch, onSendComment, data?.text]);
 
     return (
         <div className={classNames(cls.addCommentForm, {}, [className])}>
@@ -42,7 +42,7 @@ const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) 
                     placeholder={t('Введите комментарий')}
                     // eslint-disable-next-line i18next/no-literal-string
                     name="comment"
-                    value={text}
+                    value={data?.text}
                     onChange={onChange}
                     label={false}
                 />

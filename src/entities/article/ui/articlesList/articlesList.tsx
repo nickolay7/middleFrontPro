@@ -14,7 +14,9 @@ export interface ArticlesListProps {
   view?: ArticleView;
 }
 export const ArticlesList = memo(({ className, ...otherProps }: ArticlesListProps) => {
-    const { articles, view, isLoading } = otherProps;
+    const {
+        articles, view, isLoading,
+    } = otherProps;
     const { t } = useTranslation();
 
     if (!articles?.length && !isLoading) {
@@ -22,7 +24,8 @@ export const ArticlesList = memo(({ className, ...otherProps }: ArticlesListProp
     }
 
     const renderList = articles?.map((article) => (
-        <ArticleListItem key={article.id} view={view} article={article} />
+        // eslint-disable-next-line i18next/no-literal-string
+        <ArticleListItem target="_blank" key={article.id} view={view} article={article} />
     ));
 
     const skeletonsNumber = view === ArticleView.LIST ? 2 : 3;

@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { HTMLAttributeAnchorTarget, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/helpers/classNames';
@@ -8,51 +8,49 @@ import View from 'shared/assets/icons/eye-20-20.svg';
 import { Card } from 'shared/card/ui/card';
 import { Avatar } from 'shared/ui/avatar';
 import { Button } from 'shared/ui/button';
-import { useNavigate } from 'react-router-dom';
 import { LinkPath } from 'widgets/sideBar/lib/types';
 import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,
 } from '../../index';
 import { ArticleTextComponent } from '../articleTextComponent/articleTextComponent';
 import cls from './articleListItem.module.scss';
+import { MenuLink } from '../../../../shared/ui/menuLink';
 
 export interface ArticleListItemProps {
   className?: string;
   article: Article;
   view?: ArticleView;
+  target?: HTMLAttributeAnchorTarget;
 }
 export const ArticleListItem = memo(({ className, ...otherProps }: ArticleListItemProps) => {
-    const { article, view = ArticleView.LIST } = otherProps;
+    const { article, view = ArticleView.LIST, target } = otherProps;
     /* eslint-disable  @typescript-eslint/no-unused-vars */
     const { t } = useTranslation();
-    const navigate = useNavigate();
-
-    const onOpenArticle = () => {
-        navigate(LinkPath.ARTICLES + article.id);
-    };
 
     const textBlock = article.blocks?.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;
 
     if (view === ArticleView.PLATE) {
         return (
-            <Card onClick={onOpenArticle} className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
-                <div className={cls.imgWrapper}>
-                    <img src={article.img} className={cls.img} alt={article.title} />
-                    <Text text={article.createdAt} className={cls.createdAt} />
-                </div>
-                <div className={cls.content}>
-                    <div className={cls.topicsAndViews}>
-                        <Text text={article.type} className={cls.topics} />
-                        <div className={cls.countView}>
-                            <Text text={String(article.views)} className={cls.views} />
-                            <Icon Svg={View} stroke={StrokeColor.PRIMARY} />
+            <MenuLink target={target} to={LinkPath.ARTICLES + article.id}>
+                <Card className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
+                    <div className={cls.imgWrapper}>
+                        <img src={article.img} className={cls.img} alt={article.title} />
+                        <Text text={article.createdAt} className={cls.createdAt} />
+                    </div>
+                    <div className={cls.content}>
+                        <div className={cls.topicsAndViews}>
+                            <Text text={article.type} className={cls.topics} />
+                            <div className={cls.countView}>
+                                <Text text={String(article.views)} className={cls.views} />
+                                <Icon Svg={View} stroke={StrokeColor.PRIMARY} />
+                            </div>
+                        </div>
+                        <div className={cls.title}>
+                            <Text text={article.title} />
                         </div>
                     </div>
-                    <div className={cls.title}>
-                        <Text text={article.title} />
-                    </div>
-                </div>
-            </Card>
+                </Card>
+            </MenuLink>
         );
     }
 
@@ -74,7 +72,10 @@ export const ArticleListItem = memo(({ className, ...otherProps }: ArticleListIt
                 {textBlock && <ArticleTextComponent block={textBlock} />}
             </div>
             <div className={cls.footer}>
-                <Button onClick={onOpenArticle}>{`${t('Читать дальше')}...`}</Button>
+                {/* eslint-disable-next-line i18next/no-literal-string */}
+                <MenuLink target="_blank" to={LinkPath.ARTICLES + article.id}>
+                    <Button>{`${t('Читать дальше')}...`}</Button>
+                </MenuLink>
                 <div className={cls.countView}>
                     <Text text={String(article.views)} className={cls.views} />
                     <Icon Svg={View} stroke={StrokeColor.PRIMARY} />

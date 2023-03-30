@@ -23,10 +23,15 @@ export const MenuLink = memo((props: AppLinkProps) => {
         children,
         variant = LinkThemes.PRIMARY,
         classname = '',
+        ...otherProps
     } = props;
 
     return (
-        <Link className={classNames(cls.navLink, {}, [classname, cls[variant]])} to={to}>
+        <Link
+            className={classNames(cls.navLink, {}, [classname, cls[variant]])}
+            to={to}
+            {...otherProps}
+        >
             {children}
         </Link>
     );
