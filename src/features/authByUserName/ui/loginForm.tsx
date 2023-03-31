@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 
 import { Input } from 'shared/ui/input';
-import { Button } from 'shared/ui/button';
+import { Button, ButtonTheme } from 'shared/ui/button';
 import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider/config/hooks';
 import { Spinner } from 'shared/ui/spinner';
 import { Text, TextVariant } from 'shared/ui/text';
@@ -54,6 +54,7 @@ const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
                 value={username}
                 placeholder={t('введите имя')}
                 autoFocus
+                label={false}
             />
             <Input
                 // eslint-disable-next-line
@@ -62,10 +63,12 @@ const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
                 onChange={onSetPassword}
                 value={password}
                 placeholder={t('введите пароль')}
+                label={false}
             />
             <Button
                 onClick={onSignIn}
                 disabled={isLoading}
+                variant={ButtonTheme.OUTLINE}
             >
                 {t('Вход')}
             </Button>
