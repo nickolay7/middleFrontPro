@@ -1,11 +1,11 @@
 import { memo, useCallback } from 'react';
+import { useSearchParams } from 'react-router-dom';
 
 import { classNames } from 'shared/lib/helpers/classNames';
 import { useDynamicModuleLoader, useInitialEffect } from 'shared/lib/hooks';
 import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
 import { Page } from 'widgets/page';
 import { ArticlesList } from 'entities/article';
-import { useSearchParams } from 'react-router-dom';
 import {
     articlePageReducer, articlePageSelector,
 } from '../../model/slice/articlesPageSlice';

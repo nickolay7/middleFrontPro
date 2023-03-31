@@ -73,7 +73,7 @@ export const ArticleListItem = memo(({ className, ...otherProps }: ArticleListIt
             </div>
             <div className={cls.footer}>
                 {/* eslint-disable-next-line i18next/no-literal-string */}
-                <MenuLink target="_blank" to={LinkPath.ARTICLES + article.id}>
+                <MenuLink to={LinkPath.ARTICLES + article.id}>
                     <Button>{`${t('Читать дальше')}...`}</Button>
                 </MenuLink>
                 <div className={cls.countView}>

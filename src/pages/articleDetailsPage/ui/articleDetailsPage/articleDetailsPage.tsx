@@ -9,20 +9,23 @@ import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader'
 import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
 import { useInitialEffect } from 'shared/lib/hooks/useInitialEffect';
 import { AddCommentForm } from 'features/addCommentForm';
-import { commentsSelector } from '../model/slice/articleDetailsPageCommentsSlice';
+import { commentsSelector } from '../../model/slice/articleDetailsPageCommentsSlice';
 import {
     getArticleCommentsStateSelector,
-} from '../model/selectors/getArticleCommentsStateSelector/getArticleCommentsStateSelector';
-import { fetchCommentsByArticleId } from '../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
-import { addCommentForArticle } from '../model/services/addCommentForArticle/addCommentForArticle';
-import { recommendationsSelector } from '../model/slice/articleDetailsPageRecommendationsSlice';
-
-import cls from './articleDetailsPage.module.scss';
+} from '../../model/selectors/getArticleCommentsStateSelector/getArticleCommentsStateSelector';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
+import { recommendationsSelector } from '../../model/slice/articleDetailsPageRecommendationsSlice';
 import {
     ArticlePageRecommendationsIsLoadingSelector,
-} from '../model/selectors/articlePageRecommendationsSelector/articlePageRecommendationsSelector';
-import { fetchArticleRecommendations } from '../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
-import { articleDetailsPageReducers } from '../model/slice';
+} from '../../model/selectors/articlePageRecommendationsSelector/articlePageRecommendationsSelector';
+import {
+    fetchArticleRecommendations,
+} from '../../model/services/fetchArticleRecommendations/fetchArticleRecommendations';
+import { articleDetailsPageReducers } from '../../model/slice';
+import { HeaderDetailsPageAsync as HeaderDetailsPage } from '../headerDetailsPage/headerDetailsPageAsync';
+
+import cls from './articleDetailsPage.module.scss';
 
 export interface ArticleDetailsPageProps {
   className?: string;
@@ -56,6 +59,7 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
 
     return (
         <div className={classNames(cls.articleDetailsPage, {}, [className])}>
+            <HeaderDetailsPage />
             <ArticleDetails id={id} />
             <Text className={cls.recommendationsTitle} title={t('Рекомендации')} />
             <ArticlesList
