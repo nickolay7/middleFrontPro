@@ -1,5 +1,5 @@
 import { classNames } from 'shared/lib/helpers/classNames';
-import { Spinner } from 'shared/ui/spinner';
+import { Spinner } from '../../spinner';
 import cls from './loader.module.scss';
 
 interface LoaderProps {

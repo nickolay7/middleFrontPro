@@ -2,7 +2,7 @@ import { ButtonHTMLAttributes, memo } from 'react';
 
 import { classNames } from 'shared/lib/helpers/classNames';
 
-import cls from './Button.module.scss';
+import cls from './button.module.scss';
 
 export enum ButtonTheme {
     CLEAR = 'clear',

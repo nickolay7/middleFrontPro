@@ -23,6 +23,7 @@ module.exports = {
         '@typescript-eslint',
         'i18next',
         'react-hooks',
+        'fsd-for-test',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -54,6 +55,7 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
         'jsx-a11y/no-autofocus': 'off',
+        'fsd-for-test/path-checker': 'error',
     },
     globals: {
         __IS_DEV__: true,
@@ -65,6 +67,12 @@ module.exports = {
             files: ['**/src/**/*.test.ts', '**/src/**/*.test.tsx'],
             rules: {
                 'i18next/no-literal-string': 'off',
+            },
+        },
+        {
+            files: ['**/templates/**/**'],
+            rules: {
+                'fsd-for-test/path-checker': 'off',
             },
         },
     ],

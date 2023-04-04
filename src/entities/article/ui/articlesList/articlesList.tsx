@@ -1,11 +1,12 @@
 import { memo } from 'react';
+import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { Text } from 'shared/ui/text';
-import { useTranslation } from 'react-i18next';
-import cls from './articleList.module.scss';
 import { Article, ArticleView } from '../../index';
 import { ArticleListItem } from '../articleListItem/articleListItem';
 import { ArticleListSkeleton } from '../articleListItem/articleListSkeleton';
+
+import cls from './articleList.module.scss';
 
 export interface ArticlesListProps {
   className?: string;
