@@ -5,8 +5,9 @@ import { Avatar } from 'shared/ui/avatar';
 import { Text } from 'shared/ui/text';
 import { NavLink } from 'react-router-dom';
 import { LinkPath } from 'widgets/sideBar/lib/types';
-import cls from './commentCard.module.scss';
 import { Comment } from '../../model/types/comment';
+
+import cls from './commentCard.module.scss';
 
 export interface CommentCardProps {
   className?: string;

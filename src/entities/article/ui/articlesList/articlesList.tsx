@@ -7,6 +7,7 @@ import { ArticleListItem } from '../articleListItem/articleListItem';
 import { ArticleListSkeleton } from '../articleListItem/articleListSkeleton';
 
 import cls from './articleList.module.scss';
+import { HStack } from '../../../../shared/ui/stack';
 
 export interface ArticlesListProps {
   className?: string;
@@ -35,9 +36,9 @@ export const ArticlesList = memo(({ className, ...otherProps }: ArticlesListProp
     );
 
     return (
-        <div className={classNames(cls.articleList, {}, [className])}>
+        <HStack gap="gap8" className={classNames(cls.articleList, {}, [className])}>
             {articles ? renderList : 'list is empty'}
             { isLoading && skeletons }
-        </div>
+        </HStack>
     );
 });

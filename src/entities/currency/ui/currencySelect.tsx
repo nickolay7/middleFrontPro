@@ -24,7 +24,7 @@ export const CurrencySelect = ({ className, ...otherProps }: CurrencySelectProps
     return (
         <Select
             className={className}
-            label={`${t('Валюта')}: `}
+            label={`${t('Валюта')}`}
             value={value}
             disabled={disabled}
             name={name}

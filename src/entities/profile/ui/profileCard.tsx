@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { Input } from 'shared/ui/input';
 import { Avatar } from 'shared/ui/avatar/ui/avatar';
+import { HStack, VStack } from 'shared/ui/stack';
 import { IProfile } from '../model/types/IProfile';
 
 import cls from './profile.module.scss';
@@ -22,14 +23,16 @@ export const ProfileCard = ({
     const profileDataPairs = Object.entries(form) as [keyof IProfile, string][];
 
     return (
-        <div className={classNames(cls.profile, { [cls.readonlyBorder]: !readonly }, [className])}>
-            <div className={cls.wrap}>
+        <VStack
+            gap="gap8"
+            className={classNames(cls.profile, { [cls.readonlyBorder]: !readonly }, [className])}
+        >
+            <HStack justify="justifyCenter">
                 {
-                    // eslint-disable-next-line
                     form.avatar && <Avatar src={form.avatar} alt="pic" />
                 }
-            </div>
-            <div className={cls.data}>
+            </HStack>
+            <VStack gap="gap8" align="alignEnd" className={cls.data}>
                 {
                     profileDataPairs.map(([key, value]) => {
                         if (key === 'currency') {
@@ -69,7 +72,7 @@ export const ProfileCard = ({
                         );
                     })
                 }
-            </div>
-        </div>
+            </VStack>
+        </VStack>
     );
 };

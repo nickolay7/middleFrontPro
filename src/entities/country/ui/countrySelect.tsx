@@ -24,7 +24,7 @@ export const CountrySelect = ({ className, ...otherProps }: CountrySelectProps) 
     return (
         <Select
             className={className}
-            label={`${t('Страна')}: `}
+            label={`${t('Страна')}`}
             value={value}
             disabled={disabled}
             name={name}

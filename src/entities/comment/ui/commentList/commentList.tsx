@@ -4,7 +4,9 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { Text } from 'shared/ui/text';
 import { Comment } from '../../model/types/comment';
 import { CommentCard } from '../commentCard/commentCard';
+
 import cls from './commentList.module.scss';
+import { VStack } from '../../../../shared/ui/stack';
 
 export interface CommentListProps {
   className?: string;
@@ -15,13 +17,13 @@ export const CommentList = memo(({ className, comments, isLoading }: CommentList
     const { t } = useTranslation();
 
     return (
-        <div className={classNames(cls.commentList, {}, [className])}>
+        <VStack gap="gap8" className={classNames(cls.commentList, {}, [className])}>
             {
                 comments
                     ? comments
                         ?.map((comment) => <CommentCard key={comment.id} comment={comment} isLoading={isLoading} />)
                     : <Text text={t('Комментарии отсутствуют')} />
             }
-        </div>
+        </VStack>
     );
 });

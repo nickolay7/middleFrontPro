@@ -6,9 +6,10 @@ import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
 import {
     cancelEditing, setReadonly, upsetReadonly, updateProfileData, profileData,
 } from 'entities/profile';
+import { authUserSelector } from 'entities/user';
+import { HStack } from 'shared/ui/stack';
 
 import cls from './profileHeader.module.scss';
-import { authUserSelector } from '../../../entities/user';
 
 interface ProfileHeaderProps {
     className?: string;
@@ -35,7 +36,10 @@ export const ProfileHeader = ({ className, readonly }: ProfileHeaderProps) => {
     };
 
     return (
-        <div className={classNames(cls.profileHeader, {}, [className])}>
+        <HStack
+            justify="justifyBetween"
+            className={classNames(cls.profileHeader, {}, [className])}
+        >
             <Text title={t('Профиль')} />
             {
                 isAuthUser && (readonly ? (
@@ -54,6 +58,6 @@ export const ProfileHeader = ({ className, readonly }: ProfileHeaderProps) => {
                     </div>
                 ))
             }
-        </div>
+        </HStack>
     );
 };

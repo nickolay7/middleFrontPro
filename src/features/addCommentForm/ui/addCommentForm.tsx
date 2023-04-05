@@ -9,6 +9,7 @@ import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader'
 import cls from './addCommentForm.module.scss';
 import { addCommentFormSelector } from '../model/selectors/addCommentFormSelector/addCommentFormSelector';
 import { addCommentFormReducer, setComment } from '../model/slices/addCommentFormSlice';
+import { HStack } from '../../../shared/ui/stack';
 
 export interface AddCommentFormProps {
   className?: string;
@@ -37,7 +38,7 @@ const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) 
 
     return (
         <div className={classNames(cls.addCommentForm, {}, [className])}>
-            <div className={cls.wrap}>
+            <HStack justify="justifyBetween" className={cls.wrap}>
                 <Input
                     placeholder={t('Введите комментарий')}
                     // eslint-disable-next-line i18next/no-literal-string
@@ -47,7 +48,7 @@ const AddCommentForm = memo(({ className, onSendComment }: AddCommentFormProps) 
                     label={false}
                 />
                 <Button onClick={sendCommentHandler}>{t('Сохранить')}</Button>
-            </div>
+            </HStack>
         </div>
     );
 });

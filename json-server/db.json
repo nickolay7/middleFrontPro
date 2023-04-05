@@ -504,6 +504,18 @@
       "userId": "1",
       "text": "Good news!",
       "id": "MosWxJ5"
+    },
+    {
+      "articleId": "12",
+      "userId": "1",
+      "text": "some comment",
+      "id": "GlDwUJc"
+    },
+    {
+      "articleId": "12",
+      "userId": "1",
+      "text": "other comment",
+      "id": "SQoo38G"
     }
   ],
   "users": [

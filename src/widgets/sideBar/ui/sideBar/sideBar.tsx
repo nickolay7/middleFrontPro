@@ -4,6 +4,7 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { Button, ButtonTheme } from 'shared/ui/button';
 import { ThemeSwitcher } from 'widgets/themeSwitcher';
 import { LangSwitcher } from 'widgets/langSwitcher';
+import { VStack } from 'shared/ui/stack';
 import { useMenuConfig } from '../../lib/menuConfig';
 import { SideBarItem } from '../sideBarItem/sideBarItem';
 import cls from './sideBar.module.scss';
@@ -25,11 +26,16 @@ export const SideBar = memo(({ className }: SideBarProps) => {
     };
 
     return (
-        <div
+        <VStack
             data-testid="sidebar"
+            justify="justifyBetween"
             className={classNames(cls.sideBar, { [cls.close]: isOpen }, [className])}
         >
-            <div className={classNames(cls.links, { [cls.linksSideBarCollapsed]: isOpen })}>
+            <VStack
+                align="alignStart"
+                gap="gap8"
+                className={classNames(cls.links, { [cls.linksSideBarCollapsed]: isOpen })}
+            >
                 {menuConfig.map(({
                     to, title, Icon, authOnly,
                 }) => (
@@ -42,7 +48,7 @@ export const SideBar = memo(({ className }: SideBarProps) => {
                         authOnly={authOnly}
                     />
                 ))}
-            </div>
+            </VStack>
             <div className={classNames(cls.switchersBox, switchersBoxMode)}>
                 <ThemeSwitcher />
                 <LangSwitcher variant={ButtonTheme.OUTLINE_INVERTED} short={isOpen} />
@@ -55,6 +61,6 @@ export const SideBar = memo(({ className }: SideBarProps) => {
             >
                 {!isOpen ? '<' : '>'}
             </Button>
-        </div>
+        </VStack>
     );
 });

@@ -36,7 +36,7 @@ export const Input = memo(({ className, ...otherProps }: InputProps) => {
         <div className={classNames(cls.inputWrapper, {}, [className])}>
             {label && (
                 <label className={cls.label} htmlFor={name}>
-                    {`${t(name)}: `}
+                    {`${t(name)} `}
                 </label>
             )}
             <input
