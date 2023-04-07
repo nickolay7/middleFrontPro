@@ -7,6 +7,8 @@ import { LoginModal } from 'features/authByUserName';
 import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider/config/hooks';
 import { authUserSelector, User } from 'entities/user';
 import { setUserLogout } from 'entities/user/model/userSlice/userSlice';
+import { Dropdown } from 'shared/ui/dropdown/ui/dropdown';
+import { Avatar } from 'shared/ui/avatar';
 import { LinkPath } from '../../sideBar/lib/types';
 
 import cls from './navBar.module.scss';
@@ -38,20 +40,32 @@ export const NavBar = memo(() => {
             {
                 authData
                     ? (
-                        <Button
-                            variant={ButtonTheme.OUTLINE_INVERTED}
-                            onClick={onLogout}
-                        >
-                            {t('Выход')}
-                        </Button>
+                        <Dropdown
+                            direction="down-left"
+                            trigger={<Avatar size={30} src={authData?.avatar} />}
+                            items={[
+                                {
+                                    content: t('Выход'),
+                                    onClick: onLogout,
+                                },
+                                {
+                                    content: t('Профиль'),
+                                    href: `${LinkPath.PROFILE}${authData.id}`,
+                                },
+                            ]}
+                        />
                     )
                     : (
-                        <Button
-                            variant={ButtonTheme.OUTLINE_INVERTED}
-                            onClick={onModalToggle}
-                        >
-                            {t('Вход')}
-                        </Button>
+                        <Dropdown
+                            direction="down-left"
+                            trigger={t('Вход')}
+                            items={[
+                                {
+                                    content: t('Вход'),
+                                    onClick: onModalToggle,
+                                },
+                            ]}
+                        />
                     )
             }
             {

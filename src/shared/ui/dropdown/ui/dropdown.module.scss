@@ -1,0 +1,40 @@
+.dropdown {
+    position: relative;
+}
+
+.btn {
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--inverted-primary-color);
+    cursor: pointer;
+}
+
+.items {
+    list-style: none;
+    background: var(--dropdown-bg);
+    position: absolute;
+    width: 150px;
+    border-radius: 5px;
+    margin-top: 2px;
+    cursor: pointer;
+    text-align: center;
+
+    .link {
+        text-decoration: none;
+        color: var(--primary-color);
+    }
+}
+
+.active {
+    background: var(--card-bg);
+}
+
+.storyWrapper {
+    padding: 200px;
+    background: var(--primary-color);
+}
+
+.downLeft {
+    transform: translateX(-80%);
+}

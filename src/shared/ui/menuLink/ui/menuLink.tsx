@@ -1,6 +1,5 @@
 import { Link, LinkProps } from 'react-router-dom';
-import { memo } from 'react';
-
+import { ForwardedRef, forwardRef } from 'react';
 import { classNames } from 'shared/lib/helpers';
 import cls from './menuLink.module.scss';
 
@@ -17,7 +16,7 @@ export interface AppLinkProps extends LinkProps {
   to: string;
 }
 
-export const MenuLink = memo((props: AppLinkProps) => {
+export const MenuLink = forwardRef((props: AppLinkProps, ref:ForwardedRef<HTMLAnchorElement>) => {
     const {
         to,
         children,
@@ -28,6 +27,7 @@ export const MenuLink = memo((props: AppLinkProps) => {
 
     return (
         <Link
+            ref={ref}
             className={classNames(cls.navLink, {}, [classname, cls[variant]])}
             to={to}
             {...otherProps}

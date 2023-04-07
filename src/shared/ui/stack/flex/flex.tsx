@@ -1,4 +1,4 @@
-import { ReactNode } from 'react';
+import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames';
 import {
     FlexAlign, FlexDirection, FlexGap, FlexJustify,
@@ -6,7 +6,9 @@ import {
 
 import cls from './flex.module.scss';
 
-export interface FlexProps {
+type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+
+export interface FlexProps extends DivProps{
   className?: string;
   children: ReactNode;
   justify?: FlexJustify;

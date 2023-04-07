@@ -4,11 +4,12 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { Input } from 'shared/ui/input';
 import { Avatar } from 'shared/ui/avatar/ui/avatar';
 import { HStack, VStack } from 'shared/ui/stack';
+import { ListBox } from 'shared/ui/listBox/listBox';
 import { IProfile } from '../model/types/IProfile';
+import { Currency } from '../../currency/model/types/currency';
+import { Countries } from '../../country/model/types/country';
 
 import cls from './profile.module.scss';
-import { CurrencySelect } from '../../currency';
-import { CountrySelect } from '../../country';
 
 export interface ProfileCardProps {
   className?: string;
@@ -20,7 +21,17 @@ export const ProfileCard = ({
     className, form, readonly, onChangeHandler,
 }: ProfileCardProps) => {
     const { t } = useTranslation('profile');
+
     const profileDataPairs = Object.entries(form) as [keyof IProfile, string][];
+
+    const currencyOptions = Object.entries(Currency).map(([key, value]) => ({
+        value,
+        content: key,
+    }));
+    const countryOptions = Object.entries(Countries).map(([key, value]) => ({
+        value,
+        content: key,
+    }));
 
     return (
         <VStack
@@ -37,24 +48,34 @@ export const ProfileCard = ({
                     profileDataPairs.map(([key, value]) => {
                         if (key === 'currency') {
                             return (
-                                <CurrencySelect
+                                <ListBox
                                     key={key}
                                     value={value}
-                                    disabled={readonly}
+                                    label={`${t('Валюта')}`}
+                                    readonly={readonly}
                                     name={key}
+                                    width={220}
+                                    position="alignEnd"
+                                    direction="top"
                                     onChange={onChangeHandler}
+                                    items={currencyOptions}
                                 />
                             );
                         }
 
                         if (key === 'country') {
                             return (
-                                <CountrySelect
+                                <ListBox
                                     key={key}
                                     value={value}
-                                    disabled={readonly}
+                                    label={`${t('Страна')}`}
+                                    readonly={readonly}
                                     name={key}
+                                    width={220}
+                                    position="alignEnd"
+                                    direction="top"
                                     onChange={onChangeHandler}
+                                    items={countryOptions}
                                 />
                             );
                         }
