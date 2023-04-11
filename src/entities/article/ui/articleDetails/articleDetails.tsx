@@ -21,7 +21,7 @@ import cls from './articleDetails.module.scss';
 
 export interface ArticleDetailsProps {
   className?: string;
-  id: string;
+  id?: string;
 }
 
 const reducers = {
@@ -46,7 +46,9 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     const dispatch = useAppDispatch();
     const state = useAppSelector(articleDetailsSelector);
 
-    useInitialEffect(() => dispatch(fetchArticleById(id)));
+    useInitialEffect(() => {
+        if (id) dispatch(fetchArticleById(id));
+    });
 
     let content;
 
