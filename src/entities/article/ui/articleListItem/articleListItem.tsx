@@ -9,12 +9,13 @@ import { Card } from 'shared/card/ui/card';
 import { Avatar } from 'shared/ui/avatar';
 import { Button } from 'shared/ui/button';
 import { LinkPath } from 'widgets/sideBar/lib/types';
+import { MenuLink } from 'shared/ui/menuLink';
 import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,
 } from '../../index';
 import { ArticleTextComponent } from '../articleTextComponent/articleTextComponent';
+
 import cls from './articleListItem.module.scss';
-import { MenuLink } from '../../../../shared/ui/menuLink';
 
 export interface ArticleListItemProps {
   className?: string;
@@ -23,8 +24,9 @@ export interface ArticleListItemProps {
   target?: HTMLAttributeAnchorTarget;
 }
 export const ArticleListItem = memo(({ className, ...otherProps }: ArticleListItemProps) => {
-    const { article, view = ArticleView.LIST, target } = otherProps;
-    /* eslint-disable  @typescript-eslint/no-unused-vars */
+    const {
+        article, view = ArticleView.LIST, target,
+    } = otherProps;
     const { t } = useTranslation();
 
     const textBlock = article.blocks?.find((block) => block.type === ArticleBlockType.TEXT) as ArticleTextBlock;

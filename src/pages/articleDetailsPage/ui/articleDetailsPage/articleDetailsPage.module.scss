@@ -1,6 +1,7 @@
 .articleDetailsPage {
     height: calc(100vh - var(--navBarHeight));
     overflow-y: auto;
+    width: 100%;
 }
 
 .commentTitle,

@@ -1,1 +1,6 @@
-.articlesPage {}
+.articlesPage {
+    height: calc(100vh - var(--navBarHeight));
+    width: 100%;
+    padding: 20px;
+    overflow-y: hidden;
+}

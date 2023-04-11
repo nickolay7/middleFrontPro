@@ -11,6 +11,7 @@ import { AddCommentFormSchema } from 'features/addCommentForm';
 import { ArticlesPageSchema } from 'pages/articlesPage';
 import { ScrollPositionSchema } from 'widgets/page';
 import { ArticleDetailsPageSchema } from 'pages/articleDetailsPage/model/types';
+import { rtkApi } from '../../../../shared/api/rtkApi';
 
 export interface StateSchema {
     counter: CounterSchema;
@@ -23,6 +24,7 @@ export interface StateSchema {
     articleDetails?: ArticleDetailsSchema;
     articles?: ArticlesPageSchema;
     articleDetailsPage?: ArticleDetailsPageSchema;
+    [rtkApi.reducerPath]: ReturnType<typeof rtkApi.reducer>;
 }
 
 export type StateSchemaKey = keyof StateSchema;

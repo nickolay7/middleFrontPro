@@ -21,12 +21,12 @@ import {
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 
 import cls from './articlePageFilter.module.scss';
+import { HStack } from '../../../../shared/ui/stack';
 
 export interface ArticlePageFilterProps {
   className?: string;
 }
 export const ArticlePageFilter = memo(({ className }: ArticlePageFilterProps) => {
-    /* eslint-disable  @typescript-eslint/no-unused-vars */
     const { t } = useTranslation();
     const articlesStates = useAppSelector(articlesSelector);
     const order = useAppSelector(articlesFilterOrderSelector);
@@ -65,26 +65,25 @@ export const ArticlePageFilter = memo(({ className }: ArticlePageFilterProps) =>
 
     return (
         <div className={classNames(cls.articlePageFilter, {}, [className])}>
-            <div className={cls.filterAndSwitcher}>
-                {/* eslint-disable-next-line i18next/no-literal-string */}
-                <ArticleSortSelect
-                    order={order}
-                    sort={sort}
-                    onOrder={onOrder}
-                    onSort={onSort}
-                />
+            <HStack justify="justifyBetween" className={cls.filterAndSwitcher}>
+                <HStack gap="gap8" align="alignCenter">
+                    <ArticleSortSelect
+                        order={order}
+                        sort={sort}
+                        onOrder={onOrder}
+                        onSort={onSort}
+                    />
+                    <Input
+                        onChange={onSearch}
+                        value={search}
+                        placeholder={`${t('Поиск')}...`}
+                        name="search"
+                        label={false}
+                        className={cls.filterInput}
+                    />
+                </HStack>
                 <ArticlesViewSwitcher view={articlesStates?.view} />
-            </div>
-            {/* eslint-disable-next-line i18next/no-literal-string */}
-            <Input
-                onChange={onSearch}
-                value={search}
-                placeholder={`${t('Поиск')}...`}
-                // eslint-disable-next-line i18next/no-literal-string
-                name="search"
-                label={false}
-                className={cls.filterInput}
-            />
+            </HStack>
             <ArticleTypeTabs activeTab={type} onTab={onTab} />
         </div>
     );

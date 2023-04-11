@@ -1,4 +1,18 @@
 .articleList {
+    height: 100%;
+}
+
+.articlesFilter {
+    margin-bottom: 30px;
+}
+
+.articleItem {
+}
+
+.plateItemsWrapper {
+    display: flex;
     flex-wrap: wrap;
-    margin-top: 30px;
+    gap: 8px;
+    justify-content: space-between;
+    margin: 0 30px;
 }

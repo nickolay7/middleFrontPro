@@ -23,7 +23,8 @@
     "test:ui:json": "node scripts/generate-visual-json-report.js",
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "dev-server": "node json-server --watch json-server/db.json",
-    "prepare": "husky install"
+    "prepare": "husky install",
+    "generate:slice": "node ./scripts/createSlice/index.js"
   },
   "keywords": [],
   "author": "",
@@ -105,7 +106,8 @@
     "react-dom": "^17.0.2",
     "react-i18next": "^11.18.6",
     "react-redux": "^7.2.6",
-    "react-router-dom": "^6.2.1"
+    "react-router-dom": "^6.2.1",
+    "react-virtuoso": "^4.2.0"
   },
   "loki": {
     "configurations": {

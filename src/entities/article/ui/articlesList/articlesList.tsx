@@ -1,23 +1,39 @@
-import { memo } from 'react';
+import { memo, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { Text } from 'shared/ui/text';
+import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
+import { ArticlePageFilter } from 'pages/articlesPage/ui/articlePageFilter/articlePageFilter';
 import { Article, ArticleView } from '../../index';
 import { ArticleListItem } from '../articleListItem/articleListItem';
 import { ArticleListSkeleton } from '../articleListItem/articleListSkeleton';
 
 import cls from './articleList.module.scss';
-import { HStack } from '../../../../shared/ui/stack';
 
 export interface ArticlesListProps {
-  className?: string;
-  articles?: Article[];
-  isLoading?: boolean;
-  view?: ArticleView;
+    filter?: {} | null;
+    className?: string;
+    articles?: Article[];
+    isLoading?: boolean;
+    view?: ArticleView;
+    onLoadNextPart?: () => void;
 }
+
+const ArticlesListSkeleton = ({ isLoading, children }: { isLoading?: boolean, children: ReactNode }) => {
+    if (isLoading) {
+        return (
+            <div className={cls.skeletons}>
+                {children}
+            </div>
+        );
+    }
+
+    return null;
+};
+
 export const ArticlesList = memo(({ className, ...otherProps }: ArticlesListProps) => {
     const {
-        articles, view, isLoading,
+        articles, view, isLoading, onLoadNextPart, filter = {},
     } = otherProps;
     const { t } = useTranslation();
 
@@ -25,20 +41,63 @@ export const ArticlesList = memo(({ className, ...otherProps }: ArticlesListProp
         return <Text title={t('Статьи не найдены')} />;
     }
 
-    const renderList = articles?.map((article) => (
-        // eslint-disable-next-line i18next/no-literal-string
-        <ArticleListItem target="_blank" key={article.id} view={view} article={article} />
-    ));
+    const renderArticle = (index: number, article: Article) => (
+        <ArticleListItem target="_blank" key={article.id} view={view} article={article} className={cls.articleItem} />
+    );
 
-    const skeletonsNumber = view === ArticleView.LIST ? 2 : 3;
-    const skeletons = new Array(skeletonsNumber).fill(0).map(
+    const skeletons = new Array(3).fill(0).map(
         () => <ArticleListSkeleton key={Math.random()} view={view} />,
     );
 
     return (
-        <HStack gap="gap8" className={classNames(cls.articleList, {}, [className])}>
-            {articles ? renderList : 'list is empty'}
+        <div className={classNames(cls.articleList, {}, [className])}>
+            {/* eslint-disable-next-line no-nested-ternary */}
+            {articles ? (
+                view === ArticleView.LIST
+                    ? (
+                        <Virtuoso
+                            style={{
+                                height: '100%',
+                            }}
+                            data={articles}
+                            itemContent={renderArticle}
+                            endReached={onLoadNextPart}
+                            components={{
+                                // eslint-disable-next-line react/no-unstable-nested-components
+                                Header: () => filter && <ArticlePageFilter className={cls.articlesFilter} />,
+                                // eslint-disable-next-line react/no-unstable-nested-components
+                                Footer: () => (
+                                    <ArticlesListSkeleton
+                                        isLoading={isLoading}
+                                    >
+                                        {skeletons}
+                                    </ArticlesListSkeleton>
+                                ),
+                            }}
+                        />
+                    ) : (
+                        <VirtuosoGrid
+                            data={articles}
+                            style={{
+                                height: '100%',
+                            }}
+                            endReached={onLoadNextPart}
+                            listClassName={cls.plateItemsWrapper}
+                            components={{
+                                // eslint-disable-next-line react/no-unstable-nested-components
+                                Header: () => filter && <ArticlePageFilter className={cls.articlesFilter} />,
+                                // eslint-disable-next-line react/no-unstable-nested-components
+                                ScrollSeekPlaceholder: () => <ArticleListSkeleton key={Math.random()} view={view} />,
+                            }}
+                            itemContent={renderArticle}
+                            scrollSeekConfiguration={{
+                                enter: (velocity) => Math.abs(velocity) > 200,
+                                exit: (velocity) => Math.abs(velocity) < 30,
+                            }}
+                        />
+                    )
+            ) : 'list is empty'}
             { isLoading && skeletons }
-        </HStack>
+        </div>
     );
 });

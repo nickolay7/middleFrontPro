@@ -4,6 +4,7 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { Select, SelectOptionData } from 'shared/ui/select';
 
 import cls from './articleSortSelect.module.scss';
+import { HStack } from '../../../../shared/ui/stack';
 
 export interface ArticleSortSelectProps {
   className?: string;
@@ -45,25 +46,20 @@ export const ArticleSortSelect = memo(({ className, ...otherProps }: ArticleSort
     ];
 
     return (
-        <div className={classNames(cls.articleSortSelect, {}, [className])}>
-            {/* eslint-disable-next-line i18next/no-literal-string */}
+        <HStack gap="gap8" align="alignCenter" className={classNames(cls.articleSortSelect, {}, [className])}>
             <Select
                 onChange={onSort}
                 options={fieldOptions}
                 value={sort}
-                // eslint-disable-next-line i18next/no-literal-string
                 name="sortByField"
-                label={t('Сортировать по: ')}
+                label={t('Сортировать по:')}
             />
-            {/* eslint-disable-next-line i18next/no-literal-string */}
             <Select
                 onChange={onOrder}
                 options={rangeOptions}
                 value={order}
-                // eslint-disable-next-line i18next/no-literal-string
                 name="sortByRange"
-                label={t('по: ')}
             />
-        </div>
+        </HStack>
     );
 });
