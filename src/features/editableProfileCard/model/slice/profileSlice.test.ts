@@ -1,11 +1,11 @@
 import { DeepPartial } from '@reduxjs/toolkit';
+import { Countries } from 'entities/country/model/types/country';
+import { Currency } from 'entities/currency/model/types/currency';
 import { ProfileSchema, ValidationErrors } from '../types/profileSchema';
 import {
     cancelEditing, initialState,
     profileReducer, setReadonly, updateProfile, upsetReadonly,
 } from './profileSlice';
-import { Countries } from '../../../country/model/types/country';
-import { Currency } from '../../../currency/model/types/currency';
 import { updateProfileData } from '../services/updateProfileData/updateProfileData';
 
 const data = {

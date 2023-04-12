@@ -1,8 +1,8 @@
 import { TestAsyncThunk } from 'shared/lib/helpers/tests/testAsyncThank';
 import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from 'app/providers/storeProvider';
-import { Countries } from '../../../../country/model/types/country';
-import { Currency } from '../../../../currency/model/types/currency';
+import { Countries } from '../../../../../entities/country/model/types/country';
+import { Currency } from '../../../../../entities/currency/model/types/currency';
 import { updateProfileData } from './updateProfileData';
 import { ValidationErrors } from '../../types/profileSchema';
 

@@ -1,5 +1,5 @@
-import { Countries } from '../../../../country/model/types/country';
-import { Currency } from '../../../../currency/model/types/currency';
+import { Countries } from '../../../../../entities/country/model/types/country';
+import { Currency } from '../../../../../entities/currency/model/types/currency';
 import { ValidationErrors } from '../../types/profileSchema';
 import { validateProfileData } from './validateProfileData';
 

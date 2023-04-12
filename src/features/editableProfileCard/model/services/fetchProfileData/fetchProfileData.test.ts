@@ -1,6 +1,6 @@
 import { TestAsyncThunk } from 'shared/lib/helpers/tests/testAsyncThank';
-import { Countries } from '../../../../country/model/types/country';
-import { Currency } from '../../../../currency/model/types/currency';
+import { Countries } from '../../../../../entities/country/model/types/country';
+import { Currency } from '../../../../../entities/currency/model/types/currency';
 import { fetchProfileData } from './fetchProfileData';
 
 const data = {

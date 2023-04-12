@@ -3,7 +3,7 @@ import { DeepPartial, ReducersMapObject } from '@reduxjs/toolkit';
 import { StoreProvider } from 'app/providers/storeProvider/storeProvider';
 import { StateSchema } from 'app/providers/storeProvider/config/stateSchema';
 import { loginReducer } from 'features/authByUserName/model/slice/loginSlice';
-import { profileReducer } from 'entities/profile/model/slice/profileSlice';
+import { profileReducer } from 'features/editableProfileCard/model/slice/profileSlice';
 import { articleDetailsReducer } from 'entities/article/model/slice/articleDetailsSlice';
 import { articleDetailsPageReducers } from 'pages/articleDetailsPage/model/slice';
 import { ReducersList } from '../../lib/hooks';
