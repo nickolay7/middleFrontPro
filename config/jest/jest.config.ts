@@ -206,4 +206,14 @@ module.exports = {
 
     // Whether to use watchman for file crawling
     // watchman: true,
+    reporters: [
+        'default',
+        ['jest-html-reporters', {
+            publicPath: '<rootDir>/reports/unit',
+            filename: 'report.html',
+            openReport: true,
+            inlineSource: true,
+        }],
+
+    ],
 };
