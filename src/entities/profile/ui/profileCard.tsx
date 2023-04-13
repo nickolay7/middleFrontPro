@@ -89,6 +89,7 @@ export const ProfileCard = ({
                                 placeholder={t(key)}
                                 value={value}
                                 onChange={onChangeHandler}
+                                data-testid={`ProfileCard.${key}`}
                             />
                         );
                     })

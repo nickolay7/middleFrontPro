@@ -28,6 +28,7 @@ export interface TextProps {
   variant?: TextVariant;
   align?: TextAlign;
   size?: TextSize;
+  'data-testid'?: string;
 }
 
 export const Text = memo(({ className, ...otherProps }: TextProps) => {
@@ -37,6 +38,7 @@ export const Text = memo(({ className, ...otherProps }: TextProps) => {
         variant = TextVariant.PRIMARY,
         align = TextAlign.LEFT,
         size = TextSize.M_TEXT,
+        'data-testid': dataTestId = 'Text',
     } = otherProps;
 
     const sizeToHeaderMap: Record<TextSize, HeaderTagType> = {
@@ -54,8 +56,8 @@ export const Text = memo(({ className, ...otherProps }: TextProps) => {
 
     return (
         <div className={classNames(cls.text, mods, [className, cls[variant]])}>
-            {title && <HeaderTag className={cls.title}>{title}</HeaderTag> }
-            {text && <HeaderTag className={cls.text}>{text}</HeaderTag> }
+            {title && <HeaderTag data-testid={`${dataTestId}.Header`} className={cls.title}>{title}</HeaderTag> }
+            {text && <HeaderTag data-testid={`${dataTestId}.Paragraph`} className={cls.text}>{text}</HeaderTag> }
         </div>
     );
 });

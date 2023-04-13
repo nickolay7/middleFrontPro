@@ -1,8 +1,9 @@
 import { rtkApi } from 'shared/api/rtkApi';
+import { Article } from 'entities/article';
 
 const recommendationsApi = rtkApi.injectEndpoints({
     endpoints: (build) => ({
-        getRecommendations: build.query({
+        getRecommendations: build.query<Article[], number>({
             query: (limit) => ({
                 url: '/articles',
                 params: {

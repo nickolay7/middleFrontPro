@@ -1,8 +1,8 @@
 import { useParams } from 'react-router-dom';
 import { EditableProfileCard } from 'features/editableProfileCard';
+import { classNames } from 'shared/lib/helpers';
 
 import cls from './profilePage.module.scss';
-import { classNames } from '../../../shared/lib/helpers';
 
 export interface ProfileProps {
   className?: string;

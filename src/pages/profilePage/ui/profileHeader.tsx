@@ -43,16 +43,16 @@ export const ProfileHeader = ({ className, readonly }: ProfileHeaderProps) => {
             <Text title={t('Профиль')} />
             {
                 isAuthUser && (readonly ? (
-                    <Button onClick={onEdit} variant={ButtonTheme.OUTLINE}>
+                    <Button data-testid="ProfileHeader.Edit" onClick={onEdit} variant={ButtonTheme.OUTLINE}>
                         {t('Редактировать')}
                     </Button>
 
                 ) : (
                     <div>
-                        <Button onClick={onCancel} variant={ButtonTheme.OUTLINE}>
+                        <Button data-testid="ProfileHeader.Cancel" onClick={onCancel} variant={ButtonTheme.OUTLINE}>
                             {t('Отменить')}
                         </Button>
-                        <Button onClick={onSave} variant={ButtonTheme.OUTLINE_ORANGE}>
+                        <Button data-testid="ProfileHeader.Save" onClick={onSave} variant={ButtonTheme.OUTLINE_ORANGE}>
                             {t('Сохранить')}
                         </Button>
                     </div>

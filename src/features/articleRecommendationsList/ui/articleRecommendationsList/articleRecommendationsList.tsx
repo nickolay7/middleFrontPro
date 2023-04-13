@@ -24,7 +24,6 @@ export const ArticleRecommendationsList = memo((props: ArticleRecommendationsLis
         <div className={classNames(cls.articleRecommendationsList, {}, [className])}>
             <Text className={cls.title} title={t('Рекомендации')} />
             <ArticlesList
-                filter={null}
                 className={cls.list}
                 articles={recommendations}
                 isLoading={isLoading}

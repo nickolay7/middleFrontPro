@@ -14,6 +14,7 @@ export interface InputProps extends InputAttrs {
   readonly?: boolean;
   name: string;
   label?: boolean;
+  'data-testid'?: string;
 }
 export const Input = memo(({ className, ...otherProps }: InputProps) => {
     const { t } = useTranslation('profile');
@@ -26,6 +27,7 @@ export const Input = memo(({ className, ...otherProps }: InputProps) => {
         readonly,
         name,
         label = true,
+        'data-testid': dataTestId = 'test',
     } = otherProps;
 
     const onInput = (e: ChangeEvent<HTMLInputElement>) => {
@@ -48,6 +50,7 @@ export const Input = memo(({ className, ...otherProps }: InputProps) => {
                 placeholder={placeholder}
                 autoFocus={autoFocus}
                 readOnly={readonly}
+                data-testid={dataTestId}
             />
         </div>
     );

@@ -24,6 +24,7 @@ export const ArticlesInfiniteList = memo(({ className }: ArticlesInfiniteListPro
     return (
         <div className={classNames(cls.articlesInfiniteList, {}, [className])}>
             <ArticlesList
+                virtualized
                 articles={articles}
                 onLoadNextPart={onLoadNextPart}
                 view={articlesStates?.view}

@@ -40,7 +40,9 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     const { t } = useTranslation('profile');
     const dispatch = useAppDispatch();
 
-    useInitialEffect(() => dispatch(fetchProfileData(id)));
+    useInitialEffect(() => {
+        if (id) dispatch(fetchProfileData(id));
+    });
 
     useDynamicModuleLoader(reducers, true);
 
@@ -73,7 +75,11 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                 {
                     validationErrors && validationErrors
                         .map((error: ValidationErrors) => (
-                            <Text variant={TextVariant.RED} text={errorsMapping[error]} />
+                            <Text
+                                data-testid="EditableProfileCard.Error"
+                                variant={TextVariant.RED}
+                                text={errorsMapping[error]}
+                            />
                         ))
                 }
                 <ProfileCard
