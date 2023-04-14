@@ -523,14 +523,21 @@
       "id": "1",
       "username": "admin",
       "password": "123",
-      "role": "ADMIN",
+      "role": ["admin"],
       "avatar": "https://proslang.ru/wp-content/uploads/2019/03/avatarka_1-300x300.jpg"
     },
     {
       "id": "2",
       "username": "user",
       "password": "123",
-      "role": "USER",
+      "role": ["user"],
+      "avatar": "https://cdn.forbes.ru/forbes-static/new/2022/11/4-636273af4beec.jpg"
+    },
+    {
+      "id": "3",
+      "username": "manager",
+      "password": "123",
+      "role": ["manager"],
       "avatar": "https://cdn.forbes.ru/forbes-static/new/2022/11/4-636273af4beec.jpg"
     }
   ],

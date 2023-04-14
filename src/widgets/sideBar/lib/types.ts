@@ -4,7 +4,8 @@ export enum LinkPath {
     MAIN = '/',
     ABOUT = '/about',
     PROFILE = '/profile/',
-    ARTICLES = '/articles/'
+    ARTICLES = '/articles/',
+    ADMIN = '/admin',
 }
 
 export interface MenuItem {

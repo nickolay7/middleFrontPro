@@ -5,7 +5,9 @@ import { memo, useCallback, useState } from 'react';
 import { Button, ButtonTheme } from 'shared/ui/button';
 import { LoginModal } from 'features/authByUserName';
 import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider/config/hooks';
-import { authUserSelector, User } from 'entities/user';
+import {
+    authUserSelector, isAdminSelector, isManagerSelector, User,
+} from 'entities/user';
 import { setUserLogout } from 'entities/user/model/userSlice/userSlice';
 import { Dropdown } from 'shared/ui/dropdown/ui/dropdown';
 import { Avatar } from 'shared/ui/avatar';
@@ -18,6 +20,10 @@ export const NavBar = memo(() => {
     const authData = useAppSelector<User | undefined>(authUserSelector);
     const dispatch = useAppDispatch();
     const navigate = useNavigate();
+    const isAdmin = useAppSelector(isAdminSelector);
+    const isManager = useAppSelector(isManagerSelector);
+
+    const hasRules = isAdmin || isManager;
 
     const [isModalOpen, setModalOpen] = useState(true);
 
@@ -44,13 +50,21 @@ export const NavBar = memo(() => {
                             direction="down-left"
                             trigger={<Avatar size={30} src={authData?.avatar} />}
                             items={[
-                                {
-                                    content: t('Выход'),
-                                    onClick: onLogout,
-                                },
+                                ...(
+                                    hasRules ? [
+                                        {
+                                            content: t('Админка'),
+                                            href: `${LinkPath.ADMIN}`,
+                                        },
+                                    ] : []
+                                ),
                                 {
                                     content: t('Профиль'),
                                     href: `${LinkPath.PROFILE}${authData.id}`,
+                                },
+                                {
+                                    content: t('Выход'),
+                                    onClick: onLogout,
                                 },
                             ]}
                         />
