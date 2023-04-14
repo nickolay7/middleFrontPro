@@ -1,15 +1,18 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { themeDecorator } from 'shared/config/decorators/themeDecorator';
 import { Theme } from 'app/providers/theme';
-// @ts-ignore
+import { storeDecorator } from 'shared/config/decorators/storeDecorator';
 import { AdminPanelPage, AdminPanelPageProps } from './adminPanelPage';
 
 export default {
-    title: '/AdminPanelPage',
+    title: 'pages/AdminPanelPage',
     component: AdminPanelPage,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
+    decorators: [
+        storeDecorator({}),
+    ],
 } as ComponentMeta<typeof AdminPanelPage>;
 
 const Template: ComponentStory<typeof AdminPanelPage> = (args: AdminPanelPageProps) => (

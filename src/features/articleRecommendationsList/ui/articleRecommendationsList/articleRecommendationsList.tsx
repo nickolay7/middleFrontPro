@@ -7,7 +7,7 @@ import { useGetRecommendationsQuery } from '../../api/articleRecommendationsApi'
 
 import cls from './articleRecommendationsList.module.scss';
 
-interface ArticleRecommendationsListProps {
+export interface ArticleRecommendationsListProps {
     className?: string;
 }
 

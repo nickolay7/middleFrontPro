@@ -1,9 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { themeDecorator } from 'shared/config/decorators/themeDecorator';
 import { Theme } from 'app/providers/theme';
+import { storeDecorator } from 'shared/config/decorators/storeDecorator';
+import { ArticleView } from 'entities/article';
 import { ArticlesViewSwitcher, ArticlesViewSwitcherProps } from './articlesViewSwitcher';
-import { storeDecorator } from '../../../shared/config/decorators/storeDecorator';
-import { ArticleView } from '../../../entities/article';
 
 export default {
     title: 'features/ArticlesViewSwitcher',
