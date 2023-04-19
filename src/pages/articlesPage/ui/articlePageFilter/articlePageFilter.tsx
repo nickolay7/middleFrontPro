@@ -3,12 +3,13 @@ import { useTranslation } from 'react-i18next';
 
 import { classNames } from 'shared/lib/helpers/classNames';
 import { ArticlesViewSwitcher } from 'features/articlesViewSwitcher';
-import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
+import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider/config/hooks';
 import { Input } from 'shared/ui/input';
 import { ArticleSortSelect } from 'entities/article/ui/articleSortSelect/articleSortSelect';
 import { useDebounce } from 'shared/lib/hooks';
 import { ArticleTypeTabs } from 'entities/article/ui/articleTypeTabs/articleTypeTabs';
 import { TabItem } from 'shared/ui/tabs';
+import { HStack } from 'shared/ui/stack';
 import { articlesSelector } from '../../model/selectors/articlesSelector/articlesSelector';
 import {
     articlesFilterOrderSelector,
@@ -21,7 +22,6 @@ import {
 import { fetchArticlesList } from '../../model/services/fetchArticlesList/fetchArticlesList';
 
 import cls from './articlePageFilter.module.scss';
-import { HStack } from '../../../../shared/ui/stack';
 
 export interface ArticlePageFilterProps {
   className?: string;

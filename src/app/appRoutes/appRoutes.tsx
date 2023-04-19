@@ -1,7 +1,8 @@
 import { Route, Routes } from 'react-router-dom';
 import { useCallback } from 'react';
-import { AppRouteProps, pathsConfig } from './config';
+import { pathsConfig } from './config/config';
 import { ProtectedRoute } from './protectedRoute';
+import { AppRouteProps } from './config/types/types';
 
 const AppRoutes = () => {
     const renderWithWrapper = useCallback(({

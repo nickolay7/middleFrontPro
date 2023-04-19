@@ -1,15 +1,14 @@
-import { memo, ReactNode } from 'react';
+import React, { FC, memo, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from 'shared/lib/helpers/classNames';
 import { Text } from 'shared/ui/text';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
-import { ArticlePageFilter } from 'pages/articlesPage/ui/articlePageFilter/articlePageFilter';
-import { Article, ArticleView } from '../../index';
+import { HStack } from 'shared/ui/stack';
+import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../articleListItem/articleListItem';
 import { ArticleListSkeleton } from '../articleListItem/articleListSkeleton';
 
 import cls from './articleList.module.scss';
-import { HStack } from '../../../../shared/ui/stack';
 
 export interface ArticlesListProps {
     virtualized?: boolean;
@@ -18,6 +17,7 @@ export interface ArticlesListProps {
     isLoading?: boolean;
     view?: ArticleView;
     onLoadNextPart?: () => void;
+    Header?: FC<{className?: string}>;
 }
 
 const ArticlesListSkeleton = ({ isLoading, children }: { isLoading?: boolean, children: ReactNode }) => {
@@ -34,7 +34,7 @@ const ArticlesListSkeleton = ({ isLoading, children }: { isLoading?: boolean, ch
 
 export const ArticlesList = memo(({ className, ...otherProps }: ArticlesListProps) => {
     const {
-        articles, view, isLoading, onLoadNextPart, virtualized,
+        articles, view, isLoading, onLoadNextPart, virtualized, Header = () => <div>{}</div>,
     } = otherProps;
     const { t } = useTranslation();
 
@@ -82,7 +82,7 @@ export const ArticlesList = memo(({ className, ...otherProps }: ArticlesListProp
                             endReached={onLoadNextPart}
                             components={{
                                 // eslint-disable-next-line react/no-unstable-nested-components
-                                Header: () => <ArticlePageFilter className={cls.articlesFilter} />,
+                                Header: () => <Header className={cls.articlesFilter} />, // <ArticlePageFilter className={cls.articlesFilter} />,
                                 // eslint-disable-next-line react/no-unstable-nested-components
                                 Footer: () => (
                                     <ArticlesListSkeleton
@@ -103,7 +103,7 @@ export const ArticlesList = memo(({ className, ...otherProps }: ArticlesListProp
                             listClassName={cls.plateItemsWrapper}
                             components={{
                                 // eslint-disable-next-line react/no-unstable-nested-components
-                                Header: () => <ArticlePageFilter className={cls.articlesFilter} />,
+                                Header: () => <Header className={cls.articlesFilter} />, // <ArticlePageFilter className={cls.articlesFilter} />,
                                 // eslint-disable-next-line react/no-unstable-nested-components
                                 ScrollSeekPlaceholder: () => <ArticleListSkeleton key={Math.random()} view={view} />,
                             }}

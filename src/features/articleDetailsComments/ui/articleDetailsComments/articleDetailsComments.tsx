@@ -5,18 +5,16 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { Text } from 'shared/ui/text';
 import { CommentList } from 'entities/comment';
 import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
-import { commentsSelector } from 'pages/articleDetailsPage/model/slice/articleDetailsPageCommentsSlice';
-import {
-    getArticleCommentsStateSelector,
-} from 'pages/articleDetailsPage/model/selectors/getArticleCommentsStateSelector/getArticleCommentsStateSelector';
 import { useInitialEffect } from 'shared/lib/hooks';
-import { fetchCommentsByArticleId } from 'pages/articleDetailsPage';
-import {
-    addCommentForArticle,
-} from 'pages/articleDetailsPage/model/services/addCommentForArticle/addCommentForArticle';
 import { AddCommentForm } from '../../../addCommentForm';
 
 import cls from './articleDetailsComments.module.scss';
+import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
+import { commentsSelector } from '../../model/services/articleDetailsPageCommentsSlice/articleDetailsPageCommentsSlice';
+import {
+    getArticleCommentsStateSelector,
+} from '../../model/selectors/getArticleCommentsStateSelector/getArticleCommentsStateSelector';
+import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 
 interface ArticleDetailsCommentsProps {
     className?: string;
@@ -24,11 +22,14 @@ interface ArticleDetailsCommentsProps {
 }
 
 export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
-    const { className, id } = props;
+    const {
+        className, id,
+    } = props;
     const { t } = useTranslation('articles');
 
     const comments = useAppSelector(commentsSelector.selectAll);
     const commentsState = useAppSelector(getArticleCommentsStateSelector);
+
     const dispatch = useAppDispatch();
 
     useInitialEffect(() => {

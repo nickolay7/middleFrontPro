@@ -1,36 +1,15 @@
 import { MainAsync } from 'pages/main';
-import { RouteProps } from 'react-router-dom';
 import { NotFoundPage } from 'pages/notFoundPage';
 import { ProfilePage } from 'pages/profilePage';
-import { ReactElement } from 'react';
 import { AboutAsync } from 'pages/about/ui/aboutAsync';
 import { ArticlesPage } from 'pages/articlesPage';
 import { ArticleDetailsPage } from 'pages/articleDetailsPage';
 import { ArticleEditPage } from 'pages/articleEditPage';
 import { AdminPanelPage } from 'pages/adminPanelPage';
 import { UserRoles } from 'entities/user';
-import { ForbiddenPage } from '../../pages/forbiddenPage';
-
-export enum AppPaths {
-   MAIN = '/',
-   ABOUT = '/about',
-   PROFILE = '/profile/:id',
-   ARTICLES = '/articles',
-   ARTICLE_DETAILS = '/articles/:id',
-   ARTICLE_EDIT = '/articles/:id/edit',
-   ARTICLE_CREATE = '/articles/new',
-   ADMIN_PANEL = '/admin',
-   FORBIDDEN = '/forbidden',
-   // routes end
-   NOTFOUND = '/*',
-}
-
-export type AppRouteProps = RouteProps & {
-    path: AppPaths;
-    element: ReactElement;
-    authOnly?: boolean;
-    roles?: UserRoles[];
-}
+import { ForbiddenPage } from 'pages/forbiddenPage';
+import { AppPaths } from './consts/consts';
+import { AppRouteProps } from './types/types';
 
 export const pathsConfig: AppRouteProps[] = [
     {

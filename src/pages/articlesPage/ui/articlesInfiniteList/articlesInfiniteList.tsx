@@ -5,6 +5,7 @@ import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
 import { articlePageSelector } from '../../model/slice/articlesPageSlice';
 import { articlesSelector } from '../../model/selectors/articlesSelector/articlesSelector';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlePage/fetchNextArticlesPage';
+import { ArticlePageFilter } from '../articlePageFilter/articlePageFilter';
 
 import cls from './articlesInfiniteList.module.scss';
 
@@ -29,6 +30,7 @@ export const ArticlesInfiniteList = memo(({ className }: ArticlesInfiniteListPro
                 onLoadNextPart={onLoadNextPart}
                 view={articlesStates?.view}
                 isLoading={articlesStates?.isLoading}
+                Header={ArticlePageFilter}
             />
         </div>
     );

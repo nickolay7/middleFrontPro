@@ -12,7 +12,7 @@ import { LinkPath } from 'widgets/sideBar/lib/types';
 import { MenuLink } from 'shared/ui/menuLink';
 import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,
-} from '../../index';
+} from '../../model/types/article';
 import { ArticleTextComponent } from '../articleTextComponent/articleTextComponent';
 
 import cls from './articleListItem.module.scss';

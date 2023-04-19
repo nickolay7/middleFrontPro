@@ -3,8 +3,8 @@ import {
     ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { CombinedState, Reducer } from 'redux';
-import { counterReducer } from 'entities/counter/model/counterSlice/counterSlice';
-import { userReducer } from 'entities/user/model/userSlice/userSlice';
+import { counterReducer } from 'entities/counter';
+import { userReducer } from 'entities/user';
 import { $api } from 'shared/api/api';
 import { addCommentFormReducer } from 'features/addCommentForm';
 import { scrollPositionReducer } from 'widgets/page';

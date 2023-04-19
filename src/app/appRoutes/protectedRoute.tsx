@@ -4,8 +4,8 @@ import {
     authUserSelector, rolesSelector, UserRoles,
 } from 'entities/user';
 import { useAppSelector } from '../providers/storeProvider';
-import { AppPaths } from './config';
 import { Loader } from '../../shared/ui/loader';
+import { AppPaths } from './config/consts/consts';
 
 interface ProtectedRouteProps {
     children: ReactElement;
