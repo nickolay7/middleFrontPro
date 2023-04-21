@@ -1,0 +1,24 @@
+.drawer {
+    position: fixed;
+    top: 60%;
+    left: 0;
+    height: 60vh;
+    width: 100vw;
+    z-index: var(--modal-z);
+    transition: 0.5s;
+}
+
+.closed {
+    top: 100%;
+    pointer-events: none;
+}
+
+.content {
+    width: 80%;
+    height: calc(48vh - var(--navBarHeight));
+    background: var(--bg-color);
+    padding: 10px;
+    border-radius: 5px;
+    color: var(--primary-color);
+    overflow-y: auto;
+}
