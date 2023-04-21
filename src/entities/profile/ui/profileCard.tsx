@@ -4,7 +4,7 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { Input } from 'shared/ui/input';
 import { Avatar } from 'shared/ui/avatar/ui/avatar';
 import { HStack, VStack } from 'shared/ui/stack';
-import { ListBox } from 'shared/ui/listBox/listBox';
+import { ListBox } from 'shared/ui/popups/ui/listBox/listBox';
 import { IProfile } from '../model/types/IProfile';
 import { Currency } from '../../currency/model/types/currency';
 import { Countries } from '../../country/model/types/country';
@@ -54,11 +54,18 @@ export const ProfileCard = ({
                                     label={`${t('Валюта')}`}
                                     readonly={readonly}
                                     name={key}
-                                    width={220}
-                                    position="alignEnd"
                                     direction="top"
                                     onChange={onChangeHandler}
                                     items={currencyOptions}
+                                    trigger={(
+                                        <HStack max justify="justifyBetween">
+                                            {t(value)}
+                                            {/* eslint-disable-next-line i18next/no-literal-string */}
+                                            <span className={cls.arrow}>
+                                                &#9650;
+                                            </span>
+                                        </HStack>
+                                    )}
                                 />
                             );
                         }
@@ -71,11 +78,18 @@ export const ProfileCard = ({
                                     label={`${t('Страна')}`}
                                     readonly={readonly}
                                     name={key}
-                                    width={220}
-                                    position="alignEnd"
                                     direction="top"
                                     onChange={onChangeHandler}
                                     items={countryOptions}
+                                    trigger={(
+                                        <HStack max justify="justifyBetween">
+                                            {t(value)}
+                                            {/* eslint-disable-next-line i18next/no-literal-string */}
+                                            <span className={cls.arrow}>
+                                                &#9650;
+                                            </span>
+                                        </HStack>
+                                    )}
                                 />
                             );
                         }

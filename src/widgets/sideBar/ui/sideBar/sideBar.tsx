@@ -1,13 +1,14 @@
 import React, { memo, useState } from 'react';
 
 import { classNames } from 'shared/lib/helpers/classNames';
-import { Button, ButtonTheme } from 'shared/ui/button';
+import { Button } from 'shared/ui/button';
 import { ThemeSwitcher } from 'widgets/themeSwitcher';
 import { LangSwitcher } from 'widgets/langSwitcher';
 import { VStack } from 'shared/ui/stack';
 import { useMenuConfig } from '../../lib/menuConfig';
 import { SideBarItem } from '../sideBarItem/sideBarItem';
 import cls from './sideBar.module.scss';
+import { ElementTheme } from '../../../../shared/types/ui';
 
 export interface SideBarProps {
     className?: string;
@@ -51,11 +52,11 @@ export const SideBar = memo(({ className }: SideBarProps) => {
             </VStack>
             <div className={classNames(cls.switchersBox, switchersBoxMode)}>
                 <ThemeSwitcher />
-                <LangSwitcher variant={ButtonTheme.OUTLINE_INVERTED} short={isOpen} />
+                <LangSwitcher variant={ElementTheme.OUTLINE_INVERTED} short={isOpen} />
             </div>
             <Button
                 data-testid="collapse"
-                variant={ButtonTheme.CLEAR_INVERTED}
+                variant={ElementTheme.CLEAR_INVERTED}
                 className={classNames(cls.collapseButton, {})}
                 onClick={onClose}
             >

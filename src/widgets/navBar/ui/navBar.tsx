@@ -2,94 +2,65 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 
-import { Button, ButtonTheme } from 'shared/ui/button';
+import { Button } from 'shared/ui/button';
 import { LoginModal } from 'features/authByUserName';
-import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider/config/hooks';
-import {
-    authUserSelector, isAdminSelector, isManagerSelector, User,
-} from 'entities/user';
-import { setUserLogout } from 'entities/user/model/userSlice/userSlice';
-import { Dropdown } from 'shared/ui/dropdown/ui/dropdown';
-import { Avatar } from 'shared/ui/avatar';
+import { useAppSelector } from 'app/providers/storeProvider/config/hooks';
+import { authUserSelector, User } from 'entities/user';
+import { HStack } from 'shared/ui/stack';
+import { NotificationButton } from 'features/notificationButton';
+import { AvatarDropdown } from 'features/avatarDropdown';
 import { LinkPath } from '../../sideBar/lib/types';
 
 import cls from './navBar.module.scss';
+import { ElementTheme } from '../../../shared/types/ui';
 
 export const NavBar = memo(() => {
     const { t } = useTranslation('about');
-    const authData = useAppSelector<User | undefined>(authUserSelector);
-    const dispatch = useAppDispatch();
     const navigate = useNavigate();
-    const isAdmin = useAppSelector(isAdminSelector);
-    const isManager = useAppSelector(isManagerSelector);
-
-    const hasRules = isAdmin || isManager;
-
+    const authData = useAppSelector<User | undefined>(authUserSelector);
     const [isModalOpen, setModalOpen] = useState(true);
 
     const onModalToggle = useCallback(() => {
         setModalOpen((prev) => !prev);
     }, []);
 
-    const onLogout = useCallback(() => {
-        dispatch(setUserLogout());
-    }, [dispatch]);
-
     const onCreateArticle = () => {
         navigate(`${LinkPath.ARTICLES}new`);
     };
 
     return (
-        <div className={cls.navBar}>
+        <HStack justify="justifyBetween" className={cls.navBar}>
             <div className={cls.logo}>{t('Логотип')}</div>
-            <Button onClick={onCreateArticle} variant={ButtonTheme.OUTLINE_INVERTED}>{t('Создать статью')}</Button>
             {
                 authData
                     ? (
-                        <Dropdown
-                            direction="down-left"
-                            trigger={<Avatar size={30} src={authData?.avatar} />}
-                            items={[
-                                ...(
-                                    hasRules ? [
-                                        {
-                                            content: t('Админка'),
-                                            href: `${LinkPath.ADMIN}`,
-                                        },
-                                    ] : []
-                                ),
-                                {
-                                    content: t('Профиль'),
-                                    href: `${LinkPath.PROFILE}${authData.id}`,
-                                },
-                                {
-                                    content: t('Выход'),
-                                    onClick: onLogout,
-                                },
-                            ]}
-                        />
+                        <HStack justify="justifyBetween" gap="gap16">
+                            <Button
+                                onClick={onCreateArticle}
+                                variant={ElementTheme.OUTLINE_INVERTED}
+                            >
+                                {t('Создать статью')}
+                            </Button>
+                            <NotificationButton />
+                            <AvatarDropdown />
+                        </HStack>
                     )
                     : (
-                        <Dropdown
-                            direction="down-left"
-                            trigger={t('Вход')}
-                            items={[
-                                {
-                                    content: t('Вход'),
-                                    onClick: onModalToggle,
-                                },
-                            ]}
-                        />
+                        <>
+                            <Button onClick={onModalToggle}>
+                                {t('Вход')}
+                            </Button>
+                            {
+                                !isModalOpen && (
+                                    <LoginModal
+                                        isModalOpen={isModalOpen}
+                                        toggleHandler={onModalToggle}
+                                    />
+                                )
+                            }
+                        </>
                     )
             }
-            {
-                !isModalOpen && !authData && (
-                    <LoginModal
-                        isModalOpen={isModalOpen}
-                        toggleHandler={onModalToggle}
-                    />
-                )
-            }
-        </div>
+        </HStack>
     );
 });

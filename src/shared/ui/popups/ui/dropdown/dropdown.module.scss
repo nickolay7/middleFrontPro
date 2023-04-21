@@ -1,0 +1,25 @@
+.dropdown {
+}
+
+.link {
+    text-decoration: none;
+    color: var(--primary-color);
+}
+
+.storyWrapper {
+    transform: translateX(100px) translateY(100px);
+}
+
+.clear {
+    border: none;
+    background: none;
+    outline: none;
+    color: var(--primary-color);
+}
+
+.clear-inverted {
+    border: none;
+    background: var(--inverted-bg-color);
+    outline: none;
+    color: var(--inverted-primary-color);
+}

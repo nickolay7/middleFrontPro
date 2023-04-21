@@ -27,8 +27,8 @@ const Template: ComponentStory<typeof Dropdown> = (args: DropdownProps) => (
     <Dropdown {...args} />
 );
 
-export const Light = Template.bind({});
-Light.args = {
+export const LightDown = Template.bind({});
+LightDown.args = {
     className: cls.storyWrapper,
     items,
 };
@@ -37,12 +37,11 @@ export const LightDownLeft = Template.bind({});
 LightDownLeft.args = {
     className: cls.storyWrapper,
     items,
-    direction: 'down-left',
+    direction: 'downLeft',
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
-    className: cls.storyWrapper,
     items,
 };
 

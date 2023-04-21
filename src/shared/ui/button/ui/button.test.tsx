@@ -1,9 +1,10 @@
 import { render, screen } from '@testing-library/react';
-import { Button, ButtonTheme } from './button';
+import { Button } from './button';
+import { ElementTheme } from '../../../types/ui';
 
 describe('button test', () => {
     beforeEach(() => {
-        render(<Button variant={ButtonTheme.CLEAR}>TEST</Button>);
+        render(<Button variant={ElementTheme.CLEAR}>TEST</Button>);
     });
 
     test('has in the document', () => {

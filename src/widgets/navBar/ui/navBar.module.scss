@@ -1,10 +1,6 @@
 .navBar {
-    display: flex;
-    width: 100%;
     height: var(--navBarHeight);
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px;
+    padding: 10px 20px;
     background: var(--inverted-bg-color);
     border-bottom: 1px solid var(--bg-color);
 }

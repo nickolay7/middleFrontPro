@@ -3,15 +3,7 @@ import { ButtonHTMLAttributes, memo } from 'react';
 import { classNames } from 'shared/lib/helpers/classNames';
 
 import cls from './button.module.scss';
-
-export enum ButtonTheme {
-    CLEAR = 'clear',
-    PRIMARY = 'primary',
-    OUTLINE = 'outline',
-    OUTLINE_ORANGE = 'outline-orange',
-    CLEAR_INVERTED = 'clear-inverted',
-    OUTLINE_INVERTED = 'outline-inverted',
-}
+import { ElementTheme } from '../../../types/ui';
 
 export enum ButtonSize {
     S = 'small',
@@ -21,13 +13,13 @@ export enum ButtonSize {
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     className?: string;
-    variant?: ButtonTheme;
+    variant?: ElementTheme;
     size?: ButtonSize;
     disabled?: boolean;
 }
 
 export const Button = memo(({ className, children, ...otherProps }: ButtonProps) => {
-    const { variant = ButtonTheme.CLEAR, size = ButtonSize.S, disabled } = otherProps;
+    const { variant = ElementTheme.CLEAR, size = ButtonSize.S, disabled } = otherProps;
 
     return (
         <button

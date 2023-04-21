@@ -2,7 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { themeDecorator } from 'shared/config/decorators/themeDecorator';
 import { Theme } from 'app/providers/theme';
 import { Card, CardProps } from './card';
-import { Text } from '../../ui/text';
+import { Text } from '../../text';
 
 export default {
     title: 'shared/Card',

@@ -3,6 +3,7 @@ import { themeDecorator } from 'shared/config/decorators/themeDecorator';
 import { Theme } from 'app/providers/theme';
 // @ts-ignore
 import { ListBox, ListBoxProps } from './listBox';
+import { Button } from '../../../button';
 
 const items = [
     {
@@ -35,7 +36,12 @@ Light.args = {
     className: '',
     items,
     value: 'Light',
-    width: 100,
+    trigger: (
+        // eslint-disable-next-line i18next/no-literal-string
+        <Button>
+            click_me
+        </Button>
+    ),
 };
 
 export const LightTop = Template.bind({});
@@ -44,7 +50,12 @@ LightTop.args = {
     items,
     value: 'Light',
     direction: 'top',
-    width: 100,
+    trigger: (
+        // eslint-disable-next-line i18next/no-literal-string
+        <Button>
+            click_me
+        </Button>
+    ),
 };
 
 export const Dark = Template.bind({});
@@ -52,7 +63,12 @@ Dark.args = {
     className: '',
     items,
     value: 'Dark',
-    width: 100,
+    trigger: (
+        // eslint-disable-next-line i18next/no-literal-string
+        <Button>
+            click_me
+        </Button>
+    ),
 };
 
 Dark.decorators = [

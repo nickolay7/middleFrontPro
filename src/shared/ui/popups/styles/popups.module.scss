@@ -1,0 +1,64 @@
+.popups {
+    position: relative;
+}
+
+.options {
+    list-style: none;
+    background: var(--dropdown-bg);
+    position: absolute;
+    width: auto;
+    border-radius: 5px;
+    margin-top: 2px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.item {
+    white-space: nowrap;
+    padding: 0 20px;
+}
+
+.active {
+    background: var(--card-bg);
+}
+
+.disabled {
+    opacity: 0.7;
+}
+
+.downLeft {
+    top: 100%;
+    right: 100%;
+}
+
+.downRight {
+    top: 100%;
+    left: 100%;
+}
+
+.topLeft {
+    bottom: 100%;
+    right: 100%;
+}
+
+.topRight {
+    bottom: 100%;
+    left: 100%;
+}
+
+.top {
+    bottom: 100%;
+}
+
+.down {
+    top: 100%;
+}
+
+.trigger {
+    display: flex;
+    align-items: center;
+    border-radius: 5px;
+    border: none;
+    background: none;
+    padding: 5px 10px;
+}

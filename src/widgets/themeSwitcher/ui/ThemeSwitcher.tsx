@@ -5,16 +5,17 @@ import ThemeNeon from 'shared/assets/icons/theme-neon.svg';
 import { useTheme } from 'shared/lib/hooks';
 import { Theme } from 'app/providers/theme';
 import { ButtonHTMLAttributes, memo } from 'react';
-import { Button, ButtonTheme } from '../../../shared/ui/button';
+import { Button } from '../../../shared/ui/button';
 import cls from './ThemeSwitcher.module.scss';
+import { ElementTheme } from '../../../shared/types/ui';
 
 export interface ThemeSwitcherProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;
-  variant?: ButtonTheme;
+  variant?: ElementTheme;
 }
 export const ThemeSwitcher = memo(({ className, ...otherProps }: ThemeSwitcherProps) => {
     const { theme, changeTheme } = useTheme();
-    const { variant = ButtonTheme.CLEAR } = otherProps;
+    const { variant = ElementTheme.CLEAR } = otherProps;
 
     let themeStyle;
 

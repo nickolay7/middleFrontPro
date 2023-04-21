@@ -23,3 +23,4 @@ root.render(
         </StoreProvider>
     </BrowserRouter>,
 );
+export { ElementTheme } from './shared/types/ui';

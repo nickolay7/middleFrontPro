@@ -1,10 +1,12 @@
 import { Menu } from '@headlessui/react';
 import { ReactNode } from 'react';
-import { classNames } from '../../../lib/helpers';
-import { MenuLink } from '../../menuLink';
+import { classNames } from '../../../../lib/helpers';
+import { MenuLink } from '../../../menuLink';
+import { DropdownDirection, ElementTheme } from '../../../../types/ui';
 
+import popupsCls from '../../styles/popups.module.scss';
 import cls from './dropdown.module.scss';
-import { DropdownDirection } from '../../../types/ui';
+import { popupDirections } from '../../styles/consts';
 
 interface DropdownItem {
     disabled?: boolean;
@@ -18,17 +20,20 @@ export interface DropdownProps {
     trigger?: ReactNode;
     items: DropdownItem[];
     direction?: DropdownDirection;
+    variant?: ElementTheme;
 }
 
 export function Dropdown(props: DropdownProps) {
     const {
-        className, items, trigger = 'test', direction,
+        className, items, trigger = 'click_me', direction = 'down', variant = ElementTheme.CLEAR,
     } = props;
 
     return (
-        <Menu as="div" className={classNames(cls.dropdown, {}, [className])}>
-            <Menu.Button className={cls.btn}>{trigger}</Menu.Button>
-            <Menu.Items className={classNames(cls.items, { [cls.downLeft]: direction === 'down-left' })}>
+        <Menu as="div" className={classNames(cls.dropdown, {}, [className, popupsCls.popups])}>
+            <Menu.Button className={classNames(popupsCls.trigger, {}, [cls[variant]])}>{trigger}</Menu.Button>
+            <Menu.Items
+                className={classNames(popupsCls.options, {}, [popupDirections[direction]])}
+            >
                 {
                     items.map((item) => (
                         <Menu.Item
@@ -41,7 +46,7 @@ export function Dropdown(props: DropdownProps) {
                         >
                             {({ active }) => (
                                 <li
-                                    className={classNames(cls.item, { [cls.active]: active })}
+                                    className={classNames(popupsCls.item, { [popupsCls.active]: active })}
                                 >
                                     {item.content}
                                 </li>

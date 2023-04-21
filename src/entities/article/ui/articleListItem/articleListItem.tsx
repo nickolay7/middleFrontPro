@@ -5,7 +5,7 @@ import { classNames } from 'shared/lib/helpers/classNames';
 import { Text } from 'shared/ui/text';
 import { Icon, StrokeColor } from 'shared/ui/icon';
 import View from 'shared/assets/icons/eye-20-20.svg';
-import { Card } from 'shared/card/ui/card';
+import { Card } from 'shared/ui/card/ui/card';
 import { Avatar } from 'shared/ui/avatar';
 import { Button } from 'shared/ui/button';
 import { LinkPath } from 'widgets/sideBar/lib/types';

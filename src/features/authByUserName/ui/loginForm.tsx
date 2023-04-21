@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 
 import { Input } from 'shared/ui/input';
-import { Button, ButtonTheme } from 'shared/ui/button';
+import { Button } from 'shared/ui/button';
 import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider/config/hooks';
 import { Spinner } from 'shared/ui/spinner';
 import { Text, TextVariant } from 'shared/ui/text';
@@ -12,6 +12,7 @@ import { loginSelector } from '../model/selectors/loginSelector/loginSelector';
 import { loginByUserName } from '../model/services/loginByUserName/loginByUserName';
 
 import cls from './login.module.scss';
+import { ElementTheme } from '../../../shared/types/ui';
 
 export interface LoginFormProps {
     onSuccess: () => void;
@@ -68,7 +69,7 @@ const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
             <Button
                 onClick={onSignIn}
                 disabled={isLoading}
-                variant={ButtonTheme.OUTLINE}
+                variant={ElementTheme.OUTLINE}
             >
                 {t('Вход')}
             </Button>
