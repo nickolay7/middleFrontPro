@@ -5,11 +5,8 @@
     height: 100vh;
     width: 100vw;
     z-index: var(--modal-z);
-}
-
-.closed {
-    opacity: 0;
     pointer-events: none;
+    opacity: 0;
 }
 
 .overlay {
@@ -26,7 +23,22 @@
     background: var(--bg-color);
     padding: 10px;
     border-radius: 5px;
-    transform: scale(1);
-    transition: 0.4s;
+    transform: scale(0);
+    transition: 0.5s;
     color: var(--primary-color);
+}
+
+.open {
+    opacity: 1;
+    pointer-events: auto;
+
+    .content {
+        transform: scale(1);
+    }
+}
+
+.isClosing {
+    .content {
+        transform: scale(0);
+    }
 }

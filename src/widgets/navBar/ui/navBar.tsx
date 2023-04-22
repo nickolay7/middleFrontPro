@@ -18,7 +18,7 @@ export const NavBar = memo(() => {
     const { t } = useTranslation('about');
     const navigate = useNavigate();
     const authData = useAppSelector<User | undefined>(authUserSelector);
-    const [isModalOpen, setModalOpen] = useState(true);
+    const [isModalOpen, setModalOpen] = useState(false);
 
     const onModalToggle = useCallback(() => {
         setModalOpen((prev) => !prev);
@@ -47,17 +47,16 @@ export const NavBar = memo(() => {
                     )
                     : (
                         <>
-                            <Button onClick={onModalToggle}>
+                            <Button
+                                onClick={onModalToggle}
+                                variant={ElementTheme.CLEAR_INVERTED}
+                            >
                                 {t('Вход')}
                             </Button>
-                            {
-                                !isModalOpen && (
-                                    <LoginModal
-                                        isModalOpen={isModalOpen}
-                                        toggleHandler={onModalToggle}
-                                    />
-                                )
-                            }
+                            <LoginModal
+                                isModalOpen={isModalOpen}
+                                toggleHandler={onModalToggle}
+                            />
                         </>
                     )
             }
