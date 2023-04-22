@@ -6,6 +6,7 @@
     width: 100vw;
     z-index: var(--modal-z);
     transition: 0.5s;
+    overflow: hidden;
 }
 
 .open {
@@ -21,4 +22,15 @@
     border-radius: 5px;
     color: var(--primary-color);
     overflow-y: auto;
+}
+
+.sheet {
+    z-index: 100;
+    position: fixed;
+    left: 2vw;
+    height: calc(100vh + 100px);
+    width: 96vw;
+    border-radius: 12px 12px 0;
+    background: #fff;
+    touch-action: none;
 }

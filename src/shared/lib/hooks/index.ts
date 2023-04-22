@@ -5,3 +5,4 @@ export * from './useHover';
 export * from './useInfiniteScroll';
 export * from './useThrottle';
 export * from './useDebounce';
+export * from './animationProvider';
