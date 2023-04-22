@@ -8,7 +8,6 @@ import { classNames } from '@/shared/lib/helpers';
 import { Drawer } from '@/shared/ui/drawer';
 import { Button } from '@/shared/ui/button';
 import { ElementTheme } from '@/shared/types/ui';
-import { AnimationProvider } from '@/shared/lib/hooks';
 
 import cls from './notificationButton.module.scss';
 
@@ -42,11 +41,9 @@ export const NotificationButton = memo(({ className }: NotificationButtonProps) 
                 >
                     <Icon stroke={StrokeColor.INVERTED_PRIMARY} Svg={Notification} />
                 </Button>
-                <AnimationProvider>
-                    <Drawer isOpen={isDrawerOpen} onClose={onDrawerToggle}>
-                        <NotificationsList />
-                    </Drawer>
-                </AnimationProvider>
+                <Drawer isOpen={isDrawerOpen} onClose={onDrawerToggle}>
+                    <NotificationsList />
+                </Drawer>
             </MobileView>
         </div>
     );

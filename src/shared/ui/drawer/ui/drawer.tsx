@@ -4,9 +4,9 @@ import {
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { Portal } from '../../portal';
 import { Overlay } from '../../overlay';
+import { useAnimationLibs, AnimationProvider } from '../../../lib/hooks';
 
 import cls from './drawer.module.scss';
-import { useAnimationLibs } from '../../../lib/hooks';
 
 export interface DrawerProps {
   className?: string;
@@ -71,7 +71,7 @@ const DrawerContent = memo(({
     return (
         <Portal>
             <div
-                className={classNames(cls.drawer, { [cls.closed]: isOpen }, [className])}
+                className={classNames(cls.drawer, {}, [className])}
             >
                 <Overlay onClick={close}>
                     <a.div
@@ -87,10 +87,16 @@ const DrawerContent = memo(({
     );
 });
 
-export const Drawer = (props: DrawerProps) => {
+const DrawerAsync = (props: DrawerProps) => {
     const { isLoaded } = useAnimationLibs();
 
     if (!isLoaded) return null;
 
     return <DrawerContent {...props} />;
 };
+
+export const Drawer = (props: DrawerProps) => (
+    <AnimationProvider>
+        <DrawerAsync {...props} />
+    </AnimationProvider>
+);
