@@ -3,12 +3,12 @@ import {
     ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { CombinedState, Reducer } from 'redux';
-import { counterReducer } from 'entities/counter';
-import { userReducer } from 'entities/user';
-import { $api } from 'shared/api/api';
-import { addCommentFormReducer } from 'features/addCommentForm';
-import { scrollPositionReducer } from 'widgets/page';
-import { rtkApi } from 'shared/api/rtkApi';
+import { counterReducer } from '@/entities/counter';
+import { userReducer } from '@/entities/user';
+import { $api } from '@/shared/api/api';
+import { addCommentFormReducer } from '@/features/addCommentForm';
+import { scrollPositionReducer } from '@/widgets/page';
+import { rtkApi } from '@/shared/api/rtkApi';
 import { StateSchema } from './stateSchema';
 import { createReducerManager } from './reducerManager';
 

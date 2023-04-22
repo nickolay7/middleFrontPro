@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from 'shared/lib/helpers/classNames';
-import { Input } from 'shared/ui/input';
-import { Avatar } from 'shared/ui/avatar/ui/avatar';
-import { HStack, VStack } from 'shared/ui/stack';
-import { ListBox } from 'shared/ui/popups/ui/listBox/listBox';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { Input } from '@/shared/ui/input';
+import { Avatar } from '@/shared/ui/avatar/ui/avatar';
+import { HStack, VStack } from '@/shared/ui/stack';
+import { ListBox } from '@/shared/ui/popups/ui/listBox/listBox';
 import { IProfile } from '../model/types/IProfile';
 import { Currency } from '../../currency/model/types/currency';
 import { Countries } from '../../country/model/types/country';

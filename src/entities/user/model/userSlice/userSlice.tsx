@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { USER_LOGIN_DATA } from 'shared/consts/user';
+import { USER_LOGIN_DATA } from '@/shared/consts/user';
 import { User, UserSchema } from '../types/userShema';
 
 const initialState: UserSchema = {

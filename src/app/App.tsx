@@ -1,8 +1,8 @@
 import { Suspense, useEffect } from 'react';
 
-import { NavBar } from 'widgets/navBar';
-import { SideBar } from 'widgets/sideBar';
-import { initAuthData, initUserSelector } from 'entities/user';
+import { NavBar } from '@/widgets/navBar';
+import { SideBar } from '@/widgets/sideBar';
+import { initAuthData, initUserSelector } from '@/entities/user';
 import AppRoutes from './appRoutes/appRoutes';
 import { useAppDispatch, useAppSelector } from './providers/storeProvider';
 

@@ -1,11 +1,11 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from 'shared/lib/helpers/classNames';
-import { Text } from 'shared/ui/text';
-import { CommentList } from 'entities/comment';
-import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
-import { useInitialEffect } from 'shared/lib/hooks';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { Text } from '@/shared/ui/text';
+import { CommentList } from '@/entities/comment';
+import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider';
+import { useInitialEffect } from '@/shared/lib/hooks';
 import { AddCommentForm } from '../../../addCommentForm';
 
 import cls from './articleDetailsComments.module.scss';

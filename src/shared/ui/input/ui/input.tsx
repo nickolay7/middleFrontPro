@@ -1,7 +1,7 @@
 import { ChangeEvent, InputHTMLAttributes, memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from 'shared/lib/helpers/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames';
 import cls from './input.module.scss';
 
 type InputAttrs = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>;

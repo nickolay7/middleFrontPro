@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { themeDecorator } from 'shared/config/decorators/themeDecorator';
-import { Theme } from 'app/providers/theme';
-import { storeDecorator } from 'shared/config/decorators/storeDecorator';
+import { themeDecorator } from '@/shared/config/decorators/themeDecorator';
+import { Theme } from '@/app/providers/theme';
+import { storeDecorator } from '@/shared/config/decorators/storeDecorator';
 import { MainAsync } from './mainAsync';
 
 export default {

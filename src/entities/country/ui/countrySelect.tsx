@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Select } from 'shared/ui/select';
+import { Select } from '@/shared/ui/select';
 import { Countries } from '../model/types/country';
 
 export interface CountrySelectProps {

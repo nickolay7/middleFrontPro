@@ -1,8 +1,8 @@
 import { I18nextProvider } from 'react-i18next';
 import { render } from '@testing-library/react';
 
-import i18n from 'shared/config/i18nForTests';
 import { ReactNode } from 'react';
+import i18n from '@/shared/config/i18nForTests';
 
 export default (component: ReactNode) => {
     render(

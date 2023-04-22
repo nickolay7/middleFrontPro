@@ -1,7 +1,7 @@
 import { memo, useCallback } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames';
-import { ArticlesList } from 'entities/article';
-import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { ArticlesList } from '@/entities/article';
+import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider';
 import { articlePageSelector } from '../../model/slice/articlesPageSlice';
 import { articlesSelector } from '../../model/selectors/articlesSelector/articlesSelector';
 import { fetchNextArticlesPage } from '../../model/services/fetchNextArticlePage/fetchNextArticlesPage';

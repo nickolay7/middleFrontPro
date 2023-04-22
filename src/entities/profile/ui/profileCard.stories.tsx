@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { themeDecorator } from 'shared/config/decorators/themeDecorator';
-import { Theme } from 'app/providers/theme';
+import { themeDecorator } from '@/shared/config/decorators/themeDecorator';
+import { Theme } from '@/app/providers/theme';
 import { ProfileCard, ProfileCardProps } from './profileCard';
 import { Countries } from '../../country/model/types/country';
 import { Currency } from '../../currency/model/types/currency';

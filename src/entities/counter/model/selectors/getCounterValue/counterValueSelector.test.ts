@@ -1,5 +1,5 @@
-import { StateSchema } from 'app/providers/storeProvider/config/stateSchema';
 import { DeepPartial } from '@reduxjs/toolkit';
+import { StateSchema } from '@/app/providers/storeProvider/config/stateSchema';
 import { counterValueSelector } from './counterValueSelector';
 
 describe('counterSelector.test', () => {

@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 
-import { themeDecorator } from 'shared/config/decorators/themeDecorator';
+import { themeDecorator } from '@/shared/config/decorators/themeDecorator';
 import { AppLinkProps, LinkThemes, MenuLink } from './menuLink';
-import { Theme } from '../../../../app/providers/theme';
+import { Theme } from '@/app/providers/theme';
 
 export default {
     title: 'shared/MenuLink',

@@ -1,9 +1,9 @@
-import About from 'shared/assets/icons/about.svg';
-import Home from 'shared/assets/icons/home.svg';
-import Profile from 'shared/assets/icons/profile.svg';
-import Article from 'shared/assets/icons/article.svg';
-import { useAppSelector } from 'app/providers/storeProvider';
-import { authUserSelector } from 'entities/user';
+import About from '@/shared/assets/icons/about.svg';
+import Home from '@/shared/assets/icons/home.svg';
+import Profile from '@/shared/assets/icons/profile.svg';
+import Article from '@/shared/assets/icons/article.svg';
+import { useAppSelector } from '@/app/providers/storeProvider';
+import { authUserSelector } from '@/entities/user';
 import { LinkPath, MenuItem } from './types';
 
 export const useMenuConfig = (): MenuItem[] => {

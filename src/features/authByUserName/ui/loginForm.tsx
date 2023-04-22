@@ -1,18 +1,18 @@
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback } from 'react';
 
-import { Input } from 'shared/ui/input';
-import { Button } from 'shared/ui/button';
-import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider/config/hooks';
-import { Spinner } from 'shared/ui/spinner';
-import { Text, TextVariant } from 'shared/ui/text';
-import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
+import { Input } from '@/shared/ui/input';
+import { Button } from '@/shared/ui/button';
+import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider/config/hooks';
+import { Spinner } from '@/shared/ui/spinner';
+import { Text, TextVariant } from '@/shared/ui/text';
+import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { loginReducer, setPassword, setUsername } from '../model/slice/loginSlice';
 import { loginSelector } from '../model/selectors/loginSelector/loginSelector';
 import { loginByUserName } from '../model/services/loginByUserName/loginByUserName';
 
 import cls from './login.module.scss';
-import { ElementTheme } from '../../../shared/types/ui';
+import { ElementTheme } from '@/shared/types/ui';
 
 export interface LoginFormProps {
     onSuccess: () => void;

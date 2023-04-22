@@ -1,5 +1,6 @@
-import { classNames } from 'shared/lib/helpers/classNames';
 import { ChangeEvent } from 'react';
+import { classNames } from '@/shared/lib/helpers/classNames';
+
 import cls from './select.module.scss';
 
 export interface SelectOptionData {

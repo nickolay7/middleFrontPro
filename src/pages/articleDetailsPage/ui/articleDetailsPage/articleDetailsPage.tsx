@@ -1,12 +1,12 @@
 import { useParams } from 'react-router-dom';
 
-import { classNames } from 'shared/lib/helpers/classNames';
-import { ArticleDetails } from 'entities/article';
-import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { ArticleDetails } from '@/entities/article';
+import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import {
     ArticleRecommendationsList,
-} from 'features/articleRecommendationsList/ui/articleRecommendationsList/articleRecommendationsList';
-import { ArticleDetailsComments } from 'features/articleDetailsComments';
+} from '@/features/articleRecommendationsList/ui/articleRecommendationsList/articleRecommendationsList';
+import { ArticleDetailsComments } from '@/features/articleDetailsComments';
 import { articleDetailsPageReducers } from '../../model/slice';
 import { HeaderDetailsPageAsync as HeaderDetailsPage } from '../headerDetailsPage/headerDetailsPageAsync';
 

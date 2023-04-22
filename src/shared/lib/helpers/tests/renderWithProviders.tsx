@@ -4,9 +4,9 @@ import { I18nextProvider } from 'react-i18next';
 import { render } from '@testing-library/react';
 import { ReducersMapObject } from '@reduxjs/toolkit';
 
-import i18n from 'shared/config/i18nForTests';
-import { StoreProvider } from 'app/providers/storeProvider/storeProvider';
-import { StateSchema } from 'app/providers/storeProvider/config/stateSchema';
+import i18n from '@/shared/config/i18nForTests';
+import { StoreProvider } from '@/app/providers/storeProvider/storeProvider';
+import { StateSchema } from '@/app/providers/storeProvider/config/stateSchema';
 
 interface RenderOptions {
     route?: string;

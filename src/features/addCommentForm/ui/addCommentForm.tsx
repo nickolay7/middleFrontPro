@@ -1,15 +1,15 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 
-import { classNames } from 'shared/lib/helpers/classNames';
-import { Input } from 'shared/ui/input';
-import { Button } from 'shared/ui/button';
-import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
-import { useDynamicModuleLoader } from 'shared/lib/hooks/useDynamicModuleLoader';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { Input } from '@/shared/ui/input';
+import { Button } from '@/shared/ui/button';
+import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider';
+import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import cls from './addCommentForm.module.scss';
 import { addCommentFormSelector } from '../model/selectors/addCommentFormSelector/addCommentFormSelector';
 import { addCommentFormReducer, setComment } from '../model/slices/addCommentFormSlice';
-import { HStack } from '../../../shared/ui/stack';
+import { HStack } from '@/shared/ui/stack';
 
 export interface AddCommentFormProps {
   className?: string;

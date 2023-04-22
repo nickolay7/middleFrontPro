@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/storeProvider';
+import { StateSchema } from '@/app/providers/storeProvider';
 
 export const articlesSelector = (state: StateSchema) => state.articles;
 export const articlesLimitSelector = (state: StateSchema) => state.articles?.limit;

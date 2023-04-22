@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/storeProvider';
+import { StateSchema } from '@/app/providers/storeProvider';
 
 export const articlesFilterOrderSelector = (state: StateSchema) => state.articles?.order;
 export const articlesFilterSortSelector = (state: StateSchema) => state.articles?.sort;

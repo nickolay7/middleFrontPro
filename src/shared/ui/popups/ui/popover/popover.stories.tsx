@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { themeDecorator } from 'shared/config/decorators/themeDecorator';
-import { Theme } from 'app/providers/theme';
+import { themeDecorator } from '@/shared/config/decorators/themeDecorator';
+import { Theme } from '@/app/providers/theme';
 // @ts-ignore
 import { Popover, PopoverProps } from './popover';
 import { VStack } from '../../../stack';

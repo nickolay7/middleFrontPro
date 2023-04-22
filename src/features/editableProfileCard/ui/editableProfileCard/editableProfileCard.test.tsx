@@ -1,12 +1,12 @@
 import {
     screen,
 } from '@testing-library/react';
-import renderWithProviders from 'shared/lib/helpers/tests/renderWithProviders';
 import userEvent from '@testing-library/user-event';
-import { Currency } from 'entities/currency/model/types/currency';
-import { Countries } from 'entities/country/model/types/country';
-import { IProfile } from 'entities/profile';
-import { $api } from 'shared/api/api';
+import renderWithProviders from '@/shared/lib/helpers/tests/renderWithProviders';
+import { Currency } from '@/entities/currency/model/types/currency';
+import { Countries } from '@/entities/country/model/types/country';
+import { IProfile } from '@/entities/profile';
+import { $api } from '@/shared/api/api';
 import { EditableProfileCard } from './editableProfileCard';
 import { profileReducer } from '../../model/slice/profileSlice';
 

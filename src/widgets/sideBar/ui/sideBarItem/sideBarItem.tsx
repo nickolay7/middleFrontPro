@@ -1,10 +1,10 @@
 import { useTranslation } from 'react-i18next';
 import React, { memo } from 'react';
 
-import { classNames } from 'shared/lib/helpers/classNames';
-import { MenuLink } from 'shared/ui/menuLink';
-import { useAppSelector } from 'app/providers/storeProvider';
-import { authUserSelector } from 'entities/user';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { MenuLink } from '@/shared/ui/menuLink';
+import { useAppSelector } from '@/app/providers/storeProvider';
+import { authUserSelector } from '@/entities/user';
 import cls from './sideBarItem.module.scss';
 import { MenuItem } from '../../lib/types';
 

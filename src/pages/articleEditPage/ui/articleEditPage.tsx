@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { useParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/helpers/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames';
 
 import cls from './articleEditPage.module.scss';
 

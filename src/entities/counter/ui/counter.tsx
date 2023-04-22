@@ -1,6 +1,6 @@
 import React from 'react';
-import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider/config/hooks';
-import { Button } from 'shared/ui/button';
+import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider/config/hooks';
+import { Button } from '@/shared/ui/button';
 import { decrement, increment, incrementByAmount } from '../model/counterSlice/counterSlice';
 import { counterValueSelector } from '../model/selectors/getCounterValue/counterValueSelector';
 

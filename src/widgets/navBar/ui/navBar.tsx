@@ -2,14 +2,14 @@ import { useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { memo, useCallback, useState } from 'react';
 
-import { Button } from 'shared/ui/button';
-import { LoginModal } from 'features/authByUserName';
-import { useAppSelector } from 'app/providers/storeProvider/config/hooks';
-import { authUserSelector, User } from 'entities/user';
-import { HStack } from 'shared/ui/stack';
-import { NotificationButton } from 'features/notificationButton';
-import { AvatarDropdown } from 'features/avatarDropdown';
-import { ElementTheme } from 'shared/types/ui';
+import { Button } from '@/shared/ui/button';
+import { LoginModal } from '@/features/authByUserName';
+import { useAppSelector } from '@/app/providers/storeProvider/config/hooks';
+import { authUserSelector, User } from '@/entities/user';
+import { HStack } from '@/shared/ui/stack';
+import { NotificationButton } from '@/features/notificationButton';
+import { AvatarDropdown } from '@/features/avatarDropdown';
+import { ElementTheme } from '@/shared/types/ui';
 import { LinkPath } from '../../sideBar/lib/types';
 
 import cls from './navBar.module.scss';

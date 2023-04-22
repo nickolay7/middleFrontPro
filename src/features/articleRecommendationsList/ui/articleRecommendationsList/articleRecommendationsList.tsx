@@ -1,8 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { memo } from 'react';
-import { ArticlesList, ArticleView } from 'entities/article';
-import { classNames } from 'shared/lib/helpers';
-import { Text } from 'shared/ui/text';
+import { ArticlesList, ArticleView } from '@/entities/article';
+import { classNames } from '@/shared/lib/helpers';
+import { Text } from '@/shared/ui/text';
 import { useGetRecommendationsQuery } from '../../api/articleRecommendationsApi';
 
 import cls from './articleRecommendationsList.module.scss';

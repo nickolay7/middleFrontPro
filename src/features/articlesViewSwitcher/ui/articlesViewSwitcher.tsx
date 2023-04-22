@@ -1,13 +1,13 @@
 import { memo } from 'react';
 
-import { classNames } from 'shared/lib/helpers/classNames';
-import PlateIcon from 'shared/assets/icons/tiled-24-24.svg';
-import ListIcon from 'shared/assets/icons/list-24-24.svg';
-import { ArticleView } from 'entities/article';
-import { Button } from 'shared/ui/button';
-import { Icon, StrokeColor } from 'shared/ui/icon';
-import { useAppDispatch } from 'app/providers/storeProvider/config/hooks';
-import { setView } from 'pages/articlesPage/model/slice/articlesPageSlice';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import PlateIcon from '@/shared/assets/icons/tiled-24-24.svg';
+import ListIcon from '@/shared/assets/icons/list-24-24.svg';
+import { ArticleView } from '@/entities/article';
+import { Button } from '@/shared/ui/button';
+import { Icon, StrokeColor } from '@/shared/ui/icon';
+import { useAppDispatch } from '@/app/providers/storeProvider/config/hooks';
+import { setView } from '@/pages/articlesPage/model/slice/articlesPageSlice';
 import { Switchers } from '../lib/types/switchers';
 
 import cls from './articlesViewSwitcher.module.scss';

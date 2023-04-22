@@ -1,6 +1,6 @@
 import { memo, ReactNode } from 'react';
 
-import { classNames } from 'shared/lib/helpers/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames';
 import cls from './code.module.scss';
 
 export interface CodeProps {

@@ -8,4 +8,7 @@ export const buildResolvers = ({ src }: BuildOptions): ResolveOptions => ({
         'node_modules',
         src,
     ],
+    alias: {
+        '@': src,
+    },
 });

@@ -1,7 +1,7 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { themeDecorator } from 'shared/config/decorators/themeDecorator';
-import { Theme } from 'app/providers/theme';
-import Calendar from 'shared/assets/icons/calendar-20-20.svg';
+import { themeDecorator } from '@/shared/config/decorators/themeDecorator';
+import { Theme } from '@/app/providers/theme';
+import Calendar from '@/shared/assets/icons/calendar-20-20.svg';
 import { StrokeColor, Icon, IconProps } from './icon';
 
 export default {

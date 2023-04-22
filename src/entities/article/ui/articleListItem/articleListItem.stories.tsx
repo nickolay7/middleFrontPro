@@ -1,6 +1,6 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { themeDecorator } from 'shared/config/decorators/themeDecorator';
-import { Theme } from 'app/providers/theme';
+import { themeDecorator } from '@/shared/config/decorators/themeDecorator';
+import { Theme } from '@/app/providers/theme';
 import { ArticleListItem, ArticleListItemProps } from './articleListItem';
 import { articleStateMock } from '../../model/mocks/articleStateMock';
 import { Article, ArticleView } from '../../model/types/article';

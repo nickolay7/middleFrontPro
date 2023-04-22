@@ -1,9 +1,9 @@
 import React, { FC, memo, ReactNode } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/helpers/classNames';
-import { Text } from 'shared/ui/text';
 import { Virtuoso, VirtuosoGrid } from 'react-virtuoso';
-import { HStack } from 'shared/ui/stack';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { Text } from '@/shared/ui/text';
+import { HStack } from '@/shared/ui/stack';
 import { Article, ArticleView } from '../../model/types/article';
 import { ArticleListItem } from '../articleListItem/articleListItem';
 import { ArticleListSkeleton } from '../articleListItem/articleListSkeleton';

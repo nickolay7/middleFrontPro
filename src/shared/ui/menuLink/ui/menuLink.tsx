@@ -1,6 +1,6 @@
 import { Link, LinkProps } from 'react-router-dom';
 import { ForwardedRef, forwardRef } from 'react';
-import { classNames } from 'shared/lib/helpers';
+import { classNames } from '@/shared/lib/helpers';
 import cls from './menuLink.module.scss';
 
 export enum LinkThemes {

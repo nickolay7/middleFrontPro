@@ -1,7 +1,7 @@
 import {
     memo, ReactNode, useCallback, useEffect,
 } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames';
 import { Portal } from '../../portal';
 import { Overlay } from '../../overlay';
 

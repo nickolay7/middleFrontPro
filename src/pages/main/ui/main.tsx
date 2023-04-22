@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next';
-import { Page } from 'widgets/page';
-import { VStack } from 'shared/ui/stack';
+import { Page } from '@/widgets/page';
+import { VStack } from '@/shared/ui/stack';
 
 import cls from './main.module.scss';
 

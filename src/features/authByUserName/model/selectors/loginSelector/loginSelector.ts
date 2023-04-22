@@ -1,4 +1,4 @@
-import { StateSchema } from 'app/providers/storeProvider/config/stateSchema';
+import { StateSchema } from '@/app/providers/storeProvider/config/stateSchema';
 
 const defaultState = {
     username: '',

@@ -1,6 +1,6 @@
 import { ButtonHTMLAttributes, memo } from 'react';
 
-import { classNames } from 'shared/lib/helpers/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames';
 
 import cls from './button.module.scss';
 import { ElementTheme } from '../../../types/ui';

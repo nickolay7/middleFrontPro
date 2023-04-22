@@ -1,10 +1,10 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/helpers/classNames';
-import { Select, SelectOptionData } from 'shared/ui/select';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { Select, SelectOptionData } from '@/shared/ui/select';
+import { HStack } from '@/shared/ui/stack';
 
 import cls from './articleSortSelect.module.scss';
-import { HStack } from '../../../../shared/ui/stack';
 
 export interface ArticleSortSelectProps {
   className?: string;

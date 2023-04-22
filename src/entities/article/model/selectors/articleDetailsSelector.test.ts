@@ -1,5 +1,5 @@
-import { StateSchema } from 'app/providers/storeProvider/config/stateSchema';
 import { DeepPartial } from '@reduxjs/toolkit';
+import { StateSchema } from '@/app/providers/storeProvider/config/stateSchema';
 import { articleDetailsSelector } from './articleDetailsSelector';
 
 describe('articleDetailsSelector.test', () => {

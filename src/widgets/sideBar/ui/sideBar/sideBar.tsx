@@ -1,14 +1,14 @@
 import React, { memo, useState } from 'react';
 
-import { classNames } from 'shared/lib/helpers/classNames';
-import { Button } from 'shared/ui/button';
-import { ThemeSwitcher } from 'widgets/themeSwitcher';
-import { LangSwitcher } from 'widgets/langSwitcher';
-import { VStack } from 'shared/ui/stack';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { Button } from '@/shared/ui/button';
+import { ThemeSwitcher } from '@/widgets/themeSwitcher';
+import { LangSwitcher } from '@/widgets/langSwitcher';
+import { VStack } from '@/shared/ui/stack';
 import { useMenuConfig } from '../../lib/menuConfig';
 import { SideBarItem } from '../sideBarItem/sideBarItem';
 import cls from './sideBar.module.scss';
-import { ElementTheme } from '../../../../shared/types/ui';
+import { ElementTheme } from '@/shared/types/ui';
 
 export interface SideBarProps {
     className?: string;

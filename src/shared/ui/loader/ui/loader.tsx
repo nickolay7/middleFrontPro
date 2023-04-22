@@ -1,4 +1,4 @@
-import { classNames } from 'shared/lib/helpers/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames';
 import { Spinner } from '../../spinner';
 import cls from './loader.module.scss';
 

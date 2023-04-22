@@ -1,8 +1,8 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
-import { themeDecorator } from 'shared/config/decorators/themeDecorator';
-import { Theme } from 'app/providers/theme';
-import { storeDecorator } from 'shared/config/decorators/storeDecorator';
-import { StateSchema } from 'app/providers/storeProvider';
+import { themeDecorator } from '@/shared/config/decorators/themeDecorator';
+import { Theme } from '@/app/providers/theme';
+import { storeDecorator } from '@/shared/config/decorators/storeDecorator';
+import { StateSchema } from '@/app/providers/storeProvider';
 import { ArticleDetails, ArticleDetailsProps } from './articleDetails';
 import { articleStateMock } from '../../model/mocks/articleStateMock';
 

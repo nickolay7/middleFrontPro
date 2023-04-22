@@ -1,13 +1,13 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
-import { classNames } from 'shared/lib/helpers/classNames';
-import { Avatar } from 'shared/ui/avatar';
-import { LinkPath } from 'widgets/sideBar/lib/types';
-import { Dropdown } from 'shared/ui/popups';
-import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { Avatar } from '@/shared/ui/avatar';
+import { LinkPath } from '@/widgets/sideBar/lib/types';
+import { Dropdown } from '@/shared/ui/popups';
+import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider';
 import {
     authUserSelector, isAdminSelector, isManagerSelector, setUserLogout, User,
-} from 'entities/user';
+} from '@/entities/user';
 
 import cls from './avatarDropdown.module.scss';
 

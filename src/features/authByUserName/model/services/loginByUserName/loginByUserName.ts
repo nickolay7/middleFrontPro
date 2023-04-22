@@ -1,8 +1,8 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { User } from 'entities/user';
-import { USER_LOGIN_DATA } from 'shared/consts/user';
-import { setUserLoginData } from 'entities/user/model/userSlice/userSlice';
-import { ThunkExtraArgs } from 'app/providers/storeProvider';
+import { User } from '@/entities/user';
+import { USER_LOGIN_DATA } from '@/shared/consts/user';
+import { setUserLoginData } from '@/entities/user/model/userSlice/userSlice';
+import { ThunkExtraArgs } from '@/app/providers/storeProvider';
 
 interface LoginData {
     username: string;

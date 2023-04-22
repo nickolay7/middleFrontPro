@@ -1,6 +1,6 @@
-import { TestAsyncThunk } from 'shared/lib/helpers/tests/testAsyncThank';
-import { ArticleType, ArticleView } from 'entities/article';
-import { ArticleSortField, OrderBy } from 'shared/types/filters';
+import { TestAsyncThunk } from '@/shared/lib/helpers/tests/testAsyncThank';
+import { ArticleType, ArticleView } from '@/entities/article';
+import { ArticleSortField, OrderBy } from '@/shared/types/filters';
 import { fetchNextArticlesPage } from './fetchNextArticlesPage';
 import { fetchArticlesList } from '../fetchArticlesList/fetchArticlesList';
 

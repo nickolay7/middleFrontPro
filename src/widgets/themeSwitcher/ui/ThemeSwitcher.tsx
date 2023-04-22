@@ -1,13 +1,13 @@
-import { classNames } from 'shared/lib/helpers/classNames';
-import ThemeDark from 'shared/assets/icons/theme-dark.svg';
-import ThemeLight from 'shared/assets/icons/theme-light.svg';
-import ThemeNeon from 'shared/assets/icons/theme-neon.svg';
-import { useTheme } from 'shared/lib/hooks';
-import { Theme } from 'app/providers/theme';
 import { ButtonHTMLAttributes, memo } from 'react';
-import { Button } from '../../../shared/ui/button';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import ThemeDark from '@/shared/assets/icons/theme-dark.svg';
+import ThemeLight from '@/shared/assets/icons/theme-light.svg';
+import ThemeNeon from '@/shared/assets/icons/theme-neon.svg';
+import { useTheme } from '@/shared/lib/hooks';
+import { Theme } from '@/app/providers/theme';
+import { Button } from '@/shared/ui/button';
 import cls from './ThemeSwitcher.module.scss';
-import { ElementTheme } from '../../../shared/types/ui';
+import { ElementTheme } from '@/shared/types/ui';
 
 export interface ThemeSwitcherProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   className?: string;

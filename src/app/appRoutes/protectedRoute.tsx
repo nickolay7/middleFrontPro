@@ -2,9 +2,9 @@ import { ReactElement, Suspense } from 'react';
 import { Navigate } from 'react-router-dom';
 import {
     authUserSelector, rolesSelector, UserRoles,
-} from 'entities/user';
+} from '@/entities/user';
 import { useAppSelector } from '../providers/storeProvider';
-import { Loader } from '../../shared/ui/loader';
+import { Loader } from '@/shared/ui/loader';
 import { AppPaths } from './config/consts/consts';
 
 interface ProtectedRouteProps {

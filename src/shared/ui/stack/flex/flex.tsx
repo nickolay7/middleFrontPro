@@ -1,5 +1,5 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames';
 import {
     FlexAlign, FlexDirection, FlexGap, FlexJustify,
 } from '../types/stack';

@@ -1,5 +1,5 @@
 import { HTMLAttributes, memo, ReactNode } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames';
 import cls from './card.module.scss';
 
 export interface CardProps extends HTMLAttributes<HTMLDivElement> {

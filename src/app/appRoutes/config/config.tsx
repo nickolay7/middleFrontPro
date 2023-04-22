@@ -1,13 +1,13 @@
-import { MainAsync } from 'pages/main';
-import { NotFoundPage } from 'pages/notFoundPage';
-import { ProfilePage } from 'pages/profilePage';
-import { AboutAsync } from 'pages/about/ui/aboutAsync';
-import { ArticlesPage } from 'pages/articlesPage';
-import { ArticleDetailsPage } from 'pages/articleDetailsPage';
-import { ArticleEditPage } from 'pages/articleEditPage';
-import { AdminPanelPage } from 'pages/adminPanelPage';
-import { UserRoles } from 'entities/user';
-import { ForbiddenPage } from 'pages/forbiddenPage';
+import { MainAsync } from '@/pages/main';
+import { NotFoundPage } from '@/pages/notFoundPage';
+import { ProfilePage } from '@/pages/profilePage';
+import { AboutAsync } from '@/pages/about/ui/aboutAsync';
+import { ArticlesPage } from '@/pages/articlesPage';
+import { ArticleDetailsPage } from '@/pages/articleDetailsPage';
+import { ArticleEditPage } from '@/pages/articleEditPage';
+import { AdminPanelPage } from '@/pages/adminPanelPage';
+import { UserRoles } from '@/entities/user';
+import { ForbiddenPage } from '@/pages/forbiddenPage';
 import { AppPaths } from './consts/consts';
 import { AppRouteProps } from './types/types';
 

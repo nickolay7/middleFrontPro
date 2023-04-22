@@ -1,14 +1,14 @@
 import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
-import { classNames } from 'shared/lib/helpers/classNames';
-import { Button } from 'shared/ui/button';
-import { LinkPath } from 'widgets/sideBar/lib/types';
-import { useAppSelector } from 'app/providers/storeProvider';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { Button } from '@/shared/ui/button';
+import { LinkPath } from '@/widgets/sideBar/lib/types';
+import { useAppSelector } from '@/app/providers/storeProvider';
 import { getIsEditable } from '../../model/selectors/getIsEditable/getIsEditable';
 
 import cls from './headerDetailsPage.module.scss';
-import { ElementTheme } from '../../../../shared/types/ui';
+import { ElementTheme } from '@/shared/types/ui';
 
 export interface HeaderDetailsPageProps {
   className?: string;

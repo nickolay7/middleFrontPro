@@ -1,7 +1,7 @@
 import { FC, Suspense } from 'react';
 
-import { Modal } from 'shared/ui/modal';
-import { Spinner } from 'shared/ui/spinner';
+import { Modal } from '@/shared/ui/modal';
+import { Spinner } from '@/shared/ui/spinner';
 import { LoginFormAsync } from './loginFormAsync';
 
 interface LoginModalProps {

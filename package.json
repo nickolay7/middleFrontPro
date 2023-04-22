@@ -24,7 +24,8 @@
     "test:ui:html": "reg-cli --from .loki/report.json --report .loki/report.html",
     "dev-server": "node json-server --watch json-server/db.json",
     "prepare": "husky install",
-    "generate:slice": "node ./scripts/createSlice/index.js"
+    "generate:slice": "node ./scripts/createSlice/index.js",
+    "updateImports": "node scripts/updateImports.mjs"
   },
   "keywords": [],
   "author": "",
@@ -95,6 +96,7 @@
     "stylelint": "^14.16.1",
     "stylelint-config-standard-scss": "^6.1.0",
     "ts-loader": "^9.2.6",
+    "ts-morph": "^16.0.0",
     "ts-node": "^10.5.0",
     "typescript": "^4.5.5",
     "webpack": "^5.69.1",

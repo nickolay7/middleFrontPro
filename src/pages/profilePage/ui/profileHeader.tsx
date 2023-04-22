@@ -1,16 +1,16 @@
-import { classNames } from 'shared/lib/helpers/classNames';
 import { useTranslation } from 'react-i18next';
-import { Text } from 'shared/ui/text';
-import { Button } from 'shared/ui/button';
-import { useAppDispatch, useAppSelector } from 'app/providers/storeProvider';
+import { classNames } from '@/shared/lib/helpers/classNames';
+import { Text } from '@/shared/ui/text';
+import { Button } from '@/shared/ui/button';
+import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider';
 import {
     cancelEditing, setReadonly, upsetReadonly, updateProfileData, profileData,
-} from 'entities/profile';
-import { authUserSelector } from 'entities/user';
-import { HStack } from 'shared/ui/stack';
+} from '@/entities/profile';
+import { authUserSelector } from '@/entities/user';
+import { HStack } from '@/shared/ui/stack';
+import { ElementTheme } from '@/shared/types/ui';
 
 import cls from './profileHeader.module.scss';
-import { ElementTheme } from '../../../shared/types/ui';
 
 interface ProfileHeaderProps {
     className?: string;

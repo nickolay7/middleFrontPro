@@ -1,5 +1,5 @@
 import { ReactNode } from 'react';
-import { classNames } from 'shared/lib/helpers/classNames';
+import { classNames } from '@/shared/lib/helpers/classNames';
 import { useModal } from '../../../lib/hooks/useModal';
 
 import cls from './modal.module.scss';

@@ -1,5 +1,5 @@
-import { setUserLoginData } from 'entities/user/model/userSlice/userSlice';
-import { TestAsyncThunk } from 'shared/lib/helpers/tests/testAsyncThank';
+import { setUserLoginData } from '@/entities/user/model/userSlice/userSlice';
+import { TestAsyncThunk } from '@/shared/lib/helpers/tests/testAsyncThank';
 import { loginByUserName } from './loginByUserName';
 
 describe('loginByUserName.test', () => {
