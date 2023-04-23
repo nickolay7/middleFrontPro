@@ -1,0 +1,16 @@
+.starRating {
+    cursor: pointer;
+}
+
+.normal {
+    fill: var(--primary-color);
+}
+
+.selected {
+    fill: var(--orange);
+    stroke: none;
+}
+
+.isSelected {
+    cursor: default;
+}

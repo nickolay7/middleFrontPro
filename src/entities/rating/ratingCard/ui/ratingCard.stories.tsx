@@ -1,34 +1,30 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { themeDecorator } from '@/shared/config/decorators/themeDecorator';
 import { Theme } from '@/app/providers/theme';
-import Calendar from '@/shared/assets/icons/calendar-20-20.svg';
-import { StrokeColor, Icon, IconProps } from './icon';
+import { RatingCard, RatingCardProps } from './ratingCard';
 
 export default {
-    title: 'shared/Icon',
-    component: Icon,
+    title: 'entities/RatingCard',
+    component: RatingCard,
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-} as ComponentMeta<typeof Icon>;
+} as ComponentMeta<typeof RatingCard>;
 
-const Template: ComponentStory<typeof Icon> = (args: IconProps) => (
-    // @ts-ignore
-    <Icon {...args} />
+const Template: ComponentStory<typeof RatingCard> = (args: RatingCardProps) => (
+    <RatingCard {...args} />
 );
 
 export const Light = Template.bind({});
 Light.args = {
     className: '',
-    stroke: StrokeColor.PRIMARY,
-    Svg: Calendar,
+    feedbackTitle: 'Оставьте отзыв',
+    title: 'Оцените статью',
 };
 
 export const Dark = Template.bind({});
 Dark.args = {
     className: '',
-    stroke: StrokeColor.PRIMARY,
-    Svg: Calendar,
 };
 
 Dark.decorators = [
