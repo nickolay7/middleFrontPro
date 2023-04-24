@@ -1,4 +1,6 @@
-import { memo, useState } from 'react';
+import {
+    memo, useCallback, useState,
+} from 'react';
 import { useTranslation } from 'react-i18next';
 import { BrowserView, MobileView } from 'react-device-detect';
 import { classNames } from '@/shared/lib/helpers/classNames';
@@ -21,14 +23,15 @@ export interface RatingCardProps {
   hasFeedback?: boolean;
   onCancel?: (starsCount: number) => void;
   onAccept?: (starsCount: number, feedback: string) => void;
+  rate?: number;
 }
 export const RatingCard = memo(({ className, ...otherProps }: RatingCardProps) => {
     const { t } = useTranslation();
     const {
-        title, feedbackTitle, hasFeedback = true, onAccept, onCancel,
+        title, feedbackTitle, hasFeedback = true, onAccept, onCancel, rate = 0,
     } = otherProps;
 
-    const [starsCount, setStarsCount] = useState<number>(0);
+    const [starsCount, setStarsCount] = useState<number>(rate);
     const [isModalOpen, setModalOpen] = useState(false);
     const [feedback, setFeedback] = useState('');
 
@@ -41,22 +44,26 @@ export const RatingCard = memo(({ className, ...otherProps }: RatingCardProps) =
 
     const acceptHandle = () => {
         setModalOpen(false);
-        if (onAccept) onAccept(starsCount, feedback);
+        onAccept?.(starsCount, feedback);
     };
 
     const cancelHandle = () => {
         setModalOpen(false);
-        if (onCancel) onCancel(starsCount);
+        onCancel?.(starsCount);
     };
 
     const onModalToggle = () => {
         setModalOpen((prev) => !prev);
     };
 
+    const onFeedbackChange = useCallback((text: string) => {
+        setFeedback(text);
+    }, []);
+
     const modalContent = (
         <VStack gap="gap32">
             <Text title={feedbackTitle} />
-            <Input label={false} placeholder={t('Ваш отзыв')} name="feedback" />
+            <Input label={false} placeholder={t('Ваш отзыв')} name="feedback" onChange={onFeedbackChange} />
             <HStack gap="gap8" justify="justifyEnd">
                 <Button onClick={cancelHandle} variant={ElementTheme.OUTLINE_ORANGE}>
                     {t('Закрыть')}

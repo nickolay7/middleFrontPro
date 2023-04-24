@@ -9,6 +9,7 @@ import {
 import { ArticleDetailsComments } from '@/features/articleDetailsComments';
 import { articleDetailsPageReducers } from '../../model/slice';
 import { HeaderDetailsPageAsync as HeaderDetailsPage } from '../headerDetailsPage/headerDetailsPageAsync';
+import { ArticleRating } from '@/features/articleRating';
 
 import cls from './articleDetailsPage.module.scss';
 
@@ -24,10 +25,15 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
     const { id } = useParams();
     useDynamicModuleLoader(reducers, true);
 
+    if (!id) {
+        return null;
+    }
+
     return (
         <div className={classNames(cls.articleDetailsPage, {}, [className])}>
             <HeaderDetailsPage />
             <ArticleDetails id={id} />
+            <ArticleRating articleId={id} />
             <ArticleRecommendationsList />
             <ArticleDetailsComments id={id} />
         </div>

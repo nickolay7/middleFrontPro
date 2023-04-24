@@ -616,5 +616,71 @@
       "username": "user",
       "avatar": "https://cdn.forbes.ru/forbes-static/new/2022/11/4-636273af4beec.jpg"
     }
+  ],
+  "article-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "articleId": "2"
+    },
+    {
+      "articleId": "1",
+      "userId": "1",
+      "feedback": "bad article",
+      "rate": 1,
+      "id": "ic2iDhx"
+    },
+    {
+      "articleId": "3",
+      "userId": "1",
+      "feedback": "good article",
+      "rate": 3,
+      "id": "Ka6ZlsF"
+    },
+    {
+      "articleId": "6",
+      "userId": "1",
+      "feedback": "two stars",
+      "rate": 2,
+      "id": "XKpOAwv"
+    },
+    {
+      "articleId": "16",
+      "userId": "1",
+      "feedback": "Super",
+      "rate": 4,
+      "id": "wnsRRow"
+    },
+    {
+      "articleId": "15",
+      "userId": "1",
+      "rate": 3,
+      "id": "f6nvn0Q"
+    }
+  ],
+  "profile-ratings": [
+    {
+      "id": "1",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "1"
+    },
+    {
+      "id": "2",
+      "rate": 4,
+      "feedback": "Хорошая статья",
+      "userId": "1",
+      "profileId": "2"
+    }
   ]
 }
