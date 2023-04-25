@@ -10,7 +10,7 @@ import { HStack } from '@/shared/ui/stack';
 import { NotificationButton } from '@/features/notificationButton';
 import { AvatarDropdown } from '@/features/avatarDropdown';
 import { ElementTheme } from '@/shared/types/ui';
-import { LinkPath } from '../../sideBar/lib/types';
+import { LinkPath } from '../../sideBar/types/types';
 
 import cls from './navBar.module.scss';
 

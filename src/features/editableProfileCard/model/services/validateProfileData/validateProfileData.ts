@@ -1,4 +1,4 @@
-import { IProfile } from '@/entities/profile/model/types/IProfile';
+import { IProfile } from '@/entities/profile';
 import { ValidationErrors } from '../../types/profileSchema';
 
 export const validateProfileData = (data: IProfile) => {

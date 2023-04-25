@@ -1,12 +1,12 @@
 import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/helpers/classNames';
-import { RatingCard } from '@/entities/rating/ratingCard';
+import { RatingCard } from '@/entities/rating';
 import {
     ArticleRateArg,
     useArticleRateMutation,
     useGetArticleRatingQuery,
-} from '@/features/articleRating/api/articleRatingApi';
+} from '../../api/articleRatingApi';
 import { useAppSelector } from '@/app/providers/storeProvider';
 import { authUserSelector } from '@/entities/user';
 import { Skeleton } from '@/shared/ui/skeleton';

@@ -2,7 +2,7 @@ import { memo, useState } from 'react';
 import { classNames } from '../../../lib/helpers/classNames';
 import { Icon, StrokeColor } from '../../icon';
 import Star from '../../../assets/icons/star.svg';
-import { HStack } from '@/shared/ui/stack';
+import { HStack } from '../../stack';
 
 import cls from './starRating.module.scss';
 

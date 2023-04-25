@@ -1,8 +1,7 @@
 import { combineReducers } from '@reduxjs/toolkit';
 import {
     commentsReducer,
-// eslint-disable-next-line max-len
-} from '@/features/articleDetailsComments/model/services/articleDetailsPageCommentsSlice/articleDetailsPageCommentsSlice';
+} from '@/features/articleDetailsComments';
 import { recommendationsReducer } from './articleDetailsPageRecommendationsSlice';
 import { ArticleDetailsPageSchema } from '../types';
 

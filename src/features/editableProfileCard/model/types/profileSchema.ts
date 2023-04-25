@@ -1,4 +1,4 @@
-import { IProfile } from '@/entities/profile/model/types/IProfile';
+import { IProfile } from '@/entities/profile';
 
 export enum ValidationErrors {
     REQUIRED_FIRSTNAME = 'required_firstname',

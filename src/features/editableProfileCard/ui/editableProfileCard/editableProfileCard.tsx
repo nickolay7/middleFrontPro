@@ -2,17 +2,20 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/helpers/classNames';
-import { ProfileHeader } from '@/pages/profilePage/ui/profileHeader';
 import {
-    fetchProfileData,
-    ProfileCard, profileData, profileReducer, updateProfile, ValidationErrors,
-} from '@/entities/profile';
+    profileReducer, updateProfile,
+} from '../../model/slice/profileSlice';
 import { Text, TextVariant } from '@/shared/ui/text';
 import { Page } from '@/widgets/page';
 import { useDynamicModuleLoader, useInitialEffect } from '@/shared/lib/hooks';
 import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider';
 import { Loader } from '@/shared/ui/loader';
 import { HStack } from '@/shared/ui/stack';
+import { ProfileHeader } from './profileHeader';
+import { ProfileCard } from '@/entities/profile';
+import { ValidationErrors } from '../../model/types/profileSchema';
+import { fetchProfileData } from '../../model/services/fetchProfileData/fetchProfileData';
+import { profileData } from '../../model/selectors/profileData/profileData';
 
 import cls from './editableProfileCard.module.scss';
 

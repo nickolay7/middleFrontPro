@@ -59,7 +59,8 @@ module.exports = {
         'react-hooks/exhaustive-deps': 'error',
         'no-param-reassign': 'off',
         'jsx-a11y/no-autofocus': 'off',
-        'fsd-for-test/path-checker': 'error',
+        'fsd-for-test/path-checker': ['error', { alias: '@' }],
+        'fsd-for-test/public-api-imports': ['error', { alias: '@' }],
     },
     globals: {
         __IS_DEV__: true,

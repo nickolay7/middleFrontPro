@@ -1,6 +1,6 @@
 import { createSelector } from '@reduxjs/toolkit';
 import { authUserSelector } from '@/entities/user';
-import { articleDetailsSelector } from '@/entities/article/model/selectors/articleDetailsSelector';
+import { articleDetailsSelector } from '@/entities/article';
 
 export const getIsEditable = createSelector(
     authUserSelector,

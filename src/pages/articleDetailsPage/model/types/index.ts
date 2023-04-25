@@ -1,6 +1,6 @@
 import {
     ArticleDetailsCommentsSchema,
-} from '@/features/articleDetailsComments/model/type/articleDetailsCommentsSchema';
+} from '@/features/articleDetailsComments';
 import { ArticleDetailsPageRecommendationsSchema } from './articleDetailsPageRecommendationsSchema';
 
 export interface ArticleDetailsPageSchema {

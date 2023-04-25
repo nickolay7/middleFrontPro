@@ -5,13 +5,13 @@ import {
 import { AxiosInstance } from 'axios';
 import { CounterSchema } from '@/entities/counter';
 import { UserSchema } from '@/entities/user';
-import { LoginSchema } from '@/features/authByUserName/model/types/loginSchema';
-import { ProfileSchema } from '@/entities/profile';
+import { LoginSchema } from '@/features/authByUserName';
+import { ProfileSchema } from '@/features/editableProfileCard';
 import { ArticleDetailsSchema } from '@/entities/article';
 import { AddCommentFormSchema } from '@/features/addCommentForm';
 import { ArticlesPageSchema } from '@/pages/articlesPage';
 import { ScrollPositionSchema } from '@/widgets/page';
-import { ArticleDetailsPageSchema } from '@/pages/articleDetailsPage/model/types';
+import { ArticleDetailsPageSchema } from '@/pages/articleDetailsPage';
 import { rtkApi } from '@/shared/api/rtkApi';
 
 export interface StateSchema {

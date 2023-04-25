@@ -1,7 +1,7 @@
 import { DeepPartial } from '@reduxjs/toolkit';
 import { StateSchema } from '@/app/providers/storeProvider/config/stateSchema';
-import { Countries } from '@/entities/country/model/types/country';
-import { Currency } from '@/entities/currency/model/types/currency';
+import { Countries } from '@/entities/country';
+import { Currency } from '@/entities/currency';
 import { profileData } from './profileData';
 
 const data = {

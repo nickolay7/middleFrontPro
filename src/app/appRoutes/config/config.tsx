@@ -1,7 +1,7 @@
 import { MainAsync } from '@/pages/main';
 import { NotFoundPage } from '@/pages/notFoundPage';
 import { ProfilePage } from '@/pages/profilePage';
-import { AboutAsync } from '@/pages/about/ui/aboutAsync';
+import { About } from '@/pages/about';
 import { ArticlesPage } from '@/pages/articlesPage';
 import { ArticleDetailsPage } from '@/pages/articleDetailsPage';
 import { ArticleEditPage } from '@/pages/articleEditPage';
@@ -18,7 +18,7 @@ export const pathsConfig: AppRouteProps[] = [
     },
     {
         path: AppPaths.ABOUT,
-        element: <AboutAsync />,
+        element: <About />,
     },
     {
         path: AppPaths.NOTFOUND,

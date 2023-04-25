@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { useNavigate, useParams } from 'react-router-dom';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { Button } from '@/shared/ui/button';
-import { LinkPath } from '@/widgets/sideBar/lib/types';
+import { LinkPath } from '@/widgets/sideBar';
 import { useAppSelector } from '@/app/providers/storeProvider';
 import { getIsEditable } from '../../model/selectors/getIsEditable/getIsEditable';
 

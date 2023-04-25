@@ -1,6 +1,6 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { Countries } from '@/entities/country/model/types/country';
-import { Currency } from '@/entities/currency/model/types/currency';
+import { Countries } from '@/entities/country';
+import { Currency } from '@/entities/currency';
 import { ProfileSchema, ValidationErrors } from '../types/profileSchema';
 import {
     cancelEditing, initialState,

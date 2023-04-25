@@ -1,4 +1,4 @@
-import { setUserLoginData } from '@/entities/user/model/userSlice/userSlice';
+import { setUserLoginData } from '@/entities/user';
 import { TestAsyncThunk } from '@/shared/lib/helpers/tests/testAsyncThank';
 import { loginByUserName } from './loginByUserName';
 

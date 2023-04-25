@@ -1,5 +1,5 @@
 import { createEntityAdapter, createSlice } from '@reduxjs/toolkit';
-import { Comment } from '@/entities/comment/model/types/comment';
+import { Comment } from '@/entities/comment';
 import { StateSchema } from '@/app/providers/storeProvider';
 import { ArticleDetailsCommentsSchema } from '../../type/articleDetailsCommentsSchema';
 import { fetchCommentsByArticleId } from '../fetchCommentsByArticleId/fetchCommentsByArticleId';

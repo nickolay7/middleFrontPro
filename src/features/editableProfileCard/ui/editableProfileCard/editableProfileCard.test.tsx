@@ -3,8 +3,8 @@ import {
 } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithProviders from '@/shared/lib/helpers/tests/renderWithProviders';
-import { Currency } from '@/entities/currency/model/types/currency';
-import { Countries } from '@/entities/country/model/types/country';
+import { Currency } from '@/entities/currency';
+import { Countries } from '@/entities/country';
 import { IProfile } from '@/entities/profile';
 import { $api } from '@/shared/api/api';
 import { EditableProfileCard } from './editableProfileCard';

@@ -7,7 +7,7 @@ import { ArticleView } from '@/entities/article';
 import { Button } from '@/shared/ui/button';
 import { Icon, StrokeColor } from '@/shared/ui/icon';
 import { useAppDispatch } from '@/app/providers/storeProvider/config/hooks';
-import { setView } from '@/pages/articlesPage/model/slice/articlesPageSlice';
+import { setView } from '@/pages/articlesPage';
 import { Switchers } from '../lib/types/switchers';
 
 import cls from './articlesViewSwitcher.module.scss';
