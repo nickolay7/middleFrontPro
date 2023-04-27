@@ -2,9 +2,10 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import withMock from 'storybook-addon-mock';
 import { themeDecorator } from '@/shared/config/decorators/themeDecorator';
 import { Theme } from '@/app/providers/theme';
-import { Article, ArticleType } from '@/entities/article';
+import { Article } from '@/entities/article';
 import { storeDecorator } from '@/shared/config/decorators/storeDecorator';
 import { ArticleRecommendationsList, ArticleRecommendationsListProps } from './articleRecommendationsList';
+import { ArticleType } from '@/shared/types/articleTypes';
 
 const article: Article = {
     id: '1',

@@ -2,8 +2,8 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/helpers/classNames';
-import { ArticlesViewSwitcher } from '@/features/articlesViewSwitcher';
-import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider/config/hooks';
+import { ArticlesViewSwitcher } from '../articlesViewSwitcher';
+import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider';
 import { Input } from '@/shared/ui/input';
 import { ArticleSortSelect, ArticleTypeTabs } from '@/entities/article';
 import { useDebounce } from '@/shared/lib/hooks';

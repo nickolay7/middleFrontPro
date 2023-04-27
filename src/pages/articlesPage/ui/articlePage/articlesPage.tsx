@@ -2,7 +2,8 @@ import { memo } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
 import { classNames } from '@/shared/lib/helpers/classNames';
-import { useDynamicModuleLoader, useInitialEffect } from '@/shared/lib/hooks';
+import { useInitialEffect } from '@/shared/lib/hooks';
+import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { useAppDispatch } from '@/app/providers/storeProvider';
 import { articlePageReducer } from '../../model/slice/articlesPageSlice';
 import { articlesInit } from '../../model/services/articlesInit/articlesInit';

@@ -1,4 +1,5 @@
-import { ArticleBlockType, ArticleType } from '../types/article';
+import { ArticleBlockType } from '../types/article';
+import { ArticleType } from '@/shared/types/articleTypes';
 
 export const articleStateMock = {
     articleDetails: {

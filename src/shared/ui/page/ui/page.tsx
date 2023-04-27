@@ -2,11 +2,12 @@ import {
     memo, MutableRefObject, ReactNode, UIEventHandler, useRef,
 } from 'react';
 import { useLocation } from 'react-router-dom';
-import { classNames } from '@/shared/lib/helpers/classNames';
-import { useInfiniteScroll, useInitialEffect } from '@/shared/lib/hooks';
-import { StateSchema } from '@/app/providers/storeProvider/config/stateSchema';
+import { classNames } from '../../../lib/helpers/classNames';
+import { useInfiniteScroll } from '../../../lib/hooks/useInfiniteScroll';
+import { useInitialEffect } from '../../../lib/hooks/useInitialEffect';
 import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider/config/hooks';
-import { useThrottle } from '@/shared/lib/hooks/useThrottle';
+import { StateSchema } from '@/app/providers/storeProvider/config/stateSchema';
+import { useThrottle } from '../../../lib/hooks/useThrottle';
 import { setScrollPosition } from '../model/slice/scrollPositionSlice';
 import { scrollByPathSelector } from '../model/selectors/scrollSelectors/scrollSelectors';
 

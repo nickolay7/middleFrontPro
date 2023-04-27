@@ -3,7 +3,7 @@ import { memo, useCallback } from 'react';
 
 import { Input } from '@/shared/ui/input';
 import { Button } from '@/shared/ui/button';
-import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider/config/hooks';
+import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider';
 import { Spinner } from '@/shared/ui/spinner';
 import { Text, TextVariant } from '@/shared/ui/text';
 import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';

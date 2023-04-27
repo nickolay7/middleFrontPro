@@ -6,8 +6,9 @@ import {
     profileReducer, updateProfile,
 } from '../../model/slice/profileSlice';
 import { Text, TextVariant } from '@/shared/ui/text';
-import { Page } from '@/widgets/page';
-import { useDynamicModuleLoader, useInitialEffect } from '@/shared/lib/hooks';
+import { Page } from '@/shared/ui/page';
+import { useInitialEffect } from '@/shared/lib/hooks';
+import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
 import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider';
 import { Loader } from '@/shared/ui/loader';
 import { HStack } from '@/shared/ui/stack';

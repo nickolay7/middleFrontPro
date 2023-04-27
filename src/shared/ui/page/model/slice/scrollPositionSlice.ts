@@ -5,7 +5,7 @@ const initialState: ScrollPositionSchema = {
     scroll: {} as ScrollPositions,
 };
 
-export const scrollPositionsSlice = createSlice({
+const scrollPositionsSlice = createSlice({
     name: 'scrollPositions',
     initialState,
     reducers: {

@@ -6,6 +6,7 @@ import { ReducersMapObject } from '@reduxjs/toolkit';
 
 import i18n from '@/shared/config/i18nForTests';
 import { StoreProvider } from '@/app/providers/storeProvider/storeProvider';
+// eslint-disable-next-line fsd-for-test/layer-imports
 import { StateSchema } from '@/app/providers/storeProvider/config/stateSchema';
 
 interface RenderOptions {

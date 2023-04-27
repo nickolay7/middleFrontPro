@@ -2,8 +2,8 @@ import React, { memo, useState } from 'react';
 
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { Button } from '@/shared/ui/button';
-import { ThemeSwitcher } from '@/widgets/themeSwitcher';
-import { LangSwitcher } from '@/widgets/langSwitcher';
+import { ThemeSwitcher } from '@/features/themeSwitcher';
+import { LangSwitcher } from '@/features/langSwitcher';
 import { VStack } from '@/shared/ui/stack';
 import { useMenuConfig } from '../../lib/menuConfig';
 import { SideBarItem } from '../sideBarItem/sideBarItem';
@@ -15,7 +15,7 @@ export interface SideBarProps {
 }
 
 export const SideBar = memo(({ className }: SideBarProps) => {
-    const [isOpen, setOpen] = useState(false);
+    const [isOpen, setOpen] = useState(true);
     const menuConfig = useMenuConfig();
 
     const onClose = () => {

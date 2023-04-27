@@ -8,12 +8,12 @@ import View from '@/shared/assets/icons/eye-20-20.svg';
 import { Card } from '@/shared/ui/card/ui/card';
 import { Avatar } from '@/shared/ui/avatar';
 import { Button } from '@/shared/ui/button';
-import { LinkPath } from '@/widgets/sideBar';
 import { MenuLink } from '@/shared/ui/menuLink';
 import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,
 } from '../../model/types/article';
 import { ArticleTextComponent } from '../articleTextComponent/articleTextComponent';
+import { LinkPath } from '@/shared/types/linkPathes';
 
 import cls from './articleListItem.module.scss';
 

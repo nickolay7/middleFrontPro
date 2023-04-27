@@ -60,7 +60,17 @@ module.exports = {
         'no-param-reassign': 'off',
         'jsx-a11y/no-autofocus': 'off',
         'fsd-for-test/path-checker': ['error', { alias: '@' }],
-        'fsd-for-test/public-api-imports': ['error', { alias: '@' }],
+        'fsd-for-test/public-api-imports': ['error', {
+            alias: '@',
+            testFilesPatterns: ['**/*.test.*', '**/*.story.*', '**/StoreDecorator.tsx'],
+        }],
+        'fsd-for-test/layer-imports': [
+            'error',
+            {
+                alias: '@',
+                ignoreImportPatterns: ['**/storeProvider/**', '**/testing', '**/theme'],
+            },
+        ],
     },
     globals: {
         __IS_DEV__: true,

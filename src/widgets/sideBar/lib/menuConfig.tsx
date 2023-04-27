@@ -4,7 +4,8 @@ import Profile from '@/shared/assets/icons/profile.svg';
 import Article from '@/shared/assets/icons/article.svg';
 import { useAppSelector } from '@/app/providers/storeProvider';
 import { authUserSelector } from '@/entities/user';
-import { LinkPath, MenuItem } from '../types/types';
+import { MenuItem } from '../types/types';
+import { LinkPath } from '@/shared/types/linkPathes';
 
 export const useMenuConfig = (): MenuItem[] => {
     const user = useAppSelector(authUserSelector);

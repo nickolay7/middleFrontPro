@@ -1,5 +1,5 @@
 import { useTranslation } from 'react-i18next';
-import { Page } from '@/widgets/page';
+import { Page } from '@/shared/ui/page';
 import cls from './about.module.scss';
 
 const About = () => {

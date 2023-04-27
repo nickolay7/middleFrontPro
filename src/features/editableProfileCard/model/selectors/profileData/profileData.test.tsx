@@ -1,5 +1,5 @@
 import { DeepPartial } from '@reduxjs/toolkit';
-import { StateSchema } from '@/app/providers/storeProvider/config/stateSchema';
+import { StateSchema } from '@/app/providers/storeProvider';
 import { Countries } from '@/entities/country';
 import { Currency } from '@/entities/currency';
 import { profileData } from './profileData';

@@ -4,11 +4,13 @@ import { Text } from '@/shared/ui/text';
 import { Button } from '@/shared/ui/button';
 import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider';
 import {
-    cancelEditing, setReadonly, upsetReadonly, updateProfileData, profileData,
-} from '@/entities/profile';
+    cancelEditing, setReadonly, upsetReadonly,
+} from '../../model/slice/profileSlice';
 import { authUserSelector } from '@/entities/user';
 import { HStack } from '@/shared/ui/stack';
 import { ElementTheme } from '@/shared/types/ui';
+import { profileData } from '../../model/selectors/profileData/profileData';
+import { updateProfileData } from '../../model/services/updateProfileData/updateProfileData';
 
 import cls from './profileHeader.module.scss';
 

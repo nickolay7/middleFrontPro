@@ -1,8 +1,9 @@
 import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { themeDecorator } from '@/shared/config/decorators/themeDecorator';
 import { Theme } from '@/app/providers/theme';
-import { ArticleType } from '@/entities/article';
+// eslint-disable-next-line fsd-for-test/layer-imports
 import { Tabs, TabsProps } from './tabs';
+import { ArticleType } from '@/shared/types/articleTypes';
 
 export default {
     title: 'shared/Tabs',

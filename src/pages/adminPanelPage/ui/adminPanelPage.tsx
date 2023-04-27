@@ -1,6 +1,6 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames';
-import { Page } from '@/widgets/page';
+import { Page } from '@/shared/ui/page';
 
 import cls from './adminPanelPage.module.scss';
 

@@ -15,8 +15,8 @@ describe('sidebar test', () => {
 
     test('collapse sidebar', () => {
         fireEvent.click(screen.getByTestId('collapse'));
-        expect(screen.getByTestId('sidebar')).toHaveClass('close');
-        fireEvent.click(screen.getByTestId('collapse'));
         expect(screen.getByTestId('sidebar')).not.toHaveClass('close');
+        fireEvent.click(screen.getByTestId('collapse'));
+        expect(screen.getByTestId('sidebar')).toHaveClass('close');
     });
 });

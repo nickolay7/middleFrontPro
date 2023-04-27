@@ -4,8 +4,8 @@ import { classNames } from '@/shared/lib/helpers/classNames';
 import { Skeleton } from '@/shared/ui/skeleton';
 import { Avatar } from '@/shared/ui/avatar';
 import { Text } from '@/shared/ui/text';
-import { LinkPath } from '@/widgets/sideBar';
 import { Comment } from '../../model/types/comment';
+import { LinkPath } from '@/shared/types/linkPathes';
 
 import cls from './commentCard.module.scss';
 

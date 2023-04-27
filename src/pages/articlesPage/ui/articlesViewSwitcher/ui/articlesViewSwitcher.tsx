@@ -6,11 +6,12 @@ import ListIcon from '@/shared/assets/icons/list-24-24.svg';
 import { ArticleView } from '@/entities/article';
 import { Button } from '@/shared/ui/button';
 import { Icon, StrokeColor } from '@/shared/ui/icon';
-import { useAppDispatch } from '@/app/providers/storeProvider/config/hooks';
-import { setView } from '@/pages/articlesPage';
+import { useAppDispatch } from '@/app/providers/storeProvider';
+import { setView } from '../../../model/slice/articlesPageSlice';
 import { Switchers } from '../lib/types/switchers';
 
 import cls from './articlesViewSwitcher.module.scss';
+import { HStack } from '@/shared/ui/stack';
 
 export interface ArticlesViewSwitcherProps {
     className?: string;
@@ -39,6 +40,7 @@ export const ArticlesViewSwitcher = memo(({ className, view }: ArticlesViewSwitc
                 <Button key={item.view} onClick={onSwitchView(item.view)}>
                     <Icon
                         Svg={item.icon}
+                        size={20}
                         stroke={StrokeColor.PRIMARY}
                         className={classNames('', {
                             [cls.selected]: view === item.view,

@@ -27,7 +27,8 @@
     "dev-server": "node json-server --watch json-server/db.json",
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js",
-    "updateImports": "node scripts/updateImports.mjs"
+    "updateImports": "node scripts/refactoring/updateImports.mjs",
+    "createPApiForSharedUi": "node scripts/refactoring/updateImports.mjs"
   },
   "keywords": [],
   "author": "",
@@ -71,7 +72,7 @@
     "css-loader": "^6.6.0",
     "eslint": "^8.10.0",
     "eslint-config-airbnb": "^19.0.4",
-    "eslint-plugin-fsd-for-test": "^0.0.6",
+    "eslint-plugin-fsd-for-test": "^0.0.8",
     "eslint-plugin-i18next": "^5.1.2",
     "eslint-plugin-import": "^2.25.4",
     "eslint-plugin-jsx-a11y": "^6.5.1",

@@ -1,8 +1,8 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames';
-import { ArticleType } from '@/entities/article';
 import { Card } from '../../card';
 import { Text, TextAlign } from '../../text';
+import { ArticleType } from '../../../types/articleTypes';
 
 import cls from './tabs.module.scss';
 

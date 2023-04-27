@@ -2,12 +2,12 @@ import { memo, useCallback } from 'react';
 import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { Avatar } from '@/shared/ui/avatar';
-import { LinkPath } from '@/widgets/sideBar';
 import { Dropdown } from '@/shared/ui/popups';
 import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider';
 import {
     authUserSelector, isAdminSelector, isManagerSelector, setUserLogout, User,
 } from '@/entities/user';
+import { LinkPath } from '@/shared/types/linkPathes';
 
 import cls from './avatarDropdown.module.scss';
 
