@@ -11,7 +11,6 @@ import { setView } from '../../../model/slice/articlesPageSlice';
 import { Switchers } from '../lib/types/switchers';
 
 import cls from './articlesViewSwitcher.module.scss';
-import { HStack } from '@/shared/ui/stack';
 
 export interface ArticlesViewSwitcherProps {
     className?: string;

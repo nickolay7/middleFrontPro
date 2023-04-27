@@ -24,6 +24,7 @@ module.exports = {
         'i18next',
         'react-hooks',
         'fsd-for-test',
+        'unused-imports',
     ],
     rules: {
         'react/jsx-indent': [2, 4],
@@ -34,6 +35,7 @@ module.exports = {
         'import/prefer-default-export': 'off',
         'no-unused-vars': 'off',
         '@typescript-eslint/no-unused-vars': ['warn', { varsIgnorePattern: '__IS_DEV__' }],
+        'unused-imports/no-unused-imports': 'error',
         'react/require-default-props': 'off',
         'react/react-in-jsx-scope': 'off',
         'react/jsx-props-no-spreading': 'off',
