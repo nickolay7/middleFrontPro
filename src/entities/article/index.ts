@@ -5,5 +5,3 @@ export * from './model/slice/articleDetailsSlice';
 export * from './model/selectors/articleDetailsSelector';
 export * from './ui/articlesList/articlesList';
 export * from './model/mocks/articleStateMock';
-export * from './ui/articleSortSelect/articleSortSelect';
-export * from './ui/articleTypeTabs/articleTypeTabs';
