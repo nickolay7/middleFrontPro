@@ -13,9 +13,9 @@ import {
     Article, ArticleBlockType, ArticleTextBlock, ArticleView,
 } from '../../model/types/article';
 import { ArticleTextComponent } from '../articleTextComponent/articleTextComponent';
-import { LinkPath } from '@/shared/types/linkPathes';
 
 import cls from './articleListItem.module.scss';
+import { getArticleDetails } from '@/shared/consts/consts';
 
 export interface ArticleListItemProps {
   className?: string;
@@ -33,7 +33,7 @@ export const ArticleListItem = memo(({ className, ...otherProps }: ArticleListIt
 
     if (view === ArticleView.PLATE) {
         return (
-            <MenuLink target={target} to={LinkPath.ARTICLES + article.id}>
+            <MenuLink target={target} to={getArticleDetails(article.id)}>
                 <Card className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
                     <div className={cls.imgWrapper}>
                         <img src={article.img} className={cls.img} alt={article.title} />
@@ -75,7 +75,7 @@ export const ArticleListItem = memo(({ className, ...otherProps }: ArticleListIt
             </div>
             <div className={cls.footer}>
                 {/* eslint-disable-next-line i18next/no-literal-string */}
-                <MenuLink to={LinkPath.ARTICLES + article.id}>
+                <MenuLink to={getArticleDetails(article.id)}>
                     <Button>{`${t('Читать дальше')}...`}</Button>
                 </MenuLink>
                 <div className={cls.countView}>

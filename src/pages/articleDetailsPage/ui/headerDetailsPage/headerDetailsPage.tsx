@@ -6,9 +6,9 @@ import { Button } from '@/shared/ui/button';
 import { useAppSelector } from '@/app/providers/storeProvider';
 import { getIsEditable } from '../../model/selectors/getIsEditable/getIsEditable';
 import { ElementTheme } from '@/shared/types/ui';
-import { LinkPath } from '@/shared/types/linkPathes';
 
 import cls from './headerDetailsPage.module.scss';
+import { getArticleEdit, getArticles } from '@/shared/consts/consts';
 
 export interface HeaderDetailsPageProps {
   className?: string;
@@ -20,11 +20,11 @@ const HeaderDetailsPage = memo(({ className }: HeaderDetailsPageProps) => {
     const isEditable = useAppSelector(getIsEditable);
 
     const onBackToList = () => {
-        navigate(LinkPath.ARTICLES);
+        navigate(getArticles());
     };
 
     const onEditArticle = (id: string) => () => {
-        navigate(`${LinkPath.ARTICLES + id}/edit`);
+        navigate(getArticleEdit(id));
     };
 
     return (

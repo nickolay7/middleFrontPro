@@ -8,55 +8,63 @@ import { ArticleEditPage } from '@/pages/articleEditPage';
 import { AdminPanelPage } from '@/pages/adminPanelPage';
 import { UserRoles } from '@/entities/user';
 import { ForbiddenPage } from '@/pages/forbiddenPage';
-import { AppPaths } from './consts/consts';
+import {
+    getAbout, getAdmin, getArticleCreate,
+    getArticleDetails,
+    getArticleEdit,
+    getArticles, getForbidden,
+    getMain,
+    getNotFound,
+    getProfile,
+} from '@/shared/consts/consts';
 import { AppRouteProps } from './types/types';
 
 export const pathsConfig: AppRouteProps[] = [
     {
-        path: AppPaths.MAIN,
+        path: getMain(),
         element: <MainAsync />,
     },
     {
-        path: AppPaths.ABOUT,
+        path: getAbout(),
         element: <About />,
     },
     {
-        path: AppPaths.NOTFOUND,
+        path: getNotFound(),
         element: <NotFoundPage />,
     },
     {
-        path: AppPaths.PROFILE,
+        path: getProfile(':id'),
         element: <ProfilePage />,
         authOnly: true,
     },
     {
-        path: AppPaths.ARTICLES,
+        path: getArticles(),
         element: <ArticlesPage />,
         authOnly: true,
     },
     {
-        path: AppPaths.ARTICLE_DETAILS,
+        path: getArticleDetails(':id'),
         element: <ArticleDetailsPage />,
         authOnly: true,
     },
     {
-        path: AppPaths.ARTICLE_EDIT,
+        path: getArticleEdit(':id'),
         element: <ArticleEditPage />,
         authOnly: true,
     },
     {
-        path: AppPaths.ARTICLE_CREATE,
+        path: getArticleCreate(),
         element: <ArticleEditPage />,
         authOnly: true,
     },
     {
-        path: AppPaths.ADMIN_PANEL,
+        path: getAdmin(),
         element: <AdminPanelPage />,
         authOnly: true,
         roles: [UserRoles.MANAGER, UserRoles.ADMIN],
     },
     {
-        path: AppPaths.FORBIDDEN,
+        path: getForbidden(),
         element: <ForbiddenPage />,
     },
 ];

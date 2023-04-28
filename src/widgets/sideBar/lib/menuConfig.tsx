@@ -5,30 +5,32 @@ import Article from '@/shared/assets/icons/article.svg';
 import { useAppSelector } from '@/app/providers/storeProvider';
 import { authUserSelector } from '@/entities/user';
 import { MenuItem } from '../types/types';
-import { LinkPath } from '@/shared/types/linkPathes';
+import {
+    getAbout, getArticles, getMain, getProfile,
+} from '@/shared/consts/consts';
 
 export const useMenuConfig = (): MenuItem[] => {
     const user = useAppSelector(authUserSelector);
 
     return [
         {
-            to: LinkPath.MAIN,
+            to: getMain(),
             title: 'Домой',
             Icon: Home,
         },
         {
-            to: LinkPath.ABOUT,
+            to: getAbout(),
             title: 'О нас',
             Icon: About,
         },
         {
-            to: `${LinkPath.PROFILE}${user?.id}`,
+            to: getProfile(user?.id || ''),
             title: 'Профиль',
             Icon: Profile,
             authOnly: true,
         },
         {
-            to: LinkPath.ARTICLES,
+            to: getArticles(),
             title: 'Статьи',
             Icon: Article,
             authOnly: true,

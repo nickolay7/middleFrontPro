@@ -5,9 +5,9 @@ import { Skeleton } from '@/shared/ui/skeleton';
 import { Avatar } from '@/shared/ui/avatar';
 import { Text } from '@/shared/ui/text';
 import { Comment } from '../../model/types/comment';
-import { LinkPath } from '@/shared/types/linkPathes';
 
 import cls from './commentCard.module.scss';
+import { getProfile } from '@/shared/consts/consts';
 
 export interface CommentCardProps {
   className?: string;
@@ -29,7 +29,7 @@ export const CommentCard = memo(({ className, comment, isLoading }: CommentCardP
 
     return (
         <div className={classNames(cls.commentCard, {}, [className])}>
-            <NavLink to={`${LinkPath.PROFILE}${comment?.user?.id}`} className={cls.header}>
+            <NavLink to={getProfile(comment?.user?.id || '')} className={cls.header}>
                 <Avatar className={cls.avatar} src={comment?.user?.avatar} size={30} />
                 <Text title={comment?.user?.username} />
             </NavLink>

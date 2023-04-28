@@ -12,7 +12,7 @@ import { AvatarDropdown } from '@/features/avatarDropdown';
 import { ElementTheme } from '@/shared/types/ui';
 
 import cls from './navBar.module.scss';
-import { LinkPath } from '@/shared/types/linkPathes';
+import { getArticleCreate } from '@/shared/consts/consts';
 
 export const NavBar = memo(() => {
     const { t } = useTranslation('about');
@@ -25,7 +25,7 @@ export const NavBar = memo(() => {
     }, []);
 
     const onCreateArticle = () => {
-        navigate(`${LinkPath.ARTICLES}new`);
+        navigate(getArticleCreate());
     };
 
     return (

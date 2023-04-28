@@ -3,6 +3,7 @@ import { styleDecorator } from '../../src/shared/config/decorators/styleDecorato
 import { themeDecorator } from '../../src/shared/config/decorators/themeDecorator';
 import { routerDecorator } from '../../src/shared/config/decorators/routerDecorator';
 import { translateDecorator } from '../../src/shared/config/decorators/translateDecorator';
+import { Theme } from '../../src/app/providers/theme';
 
 export const parameters = {
     actions: { argTypesRegex: '^on[A-Z].*' },
@@ -11,6 +12,14 @@ export const parameters = {
             color: /(background|color)$/i,
             date: /Date$/,
         },
+    },
+    themes: {
+        default: 'light',
+        list: [
+            { name: 'light', class: Theme.LIGHT, color: '#faf8f8' },
+            { name: 'dark', class: Theme.DARK, color: '#14264b' },
+            { name: 'neon', class: Theme.NEON, color: '#45c237' },
+        ],
     },
 };
 

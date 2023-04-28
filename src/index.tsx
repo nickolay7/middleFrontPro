@@ -24,5 +24,4 @@ root.render(
     </BrowserRouter>,
 );
 export { ElementTheme } from './shared/types/ui';
-export { LinkPath } from '@/shared/types/linkPathes';
 export { ArticleType } from '@/shared/types/articleTypes';

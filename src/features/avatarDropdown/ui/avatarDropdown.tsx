@@ -7,7 +7,7 @@ import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider';
 import {
     authUserSelector, isAdminSelector, isManagerSelector, setUserLogout, User,
 } from '@/entities/user';
-import { LinkPath } from '@/shared/types/linkPathes';
+import { getAdmin, getProfile } from '@/shared/consts/consts';
 
 import cls from './avatarDropdown.module.scss';
 
@@ -41,13 +41,13 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
                     hasRules ? [
                         {
                             content: t('Админка'),
-                            href: `${LinkPath.ADMIN}`,
+                            href: `${getAdmin()}`,
                         },
                     ] : []
                 ),
                 {
                     content: t('Профиль'),
-                    href: `${LinkPath.PROFILE}${authData.id}`,
+                    href: getProfile(authData.id),
                 },
                 {
                     content: t('Выход'),

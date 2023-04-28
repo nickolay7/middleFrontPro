@@ -5,7 +5,7 @@ import {
 } from '@/entities/user';
 import { useAppSelector } from '../providers/storeProvider';
 import { Loader } from '@/shared/ui/loader';
-import { AppPaths } from './config/consts/consts';
+import { getForbidden, getMain } from '../../shared/consts/consts';
 
 interface ProtectedRouteProps {
     children: ReactElement;
@@ -23,11 +23,11 @@ export const ProtectedRoute = ({ children, roles }: ProtectedRouteProps) => {
     };
 
     if (!isAuth) {
-        return <Navigate to={AppPaths.MAIN} replace />;
+        return <Navigate to={getMain()} replace />;
     }
 
     if (hasRequiredRoles(roles)) {
-        return <Navigate to={AppPaths.FORBIDDEN} replace />;
+        return <Navigate to={getForbidden()} replace />;
     }
 
     return <Suspense fallback={<Loader />}>{children}</Suspense>;
