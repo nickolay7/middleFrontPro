@@ -10,16 +10,19 @@ import { StateSchema } from '@/app/providers/storeProvider/config/stateSchema';
 import { useThrottle } from '../../../lib/hooks/useThrottle';
 import { setScrollPosition } from '../model/slice/scrollPositionSlice';
 import { scrollByPathSelector } from '../model/selectors/scrollSelectors/scrollSelectors';
+import { TestId } from '../../../types/tests';
 
 import cls from './page.module.scss';
 
-export interface PageProps {
+export interface PageProps extends TestId {
   className?: string;
   children: ReactNode;
   onLoadNextPart?: () => void;
 }
 
-export const Page = memo(({ className, children, onLoadNextPart }: PageProps) => {
+export const Page = memo(({
+    className, children, onLoadNextPart, ...otherProps
+}: PageProps) => {
     const triggerRef = useRef() as MutableRefObject<HTMLDivElement>;
     const wrapperRef = useRef() as MutableRefObject<HTMLDivElement>;
     const { pathname } = useLocation();
@@ -40,7 +43,12 @@ export const Page = memo(({ className, children, onLoadNextPart }: PageProps) =>
     }, 500);
 
     return (
-        <section onScroll={onScroll} ref={wrapperRef} className={classNames(cls.page, {}, [className])}>
+        <section
+            data-testid={otherProps['data-testid'] ?? 'page'}
+            onScroll={onScroll}
+            ref={wrapperRef}
+            className={classNames(cls.page, {}, [className])}
+        >
             {children}
             <div ref={triggerRef} />
         </section>

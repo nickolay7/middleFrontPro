@@ -5,7 +5,7 @@ import cls from './about.module.scss';
 const About = () => {
     const { t } = useTranslation('about');
 
-    return <Page className={cls.about}>{t('О нас')}</Page>;
+    return <Page data-testid="about" className={cls.about}>{t('О нас')}</Page>;
 };
 
 export default About;

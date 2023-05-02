@@ -8,7 +8,7 @@ const Main = () => {
     const { t } = useTranslation('main');
 
     return (
-        <Page className={cls.main}>
+        <Page data-testid="Main" className={cls.main}>
             <VStack gap="gap8" justify="justifyCenter">
                 <div>{t('Домашняя страница')}</div>
             </VStack>

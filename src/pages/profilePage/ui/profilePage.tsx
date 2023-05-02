@@ -3,6 +3,7 @@ import { EditableProfileCard } from '@/features/editableProfileCard';
 import { classNames } from '@/shared/lib/helpers';
 
 import cls from './profilePage.module.scss';
+import { Page } from '@/shared/ui/page';
 
 export interface ProfileProps {
   className?: string;
@@ -12,8 +13,8 @@ export const ProfilePage = ({ className }: ProfileProps) => {
     const { id } = useParams();
 
     return (
-        <div className={classNames(cls.profile, {}, [className])}>
+        <Page data-testid="ProfilePage" className={classNames(cls.profile, {}, [className])}>
             <EditableProfileCard id={id} />
-        </div>
+        </Page>
     );
 };

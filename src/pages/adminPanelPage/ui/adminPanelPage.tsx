@@ -9,7 +9,7 @@ export interface AdminPanelPageProps {
 }
 export const AdminPanelPage = memo(({ className }: AdminPanelPageProps) => (
     // eslint-disable-next-line i18next/no-literal-string
-    <Page className={classNames(cls.adminPanelPage, {}, [className])}>
+    <Page data-testid="AdminPanelPage" className={classNames(cls.adminPanelPage, {}, [className])}>
         ADMIN PANEL
     </Page>
 ));

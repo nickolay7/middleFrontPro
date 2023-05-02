@@ -58,7 +58,7 @@ export const ProfileCard = ({
                                     onChange={onChangeHandler}
                                     items={currencyOptions}
                                     trigger={(
-                                        <HStack max justify="justifyBetween">
+                                        <HStack $max justify="justifyBetween">
                                             {t(value)}
                                             {/* eslint-disable-next-line i18next/no-literal-string */}
                                             <span className={cls.arrow}>
@@ -82,7 +82,7 @@ export const ProfileCard = ({
                                     onChange={onChangeHandler}
                                     items={countryOptions}
                                     trigger={(
-                                        <HStack max justify="justifyBetween">
+                                        <HStack $max justify="justifyBetween">
                                             {t(value)}
                                             {/* eslint-disable-next-line i18next/no-literal-string */}
                                             <span className={cls.arrow}>

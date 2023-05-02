@@ -80,6 +80,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
                     validationErrors && validationErrors
                         .map((error: ValidationErrors) => (
                             <Text
+                                key={errorsMapping[error]}
                                 data-testid="EditableProfileCard.Error"
                                 variant={TextVariant.RED}
                                 text={errorsMapping[error]}

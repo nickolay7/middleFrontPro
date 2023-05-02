@@ -15,11 +15,11 @@ export interface FlexProps extends DivProps{
   align?: FlexAlign;
   gap?: FlexGap;
   direction?: FlexDirection;
-  max?: boolean;
+  $max?: boolean;
 }
 export const Flex = ({ className, ...otherProps }: FlexProps) => {
     const {
-        children, gap, max, justify = 'justifyStart', direction = 'row', align = 'alignCenter',
+        children, gap, $max, justify = 'justifyStart', direction = 'row', align = 'alignCenter',
     } = otherProps;
 
     const gaps = {
@@ -51,7 +51,7 @@ export const Flex = ({ className, ...otherProps }: FlexProps) => {
     const styles = [directions[direction], justifies[justify], aligns[align], gap && gaps[gap]];
 
     return (
-        <div {...otherProps} className={classNames(cls.flex, { [cls.max]: max }, [className, ...styles])}>
+        <div {...otherProps} className={classNames(cls.flex, { [cls.max]: $max }, [className, ...styles])}>
             {children}
         </div>
     );

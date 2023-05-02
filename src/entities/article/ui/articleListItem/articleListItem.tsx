@@ -16,6 +16,8 @@ import { ArticleTextComponent } from '../articleTextComponent/articleTextCompone
 
 import cls from './articleListItem.module.scss';
 import { getArticleDetails } from '@/shared/consts/consts';
+import { AppImage } from '@/shared/ui/appImage';
+import { Skeleton } from '@/shared/ui/skeleton';
 
 export interface ArticleListItemProps {
   className?: string;
@@ -36,7 +38,12 @@ export const ArticleListItem = memo(({ className, ...otherProps }: ArticleListIt
             <MenuLink target={target} to={getArticleDetails(article.id)}>
                 <Card className={classNames(cls.articleListItem, {}, [className, cls[view]])}>
                     <div className={cls.imgWrapper}>
-                        <img src={article.img} className={cls.img} alt={article.title} />
+                        <AppImage
+                            src={article.img}
+                            className={cls.img}
+                            alt={article.title}
+                            fallback={<Skeleton width="100%" height={30} />}
+                        />
                         <Text text={article.createdAt} className={cls.createdAt} />
                     </div>
                     <div className={cls.content}>
@@ -68,7 +75,12 @@ export const ArticleListItem = memo(({ className, ...otherProps }: ArticleListIt
             <Text title={article.title} className={cls.title} />
             <Text text={article.type} className={cls.topics} />
             <div className={cls.imgCenter}>
-                <img src={article.img} className={cls.img} alt={article.title} />
+                <AppImage
+                    src={article.img}
+                    className={cls.img}
+                    alt={article.title}
+                    fallback={<Skeleton width="100%" height={200} />}
+                />
             </div>
             <div className={cls.text}>
                 {textBlock && <ArticleTextComponent block={textBlock} />}

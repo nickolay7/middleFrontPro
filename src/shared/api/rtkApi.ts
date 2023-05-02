@@ -1,5 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
 import { USER_LOGIN_DATA } from '../consts/user';
+import 'isomorphic-fetch';
 
 export const rtkApi = createApi({
     reducerPath: 'api',
