@@ -27,9 +27,9 @@
     "dev-server": "node json-server --watch json-server/db.json",
     "prepare": "husky install",
     "generate:slice": "node ./scripts/createSlice/index.js",
-    "updateImports": "node scripts/refactoring/updateImports.mjs",
-    "createPApiForSharedUi": "node scripts/refactoring/updateImports.mjs",
-    "postinstall": "node scripts/postinstall.js"
+    "updateImports": "node ./scripts/refactoring/updateImports.mjs",
+    "createPApiForSharedUi": "node ./scripts/refactoring/updateImports.mjs",
+    "postinstall": "node ./scripts/postinstall.js"
   },
   "keywords": [],
   "author": "",
