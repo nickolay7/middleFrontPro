@@ -29,4 +29,4 @@ generate-react-cli.json
 
 /storybook-static
 
-/reports
+/reports/unit
