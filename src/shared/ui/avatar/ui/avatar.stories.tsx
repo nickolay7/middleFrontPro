@@ -13,7 +13,9 @@ export default {
     },
 } as ComponentMeta<typeof Avatar>;
 
-const Template: ComponentStory<typeof Avatar> = (args: AvatarProps) => <Avatar {...args} />;
+const Template: ComponentStory<typeof Avatar> = (args: AvatarProps) => (
+    <Avatar {...args} />
+);
 
 export const Avatar100 = Template.bind({});
 Avatar100.args = {
@@ -27,6 +29,4 @@ Avatar50.args = {
     src: Avatar300,
 };
 
-Avatar50.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Avatar50.decorators = [themeDecorator(Theme.DARK)];

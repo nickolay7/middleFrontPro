@@ -9,24 +9,32 @@ import { ElementTheme } from '@/shared/types/ui';
 import cls from './articleCodeComponent.module.scss';
 
 export interface ArticleBlockComponentProps {
-  className?: string;
-  text: string;
+    className?: string;
+    text: string;
 }
-export const ArticleCodeComponent = memo(({ className, text }: ArticleBlockComponentProps) => {
-    const onCopy = () => {
-        navigator.clipboard.writeText(text);
-    };
+export const ArticleCodeComponent = memo(
+    ({ className, text }: ArticleBlockComponentProps) => {
+        const onCopy = () => {
+            navigator.clipboard.writeText(text);
+        };
 
-    return (
-        // eslint-disable-next-line i18next/no-literal-string
-        <div className={classNames(cls.articleCodeComponent, {}, [className])}>
-            {/* eslint-disable-next-line i18next/no-literal-string */}
-            <Button className={cls.copyBtn} variant={ElementTheme.CLEAR} onClick={onCopy}>
-                <Icon Svg={CopyIcon} stroke={StrokeColor.PRIMARY} />
-            </Button>
-            <Code>
-                {text}
-            </Code>
-        </div>
-    );
-});
+        return (
+            // eslint-disable-next-line i18next/no-literal-string
+            <div
+                className={classNames(cls.articleCodeComponent, {}, [
+                    className,
+                ])}
+            >
+                {/* eslint-disable-next-line i18next/no-literal-string */}
+                <Button
+                    className={cls.copyBtn}
+                    variant={ElementTheme.CLEAR}
+                    onClick={onCopy}
+                >
+                    <Icon Svg={CopyIcon} stroke={StrokeColor.PRIMARY} />
+                </Button>
+                <Code>{text}</Code>
+            </div>
+        );
+    },
+);

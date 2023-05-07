@@ -18,10 +18,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [
-        withMock,
-        storeDecorator({}),
-    ],
+    decorators: [withMock, storeDecorator({})],
     parameters: {
         mockData: [
             {
@@ -38,9 +35,9 @@ export default {
     },
 } as ComponentMeta<typeof NotificationsList>;
 
-const Template: ComponentStory<typeof NotificationsList> = (args: NotificationsListProps) => (
-    <NotificationsList {...args} />
-);
+const Template: ComponentStory<typeof NotificationsList> = (
+    args: NotificationsListProps,
+) => <NotificationsList {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
@@ -52,6 +49,4 @@ Dark.args = {
     className: '',
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];

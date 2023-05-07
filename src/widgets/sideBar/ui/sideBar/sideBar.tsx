@@ -30,16 +30,18 @@ export const SideBar = memo(({ className }: SideBarProps) => {
         <VStack
             data-testid="sidebar"
             justify="justifyBetween"
-            className={classNames(cls.sideBar, { [cls.close]: isOpen }, [className])}
+            className={classNames(cls.sideBar, { [cls.close]: isOpen }, [
+                className,
+            ])}
         >
             <VStack
                 align="alignStart"
                 gap="gap8"
-                className={classNames(cls.links, { [cls.linksSideBarCollapsed]: isOpen })}
+                className={classNames(cls.links, {
+                    [cls.linksSideBarCollapsed]: isOpen,
+                })}
             >
-                {menuConfig.map(({
-                    to, title, Icon, authOnly,
-                }) => (
+                {menuConfig.map(({ to, title, Icon, authOnly }) => (
                     <SideBarItem
                         key={to}
                         to={to}
@@ -52,7 +54,10 @@ export const SideBar = memo(({ className }: SideBarProps) => {
             </VStack>
             <div className={classNames(cls.switchersBox, switchersBoxMode)}>
                 <ThemeSwitcher />
-                <LangSwitcher variant={ElementTheme.OUTLINE_INVERTED} short={isOpen} />
+                <LangSwitcher
+                    variant={ElementTheme.OUTLINE_INVERTED}
+                    short={isOpen}
+                />
             </div>
             <Button
                 data-testid="collapse"

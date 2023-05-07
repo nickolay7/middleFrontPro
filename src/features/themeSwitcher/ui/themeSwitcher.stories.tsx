@@ -11,15 +11,13 @@ export default {
     },
 } as ComponentMeta<typeof ThemeSwitcher>;
 
-const Template: ComponentStory<typeof ThemeSwitcher> = (args: ThemeSwitcherProps) => (
-    <ThemeSwitcher {...args} />
-);
+const Template: ComponentStory<typeof ThemeSwitcher> = (
+    args: ThemeSwitcherProps,
+) => <ThemeSwitcher {...args} />;
 
 export const Dark = Template.bind({});
 Dark.args = {
     className: '',
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];

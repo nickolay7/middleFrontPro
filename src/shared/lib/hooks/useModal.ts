@@ -1,6 +1,4 @@
-import {
-    useCallback, useEffect, useRef, useState,
-} from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 
 interface useModalProps {
     toggleHandler: () => void;
@@ -8,7 +6,11 @@ interface useModalProps {
     animationDelay: number;
 }
 
-export const useModal = ({ toggleHandler, isModalOpen, animationDelay }: useModalProps) => {
+export const useModal = ({
+    toggleHandler,
+    isModalOpen,
+    animationDelay,
+}: useModalProps) => {
     const [isClosed, setClosed] = useState(false);
     const [isMounted, setMounted] = useState(false);
     const timerIdRef = useRef<ReturnType<typeof setTimeout>>();
@@ -21,11 +23,14 @@ export const useModal = ({ toggleHandler, isModalOpen, animationDelay }: useModa
         }, animationDelay);
     }, [animationDelay, toggleHandler]);
 
-    const onKeyDown = useCallback((e: KeyboardEvent) => {
-        if (e.key === 'Escape') {
-            onClose();
-        }
-    }, [onClose]);
+    const onKeyDown = useCallback(
+        (e: KeyboardEvent) => {
+            if (e.key === 'Escape') {
+                onClose();
+            }
+        },
+        [onClose],
+    );
 
     useEffect(() => {
         setMounted(true);

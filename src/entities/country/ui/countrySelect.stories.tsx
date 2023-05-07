@@ -26,6 +26,4 @@ CountrySelectDark.args = {
     name: 'test',
 };
 
-CountrySelectDark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+CountrySelectDark.decorators = [themeDecorator(Theme.DARK)];

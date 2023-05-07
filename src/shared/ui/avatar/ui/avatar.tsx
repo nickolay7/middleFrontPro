@@ -18,7 +18,9 @@ export const Avatar = ({ className, ...otherProps }: AvatarProps) => {
         height: size,
     };
 
-    const errorImg = <Icon Svg={UserIcon} stroke={StrokeColor.INVERTED_PRIMARY} />;
+    const errorImg = (
+        <Icon Svg={UserIcon} stroke={StrokeColor.INVERTED_PRIMARY} />
+    );
 
     return (
         <AppImage

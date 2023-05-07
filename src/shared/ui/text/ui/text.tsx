@@ -22,13 +22,13 @@ export enum TextAlign {
 export type HeaderTagType = 'h1' | 'h2' | 'h3';
 
 export interface TextProps {
-  className?: string;
-  title?: string;
-  text?: string;
-  variant?: TextVariant;
-  align?: TextAlign;
-  size?: TextSize;
-  'data-testid'?: string;
+    className?: string;
+    title?: string;
+    text?: string;
+    variant?: TextVariant;
+    align?: TextAlign;
+    size?: TextSize;
+    'data-testid'?: string;
 }
 
 export const Text = memo(({ className, ...otherProps }: TextProps) => {
@@ -56,8 +56,22 @@ export const Text = memo(({ className, ...otherProps }: TextProps) => {
 
     return (
         <div className={classNames(cls.text, mods, [className, cls[variant]])}>
-            {title && <HeaderTag data-testid={`${dataTestId}.Header`} className={cls.title}>{title}</HeaderTag> }
-            {text && <HeaderTag data-testid={`${dataTestId}.Paragraph`} className={cls.text}>{text}</HeaderTag> }
+            {title && (
+                <HeaderTag
+                    data-testid={`${dataTestId}.Header`}
+                    className={cls.title}
+                >
+                    {title}
+                </HeaderTag>
+            )}
+            {text && (
+                <HeaderTag
+                    data-testid={`${dataTestId}.Paragraph`}
+                    className={cls.text}
+                >
+                    {text}
+                </HeaderTag>
+            )}
         </div>
     );
 });

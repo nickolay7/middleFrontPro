@@ -3,7 +3,7 @@ import { Spinner } from '../../spinner';
 import cls from './loader.module.scss';
 
 interface LoaderProps {
-  className?: string;
+    className?: string;
 }
 export const Loader = ({ className }: LoaderProps) => (
     <div className={classNames(cls.loader, {}, [className])}>

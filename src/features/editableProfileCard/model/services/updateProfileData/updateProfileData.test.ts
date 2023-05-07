@@ -55,10 +55,7 @@ const errors = [
 describe('updateProfileData.test', () => {
     test('success update', async () => {
         // create action
-        const asyncThank = new TestAsyncThunk(
-            updateProfileData,
-            fullState,
-        );
+        const asyncThank = new TestAsyncThunk(updateProfileData, fullState);
         // mocked value on post request
         asyncThank.api.put.mockReturnValue(Promise.resolve({ data }));
         // get action
@@ -68,10 +65,7 @@ describe('updateProfileData.test', () => {
     });
 
     test('rejected update', async () => {
-        const asyncThank = new TestAsyncThunk(
-            updateProfileData,
-            fullState,
-        );
+        const asyncThank = new TestAsyncThunk(updateProfileData, fullState);
         asyncThank.api.put.mockReturnValue(Promise.resolve({ status: 403 }));
 
         const result = await asyncThank.callThunk();
@@ -79,10 +73,7 @@ describe('updateProfileData.test', () => {
         expect(result.meta.requestStatus).toBe('rejected');
     });
     test('validate error', async () => {
-        const asyncThank = new TestAsyncThunk(
-            updateProfileData,
-            emptyState,
-        );
+        const asyncThank = new TestAsyncThunk(updateProfileData, emptyState);
 
         const result = await asyncThank.callThunk();
 

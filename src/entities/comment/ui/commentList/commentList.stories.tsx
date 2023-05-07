@@ -12,9 +12,9 @@ export default {
     },
 } as ComponentMeta<typeof CommentList>;
 
-const Template: ComponentStory<typeof CommentList> = (args: CommentListProps) => (
-    <CommentList {...args} />
-);
+const Template: ComponentStory<typeof CommentList> = (
+    args: CommentListProps,
+) => <CommentList {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
@@ -35,9 +35,7 @@ Dark.args = {
     comments: [comment, comment, comment],
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];
 
 export const DarkIsLoading = Template.bind({});
 DarkIsLoading.args = {
@@ -46,6 +44,4 @@ DarkIsLoading.args = {
     isLoading: true,
 };
 
-DarkIsLoading.decorators = [
-    themeDecorator(Theme.DARK),
-];
+DarkIsLoading.decorators = [themeDecorator(Theme.DARK)];

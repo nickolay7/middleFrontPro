@@ -1,4 +1,10 @@
-export type DropdownDirection = 'top' | 'down' | 'downLeft' | 'topLeft' | 'downRight' | 'topRight';
+export type DropdownDirection =
+    | 'top'
+    | 'down'
+    | 'downLeft'
+    | 'topLeft'
+    | 'downRight'
+    | 'topRight';
 
 export enum ElementTheme {
     CLEAR = 'clear',

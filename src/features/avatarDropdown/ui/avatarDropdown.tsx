@@ -5,14 +5,18 @@ import { Avatar } from '@/shared/ui/avatar';
 import { Dropdown } from '@/shared/ui/popups';
 import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider';
 import {
-    authUserSelector, isAdminSelector, isManagerSelector, setUserLogout, User,
+    authUserSelector,
+    isAdminSelector,
+    isManagerSelector,
+    setUserLogout,
+    User,
 } from '@/entities/user';
 import { getAdmin, getProfile } from '@/shared/consts/consts';
 
 import cls from './avatarDropdown.module.scss';
 
 export interface AvatarDropdownProps {
-  className?: string;
+    className?: string;
 }
 
 export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
@@ -32,19 +36,17 @@ export const AvatarDropdown = memo(({ className }: AvatarDropdownProps) => {
     return (
         <Dropdown
             className={classNames(cls.avatarDropdown, {}, [className])}
-            trigger={(
-                <Avatar size={30} src={authData?.avatar} />
-            )}
+            trigger={<Avatar size={30} src={authData?.avatar} />}
             direction="downLeft"
             items={[
-                ...(
-                    hasRules ? [
-                        {
-                            content: t('Админка'),
-                            href: `${getAdmin()}`,
-                        },
-                    ] : []
-                ),
+                ...(hasRules
+                    ? [
+                          {
+                              content: t('Админка'),
+                              href: `${getAdmin()}`,
+                          },
+                      ]
+                    : []),
                 {
                     content: t('Профиль'),
                     href: getProfile(authData.id),

@@ -12,10 +12,10 @@ export interface TabItem {
 }
 
 export interface TabsProps {
-  className?: string;
-  tabs: TabItem[];
-  activeTab: string;
-  onTab?: (tab: TabItem) => void;
+    className?: string;
+    tabs: TabItem[];
+    activeTab: string;
+    onTab?: (tab: TabItem) => void;
 }
 export const Tabs = memo(({ className, ...otherProps }: TabsProps) => {
     const { tabs, activeTab, onTab } = otherProps;
@@ -28,15 +28,17 @@ export const Tabs = memo(({ className, ...otherProps }: TabsProps) => {
         const theme = item.value === activeTab ? 'active' : 'outline';
 
         return (
-            <Card onClick={onTabHandler(item)} key={item.value} className={classNames('', {}, [cls[theme]])}>
+            <Card
+                onClick={onTabHandler(item)}
+                key={item.value}
+                className={classNames('', {}, [cls[theme]])}
+            >
                 <Text text={item.content} align={TextAlign.CENTER} />
             </Card>
         );
     });
 
     return (
-        <div className={classNames(cls.tabs, {}, [className])}>
-            {tabItems}
-        </div>
+        <div className={classNames(cls.tabs, {}, [className])}>{tabItems}</div>
     );
 });

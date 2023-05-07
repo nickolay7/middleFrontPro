@@ -12,39 +12,51 @@ import { ElementTheme } from '@/shared/types/ui';
 import cls from './notificationButton.module.scss';
 
 export interface NotificationButtonProps {
-  className?: string;
+    className?: string;
 }
-export const NotificationButton = memo(({ className }: NotificationButtonProps) => {
-    const [isDrawerOpen, setDrawerOpen] = useState(true);
+export const NotificationButton = memo(
+    ({ className }: NotificationButtonProps) => {
+        const [isDrawerOpen, setDrawerOpen] = useState(true);
 
-    const onDrawerToggle = useCallback(() => {
-        setDrawerOpen((prev) => !prev);
-    }, []);
+        const onDrawerToggle = useCallback(() => {
+            setDrawerOpen((prev) => !prev);
+        }, []);
 
-    return (
-        <div>
-            <BrowserView>
-                <Popover
-                    className={classNames(cls.notificationButton, {}, [className])}
-                    trigger={(
-                        <Icon size={30} stroke={StrokeColor.INVERTED_PRIMARY} Svg={Notification} />
-                    )}
-                    direction="downLeft"
-                >
-                    <NotificationsList />
-                </Popover>
-            </BrowserView>
-            <MobileView>
-                <Button
-                    onClick={onDrawerToggle}
-                    variant={ElementTheme.CLEAR_INVERTED}
-                >
-                    <Icon size={30} stroke={StrokeColor.INVERTED_PRIMARY} Svg={Notification} />
-                </Button>
-                <Drawer isOpen={isDrawerOpen} onClose={onDrawerToggle}>
-                    <NotificationsList />
-                </Drawer>
-            </MobileView>
-        </div>
-    );
-});
+        return (
+            <div>
+                <BrowserView>
+                    <Popover
+                        className={classNames(cls.notificationButton, {}, [
+                            className,
+                        ])}
+                        trigger={
+                            <Icon
+                                size={30}
+                                stroke={StrokeColor.INVERTED_PRIMARY}
+                                Svg={Notification}
+                            />
+                        }
+                        direction="downLeft"
+                    >
+                        <NotificationsList />
+                    </Popover>
+                </BrowserView>
+                <MobileView>
+                    <Button
+                        onClick={onDrawerToggle}
+                        variant={ElementTheme.CLEAR_INVERTED}
+                    >
+                        <Icon
+                            size={30}
+                            stroke={StrokeColor.INVERTED_PRIMARY}
+                            Svg={Notification}
+                        />
+                    </Button>
+                    <Drawer isOpen={isDrawerOpen} onClose={onDrawerToggle}>
+                        <NotificationsList />
+                    </Drawer>
+                </MobileView>
+            </div>
+        );
+    },
+);

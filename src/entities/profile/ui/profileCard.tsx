@@ -12,13 +12,16 @@ import { Countries } from '../../country/model/types/country';
 import cls from './profile.module.scss';
 
 export interface ProfileCardProps {
-  className?: string;
-  form: IProfile;
-  readonly?: boolean;
-  onChangeHandler?: (value: string, key: string) => void;
+    className?: string;
+    form: IProfile;
+    readonly?: boolean;
+    onChangeHandler?: (value: string, key: string) => void;
 }
 export const ProfileCard = ({
-    className, form, readonly, onChangeHandler,
+    className,
+    form,
+    readonly,
+    onChangeHandler,
 }: ProfileCardProps) => {
     const { t } = useTranslation('profile');
 
@@ -36,78 +39,80 @@ export const ProfileCard = ({
     return (
         <VStack
             gap="gap8"
-            className={classNames(cls.profile, { [cls.readonlyBorder]: !readonly }, [className])}
+            // eslint-disable-next-line i18next/no-literal-string
+            data-testId="ProfileCard"
+            className={classNames(
+                cls.profile,
+                { [cls.readonlyBorder]: !readonly },
+                [className],
+            )}
         >
             <HStack justify="justifyCenter">
-                {
-                    form.avatar && <Avatar src={form.avatar} alt="pic" />
-                }
+                {form.avatar && <Avatar src={form.avatar} alt="pic" />}
             </HStack>
             <VStack gap="gap8" align="alignEnd" className={cls.data}>
-                {
-                    profileDataPairs.map(([key, value]) => {
-                        if (key === 'currency') {
-                            return (
-                                <ListBox
-                                    key={key}
-                                    value={value}
-                                    label={`${t('Валюта')}`}
-                                    readonly={readonly}
-                                    name={key}
-                                    direction="top"
-                                    onChange={onChangeHandler}
-                                    items={currencyOptions}
-                                    trigger={(
-                                        <HStack $max justify="justifyBetween">
-                                            {t(value)}
-                                            {/* eslint-disable-next-line i18next/no-literal-string */}
-                                            <span className={cls.arrow}>
-                                                &#9650;
-                                            </span>
-                                        </HStack>
-                                    )}
-                                />
-                            );
-                        }
-
-                        if (key === 'country') {
-                            return (
-                                <ListBox
-                                    key={key}
-                                    value={value}
-                                    label={`${t('Страна')}`}
-                                    readonly={readonly}
-                                    name={key}
-                                    direction="top"
-                                    onChange={onChangeHandler}
-                                    items={countryOptions}
-                                    trigger={(
-                                        <HStack $max justify="justifyBetween">
-                                            {t(value)}
-                                            {/* eslint-disable-next-line i18next/no-literal-string */}
-                                            <span className={cls.arrow}>
-                                                &#9650;
-                                            </span>
-                                        </HStack>
-                                    )}
-                                />
-                            );
-                        }
-
+                {profileDataPairs.map(([key, value]) => {
+                    if (key === 'currency') {
                         return (
-                            <Input
+                            <ListBox
                                 key={key}
-                                name={key}
-                                readonly={readonly}
-                                className={cls.input}
-                                placeholder={t(key)}
                                 value={value}
+                                label={`${t('Валюта')}`}
+                                readonly={readonly}
+                                name={key}
+                                direction="top"
                                 onChange={onChangeHandler}
-                                data-testid={`ProfileCard.${key}`}
+                                items={currencyOptions}
+                                trigger={
+                                    <HStack $max justify="justifyBetween">
+                                        {t(value)}
+                                        {/* eslint-disable-next-line i18next/no-literal-string */}
+                                        <span className={cls.arrow}>
+                                            &#9650;
+                                        </span>
+                                    </HStack>
+                                }
                             />
                         );
-                    })
-                }
+                    }
+
+                    if (key === 'country') {
+                        return (
+                            <ListBox
+                                key={key}
+                                value={value}
+                                label={`${t('Страна')}`}
+                                readonly={readonly}
+                                name={key}
+                                direction="top"
+                                onChange={onChangeHandler}
+                                items={countryOptions}
+                                trigger={
+                                    <HStack $max justify="justifyBetween">
+                                        {t(value)}
+                                        {/* eslint-disable-next-line i18next/no-literal-string */}
+                                        <span className={cls.arrow}>
+                                            &#9650;
+                                        </span>
+                                    </HStack>
+                                }
+                            />
+                        );
+                    }
+
+                    return (
+                        <Input
+                            key={key}
+                            name={key}
+                            readonly={readonly}
+                            className={cls.input}
+                            placeholder={t(key)}
+                            value={value}
+                            onChange={onChangeHandler}
+                            data-testid={`ProfileCard.${key}`}
+                        />
+                    );
+                })}
             </VStack>
         </VStack>
     );

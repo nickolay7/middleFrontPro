@@ -12,15 +12,13 @@ export default {
     },
 } as ComponentMeta<typeof Spinner>;
 
-const Template: ComponentStory<typeof Spinner> = (args: LoaderProps) => <Spinner {...args} />;
+const Template: ComponentStory<typeof Spinner> = (args: LoaderProps) => (
+    <Spinner {...args} />
+);
 
 export const Light = Template.bind({});
-Light.decorators = [
-    themeDecorator(),
-];
+Light.decorators = [themeDecorator()];
 
 export const Dark = Template.bind({});
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];

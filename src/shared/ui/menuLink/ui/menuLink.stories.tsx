@@ -7,9 +7,7 @@ import { Theme } from '@/app/providers/theme';
 export default {
     title: 'shared/MenuLink',
     component: MenuLink,
-    decorators: [
-        themeDecorator(),
-    ],
+    decorators: [themeDecorator()],
     argTypes: {
         backgroundColor: { control: 'color' },
     },
@@ -18,7 +16,9 @@ export default {
     },
 } as ComponentMeta<typeof MenuLink>;
 
-const Template: ComponentStory<typeof MenuLink> = (args: AppLinkProps) => <MenuLink {...args} />;
+const Template: ComponentStory<typeof MenuLink> = (args: AppLinkProps) => (
+    <MenuLink {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -30,9 +30,7 @@ PrimaryDark.args = {
     children: 'link',
     variant: LinkThemes.PRIMARY_DARK,
 };
-PrimaryDark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+PrimaryDark.decorators = [themeDecorator(Theme.DARK)];
 
 export const Secondary = Template.bind({});
 Secondary.args = {
@@ -44,6 +42,4 @@ SecondaryDark.args = {
     children: 'link',
     variant: LinkThemes.SECONDARY_DARK,
 };
-SecondaryDark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+SecondaryDark.decorators = [themeDecorator(Theme.DARK)];

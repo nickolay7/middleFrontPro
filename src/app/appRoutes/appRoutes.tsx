@@ -5,30 +5,23 @@ import { ProtectedRoute } from './protectedRoute';
 import { AppRouteProps } from './config/types/types';
 
 const AppRoutes = () => {
-    const renderWithWrapper = useCallback(({
-        path, element, authOnly, roles,
-    }: AppRouteProps) => (
-        <Route
-            key={path}
-            path={path}
-            element={(
-                authOnly
-                    ? (
-                        <ProtectedRoute roles={roles}>
-                            {element}
-                        </ProtectedRoute>
+    const renderWithWrapper = useCallback(
+        ({ path, element, authOnly, roles }: AppRouteProps) => (
+            <Route
+                key={path}
+                path={path}
+                element={
+                    authOnly ? (
+                        <ProtectedRoute roles={roles}>{element}</ProtectedRoute>
+                    ) : (
+                        element
                     )
-                    : element
-            )}
-        />
-    ), []);
-
-    return (
-        <Routes>
-            {
-                pathsConfig.map(renderWithWrapper)
-            }
-        </Routes>
+                }
+            />
+        ),
+        [],
     );
+
+    return <Routes>{pathsConfig.map(renderWithWrapper)}</Routes>;
 };
 export default AppRoutes;

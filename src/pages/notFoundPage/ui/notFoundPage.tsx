@@ -4,7 +4,7 @@ import { Page } from '@/shared/ui/page';
 import cls from './notFoundPage.module.scss';
 
 export interface NotFoundPageProps {
-  className?: string;
+    className?: string;
 }
 export const NotFoundPage = ({ className }: NotFoundPageProps) => {
     const { t } = useTranslation();

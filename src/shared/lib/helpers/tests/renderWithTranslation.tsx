@@ -5,9 +5,5 @@ import { ReactNode } from 'react';
 import i18n from '@/shared/config/i18nForTests';
 
 export default (component: ReactNode) => {
-    render(
-        <I18nextProvider i18n={i18n}>
-            {component}
-        </I18nextProvider>,
-    );
+    render(<I18nextProvider i18n={i18n}>{component}</I18nextProvider>);
 };

@@ -8,26 +8,40 @@ import popupsCls from '../../styles/popups.module.scss';
 import cls from './popover.module.scss';
 
 export interface PopoverProps {
-  className?: string;
-  children: ReactNode;
-  trigger: ReactNode;
-  direction: DropdownDirection;
-  variant?: ElementTheme;
+    className?: string;
+    children: ReactNode;
+    trigger: ReactNode;
+    direction: DropdownDirection;
+    variant?: ElementTheme;
 }
-export const Popover = memo(({
-    className, children, trigger, direction, variant = ElementTheme.CLEAR,
-}: PopoverProps) => (
-    <HPopover className={classNames(cls.popover, {}, [className, popupsCls.popups])}>
-        <HPopover.Button
-            className={classNames(popupsCls.trigger, {}, [cls[variant]])}
+export const Popover = memo(
+    ({
+        className,
+        children,
+        trigger,
+        direction,
+        variant = ElementTheme.CLEAR,
+    }: PopoverProps) => (
+        <HPopover
+            className={classNames(cls.popover, {}, [
+                className,
+                popupsCls.popups,
+            ])}
         >
-            {trigger}
-        </HPopover.Button>
+            <HPopover.Button
+                className={classNames(popupsCls.trigger, {}, [cls[variant]])}
+            >
+                {trigger}
+            </HPopover.Button>
 
-        <HPopover.Panel
-            className={classNames(popupsCls.options, {}, [popupDirections[direction], cls.panel])}
-        >
-            {children}
-        </HPopover.Panel>
-    </HPopover>
-));
+            <HPopover.Panel
+                className={classNames(popupsCls.options, {}, [
+                    popupDirections[direction],
+                    cls.panel,
+                ])}
+            >
+                {children}
+            </HPopover.Panel>
+        </HPopover>
+    ),
+);

@@ -10,10 +10,10 @@ const paths: BuildPaths = {
     buildLocales: path.resolve(__dirname, 'build', 'locales'),
 };
 export default (env: BuildEnv) => {
-    const mode = env.mode || 'development';
+    const mode = env?.mode || 'development';
     const isDev = mode !== 'production';
-    const port = env.port || 3000;
-    const apiURL = env.apiURL || 'http://localhost:8000';
+    const port = env?.port || 3000;
+    const apiURL = env?.apiURL || 'http://localhost:8000';
     const project = 'frontend';
 
     return buildWebpackConfig({

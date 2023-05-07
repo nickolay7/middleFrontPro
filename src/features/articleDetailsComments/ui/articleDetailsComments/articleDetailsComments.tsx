@@ -11,9 +11,8 @@ import { AddCommentForm } from '../../../addCommentForm';
 import cls from './articleDetailsComments.module.scss';
 import { fetchCommentsByArticleId } from '../../model/services/fetchCommentsByArticleId/fetchCommentsByArticleId';
 import { commentsSelector } from '../../model/services/articleDetailsPageCommentsSlice/articleDetailsPageCommentsSlice';
-import {
-    getArticleCommentsStateSelector,
-} from '../../model/selectors/getArticleCommentsStateSelector/getArticleCommentsStateSelector';
+// eslint-disable-next-line max-len
+import { getArticleCommentsStateSelector } from '../../model/selectors/getArticleCommentsStateSelector/getArticleCommentsStateSelector';
 import { addCommentForArticle } from '../../model/services/addCommentForArticle/addCommentForArticle';
 
 interface ArticleDetailsCommentsProps {
@@ -21,34 +20,42 @@ interface ArticleDetailsCommentsProps {
     id?: string;
 }
 
-export const ArticleDetailsComments = memo((props: ArticleDetailsCommentsProps) => {
-    const {
-        className, id,
-    } = props;
-    const { t } = useTranslation('articles');
+export const ArticleDetailsComments = memo(
+    (props: ArticleDetailsCommentsProps) => {
+        const { className, id } = props;
+        const { t } = useTranslation('articles');
 
-    const comments = useAppSelector(commentsSelector.selectAll);
-    const commentsState = useAppSelector(getArticleCommentsStateSelector);
+        const comments = useAppSelector(commentsSelector.selectAll);
+        const commentsState = useAppSelector(getArticleCommentsStateSelector);
 
-    const dispatch = useAppDispatch();
+        const dispatch = useAppDispatch();
 
-    useInitialEffect(() => {
-        dispatch(fetchCommentsByArticleId(id));
-    });
+        useInitialEffect(() => {
+            dispatch(fetchCommentsByArticleId(id));
+        });
 
-    if (!id) {
-        return <Text title={t('Статья не найдена')} />;
-    }
+        if (!id) {
+            return <Text title={t('Статья не найдена')} />;
+        }
 
-    const onSendComment = (text: string) => {
-        dispatch(addCommentForArticle(text));
-    };
+        const onSendComment = (text: string) => {
+            dispatch(addCommentForArticle(text));
+        };
 
-    return (
-        <div className={classNames(cls.articleDetailsComments, {}, [className])}>
-            <Text className={cls.commentTitle} title={t('Комментарии')} />
-            <AddCommentForm onSendComment={onSendComment} />
-            <CommentList comments={comments} isLoading={commentsState?.isLoading} />
-        </div>
-    );
-});
+        return (
+            <div
+                data-testid="ArticleDetailsComments"
+                className={classNames(cls.articleDetailsComments, {}, [
+                    className,
+                ])}
+            >
+                <Text className={cls.commentTitle} title={t('Комментарии')} />
+                <AddCommentForm onSendComment={onSendComment} />
+                <CommentList
+                    comments={comments}
+                    isLoading={commentsState?.isLoading}
+                />
+            </div>
+        );
+    },
+);

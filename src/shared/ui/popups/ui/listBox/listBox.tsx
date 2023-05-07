@@ -55,27 +55,48 @@ export function ListBox(props: ListBoxProps) {
             value={value}
             onChange={onChangeHandler}
             disabled={readonly}
-            className={classNames(cls.listBox, { [cls.disabled]: readonly }, [className, popupsCls.popups])}
+            className={classNames(cls.listBox, { [cls.disabled]: readonly }, [
+                className,
+                popupsCls.popups,
+            ])}
         >
             <HStack gap="gap8">
-                {label && <label className={cls.label} htmlFor="select">{label}</label>}
-                <HListBox.Button className={classNames(popupsCls.trigger, {}, [cls[variant]])}>
+                {label && (
+                    <label className={cls.label} htmlFor="select">
+                        {label}
+                    </label>
+                )}
+                <HListBox.Button
+                    className={classNames(popupsCls.trigger, {}, [
+                        cls[variant],
+                    ])}
+                >
                     {trigger}
                 </HListBox.Button>
             </HStack>
             <HListBox.Options
-                className={classNames(popupsCls.options, {}, [popupDirections[direction]])}
+                className={classNames(popupsCls.options, {}, [
+                    popupDirections[direction],
+                ])}
                 defaultValue={t(defaultValue)}
             >
                 {items.map((item) => (
-                    <HListBox.Option key={item.value} value={item.value} as={Fragment}>
+                    <HListBox.Option
+                        key={item.value}
+                        value={item.value}
+                        as={Fragment}
+                    >
                         {({ active, selected }) => (
                             <li
-                                className={classNames('', {
-                                    [popupsCls.active]: active,
-                                    [cls.selected]: selected,
-                                    [popupsCls.disabled]: item.disabled,
-                                }, [popupsCls.item])}
+                                className={classNames(
+                                    '',
+                                    {
+                                        [popupsCls.active]: active,
+                                        [cls.selected]: selected,
+                                        [popupsCls.disabled]: item.disabled,
+                                    },
+                                    [popupsCls.item],
+                                )}
                             >
                                 <HStack justify="justifyCenter">
                                     {/* eslint-disable-next-line i18next/no-literal-string */}

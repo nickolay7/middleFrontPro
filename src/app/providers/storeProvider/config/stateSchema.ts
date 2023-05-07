@@ -1,6 +1,9 @@
 import {
     AnyAction,
-    CombinedState, EnhancedStore, Reducer, ReducersMapObject,
+    CombinedState,
+    EnhancedStore,
+    Reducer,
+    ReducersMapObject,
 } from '@reduxjs/toolkit';
 import { AxiosInstance } from 'axios';
 import { UserSchema } from '@/entities/user';
@@ -30,7 +33,10 @@ export type StateSchemaKey = keyof StateSchema;
 
 interface ReducerManager {
     getReducerMap: () => ReducersMapObject<StateSchema>;
-    reduce: (state: StateSchema, action: AnyAction) => CombinedState<StateSchema>; // Reducer<CombinedState<StateSchema>>;
+    reduce: (
+        state: StateSchema,
+        action: AnyAction,
+    ) => CombinedState<StateSchema>; // Reducer<CombinedState<StateSchema>>;
     add: (key: StateSchemaKey, reducer: Reducer) => void;
     remove: (key: StateSchemaKey) => void;
 }
@@ -43,7 +49,7 @@ export interface ThunkExtraArgs {
     api: AxiosInstance;
 }
 
-export interface ThunkConfig<T>{
+export interface ThunkConfig<T> {
     extra: ThunkExtraArgs;
     rejectValue: T;
     state: StateSchema;

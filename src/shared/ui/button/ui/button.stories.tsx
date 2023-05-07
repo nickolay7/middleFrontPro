@@ -2,9 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { themeDecorator } from '@/shared/config/decorators/themeDecorator';
 import { Theme } from '@/app/providers/theme';
-import {
-    Button, ButtonProps, ButtonSize,
-} from './button';
+import { Button, ButtonProps, ButtonSize } from './button';
 import { ElementTheme } from '../../../types/ui';
 
 export default {
@@ -15,7 +13,9 @@ export default {
     },
 } as ComponentMeta<typeof Button>;
 
-const Template: ComponentStory<typeof Button> = (args: ButtonProps) => <Button {...args} />;
+const Template: ComponentStory<typeof Button> = (args: ButtonProps) => (
+    <Button {...args} />
+);
 
 export const Primary = Template.bind({});
 Primary.args = {
@@ -29,9 +29,7 @@ PrimaryDark.args = {
     variant: ElementTheme.PRIMARY,
 };
 
-PrimaryDark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+PrimaryDark.decorators = [themeDecorator(Theme.DARK)];
 
 export const PrimarySizeL = Template.bind({});
 PrimarySizeL.args = {
@@ -59,9 +57,7 @@ ClearDark.args = {
     variant: ElementTheme.CLEAR,
 };
 
-ClearDark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+ClearDark.decorators = [themeDecorator(Theme.DARK)];
 
 export const Outline = Template.bind({});
 Outline.args = {
@@ -83,9 +79,7 @@ OutlineDisabledDark.args = {
     disabled: true,
 };
 
-OutlineDisabledDark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+OutlineDisabledDark.decorators = [themeDecorator(Theme.DARK)];
 
 export const OutlineDark = Template.bind({});
 OutlineDark.args = {
@@ -93,6 +87,4 @@ OutlineDark.args = {
     variant: ElementTheme.OUTLINE,
 };
 
-OutlineDark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+OutlineDark.decorators = [themeDecorator(Theme.DARK)];

@@ -9,12 +9,13 @@ export interface CountrySelectProps {
     disabled?: boolean;
     name: string;
 }
-export const CountrySelect = ({ className, ...otherProps }: CountrySelectProps) => {
+export const CountrySelect = ({
+    className,
+    ...otherProps
+}: CountrySelectProps) => {
     const { t } = useTranslation('profile');
 
-    const {
-        value, disabled, name, onChange,
-    } = otherProps;
+    const { value, disabled, name, onChange } = otherProps;
 
     const opt = Object.entries(Countries).map(([key, value]) => ({
         value,

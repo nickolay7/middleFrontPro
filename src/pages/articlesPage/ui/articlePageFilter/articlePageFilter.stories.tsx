@@ -12,25 +12,20 @@ export default {
     },
 } as ComponentMeta<typeof ArticlePageFilter>;
 
-const Template: ComponentStory<typeof ArticlePageFilter> = (args: ArticlePageFilterProps) => (
-    <ArticlePageFilter {...args} />
-);
+const Template: ComponentStory<typeof ArticlePageFilter> = (
+    args: ArticlePageFilterProps,
+) => <ArticlePageFilter {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
     className: '',
 };
 
-Light.decorators = [
-    storeDecorator({}),
-];
+Light.decorators = [storeDecorator({})];
 
 export const Dark = Template.bind({});
 Dark.args = {
     className: '',
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-    storeDecorator({}),
-];
+Dark.decorators = [themeDecorator(Theme.DARK), storeDecorator({})];

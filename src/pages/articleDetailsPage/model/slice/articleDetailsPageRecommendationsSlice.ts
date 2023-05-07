@@ -15,9 +15,12 @@ const recommendationsAdapter = createEntityAdapter({
     selectId: (article: Article) => article.id,
 });
 
-export const recommendationsSelector = recommendationsAdapter.getSelectors<StateSchema>(
-    (state) => state.articleDetailsPage?.articleDetailsRecommends || recommendationsAdapter.getInitialState(),
-);
+export const recommendationsSelector =
+    recommendationsAdapter.getSelectors<StateSchema>(
+        (state) =>
+            state.articleDetailsPage?.articleDetailsRecommends ||
+            recommendationsAdapter.getInitialState(),
+    );
 
 export const recommendationsSlice = createSlice({
     name: 'recommendations',

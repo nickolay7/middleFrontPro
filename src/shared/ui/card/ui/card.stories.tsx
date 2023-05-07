@@ -30,6 +30,4 @@ Dark.args = {
     children: <Text title="some title" text="some text" />,
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];

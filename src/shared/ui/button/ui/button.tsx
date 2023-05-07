@@ -8,7 +8,7 @@ import { ElementTheme } from '../../../types/ui';
 export enum ButtonSize {
     S = 'small',
     L = 'large',
-    XL = 'extra'
+    XL = 'extra',
 }
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -18,23 +18,29 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
     disabled?: boolean;
 }
 
-export const Button = memo(({ className, children, ...otherProps }: ButtonProps) => {
-    const { variant = ElementTheme.CLEAR, size = ButtonSize.S, disabled } = otherProps;
+export const Button = memo(
+    ({ className, children, ...otherProps }: ButtonProps) => {
+        const {
+            variant = ElementTheme.CLEAR,
+            size = ButtonSize.S,
+            disabled,
+        } = otherProps;
 
-    return (
-        <button
-            type="button"
-            className={classNames(
-                cls.Button,
-                {
-                    [cls.disabled]: disabled,
-                },
-                [className, cls[variant], cls[size]],
-            )}
-            disabled={disabled}
-            {...otherProps}
-        >
-            {children}
-        </button>
-    );
-});
+        return (
+            <button
+                type="button"
+                className={classNames(
+                    cls.Button,
+                    {
+                        [cls.disabled]: disabled,
+                    },
+                    [className, cls[variant], cls[size]],
+                )}
+                disabled={disabled}
+                {...otherProps}
+            >
+                {children}
+            </button>
+        );
+    },
+);

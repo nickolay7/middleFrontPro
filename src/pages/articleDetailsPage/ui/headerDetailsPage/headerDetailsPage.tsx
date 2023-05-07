@@ -11,7 +11,7 @@ import cls from './headerDetailsPage.module.scss';
 import { getArticleEdit, getArticles } from '@/shared/consts/consts';
 
 export interface HeaderDetailsPageProps {
-  className?: string;
+    className?: string;
 }
 const HeaderDetailsPage = memo(({ className }: HeaderDetailsPageProps) => {
     const { t } = useTranslation();
@@ -29,13 +29,18 @@ const HeaderDetailsPage = memo(({ className }: HeaderDetailsPageProps) => {
 
     return (
         <div className={classNames(cls.headerDetailsPage, {}, [className])}>
-            <Button onClick={onBackToList} variant={ElementTheme.OUTLINE}>{t('Назад к списку')}</Button>
+            <Button onClick={onBackToList} variant={ElementTheme.OUTLINE}>
+                {t('Назад к списку')}
+            </Button>
             <div className={cls.editButtonsBlock}>
-                { isEditable && (
-                    <Button onClick={onEditArticle(id)} variant={ElementTheme.OUTLINE}>
+                {isEditable && (
+                    <Button
+                        onClick={onEditArticle(id)}
+                        variant={ElementTheme.OUTLINE}
+                    >
                         {t('Редактировать')}
                     </Button>
-                ) }
+                )}
             </div>
         </div>
     );

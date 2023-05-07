@@ -1,5 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { ScrollPositions, ScrollPositionSchema } from '../types/scrollPositionSchema';
+import {
+    ScrollPositions,
+    ScrollPositionSchema,
+} from '../types/scrollPositionSchema';
 
 const initialState: ScrollPositionSchema = {
     scroll: {} as ScrollPositions,

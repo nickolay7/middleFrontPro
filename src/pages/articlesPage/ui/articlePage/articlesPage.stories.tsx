@@ -12,16 +12,13 @@ export default {
     },
 } as ComponentMeta<typeof ArticlesPage>;
 
-const Template: ComponentStory<typeof ArticlesPage> = (args: ArticlesPageProps) => (
-    <ArticlesPage {...args} />
-);
+const Template: ComponentStory<typeof ArticlesPage> = (
+    args: ArticlesPageProps,
+) => <ArticlesPage {...args} />;
 
 export const Dark = Template.bind({});
 Dark.args = {
     className: '',
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-    storeDecorator({}),
-];
+Dark.decorators = [themeDecorator(Theme.DARK), storeDecorator({})];

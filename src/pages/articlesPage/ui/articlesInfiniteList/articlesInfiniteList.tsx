@@ -10,28 +10,34 @@ import { ArticlePageFilter } from '../articlePageFilter/articlePageFilter';
 import cls from './articlesInfiniteList.module.scss';
 
 export interface ArticlesInfiniteListProps {
-  className?: string;
+    className?: string;
 }
-export const ArticlesInfiniteList = memo(({ className }: ArticlesInfiniteListProps) => {
-    const dispatch = useAppDispatch();
+export const ArticlesInfiniteList = memo(
+    ({ className }: ArticlesInfiniteListProps) => {
+        const dispatch = useAppDispatch();
 
-    const articles = useAppSelector(articlePageSelector.selectAll);
-    const articlesStates = useAppSelector(articlesSelector);
+        const articles = useAppSelector(articlePageSelector.selectAll);
+        const articlesStates = useAppSelector(articlesSelector);
 
-    const onLoadNextPart = useCallback(() => {
-        dispatch(fetchNextArticlesPage());
-    }, [dispatch]);
+        const onLoadNextPart = useCallback(() => {
+            dispatch(fetchNextArticlesPage());
+        }, [dispatch]);
 
-    return (
-        <div className={classNames(cls.articlesInfiniteList, {}, [className])}>
-            <ArticlesList
-                virtualized
-                articles={articles}
-                onLoadNextPart={onLoadNextPart}
-                view={articlesStates?.view}
-                isLoading={articlesStates?.isLoading}
-                Header={ArticlePageFilter}
-            />
-        </div>
-    );
-});
+        return (
+            <div
+                className={classNames(cls.articlesInfiniteList, {}, [
+                    className,
+                ])}
+            >
+                <ArticlesList
+                    virtualized
+                    articles={articles}
+                    onLoadNextPart={onLoadNextPart}
+                    view={articlesStates?.view}
+                    isLoading={articlesStates?.isLoading}
+                    Header={ArticlePageFilter}
+                />
+            </div>
+        );
+    },
+);

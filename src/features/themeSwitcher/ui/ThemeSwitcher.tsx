@@ -9,38 +9,41 @@ import { Button } from '@/shared/ui/button';
 import cls from './ThemeSwitcher.module.scss';
 import { ElementTheme } from '@/shared/types/ui';
 
-export interface ThemeSwitcherProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  className?: string;
-  variant?: ElementTheme;
+export interface ThemeSwitcherProps
+    extends ButtonHTMLAttributes<HTMLButtonElement> {
+    className?: string;
+    variant?: ElementTheme;
 }
-export const ThemeSwitcher = memo(({ className, ...otherProps }: ThemeSwitcherProps) => {
-    const { theme, changeTheme } = useTheme();
-    const { variant = ElementTheme.CLEAR } = otherProps;
+export const ThemeSwitcher = memo(
+    ({ className, ...otherProps }: ThemeSwitcherProps) => {
+        const { theme, changeTheme } = useTheme();
+        const { variant = ElementTheme.CLEAR } = otherProps;
 
-    let themeStyle;
+        let themeStyle;
 
-    switch (theme) {
-    case Theme.DARK:
-        themeStyle = <ThemeDark />;
-        break;
-    case Theme.LIGHT:
-        themeStyle = <ThemeLight />;
-        break;
-    case Theme.NEON:
-        themeStyle = <ThemeNeon />;
-        break;
-    default:
-        themeStyle = <ThemeLight />;
-        break;
-    }
+        switch (theme) {
+            case Theme.DARK:
+                themeStyle = <ThemeDark />;
+                break;
+            case Theme.LIGHT:
+                themeStyle = <ThemeLight />;
+                break;
+            case Theme.NEON:
+                themeStyle = <ThemeNeon />;
+                break;
+            default:
+                themeStyle = <ThemeLight />;
+                break;
+        }
 
-    return (
-        <Button
-            variant={variant}
-            onClick={changeTheme}
-            className={classNames(cls.ThemeSwitcher, {}, [className])}
-        >
-            {themeStyle}
-        </Button>
-    );
-});
+        return (
+            <Button
+                variant={variant}
+                onClick={changeTheme}
+                className={classNames(cls.ThemeSwitcher, {}, [className])}
+            >
+                {themeStyle}
+            </Button>
+        );
+    },
+);

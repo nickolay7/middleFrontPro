@@ -25,35 +25,51 @@ export interface DropdownProps {
 
 export function Dropdown(props: DropdownProps) {
     const {
-        className, items, trigger = 'click_me', direction = 'down', variant = ElementTheme.CLEAR,
+        className,
+        items,
+        trigger = 'click_me',
+        direction = 'down',
+        variant = ElementTheme.CLEAR,
     } = props;
 
     return (
-        <Menu as="div" className={classNames(cls.dropdown, {}, [className, popupsCls.popups])}>
-            <Menu.Button className={classNames(popupsCls.trigger, {}, [cls[variant]])}>{trigger}</Menu.Button>
-            <Menu.Items
-                className={classNames(popupsCls.options, {}, [popupDirections[direction]])}
+        <Menu
+            as="div"
+            className={classNames(cls.dropdown, {}, [
+                className,
+                popupsCls.popups,
+            ])}
+        >
+            <Menu.Button
+                className={classNames(popupsCls.trigger, {}, [cls[variant]])}
             >
-                {
-                    items.map((item) => (
-                        <Menu.Item
-                            key={item.content}
-                            as={MenuLink}
-                            disabled={item.disabled}
-                            to={item.href || ''}
-                            className={cls.link}
-                            onClick={item.onClick}
-                        >
-                            {({ active }) => (
-                                <li
-                                    className={classNames(popupsCls.item, { [popupsCls.active]: active })}
-                                >
-                                    {item.content}
-                                </li>
-                            )}
-                        </Menu.Item>
-                    ))
-                }
+                {trigger}
+            </Menu.Button>
+            <Menu.Items
+                className={classNames(popupsCls.options, {}, [
+                    popupDirections[direction],
+                ])}
+            >
+                {items.map((item) => (
+                    <Menu.Item
+                        key={item.content}
+                        as={MenuLink}
+                        disabled={item.disabled}
+                        to={item.href || ''}
+                        className={cls.link}
+                        onClick={item.onClick}
+                    >
+                        {({ active }) => (
+                            <li
+                                className={classNames(popupsCls.item, {
+                                    [popupsCls.active]: active,
+                                })}
+                            >
+                                {item.content}
+                            </li>
+                        )}
+                    </Menu.Item>
+                ))}
             </Menu.Items>
         </Menu>
     );

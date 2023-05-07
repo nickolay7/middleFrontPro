@@ -7,34 +7,44 @@ import { useGetNotificationsQuery } from '../../api/notificationApi';
 import { NotificationsListItem } from '../notificationsListItem/notificationsListItem';
 
 export interface NotificationsListProps {
-  className?: string;
+    className?: string;
 }
-export const NotificationsList = memo(({ className }: NotificationsListProps) => {
-    const { isLoading, data } = useGetNotificationsQuery(null, {
-        pollingInterval: 5000,
-    });
+export const NotificationsList = memo(
+    ({ className }: NotificationsListProps) => {
+        const { isLoading, data } = useGetNotificationsQuery(null, {
+            pollingInterval: 5000,
+        });
 
-    if (isLoading) {
+        if (isLoading) {
+            return (
+                <VStack
+                    gap="gap16"
+                    $max
+                    className={classNames(cls.NotificationList, {}, [
+                        className,
+                    ])}
+                >
+                    <Skeleton width={150} height={30} />
+                    <Skeleton width={150} height={30} />
+                    <Skeleton width={150} height={30} />
+                </VStack>
+            );
+        }
+
         return (
             <VStack
-                gap="gap16"
+                gap="gap2"
                 $max
-                className={classNames(cls.NotificationList, {}, [className])}
+                className={classNames(cls.notificationsList, {}, [className])}
             >
-                <Skeleton width={150} height={30} />
-                <Skeleton width={150} height={30} />
-                <Skeleton width={150} height={30} />
+                {data &&
+                    data.map((notification) => (
+                        <NotificationsListItem
+                            key={notification.id}
+                            data={notification}
+                        />
+                    ))}
             </VStack>
         );
-    }
-
-    return (
-        <VStack gap="gap2" $max className={classNames(cls.notificationsList, {}, [className])}>
-            {
-                data && data.map((notification) => (
-                    <NotificationsListItem key={notification.id} data={notification} />
-                ))
-            }
-        </VStack>
-    );
-});
+    },
+);

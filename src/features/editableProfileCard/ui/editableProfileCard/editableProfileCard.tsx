@@ -2,9 +2,7 @@ import { memo } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { classNames } from '@/shared/lib/helpers/classNames';
-import {
-    profileReducer, updateProfile,
-} from '../../model/slice/profileSlice';
+import { profileReducer, updateProfile } from '../../model/slice/profileSlice';
 import { Text, TextVariant } from '@/shared/ui/text';
 import { Page } from '@/shared/ui/page';
 import { useInitialEffect } from '@/shared/lib/hooks';
@@ -51,9 +49,7 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     useDynamicModuleLoader(reducers, true);
 
     const profile = useAppSelector(profileData);
-    const {
-        form, error, isLoading, readonly,
-    } = profile;
+    const { form, error, isLoading, readonly } = profile;
 
     const onChangeHandler = (value: string | number, key: string) => {
         if (key === 'age') dispatch(updateProfile({ [key]: Number(value) }));
@@ -69,24 +65,24 @@ export const EditableProfileCard = memo((props: EditableProfileCardProps) => {
     }
 
     if (error) {
-        return <Text text={t('Что-то пошло не так!')} variant={TextVariant.RED} />;
+        return (
+            <Text text={t('Что-то пошло не так!')} variant={TextVariant.RED} />
+        );
     }
 
     return (
         <div className={classNames(cls.editableProfileCard, {}, [className])}>
             <Page className={classNames(cls.profile, {}, [className])}>
                 <ProfileHeader readonly={readonly} />
-                {
-                    validationErrors && validationErrors
-                        .map((error: ValidationErrors) => (
-                            <Text
-                                key={errorsMapping[error]}
-                                data-testid="EditableProfileCard.Error"
-                                variant={TextVariant.RED}
-                                text={errorsMapping[error]}
-                            />
-                        ))
-                }
+                {validationErrors &&
+                    validationErrors.map((error: ValidationErrors) => (
+                        <Text
+                            key={errorsMapping[error]}
+                            data-testid="EditableProfileCard.Error"
+                            variant={TextVariant.RED}
+                            text={errorsMapping[error]}
+                        />
+                    ))}
                 <ProfileCard
                     onChangeHandler={onChangeHandler}
                     readonly={readonly}

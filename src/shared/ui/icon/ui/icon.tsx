@@ -10,14 +10,18 @@ export enum StrokeColor {
 }
 
 export interface IconProps extends SVGProps<SVGSVGElement> {
-  className?: string;
-  stroke: StrokeColor;
-  Svg: VFC<SVGProps<SVGSVGElement>>;
-  size?: number;
+    className?: string;
+    stroke: StrokeColor;
+    Svg: VFC<SVGProps<SVGSVGElement>>;
+    size?: number;
 }
 
-export const Icon = memo(({
-    className, Svg, stroke, size, ...otherProps
-}: IconProps) => (
-    <Svg width={size} className={classNames(cls.icon, {}, [className, cls[stroke]])} {...otherProps} />
-));
+export const Icon = memo(
+    ({ className, Svg, stroke, size, ...otherProps }: IconProps) => (
+        <Svg
+            width={size}
+            className={classNames(cls.icon, {}, [className, cls[stroke]])}
+            {...otherProps}
+        />
+    ),
+);

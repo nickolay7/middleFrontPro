@@ -5,11 +5,14 @@ import { Page } from '@/shared/ui/page';
 import cls from './adminPanelPage.module.scss';
 
 export interface AdminPanelPageProps {
-  className?: string;
+    className?: string;
 }
 export const AdminPanelPage = memo(({ className }: AdminPanelPageProps) => (
-    // eslint-disable-next-line i18next/no-literal-string
-    <Page data-testid="AdminPanelPage" className={classNames(cls.adminPanelPage, {}, [className])}>
+    <Page
+        data-testid="AdminPanelPage"
+        className={classNames(cls.adminPanelPage, {}, [className])}
+        // eslint-disable-next-line i18next/no-literal-string
+    >
         ADMIN PANEL
     </Page>
 ));

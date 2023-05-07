@@ -8,7 +8,10 @@ export const rtkApi = createApi({
     baseQuery: fetchBaseQuery({
         baseUrl: __API__,
         prepareHeaders: (headers) => {
-            headers.set('Authorization', localStorage.getItem(USER_LOGIN_DATA) || '');
+            headers.set(
+                'Authorization',
+                localStorage.getItem(USER_LOGIN_DATA) || '',
+            );
 
             return headers;
         },

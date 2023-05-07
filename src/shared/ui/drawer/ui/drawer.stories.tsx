@@ -31,6 +31,4 @@ Dark.args = {
     children: <Text title="I am Drawer" align={TextAlign.CENTER} />,
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];

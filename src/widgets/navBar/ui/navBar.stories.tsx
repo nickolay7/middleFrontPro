@@ -16,14 +16,8 @@ const Template: ComponentStory<typeof NavBar> = () => <NavBar />;
 
 export const Light = Template.bind({});
 
-Light.decorators = [
-    themeDecorator(),
-    storeDecorator({}),
-];
+Light.decorators = [themeDecorator(), storeDecorator({})];
 
 export const Dark = Template.bind({});
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-    storeDecorator({}),
-];
+Dark.decorators = [themeDecorator(Theme.DARK), storeDecorator({})];

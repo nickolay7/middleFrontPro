@@ -39,11 +39,14 @@ const profileSlice = createSlice({
             state.error = undefined;
             state.isLoading = true;
         });
-        builder.addCase(fetchProfileData.fulfilled, (state, action: PayloadAction<IProfile>) => {
-            state.isLoading = false;
-            state.data = action.payload;
-            state.form = action.payload;
-        });
+        builder.addCase(
+            fetchProfileData.fulfilled,
+            (state, action: PayloadAction<IProfile>) => {
+                state.isLoading = false;
+                state.data = action.payload;
+                state.form = action.payload;
+            },
+        );
         builder.addCase(fetchProfileData.rejected, (state, action) => {
             state.error = action.payload;
             state.isLoading = false;
@@ -52,12 +55,15 @@ const profileSlice = createSlice({
             state.error = undefined;
             state.isLoading = true;
         });
-        builder.addCase(updateProfileData.fulfilled, (state, action: PayloadAction<IProfile>) => {
-            state.isLoading = false;
-            state.data = action.payload;
-            state.form = action.payload;
-            state.readonly = true;
-        });
+        builder.addCase(
+            updateProfileData.fulfilled,
+            (state, action: PayloadAction<IProfile>) => {
+                state.isLoading = false;
+                state.data = action.payload;
+                state.form = action.payload;
+                state.readonly = true;
+            },
+        );
         builder.addCase(updateProfileData.rejected, (state, action) => {
             state.validationErrors = action.payload;
             state.isLoading = false;
@@ -65,10 +71,6 @@ const profileSlice = createSlice({
     },
 });
 
-export const {
-    setReadonly,
-    upsetReadonly,
-    updateProfile,
-    cancelEditing,
-} = profileSlice.actions;
+export const { setReadonly, upsetReadonly, updateProfile, cancelEditing } =
+    profileSlice.actions;
 export const profileReducer = profileSlice.reducer;

@@ -11,28 +11,33 @@ export enum LinkThemes {
 }
 
 export interface AppLinkProps extends LinkProps {
-  classname?: string;
-  variant?: LinkThemes;
-  to: string;
+    classname?: string;
+    variant?: LinkThemes;
+    to: string;
 }
 
-export const MenuLink = forwardRef((props: AppLinkProps, ref:ForwardedRef<HTMLAnchorElement>) => {
-    const {
-        to,
-        children,
-        variant = LinkThemes.PRIMARY,
-        classname = '',
-        ...otherProps
-    } = props;
+export const MenuLink = forwardRef(
+    (props: AppLinkProps, ref: ForwardedRef<HTMLAnchorElement>) => {
+        const {
+            to,
+            children,
+            variant = LinkThemes.PRIMARY,
+            classname = '',
+            ...otherProps
+        } = props;
 
-    return (
-        <Link
-            ref={ref}
-            className={classNames(cls.navLink, {}, [classname, cls[variant]])}
-            to={to}
-            {...otherProps}
-        >
-            {children}
-        </Link>
-    );
-});
+        return (
+            <Link
+                ref={ref}
+                className={classNames(cls.navLink, {}, [
+                    classname,
+                    cls[variant],
+                ])}
+                to={to}
+                {...otherProps}
+            >
+                {children}
+            </Link>
+        );
+    },
+);

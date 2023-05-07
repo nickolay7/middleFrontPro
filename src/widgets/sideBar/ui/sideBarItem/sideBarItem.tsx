@@ -8,29 +8,26 @@ import { authUserSelector } from '@/entities/user';
 import cls from './sideBarItem.module.scss';
 import { MenuItem } from '../../types/types';
 
-export const SideBarItem = memo((
-    {
-        className,
-        title,
-        to,
-        Icon,
-        isOpen,
-        authOnly,
-    }: MenuItem,
-) => {
-    const { t } = useTranslation();
-    const isAuth = useAppSelector(authUserSelector);
+export const SideBarItem = memo(
+    ({ className, title, to, Icon, isOpen, authOnly }: MenuItem) => {
+        const { t } = useTranslation();
+        const isAuth = useAppSelector(authUserSelector);
 
-    if (!isAuth && authOnly) return null;
+        if (!isAuth && authOnly) return null;
 
-    return (
-        <div className={classNames(cls.sideBarItem, {}, [className])}>
-            <MenuLink key={to} to={to}>
-                <Icon className={cls.icon} />
-                <span className={classNames(cls.linkLabelColor, { [cls.linkLabel]: isOpen })}>
-                    {t(title)}
-                </span>
-            </MenuLink>
-        </div>
-    );
-});
+        return (
+            <div className={classNames(cls.sideBarItem, {}, [className])}>
+                <MenuLink key={to} to={to}>
+                    <Icon className={cls.icon} />
+                    <span
+                        className={classNames(cls.linkLabelColor, {
+                            [cls.linkLabel]: isOpen,
+                        })}
+                    >
+                        {t(title)}
+                    </span>
+                </MenuLink>
+            </div>
+        );
+    },
+);

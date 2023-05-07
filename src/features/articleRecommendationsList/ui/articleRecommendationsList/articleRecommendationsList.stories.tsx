@@ -4,7 +4,10 @@ import { themeDecorator } from '@/shared/config/decorators/themeDecorator';
 import { Theme } from '@/app/providers/theme';
 import { Article } from '@/entities/article';
 import { storeDecorator } from '@/shared/config/decorators/storeDecorator';
-import { ArticleRecommendationsList, ArticleRecommendationsListProps } from './articleRecommendationsList';
+import {
+    ArticleRecommendationsList,
+    ArticleRecommendationsListProps,
+} from './articleRecommendationsList';
 import { ArticleType } from '@/shared/types/articleTypes';
 
 const article: Article = {
@@ -25,10 +28,7 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [
-        withMock,
-        storeDecorator({}),
-    ],
+    decorators: [withMock, storeDecorator({})],
     parameters: {
         mockData: [
             {
@@ -45,9 +45,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleRecommendationsList>;
 
-const Template: ComponentStory<typeof ArticleRecommendationsList> = (args: ArticleRecommendationsListProps) => (
-    <ArticleRecommendationsList {...args} />
-);
+const Template: ComponentStory<typeof ArticleRecommendationsList> = (
+    args: ArticleRecommendationsListProps,
+) => <ArticleRecommendationsList {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
@@ -59,6 +59,4 @@ Dark.args = {
     className: '',
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];

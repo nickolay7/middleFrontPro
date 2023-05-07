@@ -12,7 +12,7 @@ import { ArticlesInfiniteList } from '../articlesInfiniteList/articlesInfiniteLi
 import cls from './articlesPage.module.scss';
 
 export interface ArticlesPageProps {
-  className?: string;
+    className?: string;
 }
 
 const ArticlesPage = ({ className }: ArticlesPageProps) => {

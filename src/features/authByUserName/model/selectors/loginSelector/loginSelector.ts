@@ -7,4 +7,5 @@ const defaultState = {
     error: '',
 };
 
-export const loginSelector = (state: StateSchema) => state.loginForm || defaultState;
+export const loginSelector = (state: StateSchema) =>
+    state.loginForm || defaultState;

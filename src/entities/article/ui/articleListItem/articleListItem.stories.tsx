@@ -13,9 +13,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleListItem>;
 
-const Template: ComponentStory<typeof ArticleListItem> = (args: ArticleListItemProps) => (
-    <ArticleListItem {...args} />
-);
+const Template: ComponentStory<typeof ArticleListItem> = (
+    args: ArticleListItemProps,
+) => <ArticleListItem {...args} />;
 
 export const LightList = Template.bind({});
 LightList.args = {
@@ -38,9 +38,7 @@ DarkList.args = {
     view: ArticleView.LIST,
 };
 
-DarkList.decorators = [
-    themeDecorator(Theme.DARK),
-];
+DarkList.decorators = [themeDecorator(Theme.DARK)];
 
 export const DarkPlate = Template.bind({});
 DarkPlate.args = {
@@ -49,6 +47,4 @@ DarkPlate.args = {
     view: ArticleView.PLATE,
 };
 
-DarkPlate.decorators = [
-    themeDecorator(Theme.DARK),
-];
+DarkPlate.decorators = [themeDecorator(Theme.DARK)];

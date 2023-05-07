@@ -10,7 +10,9 @@ describe('fetchArticleById.test', () => {
         // create action
         const asyncThank = new TestAsyncThunk(fetchArticleById);
         // mocked value on post request
-        asyncThank.api.get.mockReturnValue(Promise.resolve({ data: fetchData }));
+        asyncThank.api.get.mockReturnValue(
+            Promise.resolve({ data: fetchData }),
+        );
         // get action
         const result = await asyncThank.callThunk('1');
 

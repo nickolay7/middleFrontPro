@@ -11,9 +11,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleSortSelect>;
 
-const Template: ComponentStory<typeof ArticleSortSelect> = (args: ArticleSortSelectProps) => (
-    <ArticleSortSelect {...args} />
-);
+const Template: ComponentStory<typeof ArticleSortSelect> = (
+    args: ArticleSortSelectProps,
+) => <ArticleSortSelect {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
@@ -25,6 +25,4 @@ Dark.args = {
     className: '',
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];

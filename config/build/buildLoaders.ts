@@ -4,30 +4,30 @@ import { BuildOptions } from './types';
 import { babelLoader } from './loaders/babelLoader';
 
 export const buildLoaders = (options: BuildOptions): RuleSetRule[] => {
-    const sassLoader = sassModulesLoader(options.isDev);
+  const sassLoader = sassModulesLoader(options.isDev);
 
-    const svgLoader = {
-        test: /\.svg$/,
-        use: ['@svgr/webpack'],
-    };
+  const svgLoader = {
+    test: /\.svg$/,
+    use: ['@svgr/webpack'],
+  };
 
-    const fileLoader = {
-        test: /\.(png|jpe?g|gif)$/i,
-        use: [
-            {
-                loader: 'file-loader',
-            },
-        ],
-    };
+  const fileLoader = {
+    test: /\.(png|jpe?g|gif)$/i,
+    use: [
+      {
+        loader: 'file-loader',
+      },
+    ],
+  };
 
-    const tsxBabelLoader = babelLoader({ ...options, isTsx: true });
-    const tsBabelLoader = babelLoader({ ...options, isTsx: false });
+  const tsxBabelLoader = babelLoader({ ...options, isTsx: true });
+  const tsBabelLoader = babelLoader({ ...options, isTsx: false });
 
-    return [
-        fileLoader,
-        svgLoader,
-        tsBabelLoader,
-        tsxBabelLoader,
-        sassLoader,
-    ];
+  return [
+    fileLoader,
+    svgLoader,
+    tsBabelLoader,
+    tsxBabelLoader,
+    sassLoader,
+  ];
 };

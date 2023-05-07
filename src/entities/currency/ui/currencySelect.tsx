@@ -9,12 +9,13 @@ export interface CurrencySelectProps {
     disabled?: boolean;
     name: string;
 }
-export const CurrencySelect = ({ className, ...otherProps }: CurrencySelectProps) => {
+export const CurrencySelect = ({
+    className,
+    ...otherProps
+}: CurrencySelectProps) => {
     const { t } = useTranslation('profile');
 
-    const {
-        value, disabled, name, onChange,
-    } = otherProps;
+    const { value, disabled, name, onChange } = otherProps;
 
     const opt = Object.entries(Currency).map(([key, value]) => ({
         value,

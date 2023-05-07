@@ -1,6 +1,4 @@
-import {
-    screen,
-} from '@testing-library/react';
+import { screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import renderWithProviders from '@/shared/lib/helpers/tests/renderWithProviders';
 import { Currency } from '@/entities/currency';
@@ -59,8 +57,14 @@ describe('features/editableProfileCard.tsx', () => {
         await userEvent.clear(screen.getByTestId('ProfileCard.firstname'));
         await userEvent.clear(screen.getByTestId('ProfileCard.lastname'));
 
-        await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'user');
-        await userEvent.type(screen.getByTestId('ProfileCard.lastname'), 'user');
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.firstname'),
+            'user',
+        );
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.lastname'),
+            'user',
+        );
 
         expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('user');
         expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('user');
@@ -68,7 +72,9 @@ describe('features/editableProfileCard.tsx', () => {
         await userEvent.click(screen.getByTestId('ProfileHeader.Cancel'));
 
         expect(screen.getByTestId('ProfileCard.firstname')).toHaveValue('vasy');
-        expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue('pupkin');
+        expect(screen.getByTestId('ProfileCard.lastname')).toHaveValue(
+            'pupkin',
+        );
     });
 
     test('Должна появиться ошибка', async () => {
@@ -79,7 +85,9 @@ describe('features/editableProfileCard.tsx', () => {
 
         await userEvent.click(screen.getByTestId('ProfileHeader.Save'));
 
-        expect(screen.getByTestId('EditableProfileCard.Error.Paragraph')).toBeInTheDocument();
+        expect(
+            screen.getByTestId('EditableProfileCard.Error.Paragraph'),
+        ).toBeInTheDocument();
     });
 
     test('Если нет ошибок валидации, то на сервер должен уйти PUT запрос', async () => {
@@ -87,7 +95,10 @@ describe('features/editableProfileCard.tsx', () => {
         // renderWithProviders(<EditableProfileCard id="1" />, options);
         await userEvent.click(screen.getByTestId('ProfileHeader.Edit'));
 
-        await userEvent.type(screen.getByTestId('ProfileCard.firstname'), 'user');
+        await userEvent.type(
+            screen.getByTestId('ProfileCard.firstname'),
+            'user',
+        );
 
         await userEvent.click(screen.getByTestId('ProfileHeader.Save'));
 

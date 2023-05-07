@@ -10,14 +10,12 @@ export default {
     argTypes: {
         backgroundColor: { control: 'color' },
     },
-    decorators: [
-        storeDecorator({}),
-    ],
+    decorators: [storeDecorator({})],
 } as ComponentMeta<typeof ForbiddenPage>;
 
-const Template: ComponentStory<typeof ForbiddenPage> = (args: ForbiddenPageProps) => (
-    <ForbiddenPage {...args} />
-);
+const Template: ComponentStory<typeof ForbiddenPage> = (
+    args: ForbiddenPageProps,
+) => <ForbiddenPage {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
@@ -29,6 +27,4 @@ Dark.args = {
     className: '',
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];

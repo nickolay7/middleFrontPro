@@ -10,10 +10,7 @@ interface LoginModalProps {
 }
 
 export const LoginModal: FC<LoginModalProps> = (props) => {
-    const {
-        isModalOpen,
-        toggleHandler,
-    } = props;
+    const { isModalOpen, toggleHandler } = props;
 
     const onSuccess = () => {
         setTimeout(() => toggleHandler(), 1000);

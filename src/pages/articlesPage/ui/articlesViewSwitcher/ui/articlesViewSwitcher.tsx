@@ -16,37 +16,43 @@ export interface ArticlesViewSwitcherProps {
     className?: string;
     view?: ArticleView;
 }
-export const ArticlesViewSwitcher = memo(({ className, view }: ArticlesViewSwitcherProps) => {
-    const dispatch = useAppDispatch();
-    const switchers: Switchers[] = [
-        {
-            icon: PlateIcon,
-            view: ArticleView.PLATE,
-        },
-        {
-            icon: ListIcon,
-            view: ArticleView.LIST,
-        },
-    ];
+export const ArticlesViewSwitcher = memo(
+    ({ className, view }: ArticlesViewSwitcherProps) => {
+        const dispatch = useAppDispatch();
+        const switchers: Switchers[] = [
+            {
+                icon: PlateIcon,
+                view: ArticleView.PLATE,
+            },
+            {
+                icon: ListIcon,
+                view: ArticleView.LIST,
+            },
+        ];
 
-    const onSwitchView = (view: ArticleView) => () => {
-        dispatch(setView(view));
-    };
+        const onSwitchView = (view: ArticleView) => () => {
+            dispatch(setView(view));
+        };
 
-    return (
-        <div className={classNames(cls.articlesViewSwitcher, {}, [className])}>
-            {switchers.map((item) => (
-                <Button key={item.view} onClick={onSwitchView(item.view)}>
-                    <Icon
-                        Svg={item.icon}
-                        size={20}
-                        stroke={StrokeColor.PRIMARY}
-                        className={classNames('', {
-                            [cls.selected]: view === item.view,
-                        })}
-                    />
-                </Button>
-            ))}
-        </div>
-    );
-});
+        return (
+            <div
+                className={classNames(cls.articlesViewSwitcher, {}, [
+                    className,
+                ])}
+            >
+                {switchers.map((item) => (
+                    <Button key={item.view} onClick={onSwitchView(item.view)}>
+                        <Icon
+                            Svg={item.icon}
+                            size={20}
+                            stroke={StrokeColor.PRIMARY}
+                            className={classNames('', {
+                                [cls.selected]: view === item.view,
+                            })}
+                        />
+                    </Button>
+                ))}
+            </div>
+        );
+    },
+);

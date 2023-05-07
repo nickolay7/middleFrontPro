@@ -3,9 +3,9 @@ import { Article, ArticleView } from '@/entities/article';
 import { ArticleSortField, OrderBy } from '@/shared/types/sortFilters';
 import { ArticleType } from '@/shared/types/articleTypes';
 
-export interface ArticlesPageSchema extends EntityState<Article>{
-    isLoading?: boolean,
-    error?: string,
+export interface ArticlesPageSchema extends EntityState<Article> {
+    isLoading?: boolean;
+    error?: string;
     view: ArticleView;
     limit?: number;
     page?: number;

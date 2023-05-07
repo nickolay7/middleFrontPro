@@ -8,7 +8,7 @@ export interface User {
     id: string;
     username: string;
     avatar?: string;
-    role?: UserRoles[],
+    role?: UserRoles[];
 }
 
 export interface UserSchema {

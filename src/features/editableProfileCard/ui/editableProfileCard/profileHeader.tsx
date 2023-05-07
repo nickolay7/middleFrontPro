@@ -4,7 +4,9 @@ import { Text } from '@/shared/ui/text';
 import { Button } from '@/shared/ui/button';
 import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider';
 import {
-    cancelEditing, setReadonly, upsetReadonly,
+    cancelEditing,
+    setReadonly,
+    upsetReadonly,
 } from '../../model/slice/profileSlice';
 import { authUserSelector } from '@/entities/user';
 import { HStack } from '@/shared/ui/stack';
@@ -44,23 +46,33 @@ export const ProfileHeader = ({ className, readonly }: ProfileHeaderProps) => {
             className={classNames(cls.profileHeader, {}, [className])}
         >
             <Text title={t('Профиль')} />
-            {
-                isAuthUser && (readonly ? (
-                    <Button data-testid="ProfileHeader.Edit" onClick={onEdit} variant={ElementTheme.OUTLINE}>
+            {isAuthUser &&
+                (readonly ? (
+                    <Button
+                        data-testid="ProfileHeader.Edit"
+                        onClick={onEdit}
+                        variant={ElementTheme.OUTLINE}
+                    >
                         {t('Редактировать')}
                     </Button>
-
                 ) : (
                     <HStack gap="gap16">
-                        <Button data-testid="ProfileHeader.Cancel" onClick={onCancel} variant={ElementTheme.OUTLINE}>
+                        <Button
+                            data-testid="ProfileHeader.Cancel"
+                            onClick={onCancel}
+                            variant={ElementTheme.OUTLINE}
+                        >
                             {t('Отменить')}
                         </Button>
-                        <Button data-testid="ProfileHeader.Save" onClick={onSave} variant={ElementTheme.OUTLINE_ORANGE}>
+                        <Button
+                            data-testid="ProfileHeader.Save"
+                            onClick={onSave}
+                            variant={ElementTheme.OUTLINE_ORANGE}
+                        >
                             {t('Сохранить')}
                         </Button>
                     </HStack>
-                ))
-            }
+                ))}
         </HStack>
     );
 };

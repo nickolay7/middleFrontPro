@@ -16,13 +16,8 @@ const Template: ComponentStory<typeof About> = () => <About />;
 
 export const Light = Template.bind({});
 
-Light.decorators = [
-    storeDecorator({}),
-];
+Light.decorators = [storeDecorator({})];
 
 export const Dark = Template.bind({});
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-    storeDecorator({}),
-];
+Dark.decorators = [themeDecorator(Theme.DARK), storeDecorator({})];

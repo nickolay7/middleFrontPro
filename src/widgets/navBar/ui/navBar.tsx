@@ -31,35 +31,31 @@ export const NavBar = memo(() => {
     return (
         <HStack justify="justifyBetween" className={cls.navBar}>
             <div className={cls.logo}>{t('Логотип')}</div>
-            {
-                authData
-                    ? (
-                        <HStack justify="justifyBetween" gap="gap16">
-                            <Button
-                                onClick={onCreateArticle}
-                                variant={ElementTheme.OUTLINE_INVERTED}
-                            >
-                                {t('Создать статью')}
-                            </Button>
-                            <NotificationButton />
-                            <AvatarDropdown />
-                        </HStack>
-                    )
-                    : (
-                        <>
-                            <Button
-                                onClick={onModalToggle}
-                                variant={ElementTheme.CLEAR_INVERTED}
-                            >
-                                {t('Вход')}
-                            </Button>
-                            <LoginModal
-                                isModalOpen={isModalOpen}
-                                toggleHandler={onModalToggle}
-                            />
-                        </>
-                    )
-            }
+            {authData ? (
+                <HStack justify="justifyBetween" gap="gap16">
+                    <Button
+                        onClick={onCreateArticle}
+                        variant={ElementTheme.OUTLINE_INVERTED}
+                    >
+                        {t('Создать статью')}
+                    </Button>
+                    <NotificationButton />
+                    <AvatarDropdown />
+                </HStack>
+            ) : (
+                <>
+                    <Button
+                        onClick={onModalToggle}
+                        variant={ElementTheme.CLEAR_INVERTED}
+                    >
+                        {t('Вход')}
+                    </Button>
+                    <LoginModal
+                        isModalOpen={isModalOpen}
+                        toggleHandler={onModalToggle}
+                    />
+                </>
+            )}
         </HStack>
     );
 });

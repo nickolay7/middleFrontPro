@@ -31,7 +31,7 @@ describe('articles init', () => {
         expect(thunk.dispatch).toBeCalledTimes(4);
         expect(fetchArticlesList).toHaveBeenCalled();
     });
-    test('init dispatches wasn\'t called', async () => {
+    test("init dispatches wasn't called", async () => {
         const thunk = new TestAsyncThunk(articlesInit, {
             articles: {
                 view: ArticleView.LIST,

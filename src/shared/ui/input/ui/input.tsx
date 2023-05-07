@@ -4,17 +4,20 @@ import { useTranslation } from 'react-i18next';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import cls from './input.module.scss';
 
-type InputAttrs = Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange' | 'readonly'>;
+type InputAttrs = Omit<
+    InputHTMLAttributes<HTMLInputElement>,
+    'value' | 'onChange' | 'readonly'
+>;
 export interface InputProps extends InputAttrs {
-  className?: string;
-  value?: string;
-  onChange?: (value: string, key: string) => void;
-  placeholder: string;
-  autoFocus?: boolean;
-  readonly?: boolean;
-  name: string;
-  label?: boolean;
-  'data-testid'?: string;
+    className?: string;
+    value?: string;
+    onChange?: (value: string, key: string) => void;
+    placeholder: string;
+    autoFocus?: boolean;
+    readonly?: boolean;
+    name: string;
+    label?: boolean;
+    'data-testid'?: string;
 }
 export const Input = memo(({ className, ...otherProps }: InputProps) => {
     const { t } = useTranslation('profile');

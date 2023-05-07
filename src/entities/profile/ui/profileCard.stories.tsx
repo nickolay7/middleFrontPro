@@ -26,9 +26,9 @@ const data = {
     avatar: 'https://proslang.ru/wp-content/uploads/2019/03/avatarka_1-300x300.jpg',
 };
 
-const Template: ComponentStory<typeof ProfileCard> = (args: ProfileCardProps) => (
-    <ProfileCard {...args} />
-);
+const Template: ComponentStory<typeof ProfileCard> = (
+    args: ProfileCardProps,
+) => <ProfileCard {...args} />;
 
 export const Light = Template.bind({});
 

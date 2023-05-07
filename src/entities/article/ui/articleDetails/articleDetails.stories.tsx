@@ -14,18 +14,16 @@ export default {
     },
 } as ComponentMeta<typeof ArticleDetails>;
 
-const Template: ComponentStory<typeof ArticleDetails> = (args: ArticleDetailsProps) => (
-    <ArticleDetails {...args} />
-);
+const Template: ComponentStory<typeof ArticleDetails> = (
+    args: ArticleDetailsProps,
+) => <ArticleDetails {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
     className: '',
 };
 
-Light.decorators = [
-    storeDecorator(articleStateMock as StateSchema),
-];
+Light.decorators = [storeDecorator(articleStateMock as StateSchema)];
 
 export const IsLoading = Template.bind({});
 IsLoading.args = {

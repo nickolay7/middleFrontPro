@@ -26,6 +26,4 @@ CurrencySelectDark.args = {
     name: 'test',
 };
 
-CurrencySelectDark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+CurrencySelectDark.decorators = [themeDecorator(Theme.DARK)];

@@ -12,7 +12,9 @@ export default {
     },
 } as ComponentMeta<typeof Input>;
 
-const Template: ComponentStory<typeof Input> = (args: InputProps) => <Input {...args} />;
+const Template: ComponentStory<typeof Input> = (args: InputProps) => (
+    <Input {...args} />
+);
 
 export const InputLight = Template.bind({});
 InputLight.args = {
@@ -24,6 +26,4 @@ InputDark.args = {
     placeholder: 'Введите текст',
 };
 
-InputDark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+InputDark.decorators = [themeDecorator(Theme.DARK)];

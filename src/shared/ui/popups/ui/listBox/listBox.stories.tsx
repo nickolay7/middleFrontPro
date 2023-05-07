@@ -23,7 +23,11 @@ export default {
         backgroundColor: { control: 'color' },
     },
     decorators: [
-        (Story) => <div style={{ padding: 100 }}><Story /></div>,
+        (Story) => (
+            <div style={{ padding: 100 }}>
+                <Story />
+            </div>
+        ),
     ],
 } as ComponentMeta<typeof ListBox>;
 
@@ -38,9 +42,7 @@ Light.args = {
     value: 'Light',
     trigger: (
         // eslint-disable-next-line i18next/no-literal-string
-        <Button>
-            click_me
-        </Button>
+        <Button>click_me</Button>
     ),
 };
 
@@ -52,9 +54,7 @@ LightTop.args = {
     direction: 'top',
     trigger: (
         // eslint-disable-next-line i18next/no-literal-string
-        <Button>
-            click_me
-        </Button>
+        <Button>click_me</Button>
     ),
 };
 
@@ -65,12 +65,8 @@ Dark.args = {
     value: 'Dark',
     trigger: (
         // eslint-disable-next-line i18next/no-literal-string
-        <Button>
-            click_me
-        </Button>
+        <Button>click_me</Button>
     ),
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];

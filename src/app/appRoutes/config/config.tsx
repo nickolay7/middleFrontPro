@@ -9,10 +9,13 @@ import { AdminPanelPage } from '@/pages/adminPanelPage';
 import { UserRoles } from '@/entities/user';
 import { ForbiddenPage } from '@/pages/forbiddenPage';
 import {
-    getAbout, getAdmin, getArticleCreate,
+    getAbout,
+    getAdmin,
+    getArticleCreate,
     getArticleDetails,
     getArticleEdit,
-    getArticles, getForbidden,
+    getArticles,
+    getForbidden,
     getMain,
     getNotFound,
     getProfile,

@@ -24,24 +24,27 @@ export interface ArticleCodeBlock extends ArticleBaseBlock {
 }
 
 export interface ArticleImageBlock extends ArticleBaseBlock {
-   type: ArticleBlockType.IMAGE;
-   src: string;
-   title: string;
+    type: ArticleBlockType.IMAGE;
+    src: string;
+    title: string;
 }
 
-export type ArticleBlock = ArticleTextBlock | ArticleCodeBlock | ArticleImageBlock;
+export type ArticleBlock =
+    | ArticleTextBlock
+    | ArticleCodeBlock
+    | ArticleImageBlock;
 
 export interface Article {
-     id: string;
-     user: User;
-     title: string;
-     subtitle: string;
-     img: string;
-     views: number;
-     createdAt: string;
-     type: ArticleType;
-     blocks: ArticleBlock[];
- }
+    id: string;
+    user: User;
+    title: string;
+    subtitle: string;
+    img: string;
+    views: number;
+    createdAt: string;
+    type: ArticleType;
+    blocks: ArticleBlock[];
+}
 
 export enum ArticleView {
     PLATE = 'plate',

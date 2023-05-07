@@ -2,12 +2,14 @@ import { useEffect } from 'react';
 import { useStore } from 'react-redux';
 import { Reducer } from '@reduxjs/toolkit';
 import {
-    ReduxStoreWithManager, StateSchemaKey, useAppDispatch,
+    ReduxStoreWithManager,
+    StateSchemaKey,
+    useAppDispatch,
 } from '@/app/providers/storeProvider';
 
 export type ReducersList = {
     [key in StateSchemaKey]?: Reducer;
-}
+};
 
 type ReducerPair = [StateSchemaKey, Reducer];
 

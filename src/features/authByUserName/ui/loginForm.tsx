@@ -7,7 +7,11 @@ import { useAppDispatch, useAppSelector } from '@/app/providers/storeProvider';
 import { Spinner } from '@/shared/ui/spinner';
 import { Text, TextVariant } from '@/shared/ui/text';
 import { useDynamicModuleLoader } from '@/shared/lib/hooks/useDynamicModuleLoader';
-import { loginReducer, setPassword, setUsername } from '../model/slice/loginSlice';
+import {
+    loginReducer,
+    setPassword,
+    setUsername,
+} from '../model/slice/loginSlice';
 import { loginSelector } from '../model/selectors/loginSelector/loginSelector';
 import { loginByUserName } from '../model/services/loginByUserName/loginByUserName';
 
@@ -22,20 +26,22 @@ const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
     const { t } = useTranslation();
     useDynamicModuleLoader({ loginForm: loginReducer });
     const dispatch = useAppDispatch();
-    const {
-        username,
-        password,
-        isLoading,
-        error,
-    } = useAppSelector(loginSelector);
+    const { username, password, isLoading, error } =
+        useAppSelector(loginSelector);
 
-    const onSetUsername = useCallback((val: string) => {
-        dispatch(setUsername(val));
-    }, [dispatch]);
+    const onSetUsername = useCallback(
+        (val: string) => {
+            dispatch(setUsername(val));
+        },
+        [dispatch],
+    );
 
-    const onSetPassword = useCallback((val: string) => {
-        dispatch(setPassword(val));
-    }, [dispatch]);
+    const onSetPassword = useCallback(
+        (val: string) => {
+            dispatch(setPassword(val));
+        },
+        [dispatch],
+    );
 
     const onSignIn = useCallback(() => {
         dispatch(loginByUserName({ username, password }));
@@ -46,7 +52,12 @@ const LoginForm = memo(({ onSuccess }: LoginFormProps) => {
         <div className={cls.loginForm}>
             <Text title={t('Форма входа')} />
             {isLoading && <Spinner />}
-            {error && <Text text={t('Неверный логин или пароль')} variant={TextVariant.RED} />}
+            {error && (
+                <Text
+                    text={t('Неверный логин или пароль')}
+                    variant={TextVariant.RED}
+                />
+            )}
             <Input
                 // eslint-disable-next-line
                 name="username"

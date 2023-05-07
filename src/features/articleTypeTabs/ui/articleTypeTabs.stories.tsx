@@ -11,9 +11,9 @@ export default {
     },
 } as ComponentMeta<typeof ArticleTypeTabs>;
 
-const Template: ComponentStory<typeof ArticleTypeTabs> = (args: ArticleTypeTabsProps) => (
-    <ArticleTypeTabs {...args} />
-);
+const Template: ComponentStory<typeof ArticleTypeTabs> = (
+    args: ArticleTypeTabsProps,
+) => <ArticleTypeTabs {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
@@ -25,6 +25,4 @@ Dark.args = {
     className: '',
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];

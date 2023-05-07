@@ -26,9 +26,9 @@ export default {
     },
 } as ComponentMeta<typeof CommentCard>;
 
-const Template: ComponentStory<typeof CommentCard> = (args: CommentCardProps) => (
-    <CommentCard {...args} />
-);
+const Template: ComponentStory<typeof CommentCard> = (
+    args: CommentCardProps,
+) => <CommentCard {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
@@ -49,9 +49,7 @@ Dark.args = {
     comment,
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];
 
 export const DarkIsLoading = Template.bind({});
 DarkIsLoading.args = {
@@ -60,6 +58,4 @@ DarkIsLoading.args = {
     isLoading: true,
 };
 
-DarkIsLoading.decorators = [
-    themeDecorator(Theme.DARK),
-];
+DarkIsLoading.decorators = [themeDecorator(Theme.DARK)];

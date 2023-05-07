@@ -5,18 +5,18 @@ import { useModal } from '../../../lib/hooks/useModal';
 import cls from './modal.module.scss';
 
 interface ModalProps {
-  className?: string;
-  children: string | ReactNode;
-  isModalOpen: boolean;
-  toggleHandler: () => void;
-  lazy?: boolean;
+    className?: string;
+    children: string | ReactNode;
+    isModalOpen: boolean;
+    toggleHandler: () => void;
+    lazy?: boolean;
 }
 export const Modal = ({ className, children, ...otherProps }: ModalProps) => {
     const { isModalOpen, toggleHandler, lazy } = otherProps;
-    const {
-        onClose, isClosed, isMounted,
-    } = useModal({
-        toggleHandler, isModalOpen, animationDelay: 400,
+    const { onClose, isClosed, isMounted } = useModal({
+        toggleHandler,
+        isModalOpen,
+        animationDelay: 400,
     });
 
     if (lazy && !isMounted) {
@@ -24,7 +24,13 @@ export const Modal = ({ className, children, ...otherProps }: ModalProps) => {
     }
 
     return (
-        <div className={classNames(cls.modal, { [cls.open]: isModalOpen, [cls.isClosing]: isClosed }, [className])}>
+        <div
+            className={classNames(
+                cls.modal,
+                { [cls.open]: isModalOpen, [cls.isClosing]: isClosed },
+                [className],
+            )}
+        >
             <div className={cls.overlay} onClick={onClose}>
                 <div
                     className={classNames(cls.content, {})}

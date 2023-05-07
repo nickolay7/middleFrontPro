@@ -6,14 +6,17 @@ import { Page } from '@/shared/ui/page';
 import cls from './forbiddenPage.module.scss';
 
 export interface ForbiddenPageProps {
-  className?: string;
+    className?: string;
 }
 export const ForbiddenPage = memo(({ className }: ForbiddenPageProps) => {
     /* eslint-disable  @typescript-eslint/no-unused-vars */
     const { t } = useTranslation();
 
     return (
-        <Page data-testid="ForbiddenPage" className={classNames(cls.forbiddenPage, {}, [className])}>
+        <Page
+            data-testid="ForbiddenPage"
+            className={classNames(cls.forbiddenPage, {}, [className])}
+        >
             {t('У Вас нет доступа к этой странице')}
         </Page>
     );

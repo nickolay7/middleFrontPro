@@ -2,9 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 
 import { themeDecorator } from '@/shared/config/decorators/themeDecorator';
 import { Theme } from '@/app/providers/theme';
-import {
-    Text, TextAlign, TextProps, TextSize, TextVariant,
-} from './text';
+import { Text, TextAlign, TextProps, TextSize, TextVariant } from './text';
 
 export default {
     title: 'shared/Text',
@@ -14,7 +12,9 @@ export default {
     },
 } as ComponentMeta<typeof Text>;
 
-const Template: ComponentStory<typeof Text> = (args:TextProps) => <Text {...args} />;
+const Template: ComponentStory<typeof Text> = (args: TextProps) => (
+    <Text {...args} />
+);
 
 export const LightPrimary = Template.bind({});
 
@@ -74,6 +74,4 @@ Dark.args = {
     title: 'Какой-то заголовок',
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];

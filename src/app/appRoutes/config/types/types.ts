@@ -7,4 +7,4 @@ export type AppRouteProps = RouteProps & {
     element: ReactElement;
     authOnly?: boolean;
     roles?: UserRoles[];
-}
+};

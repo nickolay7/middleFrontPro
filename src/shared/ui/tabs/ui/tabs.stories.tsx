@@ -57,6 +57,4 @@ Dark.args = {
     activeTab: 'ALL_ARTICLES',
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];

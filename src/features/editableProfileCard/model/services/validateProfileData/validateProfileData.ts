@@ -3,9 +3,7 @@ import { ValidationErrors } from '../../types/profileSchema';
 
 export const validateProfileData = (data: IProfile) => {
     const errors: ValidationErrors[] = [];
-    const {
-        lastname, age, city, username, firstname,
-    } = data;
+    const { lastname, age, city, username, firstname } = data;
 
     if (lastname === '') {
         errors.push(ValidationErrors.REQUIRED_LASTNAME);

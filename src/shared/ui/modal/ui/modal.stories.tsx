@@ -11,11 +11,12 @@ export default {
     },
 } as ComponentMeta<typeof Modal>;
 
-const content = 'Lorem ipsum dolor sit amet,'
-    + ' consectetur adipisicing elit.'
-    + ' Ex fuga necessitatibus obcaecati perspiciatis saepe!'
-    + ' Aliquam assumenda blanditiis consectetur enim eos incidunt minus,'
-    + ' nisi optio placeat quidem quos rem suscipit, tempore.';
+const content =
+    'Lorem ipsum dolor sit amet,' +
+    ' consectetur adipisicing elit.' +
+    ' Ex fuga necessitatibus obcaecati perspiciatis saepe!' +
+    ' Aliquam assumenda blanditiis consectetur enim eos incidunt minus,' +
+    ' nisi optio placeat quidem quos rem suscipit, tempore.';
 
 const Template: ComponentStory<typeof Modal> = (args) => <Modal {...args} />;
 
@@ -25,9 +26,7 @@ Light.args = {
     children: content,
 };
 
-Light.decorators = [
-    themeDecorator(),
-];
+Light.decorators = [themeDecorator()];
 
 export const Dark = Template.bind({});
 Dark.args = {
@@ -35,6 +34,4 @@ Dark.args = {
     children: content,
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];

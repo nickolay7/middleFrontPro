@@ -6,7 +6,10 @@ import { useAppSelector } from '@/app/providers/storeProvider';
 import { authUserSelector } from '@/entities/user';
 import { MenuItem } from '../types/types';
 import {
-    getAbout, getArticles, getMain, getProfile,
+    getAbout,
+    getArticles,
+    getMain,
+    getProfile,
 } from '@/shared/consts/consts';
 
 export const useMenuConfig = (): MenuItem[] => {

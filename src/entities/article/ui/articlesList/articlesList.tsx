@@ -17,62 +17,81 @@ export interface ArticlesListProps {
     isLoading?: boolean;
     view?: ArticleView;
     onLoadNextPart?: () => void;
-    Header?: FC<{className?: string}>;
+    Header?: FC<{ className?: string }>;
 }
 
-const ArticlesListSkeleton = ({ isLoading, children }: { isLoading?: boolean, children: ReactNode }) => {
+const ArticlesListSkeleton = ({
+    isLoading,
+    children,
+}: {
+    isLoading?: boolean;
+    children: ReactNode;
+}) => {
     if (isLoading) {
-        return (
-            <div className={cls.skeletons}>
-                {children}
-            </div>
-        );
+        return <div className={cls.skeletons}>{children}</div>;
     }
 
     return null;
 };
 
-export const ArticlesList = memo(({ className, ...otherProps }: ArticlesListProps) => {
-    const {
-        articles, view, isLoading, onLoadNextPart, virtualized, Header = () => <div>{}</div>,
-    } = otherProps;
-    const { t } = useTranslation();
+export const ArticlesList = memo(
+    ({ className, ...otherProps }: ArticlesListProps) => {
+        const {
+            articles,
+            view,
+            isLoading,
+            onLoadNextPart,
+            virtualized,
+            Header = () => <div>{}</div>,
+        } = otherProps;
+        const { t } = useTranslation();
 
-    if (!articles?.length && !isLoading) {
-        return <Text title={t('Статьи не найдены')} />;
-    }
+        if (!articles?.length && !isLoading) {
+            return <Text title={t('Статьи не найдены')} />;
+        }
 
-    if (!virtualized && articles) {
-        const renderArticles = articles.map((article: Article) => (
+        if (!virtualized && articles) {
+            const renderArticles = articles.map((article: Article) => (
+                <ArticleListItem
+                    key={article.id}
+                    view={view}
+                    article={article}
+                    className={cls.articleItem}
+                />
+            ));
+
+            return (
+                <HStack
+                    gap="gap8"
+                    className={classNames(cls.articleList, {}, [className])}
+                >
+                    {renderArticles}
+                </HStack>
+            );
+        }
+
+        const renderArticle = (index: number, article: Article) => (
             <ArticleListItem
+                target="_blank"
                 key={article.id}
                 view={view}
                 article={article}
                 className={cls.articleItem}
             />
-        ));
+        );
+
+        const skeletons = new Array(3)
+            .fill(0)
+            .map(() => <ArticleListSkeleton key={Math.random()} view={view} />);
 
         return (
-            <HStack gap="gap8" className={classNames(cls.articleList, {}, [className])}>
-                {renderArticles}
-            </HStack>
-        );
-    }
-
-    const renderArticle = (index: number, article: Article) => (
-        <ArticleListItem target="_blank" key={article.id} view={view} article={article} className={cls.articleItem} />
-    );
-
-    const skeletons = new Array(3).fill(0).map(
-        () => <ArticleListSkeleton key={Math.random()} view={view} />,
-    );
-
-    return (
-        <div className={classNames(cls.articleList, {}, [className])}>
-            {/* eslint-disable-next-line no-nested-ternary */}
-            {articles ? (
-                view === ArticleView.LIST
-                    ? (
+            <div
+                data-testid="articleList"
+                className={classNames(cls.articleList, {}, [className])}
+            >
+                {/* eslint-disable-next-line no-nested-ternary */}
+                {articles ? (
+                    view === ArticleView.LIST ? (
                         <Virtuoso
                             style={{
                                 height: '100%',
@@ -82,12 +101,12 @@ export const ArticlesList = memo(({ className, ...otherProps }: ArticlesListProp
                             endReached={onLoadNextPart}
                             components={{
                                 // eslint-disable-next-line react/no-unstable-nested-components
-                                Header: () => <Header className={cls.articlesFilter} />, // <ArticlePageFilter className={cls.articlesFilter} />,
+                                Header: () => (
+                                    <Header className={cls.articlesFilter} />
+                                ), // <ArticlePageFilter className={cls.articlesFilter} />,
                                 // eslint-disable-next-line react/no-unstable-nested-components
                                 Footer: () => (
-                                    <ArticlesListSkeleton
-                                        isLoading={isLoading}
-                                    >
+                                    <ArticlesListSkeleton isLoading={isLoading}>
                                         {skeletons}
                                     </ArticlesListSkeleton>
                                 ),
@@ -103,9 +122,16 @@ export const ArticlesList = memo(({ className, ...otherProps }: ArticlesListProp
                             listClassName={cls.plateItemsWrapper}
                             components={{
                                 // eslint-disable-next-line react/no-unstable-nested-components
-                                Header: () => <Header className={cls.articlesFilter} />, // <ArticlePageFilter className={cls.articlesFilter} />,
+                                Header: () => (
+                                    <Header className={cls.articlesFilter} />
+                                ), // <ArticlePageFilter className={cls.articlesFilter} />,
                                 // eslint-disable-next-line react/no-unstable-nested-components
-                                ScrollSeekPlaceholder: () => <ArticleListSkeleton key={Math.random()} view={view} />,
+                                ScrollSeekPlaceholder: () => (
+                                    <ArticleListSkeleton
+                                        key={Math.random()}
+                                        view={view}
+                                    />
+                                ),
                             }}
                             itemContent={renderArticle}
                             scrollSeekConfiguration={{
@@ -114,8 +140,11 @@ export const ArticlesList = memo(({ className, ...otherProps }: ArticlesListProp
                             }}
                         />
                     )
-            ) : 'list is empty'}
-            { isLoading && skeletons }
-        </div>
-    );
-});
+                ) : (
+                    'list is empty'
+                )}
+                {isLoading && skeletons}
+            </div>
+        );
+    },
+);

@@ -1,25 +1,31 @@
 import { DetailedHTMLProps, HTMLAttributes, ReactNode } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames';
-import {
-    FlexAlign, FlexDirection, FlexGap, FlexJustify,
-} from '../types/stack';
+import { FlexAlign, FlexDirection, FlexGap, FlexJustify } from '../types/stack';
 
 import cls from './flex.module.scss';
 
-type DivProps = DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement>;
+type DivProps = DetailedHTMLProps<
+    HTMLAttributes<HTMLDivElement>,
+    HTMLDivElement
+>;
 
-export interface FlexProps extends DivProps{
-  className?: string;
-  children: ReactNode;
-  justify?: FlexJustify;
-  align?: FlexAlign;
-  gap?: FlexGap;
-  direction?: FlexDirection;
-  $max?: boolean;
+export interface FlexProps extends DivProps {
+    className?: string;
+    children: ReactNode;
+    justify?: FlexJustify;
+    align?: FlexAlign;
+    gap?: FlexGap;
+    direction?: FlexDirection;
+    $max?: boolean;
 }
 export const Flex = ({ className, ...otherProps }: FlexProps) => {
     const {
-        children, gap, $max, justify = 'justifyStart', direction = 'row', align = 'alignCenter',
+        children,
+        gap,
+        $max = false,
+        justify = 'justifyStart',
+        direction = 'row',
+        align = 'alignCenter',
     } = otherProps;
 
     const gaps = {
@@ -48,10 +54,21 @@ export const Flex = ({ className, ...otherProps }: FlexProps) => {
         justifyBetween: cls.justifyBetween,
     };
 
-    const styles = [directions[direction], justifies[justify], aligns[align], gap && gaps[gap]];
+    const styles = [
+        directions[direction],
+        justifies[justify],
+        aligns[align],
+        gap && gaps[gap],
+    ];
 
     return (
-        <div {...otherProps} className={classNames(cls.flex, { [cls.max]: $max }, [className, ...styles])}>
+        <div
+            {...otherProps}
+            className={classNames(cls.flex, { [cls.max]: $max }, [
+                className,
+                ...styles,
+            ])}
+        >
             {children}
         </div>
     );

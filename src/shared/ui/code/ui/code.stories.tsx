@@ -43,6 +43,4 @@ Dark.args = {
     `,
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];

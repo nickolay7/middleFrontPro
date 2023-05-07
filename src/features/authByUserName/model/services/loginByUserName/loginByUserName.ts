@@ -11,26 +11,27 @@ interface LoginData {
 export const loginByUserName = createAsyncThunk<
     User,
     LoginData,
-    { extra: ThunkExtraArgs, rejectValue: string }
->(
-    '@@login/fetchByUserNameAndPassword',
-    async (data: LoginData, thunkApi) => {
-        const { extra: { api }, dispatch, rejectWithValue } = thunkApi;
+    { extra: ThunkExtraArgs; rejectValue: string }
+>('@@login/fetchByUserNameAndPassword', async (data: LoginData, thunkApi) => {
+    const {
+        extra: { api },
+        dispatch,
+        rejectWithValue,
+    } = thunkApi;
 
-        try {
-            const response = await api.post('/login', data);
+    try {
+        const response = await api.post('/login', data);
 
-            if (!response.data) {
-                throw new Error('error');
-            }
-
-            localStorage.setItem(USER_LOGIN_DATA, JSON.stringify(response.data));
-            dispatch(setUserLoginData(response.data));
-            // removed navigate to /about
-
-            return response.data;
-        } catch (e) {
-            return rejectWithValue('error');
+        if (!response.data) {
+            throw new Error('error');
         }
-    },
-);
+
+        localStorage.setItem(USER_LOGIN_DATA, JSON.stringify(response.data));
+        dispatch(setUserLoginData(response.data));
+        // removed navigate to /about
+
+        return response.data;
+    } catch (e) {
+        return rejectWithValue('error');
+    }
+});

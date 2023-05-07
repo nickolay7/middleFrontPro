@@ -24,8 +24,9 @@ export default ({ config }: { config: webpack.Configuration }) => {
     config.module!.rules!.push(sassLoader(true));
 
     const rules = config.module!.rules as RuleSetRule[];
-    config.module!.rules = rules
-        .filter((loader) => !/svg/.test(loader.test as string));
+    config.module!.rules = rules.filter(
+        (loader) => !/svg/.test(loader.test as string),
+    );
 
     config.module!.rules.push(
         {
@@ -42,11 +43,13 @@ export default ({ config }: { config: webpack.Configuration }) => {
         },
     );
 
-    config.plugins!.push(new DefinePlugin({
-        __IS_DEV__: true,
-        __API__: JSON.stringify('http://test_api.ru'),
-        __PROJECT__: JSON.stringify('storybook'),
-    }));
+    config.plugins!.push(
+        new DefinePlugin({
+            __IS_DEV__: true,
+            __API__: JSON.stringify('http://test_api.ru'),
+            __PROJECT__: JSON.stringify('storybook'),
+        }),
+    );
 
     return config;
 };

@@ -10,30 +10,48 @@ import cls from './commentCard.module.scss';
 import { getProfile } from '@/shared/consts/consts';
 
 export interface CommentCardProps {
-  className?: string;
-  comment?: Comment;
-  isLoading?: boolean;
+    className?: string;
+    comment?: Comment;
+    isLoading?: boolean;
 }
-export const CommentCard = memo(({ className, comment, isLoading }: CommentCardProps) => {
-    if (isLoading) {
-        return (
-            <div className={classNames(cls.commentCard, {}, [className, cls.isLoading])}>
-                <div className={cls.header}>
-                    <Skeleton width={30} height={30} border="50%" />
-                    <Skeleton width={100} height={16} />
+export const CommentCard = memo(
+    ({ className, comment, isLoading }: CommentCardProps) => {
+        if (isLoading) {
+            return (
+                <div
+                    className={classNames(cls.commentCard, {}, [
+                        className,
+                        cls.isLoading,
+                    ])}
+                >
+                    <div className={cls.header}>
+                        <Skeleton width={30} height={30} border="50%" />
+                        <Skeleton width={100} height={16} />
+                    </div>
+                    <Skeleton
+                        className={cls.bottomSkeleton}
+                        width="100%"
+                        height={50}
+                    />
                 </div>
-                <Skeleton className={cls.bottomSkeleton} width="100%" height={50} />
+            );
+        }
+
+        return (
+            <div className={classNames(cls.commentCard, {}, [className])}>
+                <NavLink
+                    to={getProfile(comment?.user?.id || '')}
+                    className={cls.header}
+                >
+                    <Avatar
+                        className={cls.avatar}
+                        src={comment?.user?.avatar}
+                        size={30}
+                    />
+                    <Text title={comment?.user?.username} />
+                </NavLink>
+                <Text className={cls.comment} text={comment?.text} />
             </div>
         );
-    }
-
-    return (
-        <div className={classNames(cls.commentCard, {}, [className])}>
-            <NavLink to={getProfile(comment?.user?.id || '')} className={cls.header}>
-                <Avatar className={cls.avatar} src={comment?.user?.avatar} size={30} />
-                <Text title={comment?.user?.username} />
-            </NavLink>
-            <Text className={cls.comment} text={comment?.text} />
-        </div>
-    );
-});
+    },
+);

@@ -22,27 +22,46 @@ const ArticleRating = memo((props: ArticleRatingProps) => {
     const { className, articleId } = props;
     const { t } = useTranslation();
     const userData = useAppSelector(authUserSelector);
-    const { data: rate, isLoading } = useGetArticleRatingQuery({ articleId, userId: userData?.id ?? '' });
+    const { data: rate, isLoading } = useGetArticleRatingQuery({
+        articleId,
+        userId: userData?.id ?? '',
+    });
     const [rateArticleMutation] = useArticleRateMutation();
 
-    const handleArticleRateMutation = useCallback((args: ArticleRateArg) => {
-        try {
-            rateArticleMutation(args);
-        } catch (e) {
-            // eslint-disable-next-line no-console
-            console.log(e);
-        }
-    }, [rateArticleMutation]);
+    const handleArticleRateMutation = useCallback(
+        (args: ArticleRateArg) => {
+            try {
+                rateArticleMutation(args);
+            } catch (e) {
+                // eslint-disable-next-line no-console
+                console.log(e);
+            }
+        },
+        [rateArticleMutation],
+    );
 
-    const onCancel = useCallback((starsCount: number) => {
-        handleArticleRateMutation({ articleId, userId: userData?.id || '', rate: starsCount });
-    }, [articleId, handleArticleRateMutation, userData?.id]);
+    const onCancel = useCallback(
+        (starsCount: number) => {
+            handleArticleRateMutation({
+                articleId,
+                userId: userData?.id || '',
+                rate: starsCount,
+            });
+        },
+        [articleId, handleArticleRateMutation, userData?.id],
+    );
 
-    const onAccept = useCallback((starsCount: number, feedback: string) => {
-        handleArticleRateMutation({
-            articleId, userId: userData?.id || '', feedback, rate: starsCount,
-        });
-    }, [articleId, handleArticleRateMutation, userData?.id]);
+    const onAccept = useCallback(
+        (starsCount: number, feedback: string) => {
+            handleArticleRateMutation({
+                articleId,
+                userId: userData?.id || '',
+                feedback,
+                rate: starsCount,
+            });
+        },
+        [articleId, handleArticleRateMutation, userData?.id],
+    );
 
     if (isLoading) {
         return <Skeleton width="100%" height={120} />;

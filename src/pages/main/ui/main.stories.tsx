@@ -16,14 +16,8 @@ const Template: ComponentStory<typeof MainAsync> = () => <MainAsync />;
 
 export const Light = Template.bind({});
 
-Light.decorators = [
-    themeDecorator(),
-    storeDecorator({}),
-];
+Light.decorators = [themeDecorator(), storeDecorator({})];
 
 export const Dark = Template.bind({});
 
-Dark.decorators = [
-    storeDecorator({}),
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [storeDecorator({}), themeDecorator(Theme.DARK)];

@@ -5,7 +5,8 @@ import { AppImage, AppImageProps } from './appImage';
 import { Skeleton } from '../../skeleton';
 import { Text } from '../../text';
 
-const imgUrl = 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDJ-JnN80vcPU55w8QlRRlwwCjg4eS3bTGLQ&usqp=CAU';
+const imgUrl =
+    'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRDJ-JnN80vcPU55w8QlRRlwwCjg4eS3bTGLQ&usqp=CAU';
 
 export default {
     title: 'shared/AppImage',
@@ -45,6 +46,4 @@ Dark.args = {
     src: imgUrl,
 };
 
-Dark.decorators = [
-    themeDecorator(Theme.DARK),
-];
+Dark.decorators = [themeDecorator(Theme.DARK)];

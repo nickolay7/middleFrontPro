@@ -37,9 +37,7 @@ DarkRectangle.args = {
     height: 200,
 };
 
-DarkRectangle.decorators = [
-    themeDecorator(Theme.DARK),
-];
+DarkRectangle.decorators = [themeDecorator(Theme.DARK)];
 
 export const DarkRound = Template.bind({});
 DarkRound.args = {
@@ -49,6 +47,4 @@ DarkRound.args = {
     border: '50%',
 };
 
-DarkRound.decorators = [
-    themeDecorator(Theme.DARK),
-];
+DarkRound.decorators = [themeDecorator(Theme.DARK)];

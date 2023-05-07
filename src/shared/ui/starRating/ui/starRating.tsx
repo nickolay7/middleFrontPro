@@ -7,59 +7,70 @@ import { HStack } from '../../stack';
 import cls from './starRating.module.scss';
 
 export interface StarRatingProps {
-  className?: string;
-  onSelect?: (starsCount: number) => void;
-  size?: number;
-  selectedStars?: number;
+    className?: string;
+    onSelect?: (starsCount: number) => void;
+    size?: number;
+    selectedStars?: number;
 }
-export const StarRating = memo(({ className, ...otherProps }: StarRatingProps) => {
-    const { onSelect, selectedStars = 0, size } = otherProps;
-    const [currentStarsCount, setCurrentStarsCount] = useState(selectedStars);
-    const [isSelected, setSelected] = useState(!!selectedStars);
+export const StarRating = memo(
+    ({ className, ...otherProps }: StarRatingProps) => {
+        const { onSelect, selectedStars = 0, size } = otherProps;
+        const [currentStarsCount, setCurrentStarsCount] =
+            useState(selectedStars);
+        const [isSelected, setSelected] = useState(!!selectedStars);
 
-    const onHover = (starNumber: number) => () => {
-        if (!isSelected) {
-            setCurrentStarsCount(starNumber);
-        }
-    };
-
-    const onLeave = () => {
-        if (!isSelected) {
-            setCurrentStarsCount(0);
-        }
-    };
-
-    const onStarClick = (starCount: number) => () => {
-        if (!isSelected && onSelect) {
-            onSelect(starCount);
-            setCurrentStarsCount(starCount);
-            setSelected(true);
-        }
-    };
-
-    const stars = [1, 2, 3, 4, 5];
-
-    return (
-        <HStack className={classNames(cls.starRating, { [cls.isSelected]: isSelected }, [className])}>
-            {
-                stars.map(
-                    (starNumber, i) => (
-                        <Icon
-                            // eslint-disable-next-line react/no-array-index-key
-                            key={`starId-${i}`}
-                            Svg={Star}
-                            stroke={StrokeColor.SECONDARY}
-                            className={classNames(cls.normal, {
-                                [cls.selected]: (currentStarsCount) >= starNumber,
-                            }, [])}
-                            onMouseEnter={onHover(starNumber)}
-                            onMouseLeave={onLeave}
-                            onClick={onStarClick(starNumber)}
-                            size={size}
-                        />
-                    ),
-                )
+        const onHover = (starNumber: number) => () => {
+            if (!isSelected) {
+                setCurrentStarsCount(starNumber);
             }
-        </HStack>
-    );
-});
+        };
+
+        const onLeave = () => {
+            if (!isSelected) {
+                setCurrentStarsCount(0);
+            }
+        };
+
+        const onStarClick = (starCount: number) => () => {
+            if (!isSelected && onSelect) {
+                onSelect(starCount);
+                setCurrentStarsCount(starCount);
+                setSelected(true);
+            }
+        };
+
+        const stars = [1, 2, 3, 4, 5];
+
+        return (
+            <HStack
+                className={classNames(
+                    cls.starRating,
+                    { [cls.isSelected]: isSelected },
+                    [className],
+                )}
+            >
+                {stars.map((starNumber, i) => (
+                    <Icon
+                        // eslint-disable-next-line react/no-array-index-key
+                        key={`starId-${i}`}
+                        data-testid={`RatingStar.${starNumber}`}
+                        data-selected={currentStarsCount >= starNumber}
+                        Svg={Star}
+                        stroke={StrokeColor.SECONDARY}
+                        className={classNames(
+                            cls.normal,
+                            {
+                                [cls.selected]: currentStarsCount >= starNumber,
+                            },
+                            [],
+                        )}
+                        onMouseEnter={onHover(starNumber)}
+                        onMouseLeave={onLeave}
+                        onClick={onStarClick(starNumber)}
+                        size={size}
+                    />
+                ))}
+            </HStack>
+        );
+    },
+);

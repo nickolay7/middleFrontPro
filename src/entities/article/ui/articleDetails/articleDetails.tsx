@@ -20,8 +20,8 @@ import { ArticleTextComponent } from '../articleTextComponent/articleTextCompone
 import cls from './articleDetails.module.scss';
 
 export interface ArticleDetailsProps {
-  className?: string;
-  id?: string;
+    className?: string;
+    id?: string;
 }
 
 const reducers = {
@@ -30,14 +30,32 @@ const reducers = {
 
 const renderBlock = (block: ArticleBlock) => {
     switch (block.type) {
-    case ArticleBlockType.CODE:
-        return <ArticleCodeComponent key={block.id} className={cls.block} text={block.code} />;
-    case ArticleBlockType.IMAGE:
-        return <ArticleImageComponent key={block.id} className={cls.block} block={block} />;
-    case ArticleBlockType.TEXT:
-        return <ArticleTextComponent key={block.id} className={cls.block} block={block} />;
-    default:
-        return null;
+        case ArticleBlockType.CODE:
+            return (
+                <ArticleCodeComponent
+                    key={block.id}
+                    className={cls.block}
+                    text={block.code}
+                />
+            );
+        case ArticleBlockType.IMAGE:
+            return (
+                <ArticleImageComponent
+                    key={block.id}
+                    className={cls.block}
+                    block={block}
+                />
+            );
+        case ArticleBlockType.TEXT:
+            return (
+                <ArticleTextComponent
+                    key={block.id}
+                    className={cls.block}
+                    block={block}
+                />
+            );
+        default:
+            return null;
     }
 };
 
@@ -55,7 +73,12 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
     if (state?.isLoading) {
         content = (
             <div className={cls.loader}>
-                <Skeleton className={cls.avatar} width={200} height={200} border="50%" />
+                <Skeleton
+                    className={cls.avatar}
+                    width={200}
+                    height={200}
+                    border="50%"
+                />
                 <Skeleton className={cls.title} width={300} height={32} />
                 <Skeleton className={cls.skeleton} width={600} height={24} />
                 <Skeleton className={cls.skeleton} width="100%" height={200} />
@@ -75,6 +98,7 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
                 </div>
                 <div className={cls.title}>
                     <Text
+                        data-testid="ArticleDetails.title"
                         title={state?.data?.title}
                         text={state?.data?.subtitle}
                         className={cls.title}
@@ -82,22 +106,31 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
                     />
                 </div>
                 <div className={cls.views}>
-                    <Icon Svg={Eye} stroke={StrokeColor.PRIMARY} className={cls.icon} />
+                    <Icon
+                        Svg={Eye}
+                        stroke={StrokeColor.PRIMARY}
+                        className={cls.icon}
+                    />
                     <Text text={String(state?.data?.views)} />
                 </div>
                 <div className={cls.data}>
-                    <Icon Svg={Calendar} stroke={StrokeColor.PRIMARY} className={cls.icon} />
+                    <Icon
+                        Svg={Calendar}
+                        stroke={StrokeColor.PRIMARY}
+                        className={cls.icon}
+                    />
                     <Text text={state?.data?.createdAt} className={cls.data} />
                 </div>
-                {
-                    state?.data?.blocks && state.data.blocks.map(renderBlock)
-                }
+                {state?.data?.blocks && state.data.blocks.map(renderBlock)}
             </>
         );
     }
 
     return (
-        <div className={classNames(cls.articleDetails, {}, [className])}>
+        <div
+            data-testid="ArticleDetails"
+            className={classNames(cls.articleDetails, {}, [className])}
+        >
             {content}
         </div>
     );

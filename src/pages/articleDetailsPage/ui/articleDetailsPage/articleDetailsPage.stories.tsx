@@ -4,7 +4,9 @@ import { Theme } from '@/app/providers/theme';
 import { storeDecorator } from '@/shared/config/decorators/storeDecorator';
 import { StateSchema } from '@/app/providers/storeProvider';
 import { articleStateMock } from '@/entities/article';
-import ArticleDetailsPage, { ArticleDetailsPageProps } from './articleDetailsPage';
+import ArticleDetailsPage, {
+    ArticleDetailsPageProps,
+} from './articleDetailsPage';
 
 export default {
     title: 'pages/ArticleDetailsPage',
@@ -14,18 +16,16 @@ export default {
     },
 } as ComponentMeta<typeof ArticleDetailsPage>;
 
-const Template: ComponentStory<typeof ArticleDetailsPage> = (args: ArticleDetailsPageProps) => (
-    <ArticleDetailsPage {...args} />
-);
+const Template: ComponentStory<typeof ArticleDetailsPage> = (
+    args: ArticleDetailsPageProps,
+) => <ArticleDetailsPage {...args} />;
 
 export const Light = Template.bind({});
 Light.args = {
     className: '',
 };
 
-Light.decorators = [
-    storeDecorator(articleStateMock as StateSchema),
-];
+Light.decorators = [storeDecorator(articleStateMock as StateSchema)];
 
 export const Dark = Template.bind({});
 Dark.args = {
