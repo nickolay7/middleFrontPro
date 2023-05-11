@@ -604,28 +604,44 @@
             "username": "admin",
             "password": "123",
             "role": ["admin"],
-            "avatar": "https://proslang.ru/wp-content/uploads/2019/03/avatarka_1-300x300.jpg"
+            "avatar": "https://proslang.ru/wp-content/uploads/2019/03/avatarka_1-300x300.jpg",
+            "features": {
+                "isArticleRatingEnabled": true,
+                "isArticleRecommendationListEnabled": true
+            }
         },
         {
             "id": "2",
             "username": "user",
             "password": "123",
             "role": ["user"],
-            "avatar": "https://cdn.forbes.ru/forbes-static/new/2022/11/4-636273af4beec.jpg"
+            "avatar": "https://cdn.forbes.ru/forbes-static/new/2022/11/4-636273af4beec.jpg",
+            "features": {
+                "isArticleRatingEnabled": false,
+                "isArticleRecommendationListEnabled": false
+            }
         },
         {
             "id": "3",
             "username": "manager",
             "password": "123",
             "role": ["manager"],
-            "avatar": "https://cdn.forbes.ru/forbes-static/new/2022/11/4-636273af4beec.jpg"
+            "avatar": "https://cdn.forbes.ru/forbes-static/new/2022/11/4-636273af4beec.jpg",
+            "features": {
+                "isArticleRatingEnabled": true,
+                "isArticleRecommendationListEnabled": false
+            }
         },
         {
             "id": "4",
             "username": "test_user",
             "password": "123",
             "role": ["manager"],
-            "avatar": "https://cdn.forbes.ru/forbes-static/new/2022/11/4-636273af4beec.jpg"
+            "avatar": "https://cdn.forbes.ru/forbes-static/new/2022/11/4-636273af4beec.jpg",
+            "features": {
+                "isArticleRatingEnabled": false,
+                "isArticleRecommendationListEnabled": true
+            }
         }
     ],
     "profile": [
