@@ -20,7 +20,7 @@ export const ThemeSwitcher = memo(
     ({ className, ...otherProps }: ThemeSwitcherProps) => {
         const dispatch = useAppDispatch();
         const { theme, changeTheme } = useTheme((newTheme) => {
-            dispatch(setUserJsonSettings(newTheme));
+            dispatch(setUserJsonSettings({ theme: newTheme }));
         });
         const { variant = ElementTheme.CLEAR } = otherProps;
 

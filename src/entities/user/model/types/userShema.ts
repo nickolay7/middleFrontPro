@@ -11,6 +11,7 @@ export interface JsonSettings {
     theme?: Theme;
     isFirstVisit?: boolean;
     settingPageHasBeenOpen?: boolean;
+    wasArticlePageOpened?: boolean;
 }
 
 export interface User {

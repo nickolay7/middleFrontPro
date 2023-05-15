@@ -3,13 +3,12 @@ import { ThunkConfig } from '@/app/providers/storeProvider';
 import { JsonSettings } from '../types/userShema';
 import { setJsonSettingsMutation } from '../../api/userApi';
 import { authUserSelector, jsonSettingsSelector } from '../..';
-import { Theme } from '@/app/providers/theme';
 
 export const setUserJsonSettings = createAsyncThunk<
     JsonSettings,
-    Theme,
+    JsonSettings,
     ThunkConfig<string>
->('@@user/setUserJsonSettings', async (theme, thunkApi) => {
+>('@@user/setUserJsonSettings', async (newJsonSettings, thunkApi) => {
     const { rejectWithValue, dispatch, getState } = thunkApi;
 
     const authData = authUserSelector(getState());
@@ -23,7 +22,7 @@ export const setUserJsonSettings = createAsyncThunk<
                 userId: authData?.id,
                 jsonSettings: {
                     ...jsonSettings,
-                    theme,
+                    ...newJsonSettings,
                 },
             }),
         ).unwrap();

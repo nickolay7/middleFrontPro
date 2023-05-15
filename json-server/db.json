@@ -648,7 +648,8 @@
         "isArticleRecommendationListEnabled": true
       },
       "jsonSettings": {
-        "theme": "neon"
+        "theme": "dark",
+        "wasArticlePageOpened": true
       }
     },
     {
@@ -666,7 +667,8 @@
       "jsonSettings": {
         "theme": "dark",
         "isFirstVisit": false,
-        "settingPageHasBeenOpen": true
+        "settingPageHasBeenOpen": true,
+        "wasArticlePageOpened": true
       }
     },
     {

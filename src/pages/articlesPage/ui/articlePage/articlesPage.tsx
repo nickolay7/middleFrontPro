@@ -10,6 +10,7 @@ import { articlesInit } from '../../model/services/articlesInit/articlesInit';
 import { ArticlesInfiniteList } from '../articlesInfiniteList/articlesInfiniteList';
 
 import cls from './articlesPage.module.scss';
+import { ArticlePageGreeting } from '@/features/articlePageGreeting';
 
 export interface ArticlesPageProps {
     className?: string;
@@ -33,6 +34,7 @@ const ArticlesPage = ({ className }: ArticlesPageProps) => {
     return (
         <div className={classNames(cls.articlesPage, {}, [className])}>
             <ArticlesInfiniteList />
+            <ArticlePageGreeting />
         </div>
     );
 };
