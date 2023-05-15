@@ -1,4 +1,4 @@
-import { ButtonHTMLAttributes, memo } from 'react';
+import { ButtonHTMLAttributes, memo, useCallback } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import ThemeDark from '@/shared/assets/icons/theme-dark.svg';
 import ThemeLight from '@/shared/assets/icons/theme-light.svg';
@@ -8,6 +8,8 @@ import { Theme } from '@/app/providers/theme';
 import { Button } from '@/shared/ui/button';
 import cls from './ThemeSwitcher.module.scss';
 import { ElementTheme } from '@/shared/types/ui';
+import { useAppDispatch } from '@/app/providers/storeProvider';
+import { setUserJsonSettings } from '@/entities/user';
 
 export interface ThemeSwitcherProps
     extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -16,7 +18,10 @@ export interface ThemeSwitcherProps
 }
 export const ThemeSwitcher = memo(
     ({ className, ...otherProps }: ThemeSwitcherProps) => {
-        const { theme, changeTheme } = useTheme();
+        const dispatch = useAppDispatch();
+        const { theme, changeTheme } = useTheme((newTheme) => {
+            dispatch(setUserJsonSettings(newTheme));
+        });
         const { variant = ElementTheme.CLEAR } = otherProps;
 
         let themeStyle;
@@ -36,10 +41,14 @@ export const ThemeSwitcher = memo(
                 break;
         }
 
+        const onToggleTheme = useCallback(() => {
+            changeTheme();
+        }, [changeTheme]);
+
         return (
             <Button
                 variant={variant}
-                onClick={changeTheme}
+                onClick={onToggleTheme}
                 className={classNames(cls.ThemeSwitcher, {}, [className])}
             >
                 {themeStyle}

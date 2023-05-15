@@ -1,15 +1,13 @@
-import {
-    LOCAL_STORAGE_THEME_KEY,
-    Theme,
-    useThemeContext,
-} from '@/app/providers/theme';
+import { Theme, useThemeContext } from '@/app/providers/theme';
 
 interface UseThemeResult {
     theme: Theme;
     changeTheme: () => void;
 }
 
-export const useTheme = (): UseThemeResult => {
+type UseThemeProps = (theme: Theme) => void;
+
+export const useTheme = (saveThemeAction?: UseThemeProps): UseThemeResult => {
     const { theme, setTheme } = useThemeContext();
 
     let themeStyle: Theme;
@@ -31,7 +29,7 @@ export const useTheme = (): UseThemeResult => {
 
     const changeTheme = () => {
         setTheme(themeStyle);
-        localStorage.setItem(LOCAL_STORAGE_THEME_KEY, themeStyle);
+        saveThemeAction?.(themeStyle);
     };
 
     document.body.className = theme;

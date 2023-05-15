@@ -2,9 +2,10 @@ import { Suspense, useEffect } from 'react';
 
 import { NavBar } from '@/widgets/navBar';
 import { SideBar } from '@/widgets/sideBar';
-import { initAuthData, initUserSelector } from '@/entities/user';
+import { initUserSelector, initAuthData } from '@/entities/user';
 import AppRoutes from './appRoutes/appRoutes';
 import { useAppDispatch, useAppSelector } from './providers/storeProvider';
+import { Loader } from '@/shared/ui/loader';
 
 const App = () => {
     const dispatch = useAppDispatch();
@@ -13,6 +14,10 @@ const App = () => {
     useEffect(() => {
         dispatch(initAuthData());
     }, [dispatch]);
+
+    if (!init) {
+        return <Loader />;
+    }
 
     return (
         <div className="app">
