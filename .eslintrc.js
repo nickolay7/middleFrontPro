@@ -68,6 +68,7 @@ module.exports = {
                     'data-testid',
                     'direction',
                     'title',
+                    'feature',
                 ],
             },
         ],

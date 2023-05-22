@@ -665,7 +665,7 @@
         "isArticleRecommendationListEnabled": false
       },
       "jsonSettings": {
-        "theme": "dark",
+        "theme": "light",
         "isFirstVisit": false,
         "settingPageHasBeenOpen": true,
         "wasArticlePageOpened": true

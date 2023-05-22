@@ -12,8 +12,8 @@ import { ArticleRating } from '@/features/articleRating';
 import { getFeatureFlag } from '@/shared/lib/helpers/features/featureFlagsSetter';
 
 import cls from './articleDetailsPage.module.scss';
-import { toggleFeatures } from '@/shared/lib/helpers/features';
 import { Card } from '@/shared/ui/card';
+import { ToggleFeaturesElement } from '@/shared/lib/helpers/features/toggleFeaturesElement';
 
 export interface ArticleDetailsPageProps {
     className?: string;
@@ -36,19 +36,15 @@ const ArticleDetailsPage = ({ className }: ArticleDetailsPageProps) => {
         return null;
     }
 
-    const articleRatingCard = toggleFeatures({
-        name: 'isArticleRatingEnabled',
-        // eslint-disable-next-line react/no-unstable-nested-components
-        on: () => <ArticleRating articleId={id} />,
-        // eslint-disable-next-line react/no-unstable-nested-components
-        off: () => <Card>{t('Оценка статей скоро появится!')}</Card>,
-    });
-
     return (
         <div className={classNames(cls.articleDetailsPage, {}, [className])}>
             <HeaderDetailsPage />
             <ArticleDetails id={id} />
-            {articleRatingCard}
+            <ToggleFeaturesElement
+                feature="isArticleRatingEnabled"
+                off={<Card>{t('Оценка статей скоро появится!')}</Card>}
+                on={<ArticleRating articleId={id} />}
+            />
             {isArticleRecommendationListEnabled && (
                 <ArticleRecommendationsList />
             )}

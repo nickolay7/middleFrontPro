@@ -31,7 +31,8 @@
         "updateImports": "node ./scripts/refactoring/updateImports.mjs",
         "createPApiForSharedUi": "node ./scripts/refactoring/updateImports.mjs",
         "postinstall": "node ./scripts/postinstall.js",
-        "prettier": "prettier --write **/*.{ts,tsx,json}"
+        "prettier": "prettier --write **/*.{ts,tsx,json}",
+        "remove-feature": "ts-node ./scripts/remove-feature.ts"
     },
     "keywords": [],
     "author": "",

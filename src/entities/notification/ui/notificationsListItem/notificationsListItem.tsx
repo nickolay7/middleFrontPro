@@ -1,7 +1,7 @@
 import { memo } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames';
 import { Card } from '@/shared/ui/card';
-import { Text } from '@/shared/ui/text';
+import { Text, TextAlign } from '@/shared/ui/text';
 import { Notification } from '../../model/types/notifications';
 
 import cls from './notificationsListItem.module.scss';
@@ -16,7 +16,11 @@ export const NotificationsListItem = memo(
 
         const content = (
             <Card className={classNames(cls.NotificationItem, {}, [className])}>
-                <Text title={title} text={description} />
+                <Text
+                    title={title}
+                    text={description}
+                    align={TextAlign.CENTER}
+                />
             </Card>
         );
 
