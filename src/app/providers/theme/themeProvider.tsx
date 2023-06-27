@@ -1,7 +1,5 @@
 import { FC, ReactNode, useEffect, useMemo, useState } from 'react';
 import { Theme, ThemeContext } from './themeContext';
-import { useAppSelector } from '@/app/providers/storeProvider';
-import { jsonSettingsSelector } from '@/entities/user';
 
 interface ThemeProviderProps {
     initialTheme?: Theme;
@@ -9,16 +7,12 @@ interface ThemeProviderProps {
 }
 
 export const ThemeProvider: FC<ThemeProviderProps> = (props) => {
-    const { theme: defaultTheme } = useAppSelector(jsonSettingsSelector);
-
     const { initialTheme, children } = props;
-    const [theme, setTheme] = useState<Theme>(
-        initialTheme || (defaultTheme as Theme),
-    );
+    const [theme, setTheme] = useState<Theme>(initialTheme as Theme);
 
     useEffect(() => {
-        setTheme(defaultTheme as Theme);
-    }, [defaultTheme]);
+        setTheme(initialTheme as Theme);
+    }, [initialTheme]);
 
     const value = useMemo(
         () => ({

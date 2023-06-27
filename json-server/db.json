@@ -645,7 +645,8 @@
       "avatar": "https://proslang.ru/wp-content/uploads/2019/03/avatarka_1-300x300.jpg",
       "features": {
         "isArticleRatingEnabled": true,
-        "isArticleRecommendationListEnabled": true
+        "isArticleRecommendationListEnabled": true,
+        "isRedesigned": true
       },
       "jsonSettings": {
         "theme": "dark",
@@ -662,7 +663,8 @@
       "avatar": "https://cdn.forbes.ru/forbes-static/new/2022/11/4-636273af4beec.jpg",
       "features": {
         "isArticleRatingEnabled": false,
-        "isArticleRecommendationListEnabled": false
+        "isArticleRecommendationListEnabled": false,
+        "isRedesigned": false
       },
       "jsonSettings": {
         "theme": "light",
@@ -681,7 +683,8 @@
       "avatar": "https://cdn.forbes.ru/forbes-static/new/2022/11/4-636273af4beec.jpg",
       "features": {
         "isArticleRatingEnabled": true,
-        "isArticleRecommendationListEnabled": false
+        "isArticleRecommendationListEnabled": false,
+        "isRedesigned": false
       },
       "jsonSettings": {
         "theme": "neon",
@@ -699,7 +702,8 @@
       "avatar": "https://cdn.forbes.ru/forbes-static/new/2022/11/4-636273af4beec.jpg",
       "features": {
         "isArticleRatingEnabled": false,
-        "isArticleRecommendationListEnabled": true
+        "isArticleRecommendationListEnabled": true,
+        "isRedesigned": false
       },
       "jsonSettings": {
         "theme": "light",

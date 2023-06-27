@@ -6,4 +6,5 @@ export const setFeatureFlags = (features?: FeatureFlags) => {
     if (features) featureFlags = features;
 };
 
-export const getFeatureFlag = (name: keyof FeatureFlags) => featureFlags[name];
+export const getFeatureFlag = (name: keyof FeatureFlags) =>
+    featureFlags?.[name];

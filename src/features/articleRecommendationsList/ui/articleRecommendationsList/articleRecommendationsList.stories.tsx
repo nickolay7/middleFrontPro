@@ -15,7 +15,7 @@ const article: Article = {
     img: '',
     createdAt: '',
     views: 123,
-    user: { id: '1', username: '123' },
+    user: { id: '1', username: '123', jsonSettings: {} },
     blocks: [],
     type: ArticleType.IT,
     title: '123',

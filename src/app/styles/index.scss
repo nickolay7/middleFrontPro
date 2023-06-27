@@ -2,18 +2,22 @@
 @import "variables/global";
 @import "themes/themes";
 
-body {
-    font: var(--font-m);
-    color: var(--primary-color);
-}
-
 .app {
+    font: var(--font-m);
     min-height: 100vh;
     background: var(--bg-color);
+    color: var(--primary-color);
 }
 
 .main {
     display: flex;
+}
+
+.app_redesigned {
+    min-height: 100vh;
+    font: var(--font-m-redesigned);
+    background: var(--bg-redesigned);
+    color: var(--text-redesigned);
 }
 
 *::-webkit-scrollbar {
