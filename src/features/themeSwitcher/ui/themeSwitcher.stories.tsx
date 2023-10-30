@@ -2,6 +2,7 @@ import { ComponentMeta, ComponentStory } from '@storybook/react';
 import { themeDecorator } from '@/shared/config/decorators/themeDecorator';
 import { Theme } from '@/app/providers/theme';
 import { ThemeSwitcher, ThemeSwitcherProps } from './ThemeSwitcher';
+import { storeDecorator } from '@/shared/config/decorators/storeDecorator';
 
 export default {
     title: 'widgets/ThemeSwitcher',
@@ -20,4 +21,4 @@ Dark.args = {
     className: '',
 };
 
-Dark.decorators = [themeDecorator(Theme.DARK)];
+Dark.decorators = [themeDecorator(Theme.DARK), storeDecorator({})];
