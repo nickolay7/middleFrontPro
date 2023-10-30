@@ -94,7 +94,11 @@ export const ArticleDetails = memo(({ className, id }: ArticleDetailsProps) => {
         content = (
             <>
                 <div className={cls.avatarWrapper}>
-                    <Avatar src={state?.data?.img} className={cls.avatar} />
+                    <Avatar
+                        src={state?.data?.img}
+                        className={cls.avatar}
+                        size={300}
+                    />
                 </div>
                 <div className={cls.title}>
                     <Text

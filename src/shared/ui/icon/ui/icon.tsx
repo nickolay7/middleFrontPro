@@ -1,4 +1,4 @@
-import { memo, SVGProps, VFC } from 'react';
+import { FC, memo, SVGProps } from 'react';
 import { classNames } from '@/shared/lib/helpers/classNames';
 
 import cls from './icon.module.scss';
@@ -12,7 +12,7 @@ export enum StrokeColor {
 export interface IconProps extends SVGProps<SVGSVGElement> {
     className?: string;
     stroke: StrokeColor;
-    Svg: VFC<SVGProps<SVGSVGElement>>;
+    Svg: FC<SVGProps<SVGSVGElement>>;
     size?: number;
 }
 

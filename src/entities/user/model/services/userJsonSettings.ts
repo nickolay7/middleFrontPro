@@ -2,7 +2,8 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import { ThunkConfig } from '@/app/providers/storeProvider';
 import { JsonSettings } from '../types/userShema';
 import { setJsonSettingsMutation } from '../../api/userApi';
-import { authUserSelector, jsonSettingsSelector } from '../..';
+import { authUserSelector } from '../selectors/authUserSelector/authUserSelector';
+import { jsonSettingsSelector } from '../selectors/jsonSettingsSelector/jsonSettingsSelector';
 
 export const setUserJsonSettings = createAsyncThunk<
     JsonSettings,
@@ -27,7 +28,7 @@ export const setUserJsonSettings = createAsyncThunk<
             }),
         ).unwrap();
 
-        return response.jsonSettings;
+        return response.jsonSettings!;
     } catch (e) {
         return rejectWithValue('error');
     }

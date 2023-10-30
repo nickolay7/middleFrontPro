@@ -48,7 +48,13 @@ export const ProfileCard = ({
             )}
         >
             <HStack justify="justifyCenter">
-                {form.avatar && <Avatar src={form.avatar} alt="pic" />}
+                {form.avatar && (
+                    <Avatar
+                        className={cls.profileAvatar}
+                        src={form.avatar}
+                        alt="pic"
+                    />
+                )}
             </HStack>
             <VStack gap="gap8" align="alignEnd" className={cls.data}>
                 {profileDataPairs.map(([key, value]) => {

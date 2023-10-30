@@ -76,6 +76,7 @@ export const ArticleListItem = memo(
                                     <Icon
                                         Svg={View}
                                         stroke={StrokeColor.PRIMARY}
+                                        width={20}
                                     />
                                 </div>
                             </div>

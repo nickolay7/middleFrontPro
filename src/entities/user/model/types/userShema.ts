@@ -20,7 +20,7 @@ export interface User {
     avatar?: string;
     role?: UserRoles[];
     features?: FeatureFlags;
-    jsonSettings: JsonSettings;
+    jsonSettings?: JsonSettings;
 }
 
 export interface UserSchema {

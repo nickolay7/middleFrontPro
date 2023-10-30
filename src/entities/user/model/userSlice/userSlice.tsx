@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { USER_LOGIN_DATA } from '@/shared/consts/user';
 import { User, UserSchema } from '../types/userShema';
 import { setFeatureFlags } from '@/shared/lib/helpers/features/featureFlagsSetter';
-import { setUserJsonSettings } from '../..';
+import { setUserJsonSettings } from '../services/userJsonSettings';
 import { initAuthData } from '../services/initAuthData';
 
 const initialState: UserSchema = {
