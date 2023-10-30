@@ -34,6 +34,7 @@ export const Flex = ({ className, ...otherProps }: FlexProps) => {
         gap8: cls.gap8,
         gap16: cls.gap16,
         gap32: cls.gap32,
+        gap100: cls.gap100,
     };
 
     const directions = {
