@@ -10,7 +10,7 @@
         "start:vite": "vite",
         "start:dev": "concurrently \"npm run dev-server\" \"npm run start\"",
         "start:dev:vite": "concurrently \"npm run dev-server\" \"npm run start:vite\"",
-        "build:prod": "webpack --env mode=production apiUrl=\"https://mfproject-server-io8agjlgw-nickolay7.vercel.app/\"",
+        "build:prod": "webpack --env mode=production apiUrl=https://mfproject-server-io8agjlgw-nickolay7.vercel.app",
         "build:dev": "webpack --env mode=development",
         "component": "generate-react component",
         "lint:ts": " eslint \"**/*.{ts,tsx}\"",
